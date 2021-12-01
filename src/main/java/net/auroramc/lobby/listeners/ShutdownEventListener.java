@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2021 AuroraMC Ltd. All Rights Reserved.
+ */
+
 package net.auroramc.lobby.listeners;
 
 import net.auroramc.core.api.AuroraMCAPI;
