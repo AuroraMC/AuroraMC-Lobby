@@ -18,7 +18,6 @@ public class ShutdownEventListener implements Listener {
     @EventHandler
     public void onShutdown(ServerCloseRequestEvent e) {
         CommunicationUtils.sendMessage(new ProtocolMessage(Protocol.CONFIRM_SHUTDOWN, "Mission Control", e.getType(), AuroraMCAPI.getServerInfo().getName(), AuroraMCAPI.getServerInfo().getNetwork().name()));
-        CommunicationUtils.shutdown();
     }
 
 
