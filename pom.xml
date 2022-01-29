@@ -125,7 +125,7 @@
     <repositories>
         <repository>
             <id>nexus</id>
-            <url>http://nexus.block2block.me/repository/AuroraMC-Core/</url>
+            <url>https://nexus.block2block.me/repository/AuroraMC-Core/</url>
         </repository>
     </repositories>
 
@@ -147,7 +147,7 @@
         <dependency>
             <groupId>net.auroramc</groupId>
             <artifactId>AuroraMC-Core</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0-20220129.204359-258</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
