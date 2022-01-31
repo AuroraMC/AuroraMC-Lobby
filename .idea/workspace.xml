@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Socket wont shutdown now till the server is shutting down">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Now sets shutting down parameter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,6 +81,9 @@
       <workItem from="1643304146773" duration="88000" />
       <workItem from="1643483185477" duration="36000" />
       <workItem from="1643489023977" duration="2000" />
+      <workItem from="1643489075681" duration="69000" />
+      <workItem from="1643489152087" duration="11000" />
+      <workItem from="1643489529829" duration="12000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1631303983401</created>
@@ -110,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643304170881</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Now sets shutting down parameter">
+      <created>1643489142241</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1643489142241</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -132,6 +142,7 @@
     <MESSAGE value="Adding some newer files" />
     <MESSAGE value="Added copyright notice" />
     <MESSAGE value="Socket wont shutdown now till the server is shutting down" />
-    <option name="LAST_COMMIT_MESSAGE" value="Socket wont shutdown now till the server is shutting down" />
+    <MESSAGE value="Now sets shutting down parameter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Now sets shutting down parameter" />
   </component>
 </project>
