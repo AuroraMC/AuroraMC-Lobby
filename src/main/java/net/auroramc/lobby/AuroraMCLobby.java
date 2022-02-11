@@ -5,10 +5,7 @@
 package net.auroramc.lobby;
 
 import net.auroramc.core.api.AuroraMCAPI;
-import net.auroramc.lobby.commands.admin.CommandEffect;
-import net.auroramc.lobby.commands.admin.CommandGameMode;
-import net.auroramc.lobby.commands.admin.CommandGive;
-import net.auroramc.lobby.commands.admin.CommandMob;
+import net.auroramc.lobby.commands.admin.*;
 import net.auroramc.lobby.listeners.ShutdownEventListener;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -23,6 +20,7 @@ public class AuroraMCLobby extends JavaPlugin {
         AuroraMCAPI.registerCommand(new CommandGameMode());
         AuroraMCAPI.registerCommand(new CommandGive());
         AuroraMCAPI.registerCommand(new CommandMob());
+        AuroraMCAPI.registerCommand(new CommandTeleport());
     }
 
 }

@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Now sets shutting down parameter">
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/commands/admin/CommandEffect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/commands/admin/CommandGameMode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/commands/admin/CommandGive.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/commands/admin/CommandMob.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add admin commands to Lobby" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -112,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643489142241</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add admin commands to Lobby">
+      <created>1644537559852</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1644537559852</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -135,6 +136,7 @@
     <MESSAGE value="Added copyright notice" />
     <MESSAGE value="Socket wont shutdown now till the server is shutting down" />
     <MESSAGE value="Now sets shutting down parameter" />
-    <option name="LAST_COMMIT_MESSAGE" value="Now sets shutting down parameter" />
+    <MESSAGE value="Add admin commands to Lobby" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add admin commands to Lobby" />
   </component>
 </project>
