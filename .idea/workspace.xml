@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix formatting issue, fix NPE">
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/GameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/GameMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/GameServerListing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/GameServerListing.java" afterDir="false" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix incorrect GUI rows">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +141,8 @@
       <workItem from="1648500529543" duration="49000" />
       <workItem from="1648500588177" duration="782000" />
       <workItem from="1648501459313" duration="839000" />
-      <workItem from="1648502338967" duration="345000" />
+      <workItem from="1648502338967" duration="682000" />
+      <workItem from="1648503115380" duration="2000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1631303983401</created>
@@ -277,7 +277,21 @@
       <option name="project" value="LOCAL" />
       <updated>1648502361105</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Fix formatting">
+      <created>1648502732392</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1648502732392</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Fix incorrect GUI rows">
+      <created>1648502921001</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1648502921001</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,6 +327,8 @@
     <MESSAGE value="Server GUI" />
     <MESSAGE value="Fix issue with incorrect server stuff" />
     <MESSAGE value="Fix formatting issue, fix NPE" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix formatting issue, fix NPE" />
+    <MESSAGE value="Fix formatting" />
+    <MESSAGE value="Fix incorrect GUI rows" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix incorrect GUI rows" />
   </component>
 </project>
