@@ -35,7 +35,7 @@ public class AuroraMCLobby extends JavaPlugin {
         AuroraMCAPI.registerCommand(new CommandGive());
         AuroraMCAPI.registerCommand(new CommandMob());
         AuroraMCAPI.registerCommand(new CommandTeleport());
-    }
+
         Bukkit.getPluginManager().registerEvents(new JoinListener(), this);
         Bukkit.getPluginManager().registerEvents(new WorldListener(), this);
         LobbyAPI.init(this);
