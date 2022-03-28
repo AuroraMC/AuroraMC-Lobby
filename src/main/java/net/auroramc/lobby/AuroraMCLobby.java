@@ -72,7 +72,7 @@ public class AuroraMCLobby extends JavaPlugin {
             return;
         }
 
-        int id = Integer.parseInt(region.getName().split("\\.")[0]);
+        int id = 22;
         String name = jsonObject.getString("name");
         String author = jsonObject.getString("author");
 
