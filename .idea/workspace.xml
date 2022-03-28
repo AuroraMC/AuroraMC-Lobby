@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix issue with incorrect server stuff">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix formatting issue, fix NPE">
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/GameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/GameMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/GameServerListing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/GameServerListing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,6 +142,7 @@
       <workItem from="1648500529543" duration="49000" />
       <workItem from="1648500588177" duration="782000" />
       <workItem from="1648501459313" duration="839000" />
+      <workItem from="1648502338967" duration="345000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1631303983401</created>
@@ -268,7 +270,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648502131922</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Fix formatting issue, fix NPE">
+      <created>1648502361105</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1648502361105</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,6 +312,7 @@
     <MESSAGE value="Implement stats gui item" />
     <MESSAGE value="Server GUI" />
     <MESSAGE value="Fix issue with incorrect server stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix issue with incorrect server stuff" />
+    <MESSAGE value="Fix formatting issue, fix NPE" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix formatting issue, fix NPE" />
   </component>
 </project>
