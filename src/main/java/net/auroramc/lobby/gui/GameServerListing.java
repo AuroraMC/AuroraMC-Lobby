@@ -6,6 +6,7 @@ package net.auroramc.lobby.gui;
 
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
+import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.core.api.players.AuroraMCPlayer;
 import net.auroramc.core.api.utils.gui.GUI;
 import net.auroramc.core.api.utils.gui.GUIItem;
@@ -64,6 +65,7 @@ public class GameServerListing extends GUI {
         out.writeUTF("JoinGame");
         out.writeUTF(player.getName());
         out.writeUTF(serverCode + "-" + server);
+        player.getPlayer().sendPluginMessage(AuroraMCAPI.getCore(), "auroramc:server", out.toByteArray());
         player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.NOTE_PLING, 100, 0);
     }
 
