@@ -10,6 +10,7 @@ import net.auroramc.core.gui.cosmetics.Cosmetics;
 import net.auroramc.core.gui.preferences.Preferences;
 import net.auroramc.core.gui.stats.stats.Stats;
 import net.auroramc.lobby.api.LobbyAPI;
+import net.auroramc.lobby.gui.GameMenu;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
@@ -153,6 +154,14 @@ public class LobbyListener implements Listener {
                         Stats stats = new Stats(player, player.getName(), player.getStats(), player.getActiveSubscription());
                         stats.open(player);
                         AuroraMCAPI.openGUI(player, stats);
+                        break;
+                    }
+                    case COMPASS: {
+                        e.setCancelled(true);
+                        AuroraMCPlayer player = AuroraMCAPI.getPlayer(e.getPlayer());
+                        GameMenu menu = new GameMenu(player);
+                        menu.open(player);
+                        AuroraMCAPI.openGUI(player, menu);
                         break;
                     }
                 }

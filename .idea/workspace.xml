@@ -4,10 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Change scoreboard format">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Implement stats gui item">
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/backend/GameServerInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/ServerState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/UpdateServersRunnable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/commands/admin/CommandVersion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/GameMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/GameServerListing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/ProtocolListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/AuroraMCLobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/AuroraMCLobby.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/backend/LobbyDatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/backend/LobbyDatabaseManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,6 +34,14 @@
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -116,7 +133,26 @@
       <workItem from="1648488011976" duration="31000" />
       <workItem from="1648488054294" duration="752000" />
       <workItem from="1648488828667" duration="1069000" />
-      <workItem from="1648489996219" duration="872000" />
+      <workItem from="1648489996219" duration="1317000" />
+      <workItem from="1648491731018" duration="1269000" />
+      <workItem from="1648493484742" duration="641000" />
+      <workItem from="1648494213039" duration="4000" />
+      <workItem from="1648494705999" duration="66000" />
+      <workItem from="1648494785893" duration="1000" />
+      <workItem from="1648494819992" duration="383000" />
+      <workItem from="1648495233343" duration="460000" />
+      <workItem from="1648496180135" duration="92000" />
+      <workItem from="1648496288409" duration="84000" />
+      <workItem from="1648496380898" duration="21000" />
+      <workItem from="1648496434925" duration="217000" />
+      <workItem from="1648496661082" duration="109000" />
+      <workItem from="1648496792769" duration="339000" />
+      <workItem from="1648497162263" duration="1567000" />
+      <workItem from="1648500154746" duration="112000" />
+      <workItem from="1648500285679" duration="234000" />
+      <workItem from="1648500529543" duration="49000" />
+      <workItem from="1648500588177" duration="782000" />
+      <workItem from="1648501459313" duration="498000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1631303983401</created>
@@ -223,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648489416764</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Implement stats gui item">
+      <created>1648490958663</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1648490958663</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,6 +298,7 @@
     <MESSAGE value="Fix outdated core version" />
     <MESSAGE value="Add lobby listener" />
     <MESSAGE value="Change scoreboard format" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change scoreboard format" />
+    <MESSAGE value="Implement stats gui item" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement stats gui item" />
   </component>
 </project>

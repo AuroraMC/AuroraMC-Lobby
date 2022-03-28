@@ -8,12 +8,10 @@ import net.auroramc.core.api.utils.ZipUtil;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.LobbyMap;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
-import net.auroramc.lobby.listeners.JoinListener;
+import net.auroramc.lobby.api.util.UpdateServersRunnable;
+import net.auroramc.lobby.listeners.*;
 import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.lobby.commands.admin.*;
-import net.auroramc.lobby.listeners.LobbyListener;
-import net.auroramc.lobby.listeners.ShutdownEventListener;
-import net.auroramc.lobby.listeners.WorldListener;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -33,6 +31,7 @@ public class AuroraMCLobby extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new JoinListener(), this);
         Bukkit.getPluginManager().registerEvents(new WorldListener(), this);
         Bukkit.getPluginManager().registerEvents(new LobbyListener(), this);
+        Bukkit.getPluginManager().registerEvents(new ProtocolListener(), this);
 
         LobbyAPI.init(this);
 
@@ -41,6 +40,7 @@ public class AuroraMCLobby extends JavaPlugin {
         AuroraMCAPI.registerCommand(new CommandGive());
         AuroraMCAPI.registerCommand(new CommandMob());
         AuroraMCAPI.registerCommand(new CommandTeleport());
+        AuroraMCAPI.registerCommand(new CommandVersion());
 
         LobbyDatabaseManager.downloadMap();
         File mapFolder = new File(Bukkit.getWorldContainer(), "world");
@@ -79,5 +79,8 @@ public class AuroraMCLobby extends JavaPlugin {
         String author = jsonObject.getString("author");
 
         LobbyAPI.setLobbyMap(new LobbyMap(id, name, author, jsonObject));
+        LobbyAPI.loadVersionNumbers();
+        LobbyAPI.loadGameServers();
+        new UpdateServersRunnable().runTaskTimer(AuroraMCAPI.getCore(), 20, 100);
     }
 }
