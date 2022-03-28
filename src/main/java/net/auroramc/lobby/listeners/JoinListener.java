@@ -5,11 +5,9 @@
 package net.auroramc.lobby.listeners;
 
 import net.auroramc.core.api.AuroraMCAPI;
-import net.auroramc.core.api.cosmetics.Cosmetic;
 import net.auroramc.core.api.events.player.PlayerObjectCreationEvent;
 import net.auroramc.core.api.players.AuroraMCPlayer;
-import net.auroramc.core.api.players.PlayerScoreboard;
-import net.auroramc.lobby.AuroraMCLobby;
+import net.auroramc.core.api.players.scoreboard.PlayerScoreboard;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import net.minecraft.server.v1_8_R3.IChatBaseComponent;
