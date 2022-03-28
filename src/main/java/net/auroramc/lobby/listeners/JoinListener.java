@@ -73,16 +73,17 @@ public class JoinListener implements Listener {
         }
         PlayerScoreboard scoreboard = player.getScoreboard();
         scoreboard.setTitle("&3-= &b&lAURORAMC&r &3=-");
-        scoreboard.setLine(13, "&b&l«RANK»");
+        scoreboard.setLine(14, " ");
+        scoreboard.setLine(13, "&c&l«RANK»");
         scoreboard.setLine(12, player.getRank().getName());
         scoreboard.setLine(11, " ");
-        scoreboard.setLine(10, "&b&l«CROWNS»");
+        scoreboard.setLine(10, "&6&l«CROWNS»");
         scoreboard.setLine(9, player.getBank().getCrowns() + "");
         scoreboard.setLine(8, "  ");
-        scoreboard.setLine(7, "&b&l«TICKETS»");
+        scoreboard.setLine(7, "&d&l«TICKETS»");
         scoreboard.setLine(6, player.getBank().getTickets() + "");
         scoreboard.setLine(5, "   ");
-        scoreboard.setLine(4, "&b&l«SERVER»");
+        scoreboard.setLine(4, "&a&l«SERVER»");
         scoreboard.setLine(3, AuroraMCAPI.getServerInfo().getName());
         scoreboard.setLine(2, "    ");
         scoreboard.setLine(1, "&7auroramc.net");

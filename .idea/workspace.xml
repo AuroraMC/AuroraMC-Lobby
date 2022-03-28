@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix outdated core version" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add lobby listener" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -110,6 +110,7 @@
       <workItem from="1648487934692" duration="62000" />
       <workItem from="1648488011976" duration="31000" />
       <workItem from="1648488054294" duration="752000" />
+      <workItem from="1648488828667" duration="383000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1631303983401</created>
@@ -202,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648488802294</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Add lobby listener">
+      <created>1648489009525</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1648489009525</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,6 +240,7 @@
     <MESSAGE value="Fix wrong path" />
     <MESSAGE value="Fix unneeded parseInt" />
     <MESSAGE value="Fix outdated core version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix outdated core version" />
+    <MESSAGE value="Add lobby listener" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add lobby listener" />
   </component>
 </project>
