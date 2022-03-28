@@ -65,7 +65,7 @@ public class GameServerListing extends GUI {
         out.writeUTF("JoinGame");
         out.writeUTF(player.getName());
         out.writeUTF(serverCode + "-" + server);
-        player.getPlayer().sendPluginMessage(AuroraMCAPI.getCore(), "auroramc:server", out.toByteArray());
+        player.getPlayer().sendPluginMessage(AuroraMCAPI.getCore(), "BungeeCord", out.toByteArray());
         player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.NOTE_PLING, 100, 0);
     }
 

@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Change names of states">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix not sending plugin message" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -146,6 +144,7 @@
       <workItem from="1648503200573" duration="598000" />
       <workItem from="1648504094117" duration="389000" />
       <workItem from="1648504682980" duration="16000" />
+      <workItem from="1648505107039" duration="180000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1631303983401</created>
@@ -322,7 +321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648504469419</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Fix not sending plugin message">
+      <created>1648505145471</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1648505145471</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,6 +370,7 @@
     <MESSAGE value="Add server state to item lore" />
     <MESSAGE value="Change wording" />
     <MESSAGE value="Change names of states" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change names of states" />
+    <MESSAGE value="Fix not sending plugin message" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix not sending plugin message" />
   </component>
 </project>
