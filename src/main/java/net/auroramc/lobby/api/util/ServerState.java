@@ -10,8 +10,8 @@ public enum ServerState {
     IDLE("Idle"),
     RELOADING_MAPS("Reloading Maps"),
     PREPARING_GAME("Preparing Game"),
-    WAITING_FOR_PLAYERS("Waiting for players..."),
-    STARTING("Starting"),
+    WAITING_FOR_PLAYERS("Waiting For Players"),
+    STARTING("Starting Soon"),
     IN_GAME ("In-Game"),
     ENDING("Ending");
 
