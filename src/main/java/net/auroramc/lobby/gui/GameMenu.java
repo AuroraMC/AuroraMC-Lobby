@@ -19,7 +19,7 @@ public class GameMenu extends GUI {
     private final AuroraMCPlayer player;
 
     public GameMenu(AuroraMCPlayer player) {
-        super("&3&lBrowse Games", 4, true);
+        super("&3&lBrowse Games", 5, true);
         this.player = player;
         border("&3&lBrowse Games", null);
 
