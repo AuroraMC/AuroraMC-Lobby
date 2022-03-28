@@ -69,7 +69,7 @@ public class LobbyDatabaseManager {
             if (connection.exists("serverdata." + info.getNetwork().name() + "." + info.getName())) {
                 return connection.get("serverdata." + info.getNetwork() + "." + info.getName());
             } else {
-                return "0/0;N/A;N/A";
+                return "IDLE;0/0;N/A;N/A";
             }
         }
     }
