@@ -92,7 +92,7 @@ public class JoinListener implements Listener {
         player.getPlayer().getInventory().setItem(7, LobbyAPI.getPrefsItem().getItem());
         player.getPlayer().getInventory().setItem(4, LobbyAPI.getCosmeticsItem().getItem());
         player.getPlayer().getInventory().setItem(0, LobbyAPI.getGamesItem().getItem());
-        player.getPlayer().getInventory().setItem(1, LobbyAPI.getStatsItem().getItem());
+        player.getPlayer().getInventory().setItem(1, LobbyAPI.getStatsItem(player.getName()).getItem());
     }
 
     private static void updateHeaderFooter(CraftPlayer player2) {

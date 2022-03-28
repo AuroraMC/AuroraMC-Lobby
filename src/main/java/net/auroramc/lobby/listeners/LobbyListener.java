@@ -8,6 +8,7 @@ import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.core.api.players.AuroraMCPlayer;
 import net.auroramc.core.gui.cosmetics.Cosmetics;
 import net.auroramc.core.gui.preferences.Preferences;
+import net.auroramc.core.gui.stats.stats.Stats;
 import net.auroramc.lobby.api.LobbyAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -144,6 +145,14 @@ public class LobbyListener implements Listener {
                         Preferences prefs = new Preferences(player);
                         prefs.open(player);
                         AuroraMCAPI.openGUI(player, prefs);
+                        break;
+                    }
+                    case SKULL_ITEM: {
+                        e.setCancelled(true);
+                        AuroraMCPlayer player = AuroraMCAPI.getPlayer(e.getPlayer());
+                        Stats stats = new Stats(player, player.getName(), player.getStats(), player.getActiveSubscription());
+                        stats.open(player);
+                        AuroraMCAPI.openGUI(player, stats);
                         break;
                     }
                 }

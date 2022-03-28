@@ -17,14 +17,12 @@ public class LobbyAPI {
     private static final GUIItem prefsItem;
     private static final GUIItem cosmeticsItem;
     private static final GUIItem gamesItem;
-    private static final GUIItem statsItem;
     private static final GUIItem lobbyItem;
 
 
     static {
         lobbyItem = new GUIItem(Material.NETHER_STAR, "&a&lSwitch Lobbies");
         gamesItem = new GUIItem(Material.COMPASS, "&a&lBrowse Games");
-        statsItem = new GUIItem(Material.BOOK, "&a&lView Statistics");
         prefsItem = new GUIItem(Material.REDSTONE_COMPARATOR, "&a&lView Preferences");
         cosmeticsItem = new GUIItem(Material.EMERALD, "&a&lView Cosmetics");
     }
@@ -62,8 +60,8 @@ public class LobbyAPI {
         return gamesItem;
     }
 
-    public static GUIItem getStatsItem() {
-        return statsItem;
+    public static GUIItem getStatsItem(String playerName) {
+        return new GUIItem(Material.SKULL_ITEM, "&a&lView Statistics", 1, null, (short)3, false, playerName);
     }
 
 
