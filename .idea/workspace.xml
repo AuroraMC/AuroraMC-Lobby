@@ -4,8 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Now sets shutting down parameter">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix wrong module name">
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/backend/LobbyDatabaseManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/players/AuroraMCLobbyPlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/utils/VoidGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/AuroraMCLobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/AuroraMCLobby.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,11 +41,16 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="copyright" />
   </component>
@@ -84,6 +96,27 @@
       <workItem from="1643489075681" duration="69000" />
       <workItem from="1643489152087" duration="11000" />
       <workItem from="1643489529829" duration="12000" />
+      <workItem from="1643652785617" duration="66000" />
+      <workItem from="1643715072896" duration="22000" />
+      <workItem from="1648485069252" duration="55000" />
+      <workItem from="1648485139684" duration="3000" />
+      <workItem from="1648485165105" duration="3000" />
+      <workItem from="1648485181098" duration="174000" />
+      <workItem from="1648485393103" duration="13000" />
+      <workItem from="1648485417999" duration="152000" />
+      <workItem from="1648485590437" duration="609000" />
+      <workItem from="1648486581270" duration="82000" />
+      <workItem from="1648486705137" duration="52000" />
+      <workItem from="1648486781930" duration="25000" />
+      <workItem from="1648486812138" duration="57000" />
+      <workItem from="1648486883650" duration="34000" />
+      <workItem from="1648486925977" duration="25000" />
+      <workItem from="1648486988651" duration="71000" />
+      <workItem from="1648487120714" duration="136000" />
+      <workItem from="1648487270923" duration="302000" />
+      <workItem from="1648487594861" duration="326000" />
+      <workItem from="1648487934692" duration="62000" />
+      <workItem from="1648488011976" duration="31000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1631303983401</created>
@@ -120,7 +153,21 @@
       <option name="project" value="LOCAL" />
       <updated>1643489142241</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add build number and git commit to manifest">
+      <created>1643652823195</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1643652823195</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Fix wrong module name">
+      <created>1643652839906</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1643652839906</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,6 +190,8 @@
     <MESSAGE value="Added copyright notice" />
     <MESSAGE value="Socket wont shutdown now till the server is shutting down" />
     <MESSAGE value="Now sets shutting down parameter" />
-    <option name="LAST_COMMIT_MESSAGE" value="Now sets shutting down parameter" />
+    <MESSAGE value="Add build number and git commit to manifest" />
+    <MESSAGE value="Fix wrong module name" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix wrong module name" />
   </component>
 </project>
