@@ -9,6 +9,8 @@ import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.LobbyMap;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
 import net.auroramc.lobby.listeners.JoinListener;
+import net.auroramc.core.api.AuroraMCAPI;
+import net.auroramc.lobby.commands.admin.*;
 import net.auroramc.lobby.listeners.ShutdownEventListener;
 import net.auroramc.lobby.listeners.WorldListener;
 import org.apache.commons.io.FileUtils;
@@ -24,10 +26,16 @@ import java.io.IOException;
 
 public class AuroraMCLobby extends JavaPlugin {
 
-
     @Override
     public void onEnable() {
         Bukkit.getPluginManager().registerEvents(new ShutdownEventListener(), this);
+
+        AuroraMCAPI.registerCommand(new CommandEffect());
+        AuroraMCAPI.registerCommand(new CommandGameMode());
+        AuroraMCAPI.registerCommand(new CommandGive());
+        AuroraMCAPI.registerCommand(new CommandMob());
+        AuroraMCAPI.registerCommand(new CommandTeleport());
+    }
         Bukkit.getPluginManager().registerEvents(new JoinListener(), this);
         Bukkit.getPluginManager().registerEvents(new WorldListener(), this);
         LobbyAPI.init(this);
