@@ -11,6 +11,7 @@ import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
 import net.auroramc.lobby.listeners.JoinListener;
 import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.lobby.commands.admin.*;
+import net.auroramc.lobby.listeners.LobbyListener;
 import net.auroramc.lobby.listeners.ShutdownEventListener;
 import net.auroramc.lobby.listeners.WorldListener;
 import org.apache.commons.io.FileUtils;
@@ -29,16 +30,17 @@ public class AuroraMCLobby extends JavaPlugin {
     @Override
     public void onEnable() {
         Bukkit.getPluginManager().registerEvents(new ShutdownEventListener(), this);
+        Bukkit.getPluginManager().registerEvents(new JoinListener(), this);
+        Bukkit.getPluginManager().registerEvents(new WorldListener(), this);
+        Bukkit.getPluginManager().registerEvents(new LobbyListener(), this);
+
+        LobbyAPI.init(this);
 
         AuroraMCAPI.registerCommand(new CommandEffect());
         AuroraMCAPI.registerCommand(new CommandGameMode());
         AuroraMCAPI.registerCommand(new CommandGive());
         AuroraMCAPI.registerCommand(new CommandMob());
         AuroraMCAPI.registerCommand(new CommandTeleport());
-
-        Bukkit.getPluginManager().registerEvents(new JoinListener(), this);
-        Bukkit.getPluginManager().registerEvents(new WorldListener(), this);
-        LobbyAPI.init(this);
 
         LobbyDatabaseManager.downloadMap();
         File mapFolder = new File(Bukkit.getWorldContainer(), "world");
