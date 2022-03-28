@@ -34,7 +34,7 @@ public class GameServerListing extends GUI {
         this.gameCode = gameCode;
         this.gameName = gameName;
         this.serverCode = serverCode;
-        this.fill("&3&lSelect a server!", null);
+        this.border("&3&lSelect a server!", null);
 
         List<GameServerInfo> infos = LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getInfo().getServerType().getString("game").equalsIgnoreCase(gameCode) && (gameServerInfo.getServerState() == ServerState.STARTING || gameServerInfo.getServerState() == ServerState.WAITING_FOR_PLAYERS)).sorted(Comparator.comparingInt(GameServerInfo::getCurrentPlayers)).collect(Collectors.toList());
         int row = 2;
@@ -73,7 +73,7 @@ public class GameServerListing extends GUI {
         int column = 2;
         for (int i = 0;i < 10;i++) {
             if (infos.size() <= i) {
-                this.updateItem(row, column, new GUIItem(Material.AIR));
+                this.updateItem(row, column, null);
             } else {
                 GameServerInfo info = infos.get(i);
                 this.updateItem(row, column, new GUIItem(Material.STAINED_GLASS, "&3&l" + gameName + " Server " + info.getInfo().getName().split("-")[1], 1, ";&rPlayers: **" + info.getCurrentPlayers() + "**/**" + info.getMaxPlayers() + ";&rGame: **" + info.getActiveGame() + "**;&rMap: **" + info.getActiveMap() + "**;;" + ((info.getCurrentPlayers() == info.getMaxPlayers())?"&cThis server is currently full!":"&aClick to join the server!"), (short)((info.getCurrentPlayers() == info.getMaxPlayers())?14:((info.getServerState() == ServerState.STARTING)?4:0))));
