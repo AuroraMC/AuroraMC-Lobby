@@ -11,6 +11,7 @@ import net.auroramc.core.api.players.AuroraMCPlayer;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class CommandFly extends Command {
 
 
     public CommandFly() {
-        super("fly", Collections.singletonList("flight"), Collections.singletonList(Permission.ELITE), true, "You must have Elite rank or above to use this command. Purchase a rank at store.auroramc.net.");
+        super("fly", Collections.singletonList("flight"), Arrays.asList(Permission.ELITE, Permission.PLUS), true, "You must have Elite rank or better or Plus to use this command. Purchase a rank at store.auroramc.net.");
     }
 
     @Override
