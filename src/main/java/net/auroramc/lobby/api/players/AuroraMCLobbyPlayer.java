@@ -10,6 +10,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
 
     private final long joinTimestamp;
     private long lastPunchTimestamp;
+    private long lastMonkeClick;
 
     public AuroraMCLobbyPlayer(AuroraMCPlayer oldPlayer) {
         super(oldPlayer);
@@ -26,5 +27,13 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
 
     public boolean canBePunched() {
         return System.currentTimeMillis() - lastPunchTimestamp >= 30000;
+    }
+
+    public void monkeClick() {
+        lastMonkeClick = System.currentTimeMillis();
+    }
+
+    public boolean canMonkeClick() {
+        return System.currentTimeMillis() - lastMonkeClick >= 2000;
     }
 }
