@@ -12,10 +12,7 @@ import net.auroramc.core.gui.stats.stats.Stats;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.gui.GameMenu;
 import net.auroramc.lobby.gui.LobbySwitcher;
-import org.bukkit.Bukkit;
-import org.bukkit.GameMode;
-import org.bukkit.Location;
-import org.bukkit.Material;
+import org.bukkit.*;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -67,6 +64,17 @@ public class LobbyListener implements Listener {
                     e.getEntity().setVelocity(new Vector());
                 } else if (e.getCause() == EntityDamageEvent.DamageCause.FIRE || e.getCause() == EntityDamageEvent.DamageCause.FIRE_TICK || e.getCause() == EntityDamageEvent.DamageCause.LAVA) {
                     e.getEntity().setFireTicks(0);
+                }
+                if (e instanceof EntityDamageByEntityEvent) {
+                    EntityDamageByEntityEvent event = (EntityDamageByEntityEvent) e;
+                    if (event.getDamager() instanceof Player) {
+                        AuroraMCPlayer target = AuroraMCAPI.getPlayer((Player) e.getEntity());
+                        AuroraMCPlayer damager = AuroraMCAPI.getPlayer((Player) ((EntityDamageByEntityEvent) e).getDamager());
+                        if (damager.hasPermission("elite") && target.hasPermission("moderation")) {
+                            target.getPlayer().setVelocity(new Vector(0, 10, 0));
+                            target.getPlayer().getLocation().getWorld().playEffect(target.getPlayer().getLocation(), Effect.EXPLOSION, 1);
+                        }
+                    }
                 }
                 e.setCancelled(true);
 

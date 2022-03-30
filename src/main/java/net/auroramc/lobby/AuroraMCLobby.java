@@ -33,6 +33,7 @@ public class AuroraMCLobby extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new WorldListener(), this);
         Bukkit.getPluginManager().registerEvents(new LobbyListener(), this);
         Bukkit.getPluginManager().registerEvents(new ProtocolListener(), this);
+        Bukkit.getPluginManager().registerEvents(new LeaveListener(), this);
 
         LobbyAPI.init(this);
 
