@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add leave listener, make staff punchable" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix explosion effect" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -161,7 +161,7 @@
       <workItem from="1648656870725" duration="1000" />
       <workItem from="1648657053539" duration="228000" />
       <workItem from="1648657291277" duration="760000" />
-      <workItem from="1648658289764" duration="792000" />
+      <workItem from="1648658289764" duration="1104000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1631303983401</created>
@@ -401,7 +401,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648658786894</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Fix explosion effect">
+      <created>1648659376060</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1648659376060</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -419,7 +426,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix load order" />
     <MESSAGE value="Fix wrong path" />
     <MESSAGE value="Fix unneeded parseInt" />
     <MESSAGE value="Fix outdated core version" />
@@ -444,6 +450,7 @@
     <MESSAGE value="Change rounding of currency in scoreboard" />
     <MESSAGE value="Fix issue with item names" />
     <MESSAGE value="Add leave listener, make staff punchable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add leave listener, make staff punchable" />
+    <MESSAGE value="Fix explosion effect" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix explosion effect" />
   </component>
 </project>

@@ -133,7 +133,7 @@ public class JoinListener implements Listener {
         scoreboard.setLine(9, ((suffC.equals(""))?String.format("%,d",player.getBank().getCrowns()):crowns + suffC));
         scoreboard.setLine(8, "  ");
         scoreboard.setLine(7, "&d&l«TICKETS»");
-        scoreboard.setLine(6, ((suffC.equals(""))?String.format("%,d",player.getBank().getTickets()):tickets + suffT));
+        scoreboard.setLine(6, ((suffT.equals(""))?String.format("%,d",player.getBank().getTickets()):tickets + suffT));
         scoreboard.setLine(5, "   ");
         scoreboard.setLine(4, "&a&l«SERVER»");
         scoreboard.setLine(3, AuroraMCAPI.getServerInfo().getName());
