@@ -72,7 +72,7 @@ public class LobbyListener implements Listener {
                         AuroraMCPlayer damager = AuroraMCAPI.getPlayer((Player) ((EntityDamageByEntityEvent) e).getDamager());
                         if (damager.hasPermission("elite") && target.hasPermission("moderation")) {
                             target.getPlayer().setVelocity(new Vector(0, 10, 0));
-                            target.getPlayer().getLocation().getWorld().playEffect(target.getPlayer().getLocation(), Effect.EXPLOSION, 0, 2);
+                            target.getPlayer().getLocation().getWorld().createExplosion(target.getPlayer().getLocation().getBlockX(), target.getPlayer().getLocation().getBlockY(), target.getPlayer().getLocation().getBlockZ(), 2, false, false);
                         }
                     }
                 }
