@@ -25,6 +25,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.json.JSONArray;
 
 import java.lang.reflect.Field;
@@ -79,7 +80,12 @@ public class JoinListener implements Listener {
     public void onObjectCreate(PlayerObjectCreationEvent e) {
         AuroraMCLobbyPlayer player = new AuroraMCLobbyPlayer(e.getPlayer());
         if (player.getPreferences().isHubFlightEnabled() && player.hasPermission("elite")) {
-            player.getPlayer().setAllowFlight(true);
+            new BukkitRunnable(){
+                @Override
+                public void run() {
+                    player.getPlayer().setAllowFlight(true);
+                }
+            }.runTask(AuroraMCAPI.getCore());
         }
         e.setPlayer(player);
         if (!player.isVanished()) {
