@@ -74,16 +74,6 @@ public class JoinListener implements Listener {
         if (LobbyAPI.getLobbyMap().getMapData().getInt("time") > 12000) {
             e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 1000000, 0, true, false), false);
         }
-        new BukkitRunnable(){
-            @Override
-            public void run() {
-                for (AuroraMCPlayer player2 : AuroraMCAPI.getPlayers()) {
-                    if (!player2.getPreferences().isHubVisibilityEnabled()) {
-                        player2.getPlayer().hidePlayer(e.getPlayer());
-                    }
-                }
-            }
-        }.runTaskLater(AuroraMCAPI.getCore(), 2);
 
     }
 
@@ -98,13 +88,21 @@ public class JoinListener implements Listener {
                 }
             }.runTask(AuroraMCAPI.getCore());
         }
-        if (!player.getPreferences().isHubVisibilityEnabled()) {
-            for (AuroraMCPlayer player1 : AuroraMCAPI.getPlayers()) {
-                if (!player1.equals(player)) {
+        for (AuroraMCPlayer player1 : AuroraMCAPI.getPlayers()) {
+            if (!player1.equals(player)) {
+                if (!player.getPreferences().isHubVisibilityEnabled()) {
                     new BukkitRunnable(){
                         @Override
                         public void run() {
                             player.getPlayer().hidePlayer(player1.getPlayer());
+                        }
+                    }.runTask(AuroraMCAPI.getCore());
+                }
+                if (!player1.getPreferences().isHubVisibilityEnabled()) {
+                    new BukkitRunnable(){
+                        @Override
+                        public void run() {
+                            player1.getPlayer().hidePlayer(player.getPlayer());
                         }
                     }.runTask(AuroraMCAPI.getCore());
                 }

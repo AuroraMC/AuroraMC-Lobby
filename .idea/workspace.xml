@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Implement hub visibility">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix async issue">
       <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -170,7 +170,7 @@
       <workItem from="1648661908091" duration="254000" />
       <workItem from="1648662204428" duration="154000" />
       <workItem from="1648662379659" duration="109000" />
-      <workItem from="1648662664028" duration="318000" />
+      <workItem from="1648662664028" duration="688000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1631303983401</created>
@@ -494,7 +494,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648662695811</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Fix async issue">
+      <created>1648662988040</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1648662988040</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -533,10 +540,10 @@
     <MESSAGE value="Implement player cap" />
     <MESSAGE value="Increase player cap" />
     <MESSAGE value="Implement hub flight" />
-    <MESSAGE value="Fix async issue" />
     <MESSAGE value="Give plus access to lobby flight" />
     <MESSAGE value="Toggle fly command" />
     <MESSAGE value="Implement hub visibility" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement hub visibility" />
+    <MESSAGE value="Fix async issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix async issue" />
   </component>
 </project>
