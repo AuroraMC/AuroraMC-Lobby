@@ -8,6 +8,7 @@ import net.auroramc.core.api.utils.ZipUtil;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.LobbyMap;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
+import net.auroramc.lobby.api.util.UpdateDataRunnable;
 import net.auroramc.lobby.api.util.UpdateServersRunnable;
 import net.auroramc.lobby.listeners.*;
 import net.auroramc.core.api.AuroraMCAPI;
@@ -82,5 +83,6 @@ public class AuroraMCLobby extends JavaPlugin {
         LobbyAPI.loadVersionNumbers();
         LobbyAPI.loadGameServers();
         new UpdateServersRunnable().runTaskTimer(AuroraMCAPI.getCore(), 20, 100);
+        new UpdateDataRunnable().runTaskTimer(AuroraMCAPI.getCore(), 0, 20);
     }
 }

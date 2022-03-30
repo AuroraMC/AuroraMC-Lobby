@@ -30,7 +30,7 @@ public class GameServerListing extends GUI {
     private final String serverCode;
 
     public GameServerListing(AuroraMCPlayer player, String gameCode, String gameName, String serverCode) {
-        super("&3&lSelect a server!", 4, true);
+        super("&3&lSelect a server!", 5, true);
         this.player = player;
         this.gameCode = gameCode;
         this.gameName = gameName;

@@ -94,7 +94,7 @@ public class LobbyDatabaseManager {
 
     public static void updateServerData() {
         try (Jedis connection = AuroraMCAPI.getDbManager().getRedisConnection()) {
-            connection.set("serverdata." + AuroraMCAPI.getServerInfo().getNetwork().name() + "." + AuroraMCAPI.getServerInfo().getName(), ";" + AuroraMCAPI.getPlayers().stream().filter(player -> !player.isVanished()).count() + "/" + AuroraMCAPI.getServerInfo().getServerType().getInt("max_players") + ";Lobby;Lobby");
+            connection.set("serverdata." + AuroraMCAPI.getServerInfo().getNetwork().name() + "." + AuroraMCAPI.getServerInfo().getName(), "IDLE;" + AuroraMCAPI.getPlayers().stream().filter(player -> !player.isVanished()).count() + "/" + AuroraMCAPI.getServerInfo().getServerType().getInt("max_players") + ";Lobby;Lobby");
             connection.expire("serverdata." + AuroraMCAPI.getServerInfo().getNetwork().name() + "." + AuroraMCAPI.getServerInfo().getName(), 15);
         }
     }

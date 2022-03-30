@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add lobby switcher, simplify scoreboard, rank-based join messages" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fixed broken join message">
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/UpdateDataRunnable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/AuroraMCLobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/AuroraMCLobby.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/GameServerListing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/GameServerListing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/LobbySwitcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/LobbySwitcher.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,6 +62,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="net.auroramc.lobby.api.util" />
       <recent name="net.auroramc.lobby.gui" />
     </key>
   </component>
@@ -154,7 +161,8 @@
       <workItem from="1648640863666" duration="600000" />
       <workItem from="1648652807828" duration="87000" />
       <workItem from="1648654592537" duration="849000" />
-      <workItem from="1648655501335" duration="564000" />
+      <workItem from="1648655501335" duration="1008000" />
+      <workItem from="1648656532381" duration="229000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1631303983401</created>
@@ -359,7 +367,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648655572543</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Fixed broken join message">
+      <created>1648656084553</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1648656084553</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,7 +392,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Socket wont shutdown now till the server is shutting down" />
     <MESSAGE value="Now sets shutting down parameter" />
     <MESSAGE value="Add build number and git commit to manifest" />
     <MESSAGE value="Fix wrong module name" />
@@ -402,6 +416,7 @@
     <MESSAGE value="Fix wrong plugin channel" />
     <MESSAGE value="Fix syntax" />
     <MESSAGE value="Add lobby switcher, simplify scoreboard, rank-based join messages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add lobby switcher, simplify scoreboard, rank-based join messages" />
+    <MESSAGE value="Fixed broken join message" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed broken join message" />
   </component>
 </project>

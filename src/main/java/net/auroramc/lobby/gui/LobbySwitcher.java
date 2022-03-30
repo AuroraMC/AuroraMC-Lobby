@@ -27,20 +27,20 @@ public class LobbySwitcher extends GUI {
     private final AuroraMCPlayer player;
 
     public LobbySwitcher(AuroraMCPlayer player) {
-        super("&3&lSelect a server!", 4, true);
+        super("&3&lSelect a server!", 5, true);
         this.player = player;
         this.border("&3&lSelect a server!", null);
 
         List<GameServerInfo> infos = LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getInfo().getServerType().getString("game").equalsIgnoreCase("lobby")).sorted(Comparator.comparingInt(game -> Integer.parseInt(game.getInfo().getName().split("-")[1]))).collect(Collectors.toList());
-        int row = 2;
-        int column = 2;
+        int row = 1;
+        int column = 1;
         for (GameServerInfo info : infos) {
             this.setItem(row, column, new GUIItem(Material.STAINED_GLASS, "&3&lLobby Server " + info.getInfo().getName().split("-")[1], info.getCurrentPlayers(), ";&rPlayers: **" + info.getCurrentPlayers() + "**/**" + info.getMaxPlayers() + ";;" + ((info.getCurrentPlayers() == info.getMaxPlayers())?"&cThis lobby is currently full! Purchase a rank;&cat store.auroramc.net to bypass this!":"&aClick to join this lobby!"), (short)((info.getCurrentPlayers() == info.getMaxPlayers())?14:0)));
             column++;
-            if (column == 7) {
+            if (column == 8) {
                 row++;
                 column = 2;
-                if (row == 4) {
+                if (row == 5) {
                     break;
                 }
             }
@@ -65,20 +65,20 @@ public class LobbySwitcher extends GUI {
 
     public void update() {
         List<GameServerInfo> infos = LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getInfo().getServerType().getString("game").equalsIgnoreCase("lobby")).sorted(Comparator.comparingInt(game -> Integer.parseInt(game.getInfo().getName().split("-")[1]))).collect(Collectors.toList());
-        int row = 2;
-        int column = 2;
+        int row = 1;
+        int column = 1;
         for (int i = 0;i < 10;i++) {
             if (infos.size() <= i) {
                 this.updateItem(row, column, null);
             } else {
                 GameServerInfo info = infos.get(i);
-                this.updateItem(row, column, new GUIItem(Material.STAINED_GLASS, "&3&lLobby Server " + info.getInfo().getName().split("-")[1], info.getCurrentPlayers(), ";&rPlayers: **" + info.getCurrentPlayers() + "**/**" + info.getMaxPlayers() + ";;" + ((AuroraMCAPI.getServerInfo().getName().equals(info.getInfo().getName()))?"&aYou are currently in this lobby!":((info.getCurrentPlayers() == info.getMaxPlayers())?"&cThis lobby is currently full! Purchase a rank;&cat store.auroramc.net to bypass this!":"&aClick to join this lobby!")), (short)((AuroraMCAPI.getServerInfo().getName().equals(info.getInfo().getName())?5:((info.getCurrentPlayers() == info.getMaxPlayers())?14:0)))));
+                this.updateItem(row, column, new GUIItem(Material.STAINED_GLASS, "&3&lLobby Server " + info.getInfo().getName().split("-")[1], info.getCurrentPlayers(), ";&rPlayers: **" + info.getCurrentPlayers() + "**/**" + info.getMaxPlayers() + ";;" + ((info.getCurrentPlayers() == info.getMaxPlayers())?"&cThis lobby is currently full! Purchase a rank;&cat store.auroramc.net to bypass this!":"&aClick to join this lobby!"), (short)((info.getCurrentPlayers() == info.getMaxPlayers())?14:0)));
             }
             column++;
-            if (column == 7) {
+            if (column == 8) {
                 row++;
                 column = 2;
-                if (row == 4) {
+                if (row == 5) {
                     break;
                 }
             }
