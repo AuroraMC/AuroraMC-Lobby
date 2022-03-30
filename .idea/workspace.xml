@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix explosion effect" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix explosion">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/players/AuroraMCLobbyPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/players/AuroraMCLobbyPlayer.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -161,7 +164,7 @@
       <workItem from="1648656870725" duration="1000" />
       <workItem from="1648657053539" duration="228000" />
       <workItem from="1648657291277" duration="760000" />
-      <workItem from="1648658289764" duration="1104000" />
+      <workItem from="1648658289764" duration="1718000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1631303983401</created>
@@ -408,7 +411,21 @@
       <option name="project" value="LOCAL" />
       <updated>1648659376060</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Fix issue with scoreboard">
+      <created>1648659470802</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1648659470802</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Fix explosion">
+      <created>1648659705568</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1648659705568</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -426,8 +443,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix wrong path" />
-    <MESSAGE value="Fix unneeded parseInt" />
     <MESSAGE value="Fix outdated core version" />
     <MESSAGE value="Add lobby listener" />
     <MESSAGE value="Change scoreboard format" />
@@ -451,6 +466,8 @@
     <MESSAGE value="Fix issue with item names" />
     <MESSAGE value="Add leave listener, make staff punchable" />
     <MESSAGE value="Fix explosion effect" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix explosion effect" />
+    <MESSAGE value="Fix issue with scoreboard" />
+    <MESSAGE value="Fix explosion" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix explosion" />
   </component>
 </project>

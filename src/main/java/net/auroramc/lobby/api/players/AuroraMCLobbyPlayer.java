@@ -9,6 +9,7 @@ import net.auroramc.core.api.players.AuroraMCPlayer;
 public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
 
     private final long joinTimestamp;
+    private long lastPunchTimestamp;
 
     public AuroraMCLobbyPlayer(AuroraMCPlayer oldPlayer) {
         super(oldPlayer);
@@ -17,5 +18,13 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
 
     public long getJoinTimestamp() {
         return joinTimestamp;
+    }
+
+    public void punched() {
+        lastPunchTimestamp = System.currentTimeMillis();
+    }
+
+    public boolean canBePunched() {
+        return System.currentTimeMillis() - lastPunchTimestamp >= 30000;
     }
 }

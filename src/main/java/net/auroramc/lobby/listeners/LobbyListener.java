@@ -10,6 +10,7 @@ import net.auroramc.core.gui.cosmetics.Cosmetics;
 import net.auroramc.core.gui.preferences.Preferences;
 import net.auroramc.core.gui.stats.stats.Stats;
 import net.auroramc.lobby.api.LobbyAPI;
+import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.gui.GameMenu;
 import net.auroramc.lobby.gui.LobbySwitcher;
 import org.bukkit.*;
@@ -71,8 +72,13 @@ public class LobbyListener implements Listener {
                         AuroraMCPlayer target = AuroraMCAPI.getPlayer((Player) e.getEntity());
                         AuroraMCPlayer damager = AuroraMCAPI.getPlayer((Player) ((EntityDamageByEntityEvent) e).getDamager());
                         if (damager.hasPermission("elite") && target.hasPermission("moderation")) {
-                            target.getPlayer().setVelocity(new Vector(0, 10, 0));
-                            target.getPlayer().getLocation().getWorld().createExplosion(target.getPlayer().getLocation().getBlockX(), target.getPlayer().getLocation().getBlockY(), target.getPlayer().getLocation().getBlockZ(), 2, false, false);
+                            if (((AuroraMCLobbyPlayer)target).canBePunched() || damager.hasPermission("admin")) {
+                                target.getPlayer().setVelocity(new Vector(0, 10, 0));
+                                target.getPlayer().getLocation().getWorld().createExplosion(target.getPlayer().getLocation().getBlockX(), target.getPlayer().getLocation().getBlockY(), target.getPlayer().getLocation().getBlockZ(), 2, false, false);
+                                ((AuroraMCLobbyPlayer)damager).punched();
+                            } else {
+                                damager.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Lobby", "This staff member has been punched too recently. You cannot punch them again yet."));
+                            }
                         }
                     }
                 }
