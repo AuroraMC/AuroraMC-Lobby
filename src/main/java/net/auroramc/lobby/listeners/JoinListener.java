@@ -195,7 +195,12 @@ public class JoinListener implements Listener {
                 con.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER, LobbyAPI.getMonkeyEntity()));
                 con.sendPacket(new PacketPlayOutNamedEntitySpawn(LobbyAPI.getMonkeyEntity()));
                 con.sendPacket(new PacketPlayOutEntityHeadRotation(LobbyAPI.getMonkeyEntity(), (byte) LobbyAPI.getMonkeyEntity().yaw));
-                con.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.REMOVE_PLAYER, LobbyAPI.getMonkeyEntity()));
+                new BukkitRunnable(){
+                    @Override
+                    public void run() {
+                        con.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.REMOVE_PLAYER, LobbyAPI.getMonkeyEntity()));
+                    }
+                }.runTaskLater(AuroraMCAPI.getCore(), 20);
             }
         }.runTask(AuroraMCAPI.getCore());
     }

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Change when fake player is spawned">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Remove entity from tab">
       <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -178,21 +178,7 @@
       <workItem from="1648669113762" duration="664000" />
       <workItem from="1648669823583" duration="59000" />
       <workItem from="1648669891353" duration="94000" />
-      <workItem from="1648670002786" duration="626000" />
-    </task>
-    <task id="LOCAL-00003" summary="Added copyright notice">
-      <created>1638317364469</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1638317364469</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Socket wont shutdown now till the server is shutting down">
-      <created>1643304170881</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1643304170881</updated>
+      <workItem from="1648670002786" duration="948000" />
     </task>
     <task id="LOCAL-00005" summary="Now sets shutting down parameter">
       <created>1643489142241</created>
@@ -523,7 +509,21 @@
       <option name="project" value="LOCAL" />
       <updated>1648670389821</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Remove entity from tab">
+      <created>1648670634421</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1648670634421</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Remove entity from tab">
+      <created>1648670842088</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1648670842088</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -541,7 +541,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix not sending plugin message" />
     <MESSAGE value="Fix wrong plugin channel" />
     <MESSAGE value="Fix syntax" />
     <MESSAGE value="Add lobby switcher, simplify scoreboard, rank-based join messages" />
@@ -566,6 +565,7 @@
     <MESSAGE value="Fix issue with /fly" />
     <MESSAGE value="Fake entity should spawn" />
     <MESSAGE value="Change when fake player is spawned" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change when fake player is spawned" />
+    <MESSAGE value="Remove entity from tab" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove entity from tab" />
   </component>
 </project>
