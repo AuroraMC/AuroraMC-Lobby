@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix syntax">
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/LobbySwitcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" afterDir="false" />
-    </list>
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add lobby switcher, simplify scoreboard, rank-based join messages" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -158,6 +154,7 @@
       <workItem from="1648640863666" duration="600000" />
       <workItem from="1648652807828" duration="87000" />
       <workItem from="1648654592537" duration="849000" />
+      <workItem from="1648655501335" duration="564000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1631303983401</created>
@@ -355,7 +352,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648652885368</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Add lobby switcher, simplify scoreboard, rank-based join messages">
+      <created>1648655572543</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1648655572543</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -373,7 +377,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added copyright notice" />
     <MESSAGE value="Socket wont shutdown now till the server is shutting down" />
     <MESSAGE value="Now sets shutting down parameter" />
     <MESSAGE value="Add build number and git commit to manifest" />
@@ -398,6 +401,7 @@
     <MESSAGE value="Fix not sending plugin message" />
     <MESSAGE value="Fix wrong plugin channel" />
     <MESSAGE value="Fix syntax" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix syntax" />
+    <MESSAGE value="Add lobby switcher, simplify scoreboard, rank-based join messages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add lobby switcher, simplify scoreboard, rank-based join messages" />
   </component>
 </project>

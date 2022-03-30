@@ -77,7 +77,7 @@ public class JoinListener implements Listener {
                     }
                 } else {
                     for (AuroraMCPlayer player1 : AuroraMCAPI.getPlayers()) {
-                        player1.getPlayer().sendMessage(AuroraMCAPI.getFormatter().convert("&" + player.getRank().getPrefixColor() + "&l" + player.getRank().getName() + " " + player.getPlayer().getName()));
+                        player1.getPlayer().sendMessage(AuroraMCAPI.getFormatter().convert("&" + player.getRank().getPrefixColor() + "&l" + player.getRank().getName() + " " + player.getPlayer().getName() + " has joined the lobby!"));
                     }
                 }
             }
