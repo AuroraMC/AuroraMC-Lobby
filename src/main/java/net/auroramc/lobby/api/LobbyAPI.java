@@ -83,7 +83,7 @@ public class LobbyAPI {
 
     public static void spawnEntities() {
         GameProfile profile;
-        profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("&3&lMonke"));
+        profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("&3&lThe Monke"));
         profile.getProperties().put("textures", new Property("textures", MONKEY_SKIN, MONKEY_SIGNATURE));
         monkeyEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
         monkeyEntity.setLocation(16.5, 61.0, -15.5, 0f, 0f);
