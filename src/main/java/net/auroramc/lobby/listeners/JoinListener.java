@@ -74,10 +74,6 @@ public class JoinListener implements Listener {
             e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 1000000, 0, true, false), false);
         }
 
-        PlayerConnection con = ((CraftPlayer) e.getPlayer()).getHandle().playerConnection;
-        con.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER, LobbyAPI.getMonkeyEntity()));
-        con.sendPacket(new PacketPlayOutNamedEntitySpawn(LobbyAPI.getMonkeyEntity()));
-        con.sendPacket(new PacketPlayOutEntityHeadRotation(LobbyAPI.getMonkeyEntity(), (byte) LobbyAPI.getMonkeyEntity().yaw));
     }
 
     @EventHandler
@@ -192,6 +188,15 @@ public class JoinListener implements Listener {
         player.getPlayer().getInventory().setItem(4, LobbyAPI.getCosmeticsItem().getItem());
         player.getPlayer().getInventory().setItem(0, LobbyAPI.getGamesItem().getItem());
         player.getPlayer().getInventory().setItem(1, LobbyAPI.getStatsItem(player.getName()).getItem());
+        new BukkitRunnable(){
+            @Override
+            public void run() {
+                PlayerConnection con = ((CraftPlayer) e.getPlayer().getPlayer()).getHandle().playerConnection;
+                con.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER, LobbyAPI.getMonkeyEntity()));
+                con.sendPacket(new PacketPlayOutNamedEntitySpawn(LobbyAPI.getMonkeyEntity()));
+                con.sendPacket(new PacketPlayOutEntityHeadRotation(LobbyAPI.getMonkeyEntity(), (byte) LobbyAPI.getMonkeyEntity().yaw));
+            }
+        }.runTask(AuroraMCAPI.getCore());
     }
 
     private static void updateHeaderFooter(CraftPlayer player2) {
