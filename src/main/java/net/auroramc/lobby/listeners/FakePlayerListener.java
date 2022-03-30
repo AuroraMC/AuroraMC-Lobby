@@ -8,6 +8,7 @@ import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.core.api.events.FakePlayerInteractEvent;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
+import net.auroramc.lobby.gui.TheMonke;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
@@ -19,6 +20,9 @@ public class FakePlayerListener implements Listener {
             AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) e.getPlayer();
             if (player.canMonkeClick()) {
                 player.monkeClick();
+                TheMonke monke = new TheMonke((AuroraMCLobbyPlayer) e.getPlayer());
+                monke.open(e.getPlayer());
+                AuroraMCAPI.openGUI(e.getPlayer(), monke);
                 e.getPlayer().getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("The Monke", "Hello! I am the Monke, your local delivery ape! Visit me to collect your monthly bonuses, rewards and more!"));
             }
         }

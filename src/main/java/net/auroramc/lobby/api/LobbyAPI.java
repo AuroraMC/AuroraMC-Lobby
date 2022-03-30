@@ -12,15 +12,14 @@ import net.auroramc.core.api.utils.gui.GUIItem;
 import net.auroramc.lobby.AuroraMCLobby;
 import net.auroramc.lobby.api.backend.GameServerInfo;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
-import net.auroramc.lobby.gui.GameServerListing;
+import net.auroramc.lobby.api.util.Changelog;
+import net.auroramc.lobby.api.util.CommunityPoll;
 import net.minecraft.server.v1_8_R3.EntityPlayer;
 import net.minecraft.server.v1_8_R3.PlayerInteractManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_8_R3.CraftServer;
 import org.bukkit.craftbukkit.v1_8_R3.CraftWorld;
-import org.bukkit.inventory.ItemStack;
-import redis.clients.jedis.Jedis;
 
 import java.util.HashMap;
 import java.util.List;
@@ -41,6 +40,9 @@ public class LobbyAPI {
     private static final GUIItem lobbyItem;
 
     private static Map<String, String> versionNumbers;
+    private static Map<String, List<Changelog>> changelogs;
+    private static Changelog latestChangelog;
+    private static CommunityPoll poll;
 
     private static final Map<String, GameServerInfo> gameServers;
 
@@ -71,6 +73,13 @@ public class LobbyAPI {
 
     public static void loadVersionNumbers() {
         versionNumbers = LobbyDatabaseManager.getVersionNumbers();
+        changelogs = LobbyDatabaseManager.getChangelogs();
+        latestChangelog = LobbyDatabaseManager.getLatestChangelog();
+        poll = LobbyDatabaseManager.getPoll();
+    }
+
+    public static void checkForPoll() {
+        poll = LobbyDatabaseManager.getPoll();
     }
 
     public static void loadGameServers() {
@@ -137,5 +146,17 @@ public class LobbyAPI {
 
     public static Map<String, GameServerInfo> getGameServers() {
         return gameServers;
+    }
+
+    public static Map<String, List<Changelog>> getChangelogs() {
+        return changelogs;
+    }
+
+    public static Changelog getLatestChangelog() {
+        return latestChangelog;
+    }
+
+    public static CommunityPoll getPoll() {
+        return poll;
     }
 }
