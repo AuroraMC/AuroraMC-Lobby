@@ -79,7 +79,7 @@ public class JoinListener implements Listener {
     @EventHandler
     public void onObjectCreate(PlayerObjectCreationEvent e) {
         AuroraMCLobbyPlayer player = new AuroraMCLobbyPlayer(e.getPlayer());
-        if (player.getPreferences().isHubFlightEnabled() && player.hasPermission("elite")) {
+        if (player.getPreferences().isHubFlightEnabled() && (player.hasPermission("elite") || player.hasPermission("plus"))) {
             new BukkitRunnable(){
                 @Override
                 public void run() {
