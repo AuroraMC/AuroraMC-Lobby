@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Make Monke GUI">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Make map empty">
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/Poll.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/backend/LobbyDatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/backend/LobbyDatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/players/AuroraMCLobbyPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/players/AuroraMCLobbyPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/TheMonke.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/TheMonke.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -180,28 +184,9 @@
       <workItem from="1648669891353" duration="94000" />
       <workItem from="1648670002786" duration="8544000" />
       <workItem from="1648682073879" duration="36000" />
-      <workItem from="1648682126967" duration="352000" />
-    </task>
-    <task id="LOCAL-00010" summary="Fix load order">
-      <created>1648488393997</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1648488393997</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Fix wrong path">
-      <created>1648488473415</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1648488473415</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Fix unneeded parseInt">
-      <created>1648488640382</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1648488640382</updated>
+      <workItem from="1648682126967" duration="919000" />
+      <workItem from="1648683069866" duration="81000" />
+      <workItem from="1648683166688" duration="708000" />
     </task>
     <task id="LOCAL-00013" summary="Fix outdated core version">
       <created>1648488802294</created>
@@ -525,7 +510,28 @@
       <option name="project" value="LOCAL" />
       <updated>1648682370182</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Fix NPE">
+      <created>1648682485874</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1648682485874</updated>
+    </task>
+    <task id="LOCAL-00060" summary="FIx position of monthly bonus">
+      <created>1648682598080</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1648682598080</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Make map empty">
+      <created>1648682625261</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1648682625261</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -543,9 +549,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix lobby switcher" />
-    <MESSAGE value="Change rounding of currency in scoreboard" />
-    <MESSAGE value="Fix issue with item names" />
     <MESSAGE value="Add leave listener, make staff punchable" />
     <MESSAGE value="Fix explosion effect" />
     <MESSAGE value="Fix issue with scoreboard" />
@@ -568,6 +571,9 @@
     <MESSAGE value="Increase delay in removing from tab" />
     <MESSAGE value="Add monke cooldown" />
     <MESSAGE value="Make Monke GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make Monke GUI" />
+    <MESSAGE value="Fix NPE" />
+    <MESSAGE value="FIx position of monthly bonus" />
+    <MESSAGE value="Make map empty" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make map empty" />
   </component>
 </project>

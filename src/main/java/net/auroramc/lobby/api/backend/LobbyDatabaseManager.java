@@ -242,5 +242,18 @@ public class LobbyDatabaseManager {
         }
     }
 
+    public static boolean hasVoted(int pollId, int playerId) {
+        try (Jedis connection = AuroraMCAPI.getDbManager().getRedisConnection()) {
+            return connection.exists("poll." + pollId + "." + playerId);
+        }
+    }
+
+    public static void setVote(int pollId, int playerId, int responseId) {
+        try (Jedis connection = AuroraMCAPI.getDbManager().getRedisConnection()) {
+            connection.exists("poll." + pollId + "." + playerId, responseId + "");
+            connection.hincrBy("responses." + pollId, responseId + "", 1);
+        }
+    }
+
 
 }

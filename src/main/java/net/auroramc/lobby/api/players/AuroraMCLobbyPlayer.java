@@ -55,17 +55,24 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
     public void claimDaily() {
         lastDailyBonus = System.currentTimeMillis();
         dailyBonusClaimed++;
+        this.getBank().addTickets(100, true, true);
+        this.getBank().addCrowns(100, true, true);
+        this.getStats().addXp(100, true);
         LobbyDatabaseManager.setLastDailyBonus(this.getId(), lastDailyBonus);
         LobbyDatabaseManager.setLastDailyBonusTotal(this.getId(), dailyBonusClaimed);
     }
 
     public void claimMonthly() {
         lastMonthlyBonus = System.currentTimeMillis();
+        this.getBank().addTickets(10000, true, true);
+        this.getBank().addCrowns(10000, true, true);
         LobbyDatabaseManager.setLastMonthlyBonus(this.getId(), lastMonthlyBonus);
     }
 
     public void claimPlus() {
         lastPlusBonus = System.currentTimeMillis();
+        this.getBank().addTickets(10000, true, true);
+        this.getBank().addCrowns(10000, true, true);
         LobbyDatabaseManager.setLastPlusBonus(this.getId(), lastPlusBonus);
     }
 
