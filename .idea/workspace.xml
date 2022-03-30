@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix not sending plugin message" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix wrong plugin channel">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -145,6 +147,8 @@
       <workItem from="1648504094117" duration="389000" />
       <workItem from="1648504682980" duration="16000" />
       <workItem from="1648505107039" duration="180000" />
+      <workItem from="1648505305764" duration="786000" />
+      <workItem from="1648640863666" duration="600000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1631303983401</created>
@@ -328,7 +332,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648505145471</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Fix wrong plugin channel">
+      <created>1648505334761</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1648505334761</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,7 +357,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initial Commit" />
     <MESSAGE value="Adding some newer files" />
     <MESSAGE value="Added copyright notice" />
     <MESSAGE value="Socket wont shutdown now till the server is shutting down" />
@@ -371,6 +381,7 @@
     <MESSAGE value="Change wording" />
     <MESSAGE value="Change names of states" />
     <MESSAGE value="Fix not sending plugin message" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix not sending plugin message" />
+    <MESSAGE value="Fix wrong plugin channel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix wrong plugin channel" />
   </component>
 </project>

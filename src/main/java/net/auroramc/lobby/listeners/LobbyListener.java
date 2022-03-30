@@ -151,7 +151,7 @@ public class LobbyListener implements Listener {
                     case SKULL_ITEM: {
                         e.setCancelled(true);
                         AuroraMCPlayer player = AuroraMCAPI.getPlayer(e.getPlayer());
-                        Stats stats = new Stats(player, player.getName(), player.getStats(), player.getActiveSubscription());
+                        Stats stats = new Stats(player, player.getName(), player.getStats(), player.getActiveSubscription(), player.getId());
                         stats.open(player);
                         AuroraMCAPI.openGUI(player, stats);
                         break;
