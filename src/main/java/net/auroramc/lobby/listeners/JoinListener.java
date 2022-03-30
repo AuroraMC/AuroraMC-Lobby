@@ -78,6 +78,9 @@ public class JoinListener implements Listener {
     @EventHandler
     public void onObjectCreate(PlayerObjectCreationEvent e) {
         AuroraMCLobbyPlayer player = new AuroraMCLobbyPlayer(e.getPlayer());
+        if (player.getPreferences().isHubFlightEnabled() && player.hasPermission("elite")) {
+            player.getPlayer().setAllowFlight(true);
+        }
         e.setPlayer(player);
         if (!player.isVanished()) {
             if (player.hasPermission(Permission.MASTER.getId())) {
