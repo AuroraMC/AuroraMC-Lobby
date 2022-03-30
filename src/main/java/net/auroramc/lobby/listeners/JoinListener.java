@@ -101,7 +101,12 @@ public class JoinListener implements Listener {
         if (!player.getPreferences().isHubVisibilityEnabled()) {
             for (AuroraMCPlayer player1 : AuroraMCAPI.getPlayers()) {
                 if (!player1.equals(player)) {
-                    player.getPlayer().hidePlayer(player1.getPlayer());
+                    new BukkitRunnable(){
+                        @Override
+                        public void run() {
+                            player.getPlayer().hidePlayer(player1.getPlayer());
+                        }
+                    }.runTask(AuroraMCAPI.getCore());
                 }
             }
         }
