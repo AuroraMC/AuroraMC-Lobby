@@ -77,7 +77,7 @@ public class LobbyListener implements Listener {
                                 target.getPlayer().getLocation().getWorld().createExplosion(target.getPlayer().getLocation().getBlockX(), target.getPlayer().getLocation().getBlockY(), target.getPlayer().getLocation().getBlockZ(), 2, false, false);
                                 ((AuroraMCLobbyPlayer)target).punched();
                             } else {
-                                damager.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Lobby", "This staff member has been punched too recently. You cannot punch them again yet."));
+                                damager.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Lobby", "**" + target.getName() + "** has been punched too recently. You cannot punch them again yet."));
                             }
                         }
                     }

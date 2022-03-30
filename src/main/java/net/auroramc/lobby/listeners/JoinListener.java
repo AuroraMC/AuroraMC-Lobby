@@ -7,6 +7,7 @@ package net.auroramc.lobby.listeners;
 import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.core.api.events.player.PlayerObjectCreationEvent;
 import net.auroramc.core.api.permissions.Permission;
+import net.auroramc.core.api.permissions.Rank;
 import net.auroramc.core.api.players.AuroraMCPlayer;
 import net.auroramc.core.api.players.scoreboard.PlayerScoreboard;
 import net.auroramc.lobby.api.LobbyAPI;
@@ -19,6 +20,7 @@ import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
@@ -28,6 +30,16 @@ import org.json.JSONArray;
 import java.lang.reflect.Field;
 
 public class JoinListener implements Listener {
+
+    @EventHandler
+    public void onJoin(AsyncPlayerPreLoginEvent e) {
+        Rank rank = AuroraMCAPI.getDbManager().getRank(e.getUniqueId());
+        if (!rank.hasPermission("elite")) {
+            if (AuroraMCAPI.getPlayers().size() >= 3) {
+                e.disallow(AsyncPlayerPreLoginEvent.Result.KICK_FULL, "This lobby is currently full. In order to bypass this, you need to purchase a rank!");
+            }
+        }
+    }
 
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
