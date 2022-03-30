@@ -12,8 +12,7 @@ import net.auroramc.core.api.players.AuroraMCPlayer;
 import net.auroramc.core.api.players.scoreboard.PlayerScoreboard;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
-import net.minecraft.server.v1_8_R3.IChatBaseComponent;
-import net.minecraft.server.v1_8_R3.PacketPlayOutPlayerListHeaderFooter;
+import net.minecraft.server.v1_8_R3.*;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
@@ -75,6 +74,10 @@ public class JoinListener implements Listener {
             e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 1000000, 0, true, false), false);
         }
 
+        PlayerConnection con = ((CraftPlayer) e.getPlayer()).getHandle().playerConnection;
+        con.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER, LobbyAPI.getMonkeyEntity()));
+        con.sendPacket(new PacketPlayOutNamedEntitySpawn(LobbyAPI.getMonkeyEntity()));
+        con.sendPacket(new PacketPlayOutEntityHeadRotation(LobbyAPI.getMonkeyEntity(), (byte) LobbyAPI.getMonkeyEntity().yaw));
     }
 
     @EventHandler

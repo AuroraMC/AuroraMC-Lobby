@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix hiding players on join">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix issue with /fly">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/commands/CommandFly.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/commands/CommandFly.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/WorldListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/WorldListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +175,13 @@
       <workItem from="1648662204428" duration="154000" />
       <workItem from="1648662379659" duration="109000" />
       <workItem from="1648662664028" duration="1333000" />
-      <workItem from="1648664585847" duration="516000" />
+      <workItem from="1648664585847" duration="1250000" />
+      <workItem from="1648668803907" duration="124000" />
+      <workItem from="1648668966868" duration="78000" />
+      <workItem from="1648669059472" duration="39000" />
+      <workItem from="1648669113762" duration="664000" />
+      <workItem from="1648669823583" duration="59000" />
+      <workItem from="1648669891353" duration="94000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1631303983401</created>
@@ -510,7 +519,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648663364549</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Fix issue with /fly">
+      <created>1648665129512</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1648665129512</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -528,7 +544,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add server state to item lore" />
     <MESSAGE value="Change wording" />
     <MESSAGE value="Change names of states" />
     <MESSAGE value="Fix not sending plugin message" />
@@ -553,6 +568,7 @@
     <MESSAGE value="Implement hub visibility" />
     <MESSAGE value="Fix async issue" />
     <MESSAGE value="Fix hiding players on join" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix hiding players on join" />
+    <MESSAGE value="Fix issue with /fly" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix issue with /fly" />
   </component>
 </project>

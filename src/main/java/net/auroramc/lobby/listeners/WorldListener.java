@@ -40,6 +40,8 @@ public class WorldListener implements Listener {
             e.getWorld().setThundering(false);
             e.getWorld().setStorm(false);
 
+            LobbyAPI.spawnEntities();
+
         }
     }
 
