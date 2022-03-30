@@ -35,7 +35,7 @@ public class JoinListener implements Listener {
     public void onJoin(AsyncPlayerPreLoginEvent e) {
         Rank rank = AuroraMCAPI.getDbManager().getRank(e.getUniqueId());
         if (!rank.hasPermission("elite")) {
-            if (AuroraMCAPI.getPlayers().size() >= 3) {
+            if (AuroraMCAPI.getPlayers().size() >= 80) {
                 e.disallow(AsyncPlayerPreLoginEvent.Result.KICK_FULL, "This lobby is currently full. In order to bypass this, you need to purchase a rank!");
             }
         }
