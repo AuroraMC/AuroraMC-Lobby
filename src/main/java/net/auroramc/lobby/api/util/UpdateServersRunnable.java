@@ -10,6 +10,7 @@ import net.auroramc.core.api.utils.gui.GUI;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.backend.GameServerInfo;
 import net.auroramc.lobby.gui.GameServerListing;
+import net.auroramc.lobby.gui.LobbySwitcher;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class UpdateServersRunnable extends BukkitRunnable {
@@ -24,6 +25,8 @@ public class UpdateServersRunnable extends BukkitRunnable {
             if (gui != null) {
                 if (gui instanceof GameServerListing) {
                     ((GameServerListing) gui).update();
+                } else if (gui instanceof LobbySwitcher) {
+                    ((LobbySwitcher) gui).update();
                 }
             }
         }

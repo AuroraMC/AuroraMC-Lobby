@@ -6,6 +6,7 @@ package net.auroramc.lobby.listeners;
 
 import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.core.api.events.player.PlayerObjectCreationEvent;
+import net.auroramc.core.api.permissions.Permission;
 import net.auroramc.core.api.players.AuroraMCPlayer;
 import net.auroramc.core.api.players.scoreboard.PlayerScoreboard;
 import net.auroramc.lobby.api.LobbyAPI;
@@ -67,8 +68,18 @@ public class JoinListener implements Listener {
         AuroraMCLobbyPlayer player = new AuroraMCLobbyPlayer(e.getPlayer());
         e.setPlayer(player);
         if (!player.isVanished()) {
-            for (AuroraMCPlayer player1 : AuroraMCAPI.getPlayers()) {
-                player1.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Join", e.getPlayer().getName()));
+            if (player.hasPermission(Permission.MASTER.getId())) {
+                if (player.isDisguised()) {
+                    if (player.getActiveDisguise().getRank().hasPermission(Permission.MASTER.getId())) {
+                        for (AuroraMCPlayer player1 : AuroraMCAPI.getPlayers()) {
+                            player1.getPlayer().sendMessage(AuroraMCAPI.getFormatter().convert("&" + player.getActiveDisguise().getRank().getPrefixColor() + "&l" + player.getActiveDisguise().getRank().getName() + " " + player.getActiveDisguise().getName() + " has joined the lobby!"));
+                        }
+                    }
+                } else {
+                    for (AuroraMCPlayer player1 : AuroraMCAPI.getPlayers()) {
+                        player1.getPlayer().sendMessage(AuroraMCAPI.getFormatter().convert("&" + player.getRank().getPrefixColor() + "&l" + player.getRank().getName() + " " + player.getPlayer().getName()));
+                    }
+                }
             }
         }
         PlayerScoreboard scoreboard = player.getScoreboard();
@@ -78,10 +89,49 @@ public class JoinListener implements Listener {
         scoreboard.setLine(12, player.getRank().getName());
         scoreboard.setLine(11, " ");
         scoreboard.setLine(10, "&6&l«CROWNS»");
-        scoreboard.setLine(9, player.getBank().getCrowns() + "");
+
+        double crowns = player.getBank().getCrowns();
+        String suffC = "";
+
+        if (crowns >= 1000000) {
+            crowns = crowns / 10000;
+            crowns = Math.round(crowns) / 100d;
+            suffC = " million";
+            if (crowns >= 1000) {
+                crowns = crowns / 10;
+                crowns = Math.round(crowns) / 100d;
+                suffC = " billion";
+                if (crowns >= 1000) {
+                    crowns = crowns / 10;
+                    crowns = Math.round(crowns) / 100d;
+                    suffC = " trillion";
+                }
+            }
+        }
+
+        double tickets = player.getBank().getTickets();
+        String suffT = "";
+
+        if (tickets >= 1000000) {
+            tickets = tickets / 10000;
+            tickets = Math.round(tickets) / 100d;
+            suffT = " million";
+            if (tickets >= 1000) {
+                tickets = tickets / 10;
+                tickets = Math.round(tickets) / 100d;
+                suffT = " billion";
+                if (tickets >= 1000) {
+                    tickets = tickets / 10;
+                    tickets = Math.round(tickets) / 100d;
+                    suffT = " trillion";
+                }
+            }
+        }
+
+        scoreboard.setLine(9, crowns + suffC);
         scoreboard.setLine(8, "  ");
         scoreboard.setLine(7, "&d&l«TICKETS»");
-        scoreboard.setLine(6, player.getBank().getTickets() + "");
+        scoreboard.setLine(6, tickets + suffT);
         scoreboard.setLine(5, "   ");
         scoreboard.setLine(4, "&a&l«SERVER»");
         scoreboard.setLine(3, AuroraMCAPI.getServerInfo().getName());
