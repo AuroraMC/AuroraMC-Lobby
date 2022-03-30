@@ -48,7 +48,7 @@ public class TheMonke extends GUI {
         super("&3&lThe Monke", 5, true);
         this.border("&3&lThe Monke", null);
 
-        this.setItem(0, 4, new GUIItem(Material.MAP, "&3&lChangelogs", 1, ";&rLatest Update:;&b" + ((LobbyAPI.getLatestChangelog() != null)?LobbyAPI.getLatestChangelog().getUpdateTitle():"None") + ";;&aClick to view more changelogs!"));
+        this.setItem(0, 4, new GUIItem(Material.EMPTY_MAP, "&3&lChangelogs", 1, ";&rLatest Update:;&b" + ((LobbyAPI.getLatestChangelog() != null)?LobbyAPI.getLatestChangelog().getUpdateTitle():"None") + ";;&aClick to view more changelogs!"));
 
         boolean claimDaily = player.canClaimDaily();
         boolean claimMonthly = player.canClaimMonthly();
