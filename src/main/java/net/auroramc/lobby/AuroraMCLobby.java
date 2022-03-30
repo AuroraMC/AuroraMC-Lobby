@@ -10,6 +10,7 @@ import net.auroramc.lobby.api.LobbyMap;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
 import net.auroramc.lobby.api.util.UpdateDataRunnable;
 import net.auroramc.lobby.api.util.UpdateServersRunnable;
+import net.auroramc.lobby.commands.CommandFly;
 import net.auroramc.lobby.listeners.*;
 import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.lobby.commands.admin.*;
@@ -43,6 +44,7 @@ public class AuroraMCLobby extends JavaPlugin {
         AuroraMCAPI.registerCommand(new CommandMob());
         AuroraMCAPI.registerCommand(new CommandTeleport());
         AuroraMCAPI.registerCommand(new CommandVersion());
+        AuroraMCAPI.registerCommand(new CommandFly());
 
         LobbyDatabaseManager.downloadMap();
         File mapFolder = new File(Bukkit.getWorldContainer(), "world");
