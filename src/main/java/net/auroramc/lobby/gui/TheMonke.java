@@ -65,9 +65,9 @@ public class TheMonke extends GUI {
             this.setItem(2, 4, new GUIItem(Material.REDSTONE_BLOCK, "&3&lMonthly Bonus", 1, ";&cYou have already claimed;&cthis months bonus!;;&rCome back next month to claim again!"));
         }
         if (claimPlus) {
-            this.setItem(2, 4, new GUIItem(Material.EMERALD_BLOCK, "&3&lPlus Bonus", 1, ";&rClaim your Plus bonus for:;&6+10000 Crowns;&d+10000 Tickets;;&aClick to claim!"));
+            this.setItem(2, 6, new GUIItem(Material.EMERALD_BLOCK, "&3&lPlus Bonus", 1, ";&rClaim your Plus bonus for:;&6+10000 Crowns;&d+10000 Tickets;;&aClick to claim!"));
         } else {
-            this.setItem(2, 4, new GUIItem(Material.REDSTONE_BLOCK, "&3&lMonthly Bonus", 1, ";&cYou have already claimed;&cthis months Plus bonus!;;&rCome back in 30 days to claim again!"));
+            this.setItem(2, 6, new GUIItem(Material.REDSTONE_BLOCK, "&3&lMonthly Bonus", 1, ";&cYou have already claimed;&cthis months Plus bonus!;;&rCome back in 30 days to claim again!"));
         }
 
         if (LobbyAPI.getPoll() == null) {
