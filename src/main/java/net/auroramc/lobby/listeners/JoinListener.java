@@ -18,6 +18,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
@@ -73,6 +74,16 @@ public class JoinListener implements Listener {
         if (LobbyAPI.getLobbyMap().getMapData().getInt("time") > 12000) {
             e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 1000000, 0, true, false), false);
         }
+        new BukkitRunnable(){
+            @Override
+            public void run() {
+                for (AuroraMCPlayer player2 : AuroraMCAPI.getPlayers()) {
+                    if (!player2.getPreferences().isHubVisibilityEnabled()) {
+                        player2.getPlayer().hidePlayer(e.getPlayer());
+                    }
+                }
+            }
+        }.runTaskLater(AuroraMCAPI.getCore(), 2);
 
     }
 
@@ -87,6 +98,15 @@ public class JoinListener implements Listener {
                 }
             }.runTask(AuroraMCAPI.getCore());
         }
+        if (!player.getPreferences().isHubVisibilityEnabled()) {
+            for (AuroraMCPlayer player1 : AuroraMCAPI.getPlayers()) {
+                if (!player1.equals(player)) {
+                    player.getPlayer().hidePlayer(player1.getPlayer());
+                }
+            }
+        }
+
+
         e.setPlayer(player);
         if (!player.isVanished()) {
             if (player.hasPermission(Permission.MASTER.getId())) {

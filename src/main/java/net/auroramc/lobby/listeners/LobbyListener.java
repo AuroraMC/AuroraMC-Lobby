@@ -5,6 +5,7 @@
 package net.auroramc.lobby.listeners;
 
 import net.auroramc.core.api.AuroraMCAPI;
+import net.auroramc.core.api.events.player.PlayerPreferenceChangeEvent;
 import net.auroramc.core.api.players.AuroraMCPlayer;
 import net.auroramc.core.gui.cosmetics.Cosmetics;
 import net.auroramc.core.gui.preferences.Preferences;
@@ -200,6 +201,27 @@ public class LobbyListener implements Listener {
     public void onInvMove(InventoryClickEvent e) {
         if (e.getClickedInventory() instanceof PlayerInventory && e.getWhoClicked().getGameMode() != GameMode.CREATIVE) {
             e.setCancelled(true);
+        }
+    }
+
+    @EventHandler
+    public void onPreferenceChange(PlayerPreferenceChangeEvent e) {
+        e.getPlayer().getPlayer().setAllowFlight(e.getPlayer().getPreferences().isHubFlightEnabled());
+        if (e.getPlayer().getPreferences().isHubVisibilityEnabled()) {
+            for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
+                if (player.equals(e.getPlayer())) {
+                    continue;
+                }
+                if (!player.isVanished() || player.getRank().getId() <= e.getPlayer().getRank().getId()) {
+                    e.getPlayer().getPlayer().showPlayer(player.getPlayer());
+                }
+            }
+        } else {
+            for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
+                if (!player.equals(e.getPlayer())) {
+                    e.getPlayer().getPlayer().hidePlayer(player.getPlayer());
+                }
+            }
         }
     }
 }
