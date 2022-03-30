@@ -53,7 +53,9 @@ public class LobbySwitcher extends GUI {
             player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ITEM_BREAK, 100, 0);
             return;
         }
-        int server = Integer.parseInt(item.getItemMeta().getDisplayName().split(" ")[3]);
+        String[] name = item.getItemMeta().getDisplayName().split(" ");
+
+        int server = Integer.parseInt(name[name.length - 1]);
 
         ByteArrayDataOutput out = ByteStreams.newDataOutput();
         out.writeUTF("JoinGame");
