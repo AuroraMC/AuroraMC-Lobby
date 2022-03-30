@@ -75,7 +75,7 @@ public class LobbyListener implements Listener {
                             if (((AuroraMCLobbyPlayer)target).canBePunched() || damager.hasPermission("admin")) {
                                 target.getPlayer().setVelocity(new Vector(0, 10, 0));
                                 target.getPlayer().getLocation().getWorld().createExplosion(target.getPlayer().getLocation().getBlockX(), target.getPlayer().getLocation().getBlockY(), target.getPlayer().getLocation().getBlockZ(), 2, false, false);
-                                ((AuroraMCLobbyPlayer)damager).punched();
+                                ((AuroraMCLobbyPlayer)target).punched();
                             } else {
                                 damager.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Lobby", "This staff member has been punched too recently. You cannot punch them again yet."));
                             }
