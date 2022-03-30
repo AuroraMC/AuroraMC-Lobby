@@ -95,15 +95,15 @@ public class JoinListener implements Listener {
 
         if (crowns >= 1000000) {
             crowns = crowns / 10000;
-            crowns = Math.round(crowns) / 100d;
+            crowns = Math.floor(crowns) / 100d;
             suffC = " million";
             if (crowns >= 1000) {
                 crowns = crowns / 10;
-                crowns = Math.round(crowns) / 100d;
+                crowns = Math.floor(crowns) / 100d;
                 suffC = " billion";
                 if (crowns >= 1000) {
                     crowns = crowns / 10;
-                    crowns = Math.round(crowns) / 100d;
+                    crowns = Math.floor(crowns) / 100d;
                     suffC = " trillion";
                 }
             }
@@ -113,25 +113,27 @@ public class JoinListener implements Listener {
         String suffT = "";
 
         if (tickets >= 1000000) {
-            tickets = tickets / 10000;
-            tickets = Math.round(tickets) / 100d;
-            suffT = " million";
-            if (tickets >= 1000) {
-                tickets = tickets / 10;
-                tickets = Math.round(tickets) / 100d;
-                suffT = " billion";
-                if (tickets >= 1000) {
-                    tickets = tickets / 10;
-                    tickets = Math.round(tickets) / 100d;
+            if (tickets >= 1000000000) {
+                if (tickets >= 1000000000000d) {
+                    tickets = tickets / 10000000000L;
+                    tickets = Math.floor(tickets) / 100d;
                     suffT = " trillion";
+                } else {
+                    tickets = tickets / 10000000;
+                    tickets = Math.floor(tickets) / 100d;
+                    suffT = " billion";
                 }
+            } else {
+                tickets = tickets / 10000;
+                tickets = Math.floor(tickets) / 100d;
+                suffT = " million";
             }
         }
 
-        scoreboard.setLine(9, crowns + suffC);
+        scoreboard.setLine(9, ((suffC.equals(""))?String.format("%,d",player.getBank().getCrowns()):crowns + suffC));
         scoreboard.setLine(8, "  ");
         scoreboard.setLine(7, "&d&l«TICKETS»");
-        scoreboard.setLine(6, tickets + suffT);
+        scoreboard.setLine(6, ((suffC.equals(""))?String.format("%,d",player.getBank().getTickets()):tickets + suffT));
         scoreboard.setLine(5, "   ");
         scoreboard.setLine(4, "&a&l«SERVER»");
         scoreboard.setLine(3, AuroraMCAPI.getServerInfo().getName());
