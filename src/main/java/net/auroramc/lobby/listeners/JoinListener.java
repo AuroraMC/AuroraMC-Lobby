@@ -192,8 +192,10 @@ public class JoinListener implements Listener {
             @Override
             public void run() {
                 PlayerConnection con = ((CraftPlayer) e.getPlayer().getPlayer()).getHandle().playerConnection;
+                con.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER, LobbyAPI.getMonkeyEntity()));
                 con.sendPacket(new PacketPlayOutNamedEntitySpawn(LobbyAPI.getMonkeyEntity()));
                 con.sendPacket(new PacketPlayOutEntityHeadRotation(LobbyAPI.getMonkeyEntity(), (byte) LobbyAPI.getMonkeyEntity().yaw));
+                con.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.REMOVE_PLAYER, LobbyAPI.getMonkeyEntity()));
             }
         }.runTask(AuroraMCAPI.getCore());
     }
