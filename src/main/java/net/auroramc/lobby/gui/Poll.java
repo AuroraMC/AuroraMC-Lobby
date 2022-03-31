@@ -37,6 +37,7 @@ public class Poll extends GUI {
                     this.setItem(1, column, new GUIItem(Material.PAPER,"&3&l" + entry.getValue().getId() + ") " + entry.getValue().getAnswer()));
                     column+=2;
                 }
+                break;
             }
             case 4: {
                 int column = 1;
@@ -44,6 +45,7 @@ public class Poll extends GUI {
                     this.setItem(1, column, new GUIItem(Material.PAPER,"&3&l" + entry.getValue().getId() + ") " + entry.getValue().getAnswer()));
                     column+=2;
                 }
+                break;
             }
             case 3: {
                 int column = 2;
@@ -51,6 +53,7 @@ public class Poll extends GUI {
                     this.setItem(1, column, new GUIItem(Material.PAPER,"&3&l" + entry.getValue().getId() + ") " + entry.getValue().getAnswer()));
                     column+=2;
                 }
+                break;
             }
         }
     }
