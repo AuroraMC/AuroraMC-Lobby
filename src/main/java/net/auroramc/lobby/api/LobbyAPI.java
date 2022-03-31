@@ -80,6 +80,8 @@ public class LobbyAPI {
 
     public static void checkForPoll() {
         poll = LobbyDatabaseManager.getPoll();
+        changelogs = LobbyDatabaseManager.getChangelogs();
+        latestChangelog = LobbyDatabaseManager.getLatestChangelog();
     }
 
     public static void loadGameServers() {

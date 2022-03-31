@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="restarting servers is annoying me so i added it so it will restart itself now">
-      <change afterPath="$PROJECT_DIR$/AuroraMC-Lobby.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/changelog/ChangelogListing.java" afterDir="false" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add changelog listing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/TheMonke.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/TheMonke.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/changelog/Changelogs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/changelog/Changelogs.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,13 +189,11 @@
       <workItem from="1648686715405" duration="359000" />
       <workItem from="1648721008372" duration="105000" />
       <workItem from="1648721119957" duration="1000" />
-    </task>
-    <task id="LOCAL-00020" summary="Fix formatting">
-      <created>1648502732392</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1648502732392</updated>
+      <workItem from="1648729094305" duration="245000" />
+      <workItem from="1648729743873" duration="4000" />
+      <workItem from="1648729757844" duration="8000" />
+      <workItem from="1648731073877" duration="8000" />
+      <workItem from="1648731159401" duration="30000" />
     </task>
     <task id="LOCAL-00021" summary="Fix incorrect GUI rows">
       <created>1648502921001</created>
@@ -537,7 +531,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648687060074</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="Add changelog listing">
+      <created>1648729305665</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1648729305667</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -555,7 +556,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Oops" />
     <MESSAGE value="Implement player cap" />
     <MESSAGE value="Increase player cap" />
     <MESSAGE value="Implement hub flight" />
@@ -580,6 +580,7 @@
     <MESSAGE value="Fix NPE" />
     <MESSAGE value="Fix flipped if statement" />
     <MESSAGE value="Add v to version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add v to version" />
+    <MESSAGE value="Add changelog listing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add changelog listing" />
   </component>
 </project>
