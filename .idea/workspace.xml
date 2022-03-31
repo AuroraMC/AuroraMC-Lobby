@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Check for changelogs when checking for poll" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add missing break">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -193,13 +195,7 @@
       <workItem from="1648731073877" duration="8000" />
       <workItem from="1648731159401" duration="30000" />
       <workItem from="1648731335061" duration="74000" />
-    </task>
-    <task id="LOCAL-00022" summary="Fix minor issues">
-      <created>1648503392416</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1648503392416</updated>
+      <workItem from="1648732275037" duration="350000" />
     </task>
     <task id="LOCAL-00023" summary="Add server state to item lore">
       <created>1648503656398</created>
@@ -537,7 +533,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648731398186</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="Add missing break">
+      <created>1648732530804</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1648732530804</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -555,7 +558,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Increase player cap" />
     <MESSAGE value="Implement hub flight" />
     <MESSAGE value="Give plus access to lobby flight" />
     <MESSAGE value="Toggle fly command" />
@@ -580,6 +582,7 @@
     <MESSAGE value="Add v to version" />
     <MESSAGE value="Add changelog listing" />
     <MESSAGE value="Check for changelogs when checking for poll" />
-    <option name="LAST_COMMIT_MESSAGE" value="Check for changelogs when checking for poll" />
+    <MESSAGE value="Add missing break" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add missing break" />
   </component>
 </project>

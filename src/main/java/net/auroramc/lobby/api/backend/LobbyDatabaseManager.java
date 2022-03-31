@@ -250,7 +250,7 @@ public class LobbyDatabaseManager {
 
     public static void setVote(int pollId, int playerId, int responseId) {
         try (Jedis connection = AuroraMCAPI.getDbManager().getRedisConnection()) {
-            connection.exists("poll." + pollId + "." + playerId, responseId + "");
+            connection.set("poll." + pollId + "." + playerId, responseId + "");
             connection.hincrBy("responses." + pollId, responseId + "", 1);
         }
     }
