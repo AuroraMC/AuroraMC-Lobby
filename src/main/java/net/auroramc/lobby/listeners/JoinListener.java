@@ -97,13 +97,15 @@ public class JoinListener implements Listener {
                         }
                     }.runTask(AuroraMCAPI.getCore());
                 }
-                if (!player1.getPreferences().isHubVisibilityEnabled()) {
-                    new BukkitRunnable(){
-                        @Override
-                        public void run() {
-                            player1.getPlayer().hidePlayer(player.getPlayer());
-                        }
-                    }.runTask(AuroraMCAPI.getCore());
+                if (player1.isLoaded()) {
+                    if (!player1.getPreferences().isHubVisibilityEnabled()) {
+                        new BukkitRunnable(){
+                            @Override
+                            public void run() {
+                                player1.getPlayer().hidePlayer(player.getPlayer());
+                            }
+                        }.runTask(AuroraMCAPI.getCore());
+                    }
                 }
             }
         }
