@@ -156,6 +156,20 @@ public class LobbyAPI {
         return latestChangelog;
     }
 
+    public static Changelog getLatestChangelog(String game) {
+        Changelog latest = null;
+        for (Changelog changelog : changelogs.get(game)) {
+            if (latest == null) {
+                latest = changelog;
+            } else {
+                if (changelog.getTimestamp() > latest.getTimestamp()) {
+                    latest = changelog;
+                }
+            }
+        }
+        return latest;
+    }
+
     public static CommunityPoll getPoll() {
         return poll;
     }

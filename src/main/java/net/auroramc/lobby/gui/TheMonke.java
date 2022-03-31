@@ -12,6 +12,7 @@ import net.auroramc.core.api.utils.gui.GUIItem;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
+import net.auroramc.lobby.gui.changelog.Changelogs;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
@@ -150,7 +151,10 @@ public class TheMonke extends GUI {
                 break;
             }
             case EMPTY_MAP: {
-
+                Changelogs logs = new Changelogs(player);
+                AuroraMCAPI.closeGUI(player);
+                logs.open(player);
+                AuroraMCAPI.openGUI(player, logs);
                 break;
             }
             default: {
