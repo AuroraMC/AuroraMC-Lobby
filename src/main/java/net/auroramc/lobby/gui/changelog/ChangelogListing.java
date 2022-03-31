@@ -44,8 +44,10 @@ public class ChangelogListing extends GUI {
 
         int row = 1;
         int column = 1;
-        for (Changelog changelog : LobbyAPI.getChangelogs().get(game)) {
-            this.setItem(row, column, new GUIItem(Material.PAPER, "&3&l" + changelog.getUpdateTitle(), 1, ";&rVersion:;&b" + changelog.getVersion() + ";;&rReleased:;&b" + format.format(new Date(changelog.getTimestamp())) + ";;&aClick to open the changelog!"));
+        if (LobbyAPI.getChangelogs().get(game) != null) {
+            for (Changelog changelog : LobbyAPI.getChangelogs().get(game)) {
+                this.setItem(row, column, new GUIItem(Material.PAPER, "&3&l" + changelog.getUpdateTitle(), 1, ";&rVersion:;&b" + changelog.getVersion() + ";;&rReleased:;&b" + format.format(new Date(changelog.getTimestamp())) + ";;&aClick to open the changelog!"));
+            }
         }
 
     }
