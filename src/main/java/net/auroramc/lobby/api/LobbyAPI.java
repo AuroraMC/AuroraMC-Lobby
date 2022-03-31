@@ -157,6 +157,9 @@ public class LobbyAPI {
     }
 
     public static Changelog getLatestChangelog(String game) {
+        if (changelogs.containsKey(game)) {
+            return null;
+        }
         Changelog latest = null;
         for (Changelog changelog : changelogs.get(game)) {
             if (latest == null) {

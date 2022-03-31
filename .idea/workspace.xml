@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix NPE">
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/changelog/Changelogs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/changelog/Changelogs.java" afterDir="false" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Changelog GUI">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,14 +183,7 @@
       <workItem from="1648682126967" duration="919000" />
       <workItem from="1648683069866" duration="81000" />
       <workItem from="1648683166688" duration="1001000" />
-      <workItem from="1648684199120" duration="1703000" />
-    </task>
-    <task id="LOCAL-00016" summary="Implement stats gui item">
-      <created>1648490958663</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1648490958663</updated>
+      <workItem from="1648684199120" duration="2053000" />
     </task>
     <task id="LOCAL-00017" summary="Server GUI">
       <created>1648501987023</created>
@@ -529,7 +521,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648685528995</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Changelog GUI">
+      <created>1648686157458</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1648686157458</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -547,7 +546,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix issue with scoreboard" />
     <MESSAGE value="Fix explosion" />
     <MESSAGE value="Add cooldown to punching" />
     <MESSAGE value="Oops" />
@@ -572,6 +570,7 @@
     <MESSAGE value="Make menu work" />
     <MESSAGE value="Add Changelogs" />
     <MESSAGE value="Fix NPE" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix NPE" />
+    <MESSAGE value="Changelog GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changelog GUI" />
   </component>
 </project>
