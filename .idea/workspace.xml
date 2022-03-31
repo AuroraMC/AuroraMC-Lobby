@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add missing break">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix NPE" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -196,20 +194,7 @@
       <workItem from="1648731159401" duration="30000" />
       <workItem from="1648731335061" duration="74000" />
       <workItem from="1648732275037" duration="350000" />
-    </task>
-    <task id="LOCAL-00023" summary="Add server state to item lore">
-      <created>1648503656398</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1648503656398</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Change wording">
-      <created>1648504110522</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1648504110522</updated>
+      <workItem from="1648734031061" duration="363000" />
     </task>
     <task id="LOCAL-00025" summary="Change names of states">
       <created>1648504469419</created>
@@ -540,7 +525,21 @@
       <option name="project" value="LOCAL" />
       <updated>1648732530804</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="Fix polls">
+      <created>1648734150099</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1648734150100</updated>
+    </task>
+    <task id="LOCAL-00073" summary="Fix NPE">
+      <created>1648734232994</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1648734232994</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -558,7 +557,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implement hub flight" />
     <MESSAGE value="Give plus access to lobby flight" />
     <MESSAGE value="Toggle fly command" />
     <MESSAGE value="Implement hub visibility" />
@@ -577,12 +575,13 @@
     <MESSAGE value="Make menu work" />
     <MESSAGE value="Add Changelogs" />
     <MESSAGE value="Changelog GUI" />
-    <MESSAGE value="Fix NPE" />
     <MESSAGE value="Fix flipped if statement" />
     <MESSAGE value="Add v to version" />
     <MESSAGE value="Add changelog listing" />
     <MESSAGE value="Check for changelogs when checking for poll" />
     <MESSAGE value="Add missing break" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add missing break" />
+    <MESSAGE value="Fix polls" />
+    <MESSAGE value="Fix NPE" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix NPE" />
   </component>
 </project>

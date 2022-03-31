@@ -84,7 +84,7 @@ public class TheMonke extends GUI {
         }
 
         if (LobbyAPI.getPoll() == null || LobbyDatabaseManager.hasVoted(LobbyAPI.getPoll().getId(), player.getId())) {
-            this.setItem(3, 3, new GUIItem(Material.BOOK, "&3&lCommunity Poll", 1, ";&rCommunity Polls are a way for;&rour Community Management team to;&rget feedback on the network!;;&cThere is currently no poll in progress!"));
+            this.setItem(3, 3, new GUIItem(Material.BOOK, "&3&lCommunity Poll", 1, ";&rCommunity Polls are a way for;&rour Community Management team to;&rget feedback on the network!;;" + ((LobbyAPI.getPoll() == null)?"&cThere is currently no poll in progress!":"&cYou've already voted in the active poll!")));
         } else {
             this.setItem(3, 3, new GUIItem(Material.BOOK, "&3&lCommunity Poll", 1, ";&rCurrent Poll:;&b" + LobbyAPI.getPoll().getQuestion() + ";;&aClick to answer!"));
         }
