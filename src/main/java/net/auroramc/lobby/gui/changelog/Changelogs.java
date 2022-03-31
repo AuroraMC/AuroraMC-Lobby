@@ -8,8 +8,10 @@ import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.core.api.players.AuroraMCPlayer;
 import net.auroramc.core.api.utils.gui.GUI;
 import net.auroramc.core.api.utils.gui.GUIItem;
+import net.auroramc.core.gui.stats.achievements.game.GameAchievementListing;
 import net.auroramc.lobby.api.LobbyAPI;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
 
@@ -18,13 +20,14 @@ import java.util.Date;
 
 public class Changelogs extends GUI {
 
-    private AuroraMCPlayer player;
+    private final AuroraMCPlayer player;
 
     public Changelogs(AuroraMCPlayer player) {
         super("&3&lChangelogs", 5, true);
 
         SimpleDateFormat format = new SimpleDateFormat("dd MMMMMMMMM yyyy");
         this.border("&3&lChangelogs", null);
+        this.player = player;
 
         this.setItem(1, 4, new GUIItem(Material.EXP_BOTTLE, "&b&lMiscellaneous Changelogs", 1, ";&rLast Update: **" + ((LobbyAPI.getLatestChangelog("MISC") != null)?format.format(new Date(LobbyAPI.getLatestChangelog("MISC").getTimestamp())):"None") + "**;;&aClick to view more changelogs!"));
 
@@ -40,6 +43,66 @@ public class Changelogs extends GUI {
 
     @Override
     public void onClick(int row, int column, ItemStack item, ClickType clickType) {
-
+        switch (item.getType()) {
+            case NETHER_STAR: {
+                AuroraMCAPI.closeGUI(player);
+                ChangelogListing stats = new ChangelogListing(player, "CRYSTAL_QUEST", "Crystal Quest", item);
+                stats.open(player);
+                AuroraMCAPI.openGUI(player, stats);
+                break;
+            }
+            case IRON_SWORD: {
+                AuroraMCAPI.closeGUI(player);
+                ChangelogListing stats = new ChangelogListing(player, "BACKSTAB", "Backstab", item);
+                stats.open(player);
+                AuroraMCAPI.openGUI(player, stats);
+                break;
+            }
+            case SNOW_BALL: {
+                AuroraMCAPI.closeGUI(player);
+                ChangelogListing stats = new ChangelogListing(player, "PAINTBALL", "Paintball", item);
+                stats.open(player);
+                AuroraMCAPI.openGUI(player, stats);
+                break;
+            }
+            case IRON_SPADE: {
+                AuroraMCAPI.closeGUI(player);
+                ChangelogListing stats = new ChangelogListing(player, "SPLEEF", "Spleef", item);
+                stats.open(player);
+                AuroraMCAPI.openGUI(player, stats);
+                break;
+            }
+            case BAKED_POTATO: {
+                AuroraMCAPI.closeGUI(player);
+                ChangelogListing stats = new ChangelogListing(player, "HOTPOTATO", "HotPotato", item);
+                stats.open(player);
+                AuroraMCAPI.openGUI(player, stats);
+                break;
+            }
+            case IRON_AXE: {
+                AuroraMCAPI.closeGUI(player);
+                ChangelogListing stats = new ChangelogListing(player, "FFA", "FFA", item);
+                stats.open(player);
+                AuroraMCAPI.openGUI(player, stats);
+                break;
+            }
+            case COBBLE_WALL: {
+                AuroraMCAPI.closeGUI(player);
+                ChangelogListing stats = new ChangelogListing(player, "HOLE_IN_THE_WALL", "Hole In The Wall", item);
+                stats.open(player);
+                AuroraMCAPI.openGUI(player, stats);
+                break;
+            }
+            case NOTE_BLOCK: {
+                AuroraMCAPI.closeGUI(player);
+                ChangelogListing stats = new ChangelogListing(player, "BLOCK_PARTY", "Block Party", item);
+                stats.open(player);
+                AuroraMCAPI.openGUI(player, stats);
+                break;
+            }
+            default: {
+                player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ITEM_BREAK, 100, 0);
+            }
+        }
     }
 }

@@ -138,7 +138,7 @@ public class TheMonke extends GUI {
             }
             case SKULL_ITEM: {
                 player.getPlayer().closeInventory();
-                TextComponent component = new TextComponent("Click here to join the AuroraMC Discord!\n");
+                TextComponent component = new TextComponent("Click here to join the AuroraMC Discord!");
                 component.setColor(ChatColor.GREEN);
                 component.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://discord.auroramc.net/"));
                 ComponentBuilder componentHover = new ComponentBuilder(AuroraMCAPI.getFormatter().convert("&3&lAuroraMC Discord\n"
