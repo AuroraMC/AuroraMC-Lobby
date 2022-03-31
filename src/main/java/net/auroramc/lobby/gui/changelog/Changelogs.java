@@ -44,6 +44,13 @@ public class Changelogs extends GUI {
     @Override
     public void onClick(int row, int column, ItemStack item, ClickType clickType) {
         switch (item.getType()) {
+            case EXP_BOTTLE: {
+                AuroraMCAPI.closeGUI(player);
+                ChangelogListing stats = new ChangelogListing(player, "MISC", "Miscellaneous", item);
+                stats.open(player);
+                AuroraMCAPI.openGUI(player, stats);
+                break;
+            }
             case NETHER_STAR: {
                 AuroraMCAPI.closeGUI(player);
                 ChangelogListing stats = new ChangelogListing(player, "CRYSTAL_QUEST", "Crystal Quest", item);

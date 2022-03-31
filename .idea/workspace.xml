@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix NPE" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Change message when already voted" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -194,14 +194,7 @@
       <workItem from="1648731159401" duration="30000" />
       <workItem from="1648731335061" duration="74000" />
       <workItem from="1648732275037" duration="350000" />
-      <workItem from="1648734031061" duration="363000" />
-    </task>
-    <task id="LOCAL-00025" summary="Change names of states">
-      <created>1648504469419</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1648504469419</updated>
+      <workItem from="1648734031061" duration="649000" />
     </task>
     <task id="LOCAL-00026" summary="Fix not sending plugin message">
       <created>1648505145471</created>
@@ -539,7 +532,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648734232994</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="Change message when already voted">
+      <created>1648734679905</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1648734679905</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,7 +557,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Give plus access to lobby flight" />
     <MESSAGE value="Toggle fly command" />
     <MESSAGE value="Implement hub visibility" />
     <MESSAGE value="Fix async issue" />
@@ -582,6 +581,7 @@
     <MESSAGE value="Add missing break" />
     <MESSAGE value="Fix polls" />
     <MESSAGE value="Fix NPE" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix NPE" />
+    <MESSAGE value="Change message when already voted" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change message when already voted" />
   </component>
 </project>
