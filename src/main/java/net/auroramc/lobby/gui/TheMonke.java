@@ -53,11 +53,12 @@ public class TheMonke extends GUI {
         }
     }
 
-    private AuroraMCLobbyPlayer player;
+    private final AuroraMCLobbyPlayer player;
 
     public TheMonke(AuroraMCLobbyPlayer player) {
         super("&3&lThe Monke", 5, true);
         this.border("&3&lThe Monke", null);
+        this.player = player;
 
         this.setItem(0, 4, new GUIItem(Material.EMPTY_MAP, "&3&lChangelogs", 1, ";&rLatest Update:;&b" + ((LobbyAPI.getLatestChangelog() != null)?LobbyAPI.getLatestChangelog().getUpdateTitle():"None") + ";;&aClick to view more changelogs!"));
 
