@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Change message when already voted" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix misc changelogs not working">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/players/AuroraMCLobbyPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/players/AuroraMCLobbyPlayer.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -194,14 +197,13 @@
       <workItem from="1648731159401" duration="30000" />
       <workItem from="1648731335061" duration="74000" />
       <workItem from="1648732275037" duration="350000" />
-      <workItem from="1648734031061" duration="649000" />
-    </task>
-    <task id="LOCAL-00026" summary="Fix not sending plugin message">
-      <created>1648505145471</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1648505145471</updated>
+      <workItem from="1648734031061" duration="1640000" />
+      <workItem from="1648743133653" duration="499000" />
+      <workItem from="1648748431970" duration="22000" />
+      <workItem from="1648748494278" duration="6000" />
+      <workItem from="1648748511568" duration="11000" />
+      <workItem from="1648750140212" duration="6000" />
+      <workItem from="1648750158924" duration="1140000" />
     </task>
     <task id="LOCAL-00027" summary="Fix wrong plugin channel">
       <created>1648505334761</created>
@@ -539,7 +541,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648734679905</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="Fix misc changelogs not working">
+      <created>1648734764045</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1648734764045</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,7 +566,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Toggle fly command" />
     <MESSAGE value="Implement hub visibility" />
     <MESSAGE value="Fix async issue" />
     <MESSAGE value="Fix hiding players on join" />
@@ -582,6 +590,7 @@
     <MESSAGE value="Fix polls" />
     <MESSAGE value="Fix NPE" />
     <MESSAGE value="Change message when already voted" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change message when already voted" />
+    <MESSAGE value="Fix misc changelogs not working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix misc changelogs not working" />
   </component>
 </project>

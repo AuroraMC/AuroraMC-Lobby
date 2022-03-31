@@ -26,6 +26,158 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
         super(oldPlayer);
         this.joinTimestamp = System.currentTimeMillis();
 
+        if (System.currentTimeMillis() - oldPlayer.getStats().getFirstJoinTimestamp() > 31536000000L) {
+            if (getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(50))) {
+                getStats().achievementGained(AuroraMCAPI.getAchievement(50), 1, true);
+            }
+        }
+
+        if (oldPlayer.hasPermission("elite")) {
+            if (getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(2))) {
+                getStats().achievementGained(AuroraMCAPI.getAchievement(2), 1, true);
+            }
+        }
+
+        if (oldPlayer.hasPermission("master")) {
+            if (getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(3))) {
+                getStats().achievementGained(AuroraMCAPI.getAchievement(3), 1, true);
+            }
+        }
+
+        if (oldPlayer.hasPermission("plus")) {
+            if (getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(4))) {
+                getStats().achievementGained(AuroraMCAPI.getAchievement(4), 1, true);
+            }
+        }
+
+        if (oldPlayer.getLinkedDiscord() != null) {
+            if (getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(15))) {
+                getStats().achievementGained(AuroraMCAPI.getAchievement(15), 1, true);
+            }
+        }
+
+        if (oldPlayer.getStats().getLobbyTimeMs() > 18000000) {
+            if (getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(11))) {
+                getStats().achievementGained(AuroraMCAPI.getAchievement(11), 1, true);
+            }
+        }
+
+        //Achievement stuff
+        for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
+            if (player.isLoaded()) {
+                if (player.hasPermission("social")) {
+                    if (!player.isDisguised() && !player.isVanished() && !player.hasPermission("admin")) {
+                        if (getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(17))) {
+                            getStats().achievementGained(AuroraMCAPI.getAchievement(17), 1, true);
+                        }
+                        break;
+                    }
+                }
+                if (player.hasPermission("moderation")) {
+                    if (!player.isVanished() && !player.isDisguised()) {
+                        if (getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(24))) {
+                            getStats().achievementGained(AuroraMCAPI.getAchievement(24), 1, true);
+                        }
+                        break;
+                    }
+                }
+                if (player.hasPermission("build")) {
+                    if (!player.isVanished() && !player.isDisguised()) {
+                        if (getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(25))) {
+                            getStats().achievementGained(AuroraMCAPI.getAchievement(25), 1, true);
+                        }
+                        break;
+                    }
+                }
+                if (player.hasPermission("admin")) {
+                    if (!player.isVanished() && !player.isDisguised()) {
+                        if (getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(26))) {
+                            getStats().achievementGained(AuroraMCAPI.getAchievement(26), 1, true);
+                        }
+                        break;
+                    }
+                }
+
+
+                //To give it to other people
+                if (oldPlayer.hasPermission("social")) {
+                    if (!oldPlayer.isDisguised() && !oldPlayer.isVanished() && !oldPlayer.hasPermission("admin")) {
+                        if (player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(17))) {
+                            player.getStats().achievementGained(AuroraMCAPI.getAchievement(17), 1, true);
+                        }
+                        break;
+                    }
+                }
+                if (oldPlayer.hasPermission("moderation")) {
+                    if (!oldPlayer.isVanished() && !oldPlayer.isDisguised()) {
+                        if (player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(24))) {
+                            player.getStats().achievementGained(AuroraMCAPI.getAchievement(24), 1, true);
+                        }
+                        break;
+                    }
+                }
+                if (oldPlayer.hasPermission("build")) {
+                    if (!oldPlayer.isVanished() && !oldPlayer.isDisguised()) {
+                        if (player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(25))) {
+                            player.getStats().achievementGained(AuroraMCAPI.getAchievement(25), 1, true);
+                        }
+                        break;
+                    }
+                }
+                if (oldPlayer.hasPermission("admin")) {
+                    if (!oldPlayer.isVanished() && !oldPlayer.isDisguised()) {
+                        if (player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(26))) {
+                            player.getStats().achievementGained(AuroraMCAPI.getAchievement(26), 1, true);
+                        }
+                        break;
+                    }
+                }
+                if (!player.isDisguised() && !player.isVanished()) {
+                    if (oldPlayer.getFriendsList().getFriends().containsKey(player.getPlayer().getUniqueId())) {
+                        if (player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(34))) {
+                            player.getStats().achievementGained(AuroraMCAPI.getAchievement(34), 1, true);
+                        }
+                    }
+                }
+            }
+        }
+
+        if (oldPlayer.getStats().getLobbyTimeMs() + oldPlayer.getStats().getGameTimeMs() > 3600000) {
+            if (oldPlayer.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(43))) {
+                oldPlayer.getStats().achievementGained(AuroraMCAPI.getAchievement(43), 1, true);
+            }
+        }
+        if (oldPlayer.getStats().getLobbyTimeMs() + oldPlayer.getStats().getGameTimeMs() > 18000000) {
+            if (oldPlayer.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(44))) {
+                oldPlayer.getStats().achievementGained(AuroraMCAPI.getAchievement(44), 1, true);
+            }
+        }
+        if (oldPlayer.getStats().getLobbyTimeMs() + oldPlayer.getStats().getGameTimeMs() > 36000000) {
+            if (oldPlayer.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(45))) {
+                oldPlayer.getStats().achievementGained(AuroraMCAPI.getAchievement(45), 1, true);
+            }
+        }
+        if (oldPlayer.getStats().getLobbyTimeMs() + oldPlayer.getStats().getGameTimeMs() > 86400000) {
+            if (oldPlayer.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(46))) {
+                oldPlayer.getStats().achievementGained(AuroraMCAPI.getAchievement(46), 1, true);
+            }
+        }
+        if (oldPlayer.getStats().getLobbyTimeMs() + oldPlayer.getStats().getGameTimeMs() > 172800000) {
+            if (oldPlayer.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(47))) {
+                oldPlayer.getStats().achievementGained(AuroraMCAPI.getAchievement(47), 1, true);
+            }
+        }
+        if (oldPlayer.getStats().getLobbyTimeMs() + oldPlayer.getStats().getGameTimeMs() > 604800000) {
+            if (oldPlayer.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(48))) {
+                oldPlayer.getStats().achievementGained(AuroraMCAPI.getAchievement(48), 1, true);
+            }
+        }
+        if (oldPlayer.getStats().getLobbyTimeMs() + oldPlayer.getStats().getGameTimeMs() > 1209600000) {
+            if (oldPlayer.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(49))) {
+                oldPlayer.getStats().achievementGained(AuroraMCAPI.getAchievement(49), 1, true);
+            }
+        }
+
         lastDailyBonus = LobbyDatabaseManager.getLastDailyBonus(this.getId());
         dailyBonusClaimed = LobbyDatabaseManager.getLastDailyBonusTotal(this.getId());
         lastMonthlyBonus = LobbyDatabaseManager.getLastMonthlyBonus(this.getId());
