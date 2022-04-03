@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix 2 bugs" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix changelog listing">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/players/AuroraMCLobbyPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/players/AuroraMCLobbyPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -205,14 +210,8 @@
       <workItem from="1648987591437" duration="274000" />
       <workItem from="1648987980825" duration="376000" />
       <workItem from="1648988689128" duration="100000" />
-      <workItem from="1648988947413" duration="574000" />
-    </task>
-    <task id="LOCAL-00032" summary="Change rounding of currency in scoreboard">
-      <created>1648657349888</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1648657349888</updated>
+      <workItem from="1648988947413" duration="828000" />
+      <workItem from="1649008007667" duration="1711000" />
     </task>
     <task id="LOCAL-00033" summary="Fix issue with item names">
       <created>1648657877599</created>
@@ -550,7 +549,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648989125673</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="Fix changelog listing">
+      <created>1648989558603</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1648989558603</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -568,7 +574,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Change when fake player is spawned" />
     <MESSAGE value="Remove entity from tab" />
     <MESSAGE value="Add fake player listener" />
     <MESSAGE value="Increase delay in removing from tab" />
@@ -593,6 +598,7 @@
     <MESSAGE value="Fix monthly bonus" />
     <MESSAGE value="Fix changelogs" />
     <MESSAGE value="Fix 2 bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix 2 bugs" />
+    <MESSAGE value="Fix changelog listing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix changelog listing" />
   </component>
 </project>

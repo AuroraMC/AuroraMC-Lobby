@@ -16,12 +16,15 @@ import net.minecraft.server.v1_8_R3.*;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
+import org.bukkit.Sound;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -29,6 +32,8 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.json.JSONArray;
 
 import java.lang.reflect.Field;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class JoinListener implements Listener {
 
@@ -190,21 +195,44 @@ public class JoinListener implements Listener {
         player.getPlayer().getInventory().setItem(4, LobbyAPI.getCosmeticsItem().getItem());
         player.getPlayer().getInventory().setItem(0, LobbyAPI.getGamesItem().getItem());
         player.getPlayer().getInventory().setItem(1, LobbyAPI.getStatsItem(player.getName()).getItem());
-        new BukkitRunnable(){
-            @Override
-            public void run() {
-                PlayerConnection con = ((CraftPlayer) e.getPlayer().getPlayer()).getHandle().playerConnection;
-                con.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER, LobbyAPI.getMonkeyEntity()));
-                con.sendPacket(new PacketPlayOutNamedEntitySpawn(LobbyAPI.getMonkeyEntity()));
-                con.sendPacket(new PacketPlayOutEntityHeadRotation(LobbyAPI.getMonkeyEntity(), (byte) LobbyAPI.getMonkeyEntity().yaw));
+    }
+
+    @EventHandler
+    public void onMove(PlayerMoveEvent e) {
+        AuroraMCLobbyPlayer lobbyPlayer = (AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer(e.getPlayer());
+        if (lobbyPlayer != null) {
+            if (!lobbyPlayer.hasMoved()) {
+                lobbyPlayer.moved();
                 new BukkitRunnable(){
                     @Override
                     public void run() {
-                        con.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.REMOVE_PLAYER, LobbyAPI.getMonkeyEntity()));
+                        PlayerConnection con = ((CraftPlayer) e.getPlayer().getPlayer()).getHandle().playerConnection;
+                        con.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER, LobbyAPI.getMonkeyEntity()));
+                        con.sendPacket(new PacketPlayOutNamedEntitySpawn(LobbyAPI.getMonkeyEntity()));
+                        con.sendPacket(new PacketPlayOutEntityHeadRotation(LobbyAPI.getMonkeyEntity(), (byte) LobbyAPI.getMonkeyEntity().yaw));
+                        new BukkitRunnable(){
+                            @Override
+                            public void run() {
+                                con.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.REMOVE_PLAYER, LobbyAPI.getMonkeyEntity()));
+                            }
+                        }.runTaskLater(AuroraMCAPI.getCore(), 80);
                     }
-                }.runTaskLater(AuroraMCAPI.getCore(), 80);
+                }.runTask(AuroraMCAPI.getCore());
+            } else {
+                List<Entity> players = e.getPlayer().getNearbyEntities(7, 7, 7).stream().filter(entity -> entity instanceof Player).collect(Collectors.toList());
+                for (Entity entity : players) {
+                    AuroraMCLobbyPlayer moved = (AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer(e.getPlayer());
+                    AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer((Player) entity);
+                    if (player.getPreferences().isHubForcefieldEnabled() && !moved.getPreferences().isIgnoreHubKnockbackEnabled()) {
+                        e.getPlayer().setVelocity(e.getPlayer().getLocation().toVector().subtract(player.getPlayer().getLocation().toVector()).multiply(2));
+                        e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.CHICKEN_EGG_POP, 1, 100);
+                    } else if (moved.getPreferences().isHubForcefieldEnabled() && !player.getPreferences().isIgnoreHubKnockbackEnabled()) {
+                        player.getPlayer().setVelocity(player.getPlayer().getLocation().toVector().subtract(e.getPlayer().getPlayer().getLocation().toVector()).multiply(2));
+                        player.getPlayer().playSound(e.getPlayer().getLocation(), Sound.CHICKEN_EGG_POP, 1, 100);
+                    }
+                }
             }
-        }.runTask(AuroraMCAPI.getCore());
+        }
     }
 
     private static void updateHeaderFooter(CraftPlayer player2) {
@@ -226,5 +254,6 @@ public class JoinListener implements Listener {
             ex.printStackTrace();
         }
     }
+
 
 }

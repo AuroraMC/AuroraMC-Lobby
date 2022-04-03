@@ -7,6 +7,8 @@ package net.auroramc.lobby.api.players;
 import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.core.api.players.AuroraMCPlayer;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -21,10 +23,12 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
     private int dailyBonusClaimed;
     private long lastMonthlyBonus;
     private long lastPlusBonus;
+    private boolean moved;
 
     public AuroraMCLobbyPlayer(AuroraMCPlayer oldPlayer) {
         super(oldPlayer);
         this.joinTimestamp = System.currentTimeMillis();
+        moved = false;
 
         if (System.currentTimeMillis() - oldPlayer.getStats().getFirstJoinTimestamp() > 31536000000L) {
             if (getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(50))) {
@@ -182,6 +186,12 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
         dailyBonusClaimed = LobbyDatabaseManager.getLastDailyBonusTotal(this.getId());
         lastMonthlyBonus = LobbyDatabaseManager.getLastMonthlyBonus(this.getId());
         lastPlusBonus = LobbyDatabaseManager.getLastPlusBonus(this.getId());
+
+        if (getPreferences().isHubSpeedEnabled()) {
+            getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 10000000, 1, true, false));
+        } else {
+            getPlayer().removePotionEffect(PotionEffectType.SPEED);
+        }
     }
 
     public long getJoinTimestamp() {
@@ -275,5 +285,13 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
             return true;
         }
         return lastPlusBonus / 2592000000L < System.currentTimeMillis() / 2592000000L;
+    }
+
+    public boolean hasMoved() {
+        return moved;
+    }
+
+    public void moved() {
+        this.moved = true;
     }
 }

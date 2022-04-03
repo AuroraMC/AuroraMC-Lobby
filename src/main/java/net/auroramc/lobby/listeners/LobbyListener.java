@@ -31,6 +31,8 @@ import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.inventory.PlayerInventory;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
 import org.json.JSONArray;
 
@@ -225,6 +227,11 @@ public class LobbyListener implements Listener {
                     e.getPlayer().getPlayer().hidePlayer(player.getPlayer());
                 }
             }
+        }
+        if (e.getPlayer().getPreferences().isHubSpeedEnabled()) {
+            e.getPlayer().getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 10000000, 1, true, false));
+        } else {
+            e.getPlayer().getPlayer().removePotionEffect(PotionEffectType.SPEED);
         }
     }
 }
