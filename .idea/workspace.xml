@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix NPE timing issue">
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" afterDir="false" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add last lobby achievement">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,13 +203,8 @@
       <workItem from="1648748511568" duration="11000" />
       <workItem from="1648750140212" duration="6000" />
       <workItem from="1648750158924" duration="1140000" />
-    </task>
-    <task id="LOCAL-00027" summary="Fix wrong plugin channel">
-      <created>1648505334761</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1648505334761</updated>
+      <workItem from="1648830219023" duration="74000" />
+      <workItem from="1648987591437" duration="274000" />
     </task>
     <task id="LOCAL-00028" summary="Fix syntax">
       <created>1648652885368</created>
@@ -547,7 +542,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648734764045</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="Add last lobby achievement">
+      <created>1648830282985</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1648830282985</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -565,7 +567,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implement hub visibility" />
     <MESSAGE value="Fix async issue" />
     <MESSAGE value="Fix hiding players on join" />
     <MESSAGE value="Fix issue with /fly" />
@@ -590,6 +591,7 @@
     <MESSAGE value="Fix NPE" />
     <MESSAGE value="Change message when already voted" />
     <MESSAGE value="Fix misc changelogs not working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix misc changelogs not working" />
+    <MESSAGE value="Add last lobby achievement" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add last lobby achievement" />
   </component>
 </project>

@@ -254,7 +254,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
         last.setTimeInMillis(lastDailyBonus);
         today.setTime(new Date());
 
-        return last.get(Calendar.YEAR) > today.get(Calendar.YEAR) || (last.get(Calendar.YEAR) == today.get(Calendar.YEAR) && (last.get(Calendar.MONTH) > today.get(Calendar.MONTH) || (last.get(Calendar.MONTH) == today.get(Calendar.MONTH) && last.get(Calendar.DAY_OF_MONTH) > today.get(Calendar.DAY_OF_MONTH))));
+        return last.get(Calendar.DATE) != today.get(Calendar.DATE);
     }
 
     public boolean canClaimMonthly() {
