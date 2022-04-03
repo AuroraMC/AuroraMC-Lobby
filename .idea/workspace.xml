@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix changelogs" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix 2 bugs" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -205,13 +205,7 @@
       <workItem from="1648987591437" duration="274000" />
       <workItem from="1648987980825" duration="376000" />
       <workItem from="1648988689128" duration="100000" />
-    </task>
-    <task id="LOCAL-00031" summary="Fix lobby switcher">
-      <created>1648656789323</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1648656789323</updated>
+      <workItem from="1648988947413" duration="574000" />
     </task>
     <task id="LOCAL-00032" summary="Change rounding of currency in scoreboard">
       <created>1648657349888</created>
@@ -549,7 +543,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648988751419</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="Fix 2 bugs">
+      <created>1648989125673</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1648989125673</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -567,7 +568,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fake entity should spawn" />
     <MESSAGE value="Change when fake player is spawned" />
     <MESSAGE value="Remove entity from tab" />
     <MESSAGE value="Add fake player listener" />
@@ -592,6 +592,7 @@
     <MESSAGE value="Fix for lobby" />
     <MESSAGE value="Fix monthly bonus" />
     <MESSAGE value="Fix changelogs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix changelogs" />
+    <MESSAGE value="Fix 2 bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix 2 bugs" />
   </component>
 </project>
