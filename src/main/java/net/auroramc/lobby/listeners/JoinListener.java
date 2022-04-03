@@ -122,12 +122,12 @@ public class JoinListener implements Listener {
                 if (player.isDisguised()) {
                     if (player.getActiveDisguise().getRank().hasPermission(Permission.MASTER.getId())) {
                         for (AuroraMCPlayer player1 : AuroraMCAPI.getPlayers()) {
-                            player1.getPlayer().sendMessage(AuroraMCAPI.getFormatter().convert("&" + player.getActiveDisguise().getRank().getPrefixColor() + "&l" + player.getActiveDisguise().getRank().getName() + " " + player.getActiveDisguise().getName() + " has joined the lobby!"));
+                            player1.getPlayer().sendMessage(AuroraMCAPI.getFormatter().convert("&" + player.getActiveDisguise().getRank().getPrefixColor() + "&l" + player.getActiveDisguise().getRank().getPrefixAppearance() + " " + player.getActiveDisguise().getName() + " has joined the lobby!"));
                         }
                     }
                 } else {
                     for (AuroraMCPlayer player1 : AuroraMCAPI.getPlayers()) {
-                        player1.getPlayer().sendMessage(AuroraMCAPI.getFormatter().convert("&" + player.getRank().getPrefixColor() + "&l" + player.getRank().getName() + " " + player.getPlayer().getName() + " has joined the lobby!"));
+                        player1.getPlayer().sendMessage(AuroraMCAPI.getFormatter().convert("&" + player.getRank().getPrefixColor() + "&l" + player.getRank().getPrefixAppearance() + " " + player.getPlayer().getName() + " has joined the lobby!"));
                     }
                 }
             }
