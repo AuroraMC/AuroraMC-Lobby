@@ -233,5 +233,13 @@ public class LobbyListener implements Listener {
         } else {
             e.getPlayer().getPlayer().removePotionEffect(PotionEffectType.SPEED);
         }
+
+        if (!e.getPlayer().getPreferences().isHubForcefieldEnabled() && ((AuroraMCLobbyPlayer)e.getPlayer()).getRunnable() != null) {
+            ((AuroraMCLobbyPlayer) e.getPlayer()).activateForcefield();
+        } else if (e.getPlayer().getPreferences().isHubForcefieldEnabled() && ((AuroraMCLobbyPlayer)e.getPlayer()).getRunnable() == null) {
+            ((AuroraMCLobbyPlayer) e.getPlayer()).deactivateForcefield();
+        }
+
+
     }
 }

@@ -218,19 +218,6 @@ public class JoinListener implements Listener {
                         }.runTaskLater(AuroraMCAPI.getCore(), 80);
                     }
                 }.runTask(AuroraMCAPI.getCore());
-            } else {
-                List<Entity> players = e.getPlayer().getNearbyEntities(7, 7, 7).stream().filter(entity -> entity instanceof Player).collect(Collectors.toList());
-                for (Entity entity : players) {
-                    AuroraMCLobbyPlayer moved = (AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer(e.getPlayer());
-                    AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer((Player) entity);
-                    if (player.getPreferences().isHubForcefieldEnabled() && !moved.getPreferences().isIgnoreHubKnockbackEnabled()) {
-                        e.getPlayer().setVelocity(e.getPlayer().getLocation().toVector().subtract(player.getPlayer().getLocation().toVector()).multiply(2));
-                        e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.CHICKEN_EGG_POP, 1, 100);
-                    } else if (moved.getPreferences().isHubForcefieldEnabled() && !player.getPreferences().isIgnoreHubKnockbackEnabled()) {
-                        player.getPlayer().setVelocity(player.getPlayer().getLocation().toVector().subtract(e.getPlayer().getPlayer().getLocation().toVector()).multiply(2));
-                        player.getPlayer().playSound(e.getPlayer().getLocation(), Sound.CHICKEN_EGG_POP, 1, 100);
-                    }
-                }
             }
         }
     }

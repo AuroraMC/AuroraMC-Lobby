@@ -6,9 +6,12 @@ package net.auroramc.lobby.api.players;
 
 import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.core.api.players.AuroraMCPlayer;
+import net.auroramc.lobby.AuroraMCLobby;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
+import net.auroramc.lobby.api.util.CheckForcefieldRunnable;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -25,10 +28,19 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
     private long lastPlusBonus;
     private boolean moved;
 
+    private CheckForcefieldRunnable runnable;
+
     public AuroraMCLobbyPlayer(AuroraMCPlayer oldPlayer) {
         super(oldPlayer);
         this.joinTimestamp = System.currentTimeMillis();
         moved = false;
+
+        if (oldPlayer.getPreferences().isHubForcefieldEnabled()) {
+            this.runnable = new CheckForcefieldRunnable(this);
+            this.runnable.runTaskTimer(AuroraMCAPI.getCore(), 20, 20);
+        } else {
+            this.runnable = null;
+        }
 
         if (System.currentTimeMillis() - oldPlayer.getStats().getFirstJoinTimestamp() > 31536000000L) {
             if (getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(50))) {
@@ -187,11 +199,16 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
         lastMonthlyBonus = LobbyDatabaseManager.getLastMonthlyBonus(this.getId());
         lastPlusBonus = LobbyDatabaseManager.getLastPlusBonus(this.getId());
 
-        if (getPreferences().isHubSpeedEnabled()) {
-            getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 10000000, 1, true, false));
-        } else {
-            getPlayer().removePotionEffect(PotionEffectType.SPEED);
-        }
+        new BukkitRunnable(){
+            @Override
+            public void run() {
+                if (getPreferences().isHubSpeedEnabled()) {
+                    getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 10000000, 1, true, false));
+                } else {
+                    getPlayer().removePotionEffect(PotionEffectType.SPEED);
+                }
+            }
+        }.runTask(AuroraMCAPI.getCore());
     }
 
     public long getJoinTimestamp() {
@@ -222,6 +239,25 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
         this.getStats().addXp(100, true);
         LobbyDatabaseManager.setLastDailyBonus(this.getId(), lastDailyBonus);
         LobbyDatabaseManager.setLastDailyBonusTotal(this.getId(), dailyBonusClaimed);
+    }
+
+    public CheckForcefieldRunnable getRunnable() {
+        return runnable;
+    }
+
+    public void activateForcefield() {
+        if (this.runnable != null) {
+            return;
+        }
+        this.runnable = new CheckForcefieldRunnable(this);
+        this.runnable.runTaskTimer(AuroraMCAPI.getCore(), 20, 20);
+    }
+
+    public void deactivateForcefield() {
+        if (this.runnable != null) {
+            this.runnable.cancel();
+            this.runnable = null;
+        }
     }
 
     public void claimMonthly() {
