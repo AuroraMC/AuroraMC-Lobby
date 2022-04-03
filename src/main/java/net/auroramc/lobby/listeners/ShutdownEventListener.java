@@ -21,6 +21,7 @@ public class ShutdownEventListener implements Listener {
     @EventHandler
     public void onShutdown(ServerCloseRequestEvent e) {
         for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
+            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Server Manager", "This lobby is being restarted for an update. You are being sent to another lobby."));
             ByteArrayDataOutput out = ByteStreams.newDataOutput();
             out.writeUTF("Lobby");
             out.writeUTF(player.getPlayer().getUniqueId().toString());
