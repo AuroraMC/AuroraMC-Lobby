@@ -209,7 +209,7 @@ public class JoinListener implements Listener {
                         PlayerConnection con = ((CraftPlayer) e.getPlayer().getPlayer()).getHandle().playerConnection;
                         con.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER, LobbyAPI.getMonkeyEntity()));
                         con.sendPacket(new PacketPlayOutNamedEntitySpawn(LobbyAPI.getMonkeyEntity()));
-                        con.sendPacket(new PacketPlayOutEntityHeadRotation(LobbyAPI.getMonkeyEntity(), (byte) LobbyAPI.getMonkeyEntity().yaw));
+                        con.sendPacket(new PacketPlayOutEntityHeadRotation(LobbyAPI.getMonkeyEntity(), (byte) -145));
                         new BukkitRunnable(){
                             @Override
                             public void run() {
