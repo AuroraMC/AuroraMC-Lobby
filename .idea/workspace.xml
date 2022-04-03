@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add message when restarting" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fixed more achievements" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -207,13 +207,7 @@
       <workItem from="1648988689128" duration="100000" />
       <workItem from="1648988947413" duration="828000" />
       <workItem from="1649008007667" duration="2759000" />
-    </task>
-    <task id="LOCAL-00036" summary="Fix issue with scoreboard">
-      <created>1648659470802</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1648659470802</updated>
+      <workItem from="1649011461897" duration="212000" />
     </task>
     <task id="LOCAL-00037" summary="Fix explosion">
       <created>1648659705568</created>
@@ -551,7 +545,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649010634942</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="Fixed more achievements">
+      <created>1649011646260</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1649011646261</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -569,7 +570,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add monke cooldown" />
     <MESSAGE value="Make Monke GUI" />
     <MESSAGE value="FIx position of monthly bonus" />
     <MESSAGE value="Make map empty" />
@@ -594,6 +594,7 @@
     <MESSAGE value="Add hub forcefield" />
     <MESSAGE value="Fix forcefield" />
     <MESSAGE value="Add message when restarting" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add message when restarting" />
+    <MESSAGE value="Fixed more achievements" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed more achievements" />
   </component>
 </project>
