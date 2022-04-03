@@ -37,7 +37,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
 
         if (oldPlayer.getPreferences().isHubForcefieldEnabled()) {
             this.runnable = new CheckForcefieldRunnable(this);
-            this.runnable.runTaskTimer(AuroraMCAPI.getCore(), 20, 20);
+            this.runnable.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
         } else {
             this.runnable = null;
         }
@@ -250,7 +250,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
             return;
         }
         this.runnable = new CheckForcefieldRunnable(this);
-        this.runnable.runTaskTimer(AuroraMCAPI.getCore(), 20, 20);
+        this.runnable.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
     }
 
     public void deactivateForcefield() {

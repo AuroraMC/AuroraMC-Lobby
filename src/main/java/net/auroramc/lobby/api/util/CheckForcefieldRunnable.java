@@ -24,15 +24,15 @@ public class CheckForcefieldRunnable extends BukkitRunnable {
 
     @Override
     public void run() {
-        List<Entity> players = player.getPlayer().getNearbyEntities(7, 7, 7).stream().filter(entity -> entity instanceof Player).collect(Collectors.toList());
+        List<Entity> players = player.getPlayer().getNearbyEntities(5, 5, 5).stream().filter(entity -> entity instanceof Player).collect(Collectors.toList());
         for (Entity entity : players) {
             AuroraMCLobbyPlayer moved = (AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer(player.getPlayer());
             AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer((Player) entity);
             if (player.getPreferences().isHubForcefieldEnabled() && !moved.getPreferences().isIgnoreHubKnockbackEnabled()) {
-                this.player.getPlayer().setVelocity(this.player.getPlayer().getLocation().toVector().subtract(player.getPlayer().getLocation().toVector()).setY(2).normalize().multiply(2));
+                this.player.getPlayer().setVelocity(this.player.getPlayer().getLocation().toVector().subtract(player.getPlayer().getLocation().toVector()).setY(2).normalize().multiply(1.5));
                 this.player.getPlayer().playSound(this.player.getPlayer().getLocation(), Sound.CHICKEN_EGG_POP, 100, 1);
             } else if (moved.getPreferences().isHubForcefieldEnabled() && !player.getPreferences().isIgnoreHubKnockbackEnabled()) {
-                player.getPlayer().setVelocity(player.getPlayer().getLocation().toVector().subtract(this.player.getPlayer().getPlayer().getLocation().toVector()).setY(2).normalize().multiply(2));
+                player.getPlayer().setVelocity(player.getPlayer().getLocation().toVector().subtract(this.player.getPlayer().getPlayer().getLocation().toVector()).setY(2).normalize().multiply(1.5));
                 player.getPlayer().playSound(this.player.getPlayer().getLocation(), Sound.CHICKEN_EGG_POP, 100, 1);
             }
         }
