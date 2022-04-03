@@ -29,7 +29,7 @@ public class Changelogs extends GUI {
         this.border("&3&lChangelogs", null);
         this.player = player;
 
-        this.setItem(1, 5, new GUIItem(Material.BEACON, "&b&lLobby Changelogs", 1, ";&rLatest Version;&bv" + LobbyAPI.getVersionNumber("LOBBY") + ";;&rLast Update: **" + ((LobbyAPI.getLatestChangelog("LOBBY") != null)?format.format(new Date(LobbyAPI.getLatestChangelog("LOBBY").getTimestamp())):"None") + "**;;&aClick to view more changelogs!"));
+        this.setItem(1, 3, new GUIItem(Material.BEACON, "&b&lLobby Changelogs", 1, ";&rLatest Version;&bv" + LobbyAPI.getVersionNumber("LOBBY") + ";;&rLast Update: **" + ((LobbyAPI.getLatestChangelog("LOBBY") != null)?format.format(new Date(LobbyAPI.getLatestChangelog("LOBBY").getTimestamp())):"None") + "**;;&aClick to view more changelogs!"));
         this.setItem(1, 5, new GUIItem(Material.EXP_BOTTLE, "&b&lGeneral Changelogs", 1, ";&rLatest Version;&bv" + LobbyAPI.getVersionNumber("GENERAL") + ";;&rLast Update: **" + ((LobbyAPI.getLatestChangelog("GENERAL") != null)?format.format(new Date(LobbyAPI.getLatestChangelog("GENERAL").getTimestamp())):"None") + "**;;&aClick to view more changelogs!"));
 
         this.setItem(2, 2, new GUIItem(Material.NETHER_STAR, "&b&lCrystal Quest", 1, ";&rLatest Version;&bv" + LobbyAPI.getVersionNumber("CRYSTAL_QUEST") + ";;&rLast Update: **" + ((LobbyAPI.getLatestChangelog("CRYSTAL_QUEST") != null)?format.format(new Date(LobbyAPI.getLatestChangelog("CRYSTAL_QUEST").getTimestamp())):"None") + "**;;&aClick to view more changelogs!"));
