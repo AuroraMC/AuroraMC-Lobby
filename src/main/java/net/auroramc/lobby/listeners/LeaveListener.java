@@ -14,6 +14,7 @@ public class LeaveListener implements Listener {
     @EventHandler
     public void onLeave(PlayerLeaveEvent e) {
         AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) e.getPlayer();
+        player.deactivateForcefield();
         player.getStats().addLobbyTime(System.currentTimeMillis() - player.getJoinTimestamp(), true);
     }
 
