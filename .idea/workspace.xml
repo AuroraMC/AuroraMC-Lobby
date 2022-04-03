@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix for lobby">
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/players/AuroraMCLobbyPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/players/AuroraMCLobbyPlayer.java" afterDir="false" />
-    </list>
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix monthly bonus" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -205,14 +203,7 @@
       <workItem from="1648750158924" duration="1140000" />
       <workItem from="1648830219023" duration="74000" />
       <workItem from="1648987591437" duration="274000" />
-      <workItem from="1648987980825" duration="306000" />
-    </task>
-    <task id="LOCAL-00029" summary="Add lobby switcher, simplify scoreboard, rank-based join messages">
-      <created>1648655572543</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1648655572543</updated>
+      <workItem from="1648987980825" duration="376000" />
     </task>
     <task id="LOCAL-00030" summary="Fixed broken join message">
       <created>1648656084553</created>
@@ -550,7 +541,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648988152324</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="Fix monthly bonus">
+      <created>1648988311144</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1648988311144</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -568,7 +566,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix hiding players on join" />
     <MESSAGE value="Fix issue with /fly" />
     <MESSAGE value="Fake entity should spawn" />
     <MESSAGE value="Change when fake player is spawned" />
@@ -593,6 +590,7 @@
     <MESSAGE value="Fix misc changelogs not working" />
     <MESSAGE value="Add last lobby achievement" />
     <MESSAGE value="Fix for lobby" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix for lobby" />
+    <MESSAGE value="Fix monthly bonus" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix monthly bonus" />
   </component>
 </project>

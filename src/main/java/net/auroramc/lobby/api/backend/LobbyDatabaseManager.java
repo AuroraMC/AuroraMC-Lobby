@@ -70,7 +70,7 @@ public class LobbyDatabaseManager {
 
             while (set.next()) {
                 if (changelogs.containsKey(set.getString(2))) {
-                    changelogs.get(set.getString(1)).add(new Changelog(set.getInt(1), set.getString(2), set.getString(3), set.getLong(4), set.getString(5), set.getString(6)));
+                    changelogs.get(set.getString(2)).add(new Changelog(set.getInt(1), set.getString(2), set.getString(3), set.getLong(4), set.getString(5), set.getString(6)));
                 } else {
                     List<Changelog> logs = new ArrayList<>();
                     logs.add(new Changelog(set.getInt(1), set.getString(2), set.getString(3), set.getLong(4), set.getString(5), set.getString(6)));
