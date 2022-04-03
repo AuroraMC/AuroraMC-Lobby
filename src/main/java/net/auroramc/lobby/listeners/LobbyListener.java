@@ -228,6 +228,24 @@ public class LobbyListener implements Listener {
                 }
             }
         }
+
+        if (e.getPlayer().getPreferences().isHubInvisibilityEnabled()) {
+            for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
+                if (player.equals(e.getPlayer())) {
+                    continue;
+                }
+                if (!player.hasPermission("moderation")) {
+                    player.getPlayer().hidePlayer(e.getPlayer().getPlayer());
+                }
+            }
+        } else {
+            for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
+                if (player.equals(e.getPlayer())) {
+                    continue;
+                }
+                player.getPlayer().showPlayer(e.getPlayer().getPlayer());
+            }
+        }
         if (e.getPlayer().getPreferences().isHubSpeedEnabled()) {
             e.getPlayer().getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 10000000, 1, true, false));
         } else {

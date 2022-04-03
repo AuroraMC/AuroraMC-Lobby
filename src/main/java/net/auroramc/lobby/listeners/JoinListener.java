@@ -94,7 +94,7 @@ public class JoinListener implements Listener {
         }
         for (AuroraMCPlayer player1 : AuroraMCAPI.getPlayers()) {
             if (!player1.equals(player)) {
-                if (!player.getPreferences().isHubVisibilityEnabled()) {
+                if (!player.getPreferences().isHubVisibilityEnabled() || (player1.getPreferences().isHubInvisibilityEnabled() && !player.hasPermission("moderation"))) {
                     new BukkitRunnable(){
                         @Override
                         public void run() {
@@ -103,7 +103,7 @@ public class JoinListener implements Listener {
                     }.runTask(AuroraMCAPI.getCore());
                 }
                 if (player1.isLoaded()) {
-                    if (!player1.getPreferences().isHubVisibilityEnabled()) {
+                    if (!player1.getPreferences().isHubVisibilityEnabled() || (player.getPreferences().isHubInvisibilityEnabled() && !player1.hasPermission("moderation"))) {
                         new BukkitRunnable(){
                             @Override
                             public void run() {

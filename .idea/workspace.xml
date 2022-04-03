@@ -210,21 +210,7 @@
       <workItem from="1648988947413" duration="828000" />
       <workItem from="1649008007667" duration="2759000" />
       <workItem from="1649011461897" duration="212000" />
-      <workItem from="1649012331874" duration="1795000" />
-    </task>
-    <task id="LOCAL-00043" summary="Fix async issue">
-      <created>1648661203142</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1648661203142</updated>
-    </task>
-    <task id="LOCAL-00044" summary="Give plus access to lobby flight">
-      <created>1648661300178</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1648661300178</updated>
+      <workItem from="1649012331874" duration="2122000" />
     </task>
     <task id="LOCAL-00045" summary="Toggle fly command">
       <created>1648661586446</created>
@@ -555,7 +541,21 @@
       <option name="project" value="LOCAL" />
       <updated>1649013890001</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="Fix yaw">
+      <created>1649014154728</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1649014154728</updated>
+    </task>
+    <task id="LOCAL-00093" summary="Fix yaw">
+      <created>1649014255930</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1649014255930</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
