@@ -29,7 +29,8 @@ public class Changelogs extends GUI {
         this.border("&3&lChangelogs", null);
         this.player = player;
 
-        this.setItem(1, 4, new GUIItem(Material.EXP_BOTTLE, "&b&lMiscellaneous Changelogs", 1, ";&rLast Update: **" + ((LobbyAPI.getLatestChangelog("MISC") != null)?format.format(new Date(LobbyAPI.getLatestChangelog("MISC").getTimestamp())):"None") + "**;;&aClick to view more changelogs!"));
+        this.setItem(1, 5, new GUIItem(Material.BEACON, "&b&lLobby Changelogs", 1, ";&rLatest Version;&bv" + LobbyAPI.getVersionNumber("LOBBY") + ";;&rLast Update: **" + ((LobbyAPI.getLatestChangelog("LOBBY") != null)?format.format(new Date(LobbyAPI.getLatestChangelog("LOBBY").getTimestamp())):"None") + "**;;&aClick to view more changelogs!"));
+        this.setItem(1, 5, new GUIItem(Material.EXP_BOTTLE, "&b&lGeneral Changelogs", 1, ";&rLatest Version;&bv" + LobbyAPI.getVersionNumber("GENERAL") + ";;&rLast Update: **" + ((LobbyAPI.getLatestChangelog("GENERAL") != null)?format.format(new Date(LobbyAPI.getLatestChangelog("GENERAL").getTimestamp())):"None") + "**;;&aClick to view more changelogs!"));
 
         this.setItem(2, 2, new GUIItem(Material.NETHER_STAR, "&b&lCrystal Quest", 1, ";&rLatest Version;&bv" + LobbyAPI.getVersionNumber("CRYSTAL_QUEST") + ";;&rLast Update: **" + ((LobbyAPI.getLatestChangelog("CRYSTAL_QUEST") != null)?format.format(new Date(LobbyAPI.getLatestChangelog("CRYSTAL_QUEST").getTimestamp())):"None") + "**;;&aClick to view more changelogs!"));
         this.setItem(2, 3, new GUIItem(Material.IRON_SWORD, "&c&lBackstab", 1, ";&rLatest Version;&bv" + LobbyAPI.getVersionNumber("BACKSTAB") + ";;&rLast Update: **" + ((LobbyAPI.getLatestChangelog("BACKSTAB") != null)?format.format(new Date(LobbyAPI.getLatestChangelog("BACKSTAB").getTimestamp())):"None") + "**;;&aClick to view more changelogs!"));
@@ -46,7 +47,14 @@ public class Changelogs extends GUI {
         switch (item.getType()) {
             case EXP_BOTTLE: {
                 AuroraMCAPI.closeGUI(player);
-                ChangelogListing stats = new ChangelogListing(player, "MISC", "Miscellaneous", item);
+                ChangelogListing stats = new ChangelogListing(player, "GENERAL", "General", item);
+                stats.open(player);
+                AuroraMCAPI.openGUI(player, stats);
+                break;
+            }
+            case BEACON: {
+                AuroraMCAPI.closeGUI(player);
+                ChangelogListing stats = new ChangelogListing(player, "LOBBY", "Lobby", item);
                 stats.open(player);
                 AuroraMCAPI.openGUI(player, stats);
                 break;
