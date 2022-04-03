@@ -202,7 +202,7 @@ public class JoinListener implements Listener {
                     public void run() {
                         con.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.REMOVE_PLAYER, LobbyAPI.getMonkeyEntity()));
                     }
-                }.runTaskLater(AuroraMCAPI.getCore(), 40);
+                }.runTaskLater(AuroraMCAPI.getCore(), 80);
             }
         }.runTask(AuroraMCAPI.getCore());
     }

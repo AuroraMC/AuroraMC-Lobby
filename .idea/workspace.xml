@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix monthly bonus" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix changelogs" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -204,13 +204,7 @@
       <workItem from="1648830219023" duration="74000" />
       <workItem from="1648987591437" duration="274000" />
       <workItem from="1648987980825" duration="376000" />
-    </task>
-    <task id="LOCAL-00030" summary="Fixed broken join message">
-      <created>1648656084553</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1648656084553</updated>
+      <workItem from="1648988689128" duration="100000" />
     </task>
     <task id="LOCAL-00031" summary="Fix lobby switcher">
       <created>1648656789323</created>
@@ -548,7 +542,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648988311144</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="Fix changelogs">
+      <created>1648988751419</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1648988751419</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -566,7 +567,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix issue with /fly" />
     <MESSAGE value="Fake entity should spawn" />
     <MESSAGE value="Change when fake player is spawned" />
     <MESSAGE value="Remove entity from tab" />
@@ -591,6 +591,7 @@
     <MESSAGE value="Add last lobby achievement" />
     <MESSAGE value="Fix for lobby" />
     <MESSAGE value="Fix monthly bonus" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix monthly bonus" />
+    <MESSAGE value="Fix changelogs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix changelogs" />
   </component>
 </project>
