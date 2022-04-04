@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Change format of lobby join messages">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Impl hide server name" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -215,13 +213,7 @@
       <workItem from="1649082960927" duration="28000" />
       <workItem from="1649083157113" duration="6000" />
       <workItem from="1649083278330" duration="2000" />
-    </task>
-    <task id="LOCAL-00050" summary="Fake entity should spawn">
-      <created>1648670121770</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1648670121770</updated>
+      <workItem from="1649084914257" duration="194000" />
     </task>
     <task id="LOCAL-00051" summary="Change when fake player is spawned">
       <created>1648670389821</created>
@@ -559,7 +551,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649017048197</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="Impl hide server name">
+      <created>1649085091806</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1649085091806</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -577,7 +576,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix polls" />
     <MESSAGE value="Fix NPE" />
     <MESSAGE value="Change message when already voted" />
     <MESSAGE value="Fix misc changelogs not working" />
@@ -602,6 +600,7 @@
     <MESSAGE value="Seperate lobby updates" />
     <MESSAGE value="Fix location of lobby changelogs" />
     <MESSAGE value="Change format of lobby join messages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change format of lobby join messages" />
+    <MESSAGE value="Impl hide server name" />
+    <option name="LAST_COMMIT_MESSAGE" value="Impl hide server name" />
   </component>
 </project>

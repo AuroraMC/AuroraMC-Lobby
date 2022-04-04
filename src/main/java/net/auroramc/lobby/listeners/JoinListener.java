@@ -118,10 +118,16 @@ public class JoinListener implements Listener {
 
         e.setPlayer(player);
         if (!player.isVanished()) {
-            if (player.hasPermission(Permission.MASTER.getId())) {
+            if (player.hasPermission(Permission.MASTER.getId()) && !player.getPreferences().isHubInvisibilityEnabled()) {
                 if (player.isDisguised()) {
                     if (player.getActiveDisguise().getRank().hasPermission(Permission.MASTER.getId())) {
                         for (AuroraMCPlayer player1 : AuroraMCAPI.getPlayers()) {
+                            if (player1.equals(player)) {
+                                if (player.getPreferences().isHideDisguiseNameEnabled()) {
+                                    player1.getPlayer().sendMessage(AuroraMCAPI.getFormatter().convert("&" + player.getRank().getPrefixColor() + "&l" + player.getRank().getPrefixAppearance() + " " + player.getName() + " has joined the lobby!"));
+                                    continue;
+                                }
+                            }
                             player1.getPlayer().sendMessage(AuroraMCAPI.getFormatter().convert("&" + player.getActiveDisguise().getRank().getPrefixColor() + "&l" + player.getActiveDisguise().getRank().getPrefixAppearance() + " " + player.getActiveDisguise().getName() + " has joined the lobby!"));
                         }
                     }
