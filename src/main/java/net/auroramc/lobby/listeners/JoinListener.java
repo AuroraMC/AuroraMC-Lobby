@@ -124,7 +124,7 @@ public class JoinListener implements Listener {
                         for (AuroraMCPlayer player1 : AuroraMCAPI.getPlayers()) {
                             if (player1.equals(player)) {
                                 if (player.getPreferences().isHideDisguiseNameEnabled()) {
-                                    player1.getPlayer().sendMessage(AuroraMCAPI.getFormatter().convert("&" + player.getRank().getPrefixColor() + "&l" + player.getRank().getPrefixAppearance() + " " + player.getName() + " has joined the lobby!"));
+                                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().convert("&" + player.getRank().getPrefixColor() + "&l" + player.getRank().getPrefixAppearance() + " " + player.getName() + " has joined the lobby!"));
                                     continue;
                                 }
                             }
