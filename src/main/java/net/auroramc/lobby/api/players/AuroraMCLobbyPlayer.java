@@ -232,6 +232,10 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
     }
 
     public void claimDaily() {
+        getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("The Monke", "You claimed your daily bonus! You got:\n" +
+                "&6+100 Crowns\n" +
+                "&d+100 Tickets\n" +
+                "&a+100 XP"));
         lastDailyBonus = System.currentTimeMillis();
         dailyBonusClaimed++;
         this.getBank().addTickets(100, true, true);
@@ -261,6 +265,9 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
     }
 
     public void claimMonthly() {
+        getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("The Monke", "You claimed your monthly bonus! You got:\n" +
+                "&6+10000 Crowns\n" +
+                "&d+10000 Tickets"));
         lastMonthlyBonus = System.currentTimeMillis();
         this.getBank().addTickets(10000, true, true);
         this.getBank().addCrowns(10000, true, true);
@@ -268,6 +275,9 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
     }
 
     public void claimPlus() {
+        getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("The Monke", "You claimed your monthly Plus bonus! You got:\n" +
+                "&6+10000 Crowns\n" +
+                "&d+10000 Tickets"));
         lastPlusBonus = System.currentTimeMillis();
         this.getBank().addTickets(10000, true, true);
         this.getBank().addCrowns(10000, true, true);

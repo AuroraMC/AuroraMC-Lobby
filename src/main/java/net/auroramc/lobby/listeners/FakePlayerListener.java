@@ -23,7 +23,6 @@ public class FakePlayerListener implements Listener {
                 TheMonke monke = new TheMonke((AuroraMCLobbyPlayer) e.getPlayer());
                 monke.open(e.getPlayer());
                 AuroraMCAPI.openGUI(e.getPlayer(), monke);
-                e.getPlayer().getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("The Monke", "Hello! I am the Monke, your local delivery ape! Visit me to collect your monthly bonuses, rewards and more!"));
             }
         }
     }

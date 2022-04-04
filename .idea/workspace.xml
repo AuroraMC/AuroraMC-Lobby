@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Disable join message when hub invisibility is enabled, change join message based on hide disguise name">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix hub join message when hide disguise name is on">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -217,13 +217,8 @@
       <workItem from="1649083278330" duration="2000" />
       <workItem from="1649084914257" duration="194000" />
       <workItem from="1649085947283" duration="376000" />
-    </task>
-    <task id="LOCAL-00052" summary="Remove entity from tab">
-      <created>1648670634421</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1648670634421</updated>
+      <workItem from="1649087464927" duration="164000" />
+      <workItem from="1649092625821" duration="388000" />
     </task>
     <task id="LOCAL-00053" summary="Remove entity from tab">
       <created>1648670842088</created>
@@ -561,7 +556,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649086078203</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="Fix hub join message when hide disguise name is on">
+      <created>1649087601148</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1649087601148</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -579,7 +581,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Change message when already voted" />
     <MESSAGE value="Fix misc changelogs not working" />
     <MESSAGE value="Add last lobby achievement" />
     <MESSAGE value="Fix for lobby" />
@@ -604,6 +605,7 @@
     <MESSAGE value="Change format of lobby join messages" />
     <MESSAGE value="Impl hide server name" />
     <MESSAGE value="Disable join message when hub invisibility is enabled, change join message based on hide disguise name" />
-    <option name="LAST_COMMIT_MESSAGE" value="Disable join message when hub invisibility is enabled, change join message based on hide disguise name" />
+    <MESSAGE value="Fix hub join message when hide disguise name is on" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix hub join message when hide disguise name is on" />
   </component>
 </project>
