@@ -43,7 +43,7 @@ public class GameMenu extends GUI {
                 break;
             }
             case FIREWORK: {
-                GameServerListing listing = new GameServerListing(player, "ARCADE", "Arcade Mode", "Arcade");
+                GameServerListing listing = new GameServerListing(player, "ARCADE_MODE", "Arcade Mode", "Arcade");
                 listing.open(player);
                 AuroraMCAPI.openGUI(player, listing);
                 break;

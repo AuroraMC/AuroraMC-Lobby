@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Bolded discord message" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add arcade to game menu" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -218,13 +218,7 @@
       <workItem from="1649087464927" duration="164000" />
       <workItem from="1649092625821" duration="388000" />
       <workItem from="1649097023557" duration="712000" />
-    </task>
-    <task id="LOCAL-00055" summary="Add fake player listener">
-      <created>1648671427893</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1648671427893</updated>
+      <workItem from="1649106183214" duration="52000" />
     </task>
     <task id="LOCAL-00056" summary="Increase delay in removing from tab">
       <created>1648671485708</created>
@@ -562,7 +556,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649097559292</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="Add arcade to game menu">
+      <created>1649106230800</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1649106230800</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -580,7 +581,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix for lobby" />
     <MESSAGE value="Fix monthly bonus" />
     <MESSAGE value="Fix changelogs" />
     <MESSAGE value="Fix 2 bugs" />
@@ -605,6 +605,7 @@
     <MESSAGE value="Fix hub join message when hide disguise name is on" />
     <MESSAGE value="Add claim message" />
     <MESSAGE value="Bolded discord message" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bolded discord message" />
+    <MESSAGE value="Add arcade to game menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add arcade to game menu" />
   </component>
 </project>
