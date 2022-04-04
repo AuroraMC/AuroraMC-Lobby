@@ -10,6 +10,7 @@ import net.auroramc.lobby.api.LobbyMap;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
 import net.auroramc.lobby.api.util.UpdateDataRunnable;
 import net.auroramc.lobby.api.util.UpdatePollRunnable;
+import net.auroramc.lobby.api.util.UpdateScoreboardRunnable;
 import net.auroramc.lobby.api.util.UpdateServersRunnable;
 import net.auroramc.lobby.commands.CommandFly;
 import net.auroramc.lobby.listeners.*;
@@ -90,5 +91,6 @@ public class AuroraMCLobby extends JavaPlugin {
         new UpdateServersRunnable().runTaskTimer(AuroraMCAPI.getCore(), 20, 100);
         new UpdateDataRunnable().runTaskTimer(AuroraMCAPI.getCore(), 0, 20);
         new UpdatePollRunnable().runTaskTimer(AuroraMCAPI.getCore(), 36000, 36000);
+        new UpdateScoreboardRunnable().runTaskTimer(AuroraMCAPI.getCore(), 300000, 300000);
     }
 }

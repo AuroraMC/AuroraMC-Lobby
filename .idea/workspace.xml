@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix location of lobby changelogs">
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" afterDir="false" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Change format of lobby join messages">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,14 +211,10 @@
       <workItem from="1649008007667" duration="2759000" />
       <workItem from="1649011461897" duration="212000" />
       <workItem from="1649012331874" duration="2733000" />
-      <workItem from="1649015105956" duration="1417000" />
-    </task>
-    <task id="LOCAL-00049" summary="Fix issue with /fly">
-      <created>1648665129512</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1648665129512</updated>
+      <workItem from="1649015105956" duration="1654000" />
+      <workItem from="1649082960927" duration="28000" />
+      <workItem from="1649083157113" duration="6000" />
+      <workItem from="1649083278330" duration="2000" />
     </task>
     <task id="LOCAL-00050" summary="Fake entity should spawn">
       <created>1648670121770</created>
@@ -556,7 +552,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649016647033</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="Change format of lobby join messages">
+      <created>1649017048197</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1649017048197</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -574,7 +577,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add missing break" />
     <MESSAGE value="Fix polls" />
     <MESSAGE value="Fix NPE" />
     <MESSAGE value="Change message when already voted" />
@@ -599,6 +601,7 @@
     <MESSAGE value="Fix NPE's" />
     <MESSAGE value="Seperate lobby updates" />
     <MESSAGE value="Fix location of lobby changelogs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix location of lobby changelogs" />
+    <MESSAGE value="Change format of lobby join messages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change format of lobby join messages" />
   </component>
 </project>
