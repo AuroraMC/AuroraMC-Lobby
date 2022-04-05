@@ -11,6 +11,7 @@ import net.auroramc.core.api.permissions.Rank;
 import net.auroramc.core.api.players.AuroraMCPlayer;
 import net.auroramc.core.api.players.scoreboard.PlayerScoreboard;
 import net.auroramc.lobby.api.LobbyAPI;
+import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import net.minecraft.server.v1_8_R3.*;
 import org.bukkit.Bukkit;
@@ -205,6 +206,12 @@ public class JoinListener implements Listener {
         player.getPlayer().getInventory().setItem(4, LobbyAPI.getCosmeticsItem().getItem());
         player.getPlayer().getInventory().setItem(0, LobbyAPI.getGamesItem().getItem());
         player.getPlayer().getInventory().setItem(1, LobbyAPI.getStatsItem(player.getName()).getItem());
+
+        if (LobbyAPI.getPoll() != null) {
+            if (!LobbyDatabaseManager.hasVoted(LobbyAPI.getPoll().getId(), player.getId())) {
+                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Community Polls", "There is currently a poll active that you haven't voted in! Visit **The Monke** to vote! Every vote counts!"));
+            }
+        }
     }
 
     @EventHandler

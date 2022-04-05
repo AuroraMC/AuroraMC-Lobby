@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add arcade to game menu" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix incorrect game code">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -219,13 +222,9 @@
       <workItem from="1649092625821" duration="388000" />
       <workItem from="1649097023557" duration="712000" />
       <workItem from="1649106183214" duration="52000" />
-    </task>
-    <task id="LOCAL-00056" summary="Increase delay in removing from tab">
-      <created>1648671485708</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1648671485708</updated>
+      <workItem from="1649106569902" duration="30000" />
+      <workItem from="1649107964972" duration="20000" />
+      <workItem from="1649199590244" duration="316000" />
     </task>
     <task id="LOCAL-00057" summary="Add monke cooldown">
       <created>1648673543018</created>
@@ -563,7 +562,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649106230800</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="Fix incorrect game code">
+      <created>1649106593745</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1649106593746</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -581,7 +587,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix monthly bonus" />
     <MESSAGE value="Fix changelogs" />
     <MESSAGE value="Fix 2 bugs" />
     <MESSAGE value="Fix changelog listing" />
@@ -606,6 +611,7 @@
     <MESSAGE value="Add claim message" />
     <MESSAGE value="Bolded discord message" />
     <MESSAGE value="Add arcade to game menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add arcade to game menu" />
+    <MESSAGE value="Fix incorrect game code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix incorrect game code" />
   </component>
 </project>
