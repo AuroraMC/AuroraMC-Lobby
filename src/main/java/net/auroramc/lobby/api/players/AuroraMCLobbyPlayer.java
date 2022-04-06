@@ -86,7 +86,6 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
                         if (!getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(17))) {
                             getStats().achievementGained(AuroraMCAPI.getAchievement(17), 1, true);
                         }
-                        break;
                     }
                 }
                 if (player.hasPermission("moderation")) {
@@ -94,7 +93,6 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
                         if (!getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(24))) {
                             getStats().achievementGained(AuroraMCAPI.getAchievement(24), 1, true);
                         }
-                        break;
                     }
                 }
                 if (player.hasPermission("build")) {
@@ -102,7 +100,6 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
                         if (!getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(25))) {
                             getStats().achievementGained(AuroraMCAPI.getAchievement(25), 1, true);
                         }
-                        break;
                     }
                 }
                 if (player.hasPermission("admin")) {
@@ -110,7 +107,6 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
                         if (!getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(26))) {
                             getStats().achievementGained(AuroraMCAPI.getAchievement(26), 1, true);
                         }
-                        break;
                     }
                 }
 
@@ -121,7 +117,6 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
                         if (!player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(17))) {
                             player.getStats().achievementGained(AuroraMCAPI.getAchievement(17), 1, true);
                         }
-                        break;
                     }
                 }
                 if (oldPlayer.hasPermission("moderation")) {
@@ -129,7 +124,6 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
                         if (!player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(24))) {
                             player.getStats().achievementGained(AuroraMCAPI.getAchievement(24), 1, true);
                         }
-                        break;
                     }
                 }
                 if (oldPlayer.hasPermission("build")) {
@@ -137,7 +131,6 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
                         if (!player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(25))) {
                             player.getStats().achievementGained(AuroraMCAPI.getAchievement(25), 1, true);
                         }
-                        break;
                     }
                 }
                 if (oldPlayer.hasPermission("admin")) {
@@ -145,7 +138,6 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
                         if (!player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(26))) {
                             player.getStats().achievementGained(AuroraMCAPI.getAchievement(26), 1, true);
                         }
-                        break;
                     }
                 }
                 if (!player.isDisguised() && !player.isVanished()) {
