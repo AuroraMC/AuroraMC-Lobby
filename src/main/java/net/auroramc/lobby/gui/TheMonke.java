@@ -7,6 +7,7 @@ package net.auroramc.lobby.gui;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import net.auroramc.core.api.AuroraMCAPI;
+import net.auroramc.core.api.permissions.Rank;
 import net.auroramc.core.api.utils.gui.GUI;
 import net.auroramc.core.api.utils.gui.GUIItem;
 import net.auroramc.lobby.api.LobbyAPI;
@@ -73,7 +74,7 @@ public class TheMonke extends GUI {
             this.setItem(2, 2, new GUIItem(Material.REDSTONE_BLOCK, "&3&lLoyalty Bonus", 1, ";&cYou have already claimed;&ctoday's bonus!;;&rCome back tomorrow to claim again!"));
         }
         if (claimMonthly) {
-            this.setItem(2, 4, new GUIItem(Material.DIAMOND_BLOCK, "&3&lMonthly Bonus", 1, "&rRank: &" + player.getRank().getPrefixColor() + player.getRank().getName() + ";;&rBonus:;&6+10000 Crowns;&d+10000 Tickets;;&aClick to claim!"));
+            this.setItem(2, 4, new GUIItem(Material.DIAMOND_BLOCK, "&3&lMonthly Bonus", 1, "&rRank: &" + ((player.getRank() == Rank.PLAYER)?'7':player.getRank().getPrefixColor()) + player.getRank().getName() + ";;&rBonus:;&6+10000 Crowns;&d+10000 Tickets;;&aClick to claim!"));
         } else {
             this.setItem(2, 4, new GUIItem(Material.REDSTONE_BLOCK, "&3&lMonthly Bonus", 1, ";&cYou have already claimed;&cthis months bonus!;;&rCome back next month to claim again!"));
         }
