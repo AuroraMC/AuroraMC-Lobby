@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Change column IDs for maps" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix NPE" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -228,13 +228,7 @@
       <workItem from="1649269479278" duration="81000" />
       <workItem from="1649351372720" duration="76000" />
       <workItem from="1649351632300" duration="62000" />
-    </task>
-    <task id="LOCAL-00062" summary="Make menu work">
-      <created>1648684160652</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1648684160652</updated>
+      <workItem from="1649372936440" duration="305000" />
     </task>
     <task id="LOCAL-00063" summary="Add Changelogs">
       <created>1648685159364</created>
@@ -572,7 +566,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649351653304</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="Fix NPE">
+      <created>1649372993954</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1649372993954</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -590,7 +591,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add message when restarting" />
     <MESSAGE value="Fixed more achievements" />
     <MESSAGE value="Turn down forcefield" />
     <MESSAGE value="Change forcefield slightly" />
@@ -615,6 +615,7 @@
     <MESSAGE value="Fix admin/build/other achievements" />
     <MESSAGE value="Change hotpotato name" />
     <MESSAGE value="Change column IDs for maps" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change column IDs for maps" />
+    <MESSAGE value="Fix NPE" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix NPE" />
   </component>
 </project>
