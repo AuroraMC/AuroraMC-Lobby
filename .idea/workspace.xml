@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Change hotpotato name" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Change column IDs for maps" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -227,13 +227,7 @@
       <workItem from="1649262655096" duration="17000" />
       <workItem from="1649269479278" duration="81000" />
       <workItem from="1649351372720" duration="76000" />
-    </task>
-    <task id="LOCAL-00061" summary="Make map empty">
-      <created>1648682625261</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1648682625261</updated>
+      <workItem from="1649351632300" duration="62000" />
     </task>
     <task id="LOCAL-00062" summary="Make menu work">
       <created>1648684160652</created>
@@ -571,7 +565,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649351424376</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="Change column IDs for maps">
+      <created>1649351653304</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1649351653304</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -589,7 +590,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix forcefield" />
     <MESSAGE value="Add message when restarting" />
     <MESSAGE value="Fixed more achievements" />
     <MESSAGE value="Turn down forcefield" />
@@ -614,6 +614,7 @@
     <MESSAGE value="Fix player bonus rank formatting" />
     <MESSAGE value="Fix admin/build/other achievements" />
     <MESSAGE value="Change hotpotato name" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change hotpotato name" />
+    <MESSAGE value="Change column IDs for maps" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change column IDs for maps" />
   </component>
 </project>
