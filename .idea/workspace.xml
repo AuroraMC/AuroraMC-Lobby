@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix issue with join listener">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" afterDir="false" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add daily bonuses claimed to claimed bonuses">
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/TheMonke.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/TheMonke.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,13 +233,7 @@
       <workItem from="1649372936440" duration="305000" />
       <workItem from="1649373817784" duration="218000" />
       <workItem from="1649374045670" duration="786000" />
-    </task>
-    <task id="LOCAL-00064" summary="Fix NPE">
-      <created>1648685528995</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1648685528995</updated>
+      <workItem from="1649530422478" duration="340000" />
     </task>
     <task id="LOCAL-00065" summary="Changelog GUI">
       <created>1648686157458</created>
@@ -578,7 +571,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649373856630</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="Add daily bonuses claimed to claimed bonuses">
+      <created>1649530494442</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1649530494442</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -596,7 +596,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Turn down forcefield" />
     <MESSAGE value="Change forcefield slightly" />
     <MESSAGE value="Move players out of the way" />
     <MESSAGE value="Move the monke" />
@@ -621,6 +620,7 @@
     <MESSAGE value="Change column IDs for maps" />
     <MESSAGE value="Fix NPE" />
     <MESSAGE value="Fix issue with join listener" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix issue with join listener" />
+    <MESSAGE value="Add daily bonuses claimed to claimed bonuses" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add daily bonuses claimed to claimed bonuses" />
   </component>
 </project>

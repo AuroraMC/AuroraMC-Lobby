@@ -71,7 +71,7 @@ public class TheMonke extends GUI {
         if (claimDaily) {
             this.setItem(2, 2, new GUIItem(Material.IRON_BLOCK, "&3&lLoyalty Bonus", 1, ";&rClaim your daily bonus for:;&6+100 Crowns;&d+100 Tickets;&a+100 XP;;&rDaily bonuses claimed: **" + player.getDailyBonusClaimed() + "**;&aClick to claim!"));
         } else {
-            this.setItem(2, 2, new GUIItem(Material.REDSTONE_BLOCK, "&3&lLoyalty Bonus", 1, ";&cYou have already claimed;&ctoday's bonus!;&rDaily bonuses claimed:**" + player.getDailyBonusClaimed() + "**;;&rCome back tomorrow to claim again!"));
+            this.setItem(2, 2, new GUIItem(Material.REDSTONE_BLOCK, "&3&lLoyalty Bonus", 1, ";&cYou have already claimed;&ctoday's bonus!;;&rDaily bonuses claimed: **" + player.getDailyBonusClaimed() + "**;;&rCome back tomorrow to claim again!"));
         }
         if (claimMonthly) {
             this.setItem(2, 4, new GUIItem(Material.DIAMOND_BLOCK, "&3&lMonthly Bonus", 1, "&rRank: &" + ((player.getRank() == Rank.PLAYER)?'7':player.getRank().getPrefixColor()) + player.getRank().getName() + ";;&rBonus:;&6+10000 Crowns;&d+10000 Tickets;;&aClick to claim!"));
