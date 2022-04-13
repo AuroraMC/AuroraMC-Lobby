@@ -8,6 +8,7 @@ import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.core.api.events.FakePlayerInteractEvent;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
+import net.auroramc.lobby.gui.GameServerListing;
 import net.auroramc.lobby.gui.TheMonke;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -16,13 +17,29 @@ public class FakePlayerListener implements Listener {
 
     @EventHandler
     public void onFakePlayerInteract(FakePlayerInteractEvent e) {
-        if (e.getFakePlayer().equals(LobbyAPI.getMonkeyEntity())) {
-            AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) e.getPlayer();
-            if (player.canMonkeClick()) {
-                player.monkeClick();
+        AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) e.getPlayer();
+        if (player.canClick()) {
+            player.click();
+            if (e.getFakePlayer().equals(LobbyAPI.getMonkeyEntity())) {
                 TheMonke monke = new TheMonke((AuroraMCLobbyPlayer) e.getPlayer());
                 monke.open(e.getPlayer());
                 AuroraMCAPI.openGUI(e.getPlayer(), monke);
+            } else if (e.getFakePlayer().equals(LobbyAPI.getArcadeEntity())) {
+                GameServerListing listing = new GameServerListing(player, "ARCADE_MODE", "Arcade Mode", "Arcade");
+                listing.open(player);
+                AuroraMCAPI.openGUI(player, listing);
+             } else if (e.getFakePlayer().equals(LobbyAPI.getBackstabEntity())) {
+                GameServerListing listing = new GameServerListing(player, "BACKSTAB", "Backstab", "Backstab");
+                listing.open(player);
+                AuroraMCAPI.openGUI(player, listing);
+            } else if (e.getFakePlayer().equals(LobbyAPI.getCqEntity())) {
+                GameServerListing listing = new GameServerListing(player, "CRYSTAL_QUEST", "Crystal Quest", "CQ");
+                listing.open(player);
+                AuroraMCAPI.openGUI(player, listing);
+            } else if (e.getFakePlayer().equals(LobbyAPI.getPaintballEntity())) {
+                GameServerListing listing = new GameServerListing(player, "PAINTBALL", "Paintball", "PB");
+                listing.open(player);
+                AuroraMCAPI.openGUI(player, listing);
             }
         }
     }

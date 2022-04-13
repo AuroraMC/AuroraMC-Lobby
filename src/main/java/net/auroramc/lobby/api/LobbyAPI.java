@@ -47,6 +47,10 @@ public class LobbyAPI {
     private static final Map<String, GameServerInfo> gameServers;
 
     private static EntityPlayer monkeyEntity;
+    private static EntityPlayer arcadeEntity;
+    private static EntityPlayer cqEntity;
+    private static EntityPlayer paintballEntity;
+    private static EntityPlayer backstabEntity;
 
 
     static {
@@ -100,6 +104,30 @@ public class LobbyAPI {
         monkeyEntity.setLocation(-11.5, 61.0, 14.5, -145.0f, 0f);
         AuroraMCAPI.registerFakePlayer(monkeyEntity);
 
+
+        profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("&e&lArcade Mode"));
+        profile.getProperties().put("textures", new Property("textures", MONKEY_SKIN, MONKEY_SIGNATURE));
+        arcadeEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
+        arcadeEntity.setLocation(-11.5, 61.0, 14.5, -145.0f, 0f);
+        AuroraMCAPI.registerFakePlayer(arcadeEntity);
+
+        profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("&a&lPaintball"));
+        profile.getProperties().put("textures", new Property("textures", MONKEY_SKIN, MONKEY_SIGNATURE));
+        paintballEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
+        paintballEntity.setLocation(-11.5, 61.0, 14.5, -145.0f, 0f);
+        AuroraMCAPI.registerFakePlayer(paintballEntity);
+
+        profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("&bCrystal Quest"));
+        profile.getProperties().put("textures", new Property("textures", MONKEY_SKIN, MONKEY_SIGNATURE));
+        cqEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
+        cqEntity.setLocation(-11.5, 61.0, 14.5, -145.0f, 0f);
+        AuroraMCAPI.registerFakePlayer(cqEntity);
+
+        profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("&c&lBackstab"));
+        profile.getProperties().put("textures", new Property("textures", MONKEY_SKIN, MONKEY_SIGNATURE));
+        backstabEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
+        backstabEntity.setLocation(-11.5, 61.0, 14.5, -145.0f, 0f);
+        AuroraMCAPI.registerFakePlayer(backstabEntity);
     }
 
      public static void addGameServer(String serverName) {
@@ -177,5 +205,21 @@ public class LobbyAPI {
 
     public static CommunityPoll getPoll() {
         return poll;
+    }
+
+    public static EntityPlayer getArcadeEntity() {
+        return arcadeEntity;
+    }
+
+    public static EntityPlayer getBackstabEntity() {
+        return backstabEntity;
+    }
+
+    public static EntityPlayer getCqEntity() {
+        return cqEntity;
+    }
+
+    public static EntityPlayer getPaintballEntity() {
+        return paintballEntity;
     }
 }

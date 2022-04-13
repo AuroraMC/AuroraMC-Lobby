@@ -211,7 +211,7 @@ public class JoinListener implements Listener {
 
     @EventHandler
     public void onMove(PlayerMoveEvent e) {
-        if (AuroraMCAPI.getPlayer(e.getPlayer()) instanceof AuroraMCLobbyPlayer) {
+        if (AuroraMCAPI.getPlayer(e.getPlayer()) instanceof AuroraMCLobbyPlayer && !e.getFrom().equals(e.getTo())) {
             AuroraMCLobbyPlayer lobbyPlayer = (AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer(e.getPlayer());
             if (lobbyPlayer != null) {
                 if (!lobbyPlayer.hasMoved()) {
@@ -219,16 +219,19 @@ public class JoinListener implements Listener {
                     new BukkitRunnable(){
                         @Override
                         public void run() {
-                            PlayerConnection con = ((CraftPlayer) e.getPlayer().getPlayer()).getHandle().playerConnection;
-                            con.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER, LobbyAPI.getMonkeyEntity()));
-                            con.sendPacket(new PacketPlayOutNamedEntitySpawn(LobbyAPI.getMonkeyEntity()));
-                            con.sendPacket(new PacketPlayOutEntityHeadRotation(LobbyAPI.getMonkeyEntity(), (byte) ((LobbyAPI.getMonkeyEntity().yaw * 256.0F) / 360.0F)));
-                            new BukkitRunnable(){
-                                @Override
-                                public void run() {
-                                    con.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.REMOVE_PLAYER, LobbyAPI.getMonkeyEntity()));
-                                }
-                            }.runTaskLater(AuroraMCAPI.getCore(), 80);
+                            for (EntityPlayer player : AuroraMCAPI.getFakePlayers().values()) {
+                                PlayerConnection con = ((CraftPlayer) e.getPlayer().getPlayer()).getHandle().playerConnection;
+                                con.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER, player));
+                                con.sendPacket(new PacketPlayOutNamedEntitySpawn(player));
+                                con.sendPacket(new PacketPlayOutEntityHeadRotation(player, (byte) ((player.yaw * 256.0F) / 360.0F)));
+                                new BukkitRunnable(){
+                                    @Override
+                                    public void run() {
+                                        con.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.REMOVE_PLAYER, player));
+                                    }
+                                }.runTaskLater(AuroraMCAPI.getCore(), 80);
+                            }
+
                         }
                     }.runTask(AuroraMCAPI.getCore());
                 }

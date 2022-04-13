@@ -6,7 +6,6 @@ package net.auroramc.lobby.api.players;
 
 import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.core.api.players.AuroraMCPlayer;
-import net.auroramc.lobby.AuroraMCLobby;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
 import net.auroramc.lobby.api.util.CheckForcefieldRunnable;
 import org.bukkit.potion.PotionEffect;
@@ -20,7 +19,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
 
     private final long joinTimestamp;
     private long lastPunchTimestamp;
-    private long lastMonkeClick;
+    private long lastClick;
 
     private long lastDailyBonus;
     private int dailyBonusClaimed;
@@ -215,12 +214,12 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
         return System.currentTimeMillis() - lastPunchTimestamp >= 30000;
     }
 
-    public void monkeClick() {
-        lastMonkeClick = System.currentTimeMillis();
+    public void click() {
+        lastClick = System.currentTimeMillis();
     }
 
-    public boolean canMonkeClick() {
-        return System.currentTimeMillis() - lastMonkeClick >= 500;
+    public boolean canClick() {
+        return System.currentTimeMillis() - lastClick >= 500;
     }
 
     public void claimDaily() {
