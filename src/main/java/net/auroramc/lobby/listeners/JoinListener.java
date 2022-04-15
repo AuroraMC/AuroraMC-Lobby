@@ -219,7 +219,7 @@ public class JoinListener implements Listener {
                 Scoreboard scoreboard = lobbyPlayer.getScoreboard().getScoreboard();
                 Team team = scoreboard.registerNewTeam("cq");
                 team.setPrefix("§b§l");
-                team.setSuffix("§3§lFEATURED!");
+                team.setSuffix(" §3§lFEATURED!");
                 team.addEntry("Crystal Quest");
 
                 team = scoreboard.registerNewTeam("bs");
