@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Update locations of NPCs">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" afterDir="false" />
-    </list>
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix joining being broken" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -231,27 +228,6 @@
       <workItem from="1649878807876" duration="145000" />
       <workItem from="1649879001887" duration="31000" />
       <workItem from="1650037222043" duration="322000" />
-    </task>
-    <task id="LOCAL-00067" summary="Fix flipped if statement">
-      <created>1648686876193</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1648686876193</updated>
-    </task>
-    <task id="LOCAL-00068" summary="Add v to version">
-      <created>1648687060074</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1648687060074</updated>
-    </task>
-    <task id="LOCAL-00069" summary="Add changelog listing">
-      <created>1648729305665</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1648729305667</updated>
     </task>
     <task id="LOCAL-00070" summary="Check for changelogs when checking for poll">
       <created>1648731398186</created>
@@ -575,7 +551,28 @@
       <option name="project" value="LOCAL" />
       <updated>1650043375022</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="Fix Crystal Quest not being bold, add Featured Game.">
+      <created>1650043561386</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1650043561386</updated>
+    </task>
+    <task id="LOCAL-00117" summary="Fix joining being broken">
+      <created>1650043676975</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1650043676975</updated>
+    </task>
+    <task id="LOCAL-00118" summary="Fix joining being broken">
+      <created>1650043837688</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1650043837688</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -593,8 +590,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Move the monke" />
-    <MESSAGE value="Change The Monke yaw" />
     <MESSAGE value="Fix yaw" />
     <MESSAGE value="Implement Hub Invisibility" />
     <MESSAGE value="Fix NPE's" />
@@ -618,6 +613,8 @@
     <MESSAGE value="Add daily bonuses claimed to claimed bonuses" />
     <MESSAGE value="Spawn rest of required entities" />
     <MESSAGE value="Update locations of NPCs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update locations of NPCs" />
+    <MESSAGE value="Fix Crystal Quest not being bold, add Featured Game." />
+    <MESSAGE value="Fix joining being broken" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix joining being broken" />
   </component>
 </project>
