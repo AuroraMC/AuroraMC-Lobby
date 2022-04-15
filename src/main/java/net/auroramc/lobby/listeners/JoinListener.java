@@ -14,6 +14,7 @@ import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import net.minecraft.server.v1_8_R3.*;
+import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
@@ -27,6 +28,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scoreboard.Team;
 import org.json.JSONArray;
 
 import java.lang.reflect.Field;
@@ -214,6 +216,23 @@ public class JoinListener implements Listener {
         if (AuroraMCAPI.getPlayer(e.getPlayer()) instanceof AuroraMCLobbyPlayer && !e.getFrom().equals(e.getTo())) {
             AuroraMCLobbyPlayer lobbyPlayer = (AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer(e.getPlayer());
             if (lobbyPlayer != null) {
+                Scoreboard scoreboard = lobbyPlayer.getScoreboard().getScoreboard();
+                Team team = scoreboard.registerNewTeam("cq");
+                team.setPrefix("§b§l");
+                team.setSuffix("§3§lFEATURED!");
+                team.addEntry("Crystal Quest");
+
+                team = scoreboard.registerNewTeam("bs");
+                team.setPrefix("§c§l");
+                team.addEntry("Backstab");
+
+                team = scoreboard.registerNewTeam("pb");
+                team.setPrefix("§a§l");
+                team.addEntry("Paintball");
+
+                team = scoreboard.registerNewTeam("ac");
+                team.setPrefix("§e§l");
+                team.addEntry("Arcade Mode");
                 if (!lobbyPlayer.hasMoved()) {
                     lobbyPlayer.moved();
                     new BukkitRunnable(){
