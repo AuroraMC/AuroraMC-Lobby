@@ -31,6 +31,18 @@ public class LobbyAPI {
     private static final String MONKEY_SKIN = "ewogICJ0aW1lc3RhbXAiIDogMTY0ODY2OTgxMzA0NSwKICAicHJvZmlsZUlkIiA6ICIyZjZlMTAxNTUyZmM0Zjg1OTEwODJjNWY0ZmRlMWFjNCIsCiAgInByb2ZpbGVOYW1lIiA6ICJMb29maWkiLAogICJzaWduYXR1cmVSZXF1aXJlZCIgOiB0cnVlLAogICJ0ZXh0dXJlcyIgOiB7CiAgICAiU0tJTiIgOiB7CiAgICAgICJ1cmwiIDogImh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjliZjMyMzAxNDAyMjFkYjVkYjcyNjgwMjcyOTVhZDE3ZTkxMWE4NzFhMDVhN2QwMWIwYTVhMzdmNDY5MmQwOCIsCiAgICAgICJtZXRhZGF0YSIgOiB7CiAgICAgICAgIm1vZGVsIiA6ICJzbGltIgogICAgICB9CiAgICB9CiAgfQp9";
     private static final String MONKEY_SIGNATURE = "r59qGCO6MS9xU2fMYK7TZoN8Lli1yj5Lf+ag+i5QlNg8/1htjeokhJUOZzNCgdxAuHfwihnbBaAKMfGgZmzn0QVM5kxY5/sYWWZ23mcATY2kbu1t+wuEFAlvmIRB+Ea3CcECKIr4Z/0XOM1qEHY3fKQFYvIM+06TUYz5yKCxSApaIQ1zPFZCgpdgaGbj8PBjlNI+fIShETN7cDS4LkT8xbLxkdOwKuM2rQGRE1ojGBpfc9ekh+r2tJP5EvrTVma9LpVKZHCvsxUjtcnf8FgCaorljjpPGHcxuFajT805YOp3IIuHgVNlZS23zzaPDqG7qhnwjPcHdkFtHXC+Xh57wYOFBcd/B65Xn8j0rA9kcA1eSr0Q67Hp9LH8niioD3TXnlmNWbQ/yCBlL5OYHfx6kbfxp3kNrYDmuCOzINXxICV0ytaQUzSyOTQqEApdevu32pIMyR3doXFSdkK44kpGd00ZidHME7F1Y4LLK2UYuZ/Pod4+lzqlyV6xGd/GTeLIfZcryubiJmTU6t0U8vwJ8ZZWdYCFz8m2PKUQLPAQkeVC/qGP1t/BltAMwhqHdDIDBFPcA5cVFulwF6LcoBMjwqcggy3mUuELubl5lkfy02lzVu+zZJ/KZOTbeM7HOESoSiqxk2Ewmt/qstovT3UZrMnd4+XhnHKY/VO5sKEYLXI=";
 
+    private static final String CQ_SKIN = "ewogICJ0aW1lc3RhbXAiIDogMTY1MDA0OTk1NTY3MiwKICAicHJvZmlsZUlkIiA6ICI0ZDE2OTg3NzUyOWY0ODc3YWQxOWE1MDA2ZjM5NDBiMCIsCiAgInByb2ZpbGVOYW1lIiA6ICJBdXJvcmFNQyIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS81YTY1YTEzMGRiYTJmMmVhZWI0MzM0NWQ3ZGNkMWUzNGI5YjAwZGQzNGY2ZWMwNThkYzNjZWZkMDNiNzAxMjFlIgogICAgfQogIH0KfQ==";
+    private static final String CQ_SIGNATURE = "mt5PsPucovhZRN8+k8mcu2jHtrSTOSY736B0A3Z6JJvj2760mXTmXLR0V14TN+aWicXftaokslG/iOCLNbWukSfNYbrKS+DR55f3SHOUmast4eQ6lz9JP4yrLv7ceVyG/r9SQkXzrpkG+vSsotvG8krqN/Eh1VgXU8O3xPa4PsDs3EUj/dexsfHumlQrgMEkjE4K6xcBnYCm5AhOo293bJTq3/B33/5IGepz6EwRHhRiVghcacE5XL/Cx3EEShyTIMRYG++ixfuhF+iCPadP4LjaSWpK2oFJ2u57ZotsjqeDo9nKqg76frdFwP4psv8s+sHjw7BFwBX7dl8a9yOTHYPlcSw1Ocr8P54mfCo7FFyEQhjxmcH66/elu3LVdmqed5dg9vA6wWgMxlfIutvb3pkPQZGwdTeuG5uYUPBT93adgs7xi9i48YqizcUyO9/5FcPP7B0RFEPQ5FLh06Jnb3xsU7VHumL4UaXshwH73uRW4wYykMhH/xXHz84UMlz3iQL342bwjPCsi9w7MqxnAhE/Us0uZFFUh2kgXDPPItl9CKZo57NDmh9m79nXQNX/ETdxxm2YfQ2NryYuqs5K9TsdTPfGQVW+M08Akb+zZaHCmo0MBS4B9Kdr4f7n+1UigMrUJu6jUmSEd1qayAv5o26VU6mjLhMg/JLuQRWNFNE=";
+
+    private static final String ARCADE_SKIN = "ewogICJ0aW1lc3RhbXAiIDogMTY1MDA1MDYxMDI4NywKICAicHJvZmlsZUlkIiA6ICI0ZDE2OTg3NzUyOWY0ODc3YWQxOWE1MDA2ZjM5NDBiMCIsCiAgInByb2ZpbGVOYW1lIiA6ICJBdXJvcmFNQyIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS82ZjkzYTEzZWRhMjA0ZGZjN2FmOTY0NzU3N2M5YzllNjQ4MWExOTlmMGRjMTQ1ODU0NmRiNmJiNjZlYjljOTllIgogICAgfQogIH0KfQ==";
+    private static final String ARCADE_SIGNATURE = "JHLqvfIuIjU+kLjBcqlqOEwI+9THFklCmg1Oum14qKKRRDM+dlv4Ee9oWYibD9BJvEVFfQxKWSBKu2JQlYlpyZMZr60CnjREZhWrK6GdD5ZAPfLbDul6dwpkb8MAawvNleAbtb5OwFy9Jz5E/XSNojffRXkQkt/mqiI6MYiBQgk+ldKVWs3tqftVYe+x9vRGTf7PW/3gh4fmO0IZ9oUF/IZinQd/cX0j+7/KJ3/E8mEg6gnIDo2tVZ2aitRlnDoiHKgEFnmfUDgpQbv8EN8ffDbZCXEQoLm0A/xPx+q+bnnW7AoW0eTGDzsvkfDGo9CFP1Y8vV1bd2/VFpprUp2kEuWgGiQ9TUKs5b8Vu/lDMXswrhz0xl/6UqEqw2Vx0v8ZkbfohYpWB9uhPpH6BVc3ap1fNUpWIS/xyO/NyGMYuyZHAvaHCM/Lvs39iNW5YdhsNgzU0FnEa7hjMvg1sqN0sKYO8nSEAFIsNGVA8XYAz+a9VjKHwE974jjBam5iW3daHHIgKfSHkqfIPDPZiCFjk229qjRw5gYCatR7iXFNmrlIAEv3ntINrUtDus69MW8xL8YlEcS8NRnL7OPc7ZuI+0sogqqDgSNr96CFHxPhFqbIDjYoQRxW3RpMDoa6FNuwzAw3q9xpQfYnc1g8cJIRCS3zrZ8a8Cemwv67zeMKzAU=";
+
+    private static final String PAINTBALL_SKIN = "ewogICJ0aW1lc3RhbXAiIDogMTY1MDA1MTEyOTQyOSwKICAicHJvZmlsZUlkIiA6ICI0ZDE2OTg3NzUyOWY0ODc3YWQxOWE1MDA2ZjM5NDBiMCIsCiAgInByb2ZpbGVOYW1lIiA6ICJBdXJvcmFNQyIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS81NTc4MGNiYTMwM2VmZTFmNGE1MmU0NjRjZmYwNzhjNjI2ZWU4OTAyNjQxZjY0YmJhNWZlN2VjM2ZkMTVmNWVkIgogICAgfQogIH0KfQ==";
+    private static final String PAINTBALL_SIGNATURE = "X/1pi6w0H54qk0xKyHY1b0341jMOofBfyesH4x+oHIwjzGDTSu9Us1BK6q2ZcB8hU8c7Dft6YWRSSiUAF3TT46dKyiTtqjHfgvFD+yF4OAeex3lpDrX+K+pzwb1lJnjHjdEEpqfKOpknHfzyoxlFO386U6JmXW2rvrrhEzPwEbqi2xOvBjc5TvfIerEOm8I98J5l2G1lc4WA+1ph57m/RqjSCv27Xw+37Zp4VsV/NZBt0oH3rMGH9V844dy48Vp9HPMgUPNIX7ECqjPxrebEfOb4i2GHHFTOpjSrnse4bKKUgDaY/IEN2MB6lAaDYuIX3wcVPYtva03xJnzFDOd6xRSUWWsKgn/YQ7re5XvMQPZYJWvQ0jE+G9tE2xUwSPmx1d5kLBPAsufBtFYH1z8cXNVa5Wn6YYOF09x0X/btRbaGmmrnqSFnZ+iNaMjaYiBrOf9LHER3ffflz9VotP43PNT6LKqTMGecxWreeUw+AAQpNVhuEqGoT7+XIkoONdw1GcoN5V12hNWOz4LPCGI0rmIHPPFI9fOaicW4U6gkdnAdzkTpFWCjhFK1t4deg+UE9tl0IzhVOvMSdF1PG9oati7W6NRuGZ3GnJkVkofjU5F4rIcETYkLz0zb/BoUWxv/NCUscAWzgWa/KtH1+SsYtBKGzAY+iA2nKiu+KD9gqos=";
+
+    private static final String BACKSTAB_SKIN = "ewogICJ0aW1lc3RhbXAiIDogMTY1MDA1MDgwMTU5NCwKICAicHJvZmlsZUlkIiA6ICI0ZDE2OTg3NzUyOWY0ODc3YWQxOWE1MDA2ZjM5NDBiMCIsCiAgInByb2ZpbGVOYW1lIiA6ICJBdXJvcmFNQyIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9lOWQ0YTZhNDIzMGE5MDkxZDQwNTM5ZDhiOWVjNzZiMjhkMjMwMTZkYmM1MGRiMTk3OTgyZDg5NDY1YzQ3NDEiCiAgICB9CiAgfQp9";
+    private static final String BACKSTAB_SIGNATURE = "cmYL17h7mXEQkI/lb/YIktvLUu2+fWIJIf56cC56R7Gh6l8gbLq75B9Aokq9K6DCfYAUtalkyODW4FTdRXSh05Fh3oUFQYz6InPP7LJvl1IprhGX9vPlZJfRfTKo6D6ZT/jPOtLebCu7F6TQlT++5LmFa0X4wFiG9DZMBGSy6BMfzxubAEVVO12CMPCT2FTtLFidRwUewGqtmB2ticOfFJ/DWT2udeomSMjO48+nwfq5aaXYH+cNeswUuPLXrNdmYTTKSyhHPSX0Ws9ScmpVIYFY7QOC+q6sRIEisuE7oHSDBS1fmoXFohFcIMRuOyhX0LHWewhVymS9OjlsrQwhKF6yGKmESl78y1YoO4H2XxLKvdOnKSd2iaUC5KXlNBV5+Lg04c/gJBi2ZLA77vyZaQnOU+AO9ldMvY+PFN4L85XioRv1lY8kC2vxzfjy5FAWAnmSXa/SIw4fdREaUopiGCqYUJug5JAUhKStP79rlVrrGRqM7Xq/f1aysQZJrloB0iBrC6E72Eb7uEMnroTB1ejE3Kl1mF6mTlrtMSeS0DNR7VRX5IjeIwP1mvNQOZoFEODw17IqwWuhyg1qZvDF13PaW1Ik6k8Wfx7i+YOPot+ILQy0/JObixZnON6V7zb+HMqp3KzAyr0zIroPyHBrpSmhHFejxGxUiLJUOQCiFeQ=";
+
     private static LobbyMap map;
     private static AuroraMCLobby lobby;
 
@@ -106,25 +118,25 @@ public class LobbyAPI {
 
 
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Arcade Mode§r "));
-        profile.getProperties().put("textures", new Property("textures", MONKEY_SKIN, MONKEY_SIGNATURE));
+        profile.getProperties().put("textures", new Property("textures", ARCADE_SKIN, ARCADE_SIGNATURE));
         arcadeEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
         arcadeEntity.setLocation(-9.5, 61.0, 11.5, -145f, 0f);
         AuroraMCAPI.registerFakePlayer(arcadeEntity);
 
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Paintball§r "));
-        profile.getProperties().put("textures", new Property("textures", MONKEY_SKIN, MONKEY_SIGNATURE));
+        profile.getProperties().put("textures", new Property("textures", PAINTBALL_SKIN, PAINTBALL_SIGNATURE));
         paintballEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
         paintballEntity.setLocation(-13.5, 61.0, 8.5, -145f, 0f);
         AuroraMCAPI.registerFakePlayer(paintballEntity);
 
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Crystal Quest "));
-        profile.getProperties().put("textures", new Property("textures", MONKEY_SKIN, MONKEY_SIGNATURE));
+        profile.getProperties().put("textures", new Property("textures", CQ_SKIN, CQ_SIGNATURE));
         cqEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
         cqEntity.setLocation(-5.5, 61.0, 6.5, -145f, 0f);
         AuroraMCAPI.registerFakePlayer(cqEntity);
 
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Backstab§r "));
-        profile.getProperties().put("textures", new Property("textures", MONKEY_SKIN, MONKEY_SIGNATURE));
+        profile.getProperties().put("textures", new Property("textures", BACKSTAB_SKIN, BACKSTAB_SIGNATURE));
         backstabEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
         backstabEntity.setLocation(-5.5, 61.0, 14.5, -145f, 0f);
         AuroraMCAPI.registerFakePlayer(backstabEntity);
