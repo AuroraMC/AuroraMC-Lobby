@@ -38,8 +38,8 @@ public class Changelogs extends GUI {
         this.setItem(2, 5, new GUIItem(Material.IRON_SPADE, "&b&lSpleef", 1, ";&rLatest Version;&bv" + LobbyAPI.getVersionNumber("SPLEEF") + ";;&rLast Update: **" + ((LobbyAPI.getLatestChangelog("SPLEEF") != null)?format.format(new Date(LobbyAPI.getLatestChangelog("SPLEEF").getTimestamp())):"None") + "**;;&aClick to view more changelogs!"));
         this.setItem(2, 6, new GUIItem(Material.BAKED_POTATO, "&c&lHot Potato", 1, ";&rLatest Version;&bv" + LobbyAPI.getVersionNumber("HOT_POTATO") + ";;&rLast Update: **" + ((LobbyAPI.getLatestChangelog("HOT_POTATO") != null)?format.format(new Date(LobbyAPI.getLatestChangelog("HOT_POTATO").getTimestamp())):"None") + "**;;&aClick to view more changelogs!"));
         this.setItem(3, 3, new GUIItem(Material.IRON_AXE, "&c&lFFA", 1, ";&rLatest Version;&bv" + LobbyAPI.getVersionNumber("FFA") + ";;&rLast Update: **" + ((LobbyAPI.getLatestChangelog("FFA") != null)?format.format(new Date(LobbyAPI.getLatestChangelog("FFA").getTimestamp())):"None") + "**;;&aClick to view more changelogs!"));
-        this.setItem(3, 4, new GUIItem(Material.COBBLE_WALL, "&c&lHole In The Wall", 1, ";&rLatest Version;&bv" + LobbyAPI.getVersionNumber("HOLE_IN_THE_WALL") + ";;&rLast Update: **" + ((LobbyAPI.getLatestChangelog("HOLE_IN_THE_WALL") != null)?format.format(new Date(LobbyAPI.getLatestChangelog("HOLE_IN_THE_WALL").getTimestamp())):"None") + "**;;&aClick to view more changelogs!"));
-        this.setItem(3, 5, new GUIItem(Material.NOTE_BLOCK, AuroraMCAPI.getFormatter().rainbowBold("Block Party"), 1, ";&rLatest Version;&bv" + LobbyAPI.getVersionNumber("BLOCK_PARTY") + ";;&rLast Update: **" + ((LobbyAPI.getLatestChangelog("BLOCK_PARTY") != null)?format.format(new Date(LobbyAPI.getLatestChangelog("BLOCK_PARTY").getTimestamp())):"None") + "**;;&aClick to view more changelogs!"));
+        this.setItem(3, 4, new GUIItem(Material.LEASH, "&c&lTag", 1, ";&rLatest Version;&bv" + LobbyAPI.getVersionNumber("TAG") + ";;&rLast Update: **" + ((LobbyAPI.getLatestChangelog("TAG") != null)?format.format(new Date(LobbyAPI.getLatestChangelog("TAG").getTimestamp())):"None") + "**;;&aClick to view more changelogs!"));
+        this.setItem(3, 5, new GUIItem(Material.STAINED_CLAY, "&e&lRun", 1, ";&rLatest Version;&bv" + LobbyAPI.getVersionNumber("RUN") + ";;&rLast Update: **" + ((LobbyAPI.getLatestChangelog("RUN") != null)?format.format(new Date(LobbyAPI.getLatestChangelog("RUN").getTimestamp())):"None") + "**;;&aClick to view more changelogs!"));
     }
 
     @Override
@@ -101,16 +101,16 @@ public class Changelogs extends GUI {
                 AuroraMCAPI.openGUI(player, stats);
                 break;
             }
-            case COBBLE_WALL: {
+            case STAINED_CLAY: {
                 AuroraMCAPI.closeGUI(player);
-                ChangelogListing stats = new ChangelogListing(player, "HOLE_IN_THE_WALL", "Hole In The Wall", item);
+                ChangelogListing stats = new ChangelogListing(player, "RUN", "Run", item);
                 stats.open(player);
                 AuroraMCAPI.openGUI(player, stats);
                 break;
             }
-            case NOTE_BLOCK: {
+            case LEASH: {
                 AuroraMCAPI.closeGUI(player);
-                ChangelogListing stats = new ChangelogListing(player, "BLOCK_PARTY", "Block Party", item);
+                ChangelogListing stats = new ChangelogListing(player, "TAG", "Tag", item);
                 stats.open(player);
                 AuroraMCAPI.openGUI(player, stats);
                 break;
