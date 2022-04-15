@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Spawn rest of required entities">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Update locations of NPCs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +21,14 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Heliology &lt;burntcbusiness@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -224,13 +231,6 @@
       <workItem from="1649878807876" duration="145000" />
       <workItem from="1649879001887" duration="31000" />
       <workItem from="1650037222043" duration="322000" />
-    </task>
-    <task id="LOCAL-00066" summary="Fix NPE">
-      <created>1648686745003</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1648686745003</updated>
     </task>
     <task id="LOCAL-00067" summary="Fix flipped if statement">
       <created>1648686876193</created>
@@ -568,7 +568,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649849082240</updated>
     </task>
-    <option name="localTasksCounter" value="115" />
+    <task id="LOCAL-00115" summary="Update locations of NPCs">
+      <created>1650043375022</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1650043375022</updated>
+    </task>
+    <option name="localTasksCounter" value="116" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -586,7 +593,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Move players out of the way" />
     <MESSAGE value="Move the monke" />
     <MESSAGE value="Change The Monke yaw" />
     <MESSAGE value="Fix yaw" />
@@ -611,6 +617,7 @@
     <MESSAGE value="Fix issue with join listener" />
     <MESSAGE value="Add daily bonuses claimed to claimed bonuses" />
     <MESSAGE value="Spawn rest of required entities" />
-    <option name="LAST_COMMIT_MESSAGE" value="Spawn rest of required entities" />
+    <MESSAGE value="Update locations of NPCs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update locations of NPCs" />
   </component>
 </project>
