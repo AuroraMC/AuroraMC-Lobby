@@ -224,14 +224,17 @@ public class JoinListener implements Listener {
 
                 team = scoreboard.registerNewTeam("bs");
                 team.setPrefix("§c§l");
+                team.setSuffix("§7v" + LobbyAPI.getVersionNumber("BACKSTAB"));
                 team.addEntry("Backstab");
 
                 team = scoreboard.registerNewTeam("pb");
                 team.setPrefix("§a§l");
+                team.setSuffix("§7v" + LobbyAPI.getVersionNumber("PAINTBALL"));
                 team.addEntry("Paintball");
 
                 team = scoreboard.registerNewTeam("ac");
                 team.setPrefix("§e§l");
+                team.setSuffix("§7v" + LobbyAPI.getVersionNumber("ARCADE_MODE"));
                 team.addEntry("Arcade Mode");
                 if (!lobbyPlayer.hasMoved()) {
                     lobbyPlayer.moved();
