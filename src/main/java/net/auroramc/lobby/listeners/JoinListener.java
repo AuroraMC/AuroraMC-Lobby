@@ -219,23 +219,23 @@ public class JoinListener implements Listener {
                 Scoreboard scoreboard = lobbyPlayer.getScoreboard().getScoreboard();
                 Team team = scoreboard.registerNewTeam("cq");
                 team.setPrefix("§b§l");
-                team.setSuffix(" §3§lFEATURED!");
-                team.addEntry("Crystal Quest");
+                team.setSuffix("§3§lFEATURED!");
+                team.addEntry("Crystal Quest ");
 
                 team = scoreboard.registerNewTeam("bs");
                 team.setPrefix("§c§l");
-                team.setSuffix(" §7v" + LobbyAPI.getVersionNumber("BACKSTAB").trim());
-                team.addEntry("Backstab");
+                team.setSuffix("§7v" + LobbyAPI.getVersionNumber("BACKSTAB").trim());
+                team.addEntry("Backstab§r ");
 
                 team = scoreboard.registerNewTeam("pb");
                 team.setPrefix("§a§l");
-                team.setSuffix(" §7v" + LobbyAPI.getVersionNumber("PAINTBALL").trim());
-                team.addEntry("Paintball");
+                team.setSuffix("§7v" + LobbyAPI.getVersionNumber("PAINTBALL").trim());
+                team.addEntry("Paintball§r ");
 
                 team = scoreboard.registerNewTeam("ac");
                 team.setPrefix("§e§l");
-                team.setSuffix(" §7v" + LobbyAPI.getVersionNumber("ARCADE_MODE").trim());
-                team.addEntry("Arcade Mode");
+                team.setSuffix("§7v" + LobbyAPI.getVersionNumber("ARCADE_MODE").trim());
+                team.addEntry("Arcade Mode§r ");
                 if (!lobbyPlayer.hasMoved()) {
                     lobbyPlayer.moved();
                     new BukkitRunnable(){
