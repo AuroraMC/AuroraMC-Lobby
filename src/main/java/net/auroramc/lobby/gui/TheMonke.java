@@ -99,7 +99,7 @@ public class TheMonke extends GUI {
             case IRON_BLOCK: {
                 if (player.canClaimDaily()) {
                     player.claimDaily();
-                    this.updateItem(2, 2, new GUIItem(Material.REDSTONE_BLOCK, "&3&lLoyalty Bonus", 1, ";&cYou have already claimed;&ctoday's bonus!;;&rCome back tomorrow to claim again!"));
+                    this.updateItem(2, 2, new GUIItem(Material.REDSTONE_BLOCK, "&3&lLoyalty Bonus", 1, ";&cYou have already claimed;&ctoday's bonus!;;&rDaily bonuses claimed: **" + player.getDailyBonusClaimed() + "**;;&rCome back tomorrow to claim again!"));
                     player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.NOTE_PLING, 100, 1);
                 }
                 break;
