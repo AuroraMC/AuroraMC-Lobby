@@ -108,7 +108,7 @@ public class LobbyAPI {
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("&eArcade Mode"));
         profile.getProperties().put("textures", new Property("textures", MONKEY_SKIN, MONKEY_SIGNATURE));
         arcadeEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
-        arcadeEntity.setLocation(-5, 61.0, 16, -180f, 0f);
+        arcadeEntity.setLocation(-4, 61.0, 16, -180f, 0f);
         AuroraMCAPI.registerFakePlayer(arcadeEntity);
 
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("&aPaintball"));

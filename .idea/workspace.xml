@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix joining being broken" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Move NPC's">
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -228,13 +230,6 @@
       <workItem from="1649878807876" duration="145000" />
       <workItem from="1649879001887" duration="31000" />
       <workItem from="1650037222043" duration="322000" />
-    </task>
-    <task id="LOCAL-00070" summary="Check for changelogs when checking for poll">
-      <created>1648731398186</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1648731398186</updated>
     </task>
     <task id="LOCAL-00071" summary="Add missing break">
       <created>1648732530804</created>
@@ -572,7 +567,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650043837688</updated>
     </task>
-    <option name="localTasksCounter" value="119" />
+    <task id="LOCAL-00119" summary="Move NPC's">
+      <created>1650044140349</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1650044140349</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -590,7 +592,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix yaw" />
     <MESSAGE value="Implement Hub Invisibility" />
     <MESSAGE value="Fix NPE's" />
     <MESSAGE value="Seperate lobby updates" />
@@ -615,6 +616,7 @@
     <MESSAGE value="Update locations of NPCs" />
     <MESSAGE value="Fix Crystal Quest not being bold, add Featured Game." />
     <MESSAGE value="Fix joining being broken" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix joining being broken" />
+    <MESSAGE value="Move NPC's" />
+    <option name="LAST_COMMIT_MESSAGE" value="Move NPC's" />
   </component>
 </project>
