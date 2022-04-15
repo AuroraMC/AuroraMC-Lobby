@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Trim version numbers, fix formatting">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" afterDir="false" />
-    </list>
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Change formatting" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -232,13 +228,6 @@
       <workItem from="1649878807876" duration="145000" />
       <workItem from="1649879001887" duration="31000" />
       <workItem from="1650037222043" duration="322000" />
-    </task>
-    <task id="LOCAL-00075" summary="Fix misc changelogs not working">
-      <created>1648734764045</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1648734764045</updated>
     </task>
     <task id="LOCAL-00076" summary="Add last lobby achievement">
       <created>1648830282985</created>
@@ -576,7 +565,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650048490355</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="Change formatting">
+      <created>1650048964485</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1650048964485</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -594,7 +590,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Change format of lobby join messages" />
     <MESSAGE value="Impl hide server name" />
     <MESSAGE value="Disable join message when hub invisibility is enabled, change join message based on hide disguise name" />
     <MESSAGE value="Fix hub join message when hide disguise name is on" />
@@ -619,6 +614,7 @@
     <MESSAGE value="Spread out entities, fix formatting" />
     <MESSAGE value="Add version numbers to suffix" />
     <MESSAGE value="Trim version numbers, fix formatting" />
-    <option name="LAST_COMMIT_MESSAGE" value="Trim version numbers, fix formatting" />
+    <MESSAGE value="Change formatting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change formatting" />
   </component>
 </project>

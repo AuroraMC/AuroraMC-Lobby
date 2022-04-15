@@ -108,25 +108,25 @@ public class LobbyAPI {
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Arcade Mode§r "));
         profile.getProperties().put("textures", new Property("textures", MONKEY_SKIN, MONKEY_SIGNATURE));
         arcadeEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
-        arcadeEntity.setLocation(-8, 61.0, 16, -180f, 0f);
+        arcadeEntity.setLocation(-9.5, 61.0, 11.5, -145f, 0f);
         AuroraMCAPI.registerFakePlayer(arcadeEntity);
 
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Paintball§r "));
         profile.getProperties().put("textures", new Property("textures", MONKEY_SKIN, MONKEY_SIGNATURE));
         paintballEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
-        paintballEntity.setLocation(-4, 61.0, 16, -180f, 0f);
+        paintballEntity.setLocation(-13.5, 61.0, 8.5, -145f, 0f);
         AuroraMCAPI.registerFakePlayer(paintballEntity);
 
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Crystal Quest "));
         profile.getProperties().put("textures", new Property("textures", MONKEY_SKIN, MONKEY_SIGNATURE));
         cqEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
-        cqEntity.setLocation(0, 61.0, 16, -180f, 0f);
+        cqEntity.setLocation(-5.5, 61.0, 6.5, -145f, 0f);
         AuroraMCAPI.registerFakePlayer(cqEntity);
 
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Backstab§r "));
         profile.getProperties().put("textures", new Property("textures", MONKEY_SKIN, MONKEY_SIGNATURE));
         backstabEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
-        backstabEntity.setLocation(4, 61.0, 16, -180f, 0f);
+        backstabEntity.setLocation(-5.5, 61.0, 14.5, -145f, 0f);
         AuroraMCAPI.registerFakePlayer(backstabEntity);
     }
 
