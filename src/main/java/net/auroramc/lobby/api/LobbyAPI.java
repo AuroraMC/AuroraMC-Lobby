@@ -117,7 +117,7 @@ public class LobbyAPI {
         paintballEntity.setLocation(9, 61.0, 11, 89f, 0f);
         AuroraMCAPI.registerFakePlayer(paintballEntity);
 
-        profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("&b&lCrystal Quest&r &3&lFEATURED GAME"));
+        profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("&b&lCrystal Quest"));
         profile.getProperties().put("textures", new Property("textures", MONKEY_SKIN, MONKEY_SIGNATURE));
         cqEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
         cqEntity.setLocation(0, 61.0, 7, 180f, 0f);
