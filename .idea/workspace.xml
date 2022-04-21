@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Update core" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Stop disguised staff being punchable" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -231,13 +231,7 @@
       <workItem from="1650118702894" duration="798000" />
       <workItem from="1650383134165" duration="737000" />
       <workItem from="1650541875984" duration="48000" />
-    </task>
-    <task id="LOCAL-00081" summary="Fix changelog listing">
-      <created>1648989558603</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1648989558603</updated>
+      <workItem from="1650569700402" duration="97000" />
     </task>
     <task id="LOCAL-00082" summary="Add hub forcefield">
       <created>1649009752680</created>
@@ -575,7 +569,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650541889733</updated>
     </task>
-    <option name="localTasksCounter" value="130" />
+    <task id="LOCAL-00130" summary="Stop disguised staff being punchable">
+      <created>1650569780122</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1650569780122</updated>
+    </task>
+    <option name="localTasksCounter" value="131" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -593,7 +594,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add arcade to game menu" />
     <MESSAGE value="Fix incorrect game code" />
     <MESSAGE value="Add message when joining and they haven't voted in the active poll" />
     <MESSAGE value="Fix player bonus rank formatting" />
@@ -618,6 +618,7 @@
     <MESSAGE value="Update paintball skin" />
     <MESSAGE value="Fix lots of errors" />
     <MESSAGE value="Update core" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update core" />
+    <MESSAGE value="Stop disguised staff being punchable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Stop disguised staff being punchable" />
   </component>
 </project>
