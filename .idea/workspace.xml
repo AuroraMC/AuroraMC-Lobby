@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix lots of errors">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Update core" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -233,14 +230,7 @@
       <workItem from="1650037222043" duration="322000" />
       <workItem from="1650118702894" duration="798000" />
       <workItem from="1650383134165" duration="737000" />
-      <workItem from="1650541875984" duration="7000" />
-    </task>
-    <task id="LOCAL-00080" summary="Fix 2 bugs">
-      <created>1648989125673</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1648989125673</updated>
+      <workItem from="1650541875984" duration="48000" />
     </task>
     <task id="LOCAL-00081" summary="Fix changelog listing">
       <created>1648989558603</created>
@@ -578,7 +568,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650383271100</updated>
     </task>
-    <option name="localTasksCounter" value="129" />
+    <task id="LOCAL-00129" summary="Update core">
+      <created>1650541889733</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1650541889733</updated>
+    </task>
+    <option name="localTasksCounter" value="130" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -596,7 +593,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Bolded discord message" />
     <MESSAGE value="Add arcade to game menu" />
     <MESSAGE value="Fix incorrect game code" />
     <MESSAGE value="Add message when joining and they haven't voted in the active poll" />
@@ -621,6 +617,7 @@
     <MESSAGE value="Change skins" />
     <MESSAGE value="Update paintball skin" />
     <MESSAGE value="Fix lots of errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix lots of errors" />
+    <MESSAGE value="Update core" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update core" />
   </component>
 </project>
