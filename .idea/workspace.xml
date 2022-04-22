@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Stop disguised staff being punchable" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add lobby border">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/players/AuroraMCLobbyPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/players/AuroraMCLobbyPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -232,13 +237,9 @@
       <workItem from="1650383134165" duration="737000" />
       <workItem from="1650541875984" duration="48000" />
       <workItem from="1650569700402" duration="97000" />
-    </task>
-    <task id="LOCAL-00082" summary="Add hub forcefield">
-      <created>1649009752680</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1649009752680</updated>
+      <workItem from="1650573894208" duration="176000" />
+      <workItem from="1650658793907" duration="406000" />
+      <workItem from="1650659225300" duration="63000" />
     </task>
     <task id="LOCAL-00083" summary="Fix forcefield">
       <created>1649010548236</created>
@@ -576,7 +577,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650569780122</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="Add lobby border">
+      <created>1650573989840</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1650573989840</updated>
+    </task>
+    <option name="localTasksCounter" value="132" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -594,7 +602,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix incorrect game code" />
     <MESSAGE value="Add message when joining and they haven't voted in the active poll" />
     <MESSAGE value="Fix player bonus rank formatting" />
     <MESSAGE value="Fix admin/build/other achievements" />
@@ -619,6 +626,7 @@
     <MESSAGE value="Fix lots of errors" />
     <MESSAGE value="Update core" />
     <MESSAGE value="Stop disguised staff being punchable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Stop disguised staff being punchable" />
+    <MESSAGE value="Add lobby border" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add lobby border" />
   </component>
 </project>

@@ -5,6 +5,7 @@
 package net.auroramc.lobby.api.players;
 
 import net.auroramc.core.api.AuroraMCAPI;
+import net.auroramc.core.api.cosmetics.Gadget;
 import net.auroramc.core.api.players.AuroraMCPlayer;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
 import net.auroramc.lobby.api.util.CheckForcefieldRunnable;
@@ -14,6 +15,8 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
 
@@ -27,11 +30,14 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
     private long lastPlusBonus;
     private boolean moved;
 
+    private Map<Gadget, Long> lastUsed;
+
     private CheckForcefieldRunnable runnable;
 
     public AuroraMCLobbyPlayer(AuroraMCPlayer oldPlayer) {
         super(oldPlayer);
         this.joinTimestamp = System.currentTimeMillis();
+        lastUsed = new HashMap<>();
         moved = false;
 
         if (oldPlayer.getPreferences().isHubForcefieldEnabled()) {
@@ -330,5 +336,9 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
 
     public void moved() {
         this.moved = true;
+    }
+
+    public Map<Gadget, Long> getLastUsed() {
+        return lastUsed;
     }
 }

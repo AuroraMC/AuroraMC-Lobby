@@ -5,6 +5,8 @@
 package net.auroramc.lobby.listeners;
 
 import net.auroramc.core.api.AuroraMCAPI;
+import net.auroramc.core.api.cosmetics.Cosmetic;
+import net.auroramc.core.api.cosmetics.Gadget;
 import net.auroramc.core.api.events.player.PlayerPreferenceChangeEvent;
 import net.auroramc.core.api.players.AuroraMCPlayer;
 import net.auroramc.core.gui.cosmetics.Cosmetics;
@@ -154,6 +156,28 @@ public class LobbyListener implements Listener {
                 e.setCancelled(true);
             }
             if (e.getItem() != null && e.getItem().getType() != Material.AIR) {
+                if (e.getPlayer().getInventory().getHeldItemSlot() == 3) {
+                    AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer(e.getPlayer());
+                    if (player.getActiveCosmetics().containsKey(Cosmetic.CosmeticType.GADGET)) {
+                        Gadget gadget = (Gadget) player.getActiveCosmetics().get(Cosmetic.CosmeticType.GADGET);
+                        if (System.currentTimeMillis() - player.getLastUsed().getOrDefault(gadget, 0L) < gadget.getCooldown() * 1000L) {
+                            double amount = ((player.getLastUsed().getOrDefault(gadget, 0L) + (gadget.getCooldown() * 1000L)) - System.currentTimeMillis()) / 100d;
+                            long amount1 = Math.round(amount);
+                            if (amount1 < 0) {
+                                amount1 = 0;
+                            }
+                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Gadgets", "You cannot use this gadget for **" + (amount1 / 10f) + "**."));
+                            return;
+                        }
+                        if (e.getClickedBlock() != null) {
+                            gadget.onUse(player, e.getClickedBlock().getLocation());
+                        } else {
+                            gadget.onUse(player, player.getPlayer().getLocation());
+                        }
+
+                    }
+                    return;
+                }
                 switch (e.getItem().getType()) {
                     case EMERALD: {
                         e.setCancelled(true);
