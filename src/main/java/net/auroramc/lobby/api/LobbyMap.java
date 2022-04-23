@@ -10,7 +10,6 @@ import java.io.File;
 
 public class LobbyMap {
 
-
     private final int id;
     private final String name;
     private final String author;
