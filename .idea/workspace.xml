@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="add core as dependency">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Update backstab to duels">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/ServerState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/ServerState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/GameServerListing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/GameServerListing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,13 +247,8 @@
       <workItem from="1650716640492" duration="51000" />
       <workItem from="1650716773156" duration="12000" />
       <workItem from="1650721077894" duration="3000" />
-    </task>
-    <task id="LOCAL-00085" summary="Fixed more achievements">
-      <created>1649011646260</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1649011646261</updated>
+      <workItem from="1654185841547" duration="15000" />
+      <workItem from="1654186354980" duration="326000" />
     </task>
     <task id="LOCAL-00086" summary="Turn down forcefield">
       <created>1649012541692</created>
@@ -590,7 +586,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650715993213</updated>
     </task>
-    <option name="localTasksCounter" value="134" />
+    <task id="LOCAL-00134" summary="Update backstab to duels">
+      <created>1654184397859</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1654184397859</updated>
+    </task>
+    <option name="localTasksCounter" value="135" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -608,7 +611,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix admin/build/other achievements" />
     <MESSAGE value="Change hotpotato name" />
     <MESSAGE value="Change column IDs for maps" />
     <MESSAGE value="Fix NPE" />
@@ -633,6 +635,7 @@
     <MESSAGE value="Add lobby border" />
     <MESSAGE value="Implement gadgets" />
     <MESSAGE value="add core as dependency" />
-    <option name="LAST_COMMIT_MESSAGE" value="add core as dependency" />
+    <MESSAGE value="Update backstab to duels" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update backstab to duels" />
   </component>
 </project>
