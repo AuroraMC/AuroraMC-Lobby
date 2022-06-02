@@ -224,10 +224,10 @@ public class JoinListener implements Listener {
                     team.setSuffix("§3§lFEATURED!");
                     team.addEntry("Crystal Quest ");
 
-                    team = scoreboard.registerNewTeam("bs");
+                    team = scoreboard.registerNewTeam("ds");
                     team.setPrefix("§c§l");
-                    team.setSuffix("§7v" + LobbyAPI.getVersionNumber("BACKSTAB").trim());
-                    team.addEntry("Backstab§r ");
+                    team.setSuffix("§7v" + LobbyAPI.getVersionNumber("DUELS").trim());
+                    team.addEntry("Duels§r ");
 
                     team = scoreboard.registerNewTeam("pb");
                     team.setPrefix("§a§l");

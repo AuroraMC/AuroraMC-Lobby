@@ -28,8 +28,8 @@ public class FakePlayerListener implements Listener {
                 GameServerListing listing = new GameServerListing(player, "ARCADE_MODE", "Arcade Mode", "Arcade");
                 listing.open(player);
                 AuroraMCAPI.openGUI(player, listing);
-             } else if (e.getFakePlayer().equals(LobbyAPI.getBackstabEntity())) {
-                GameServerListing listing = new GameServerListing(player, "BACKSTAB", "Backstab", "Backstab");
+             } else if (e.getFakePlayer().equals(LobbyAPI.getDuelsEntity())) {
+                GameServerListing listing = new GameServerListing(player, "DUELS", "Duels", "Duels");
                 listing.open(player);
                 AuroraMCAPI.openGUI(player, listing);
             } else if (e.getFakePlayer().equals(LobbyAPI.getCqEntity())) {

@@ -33,7 +33,7 @@ public class Changelogs extends GUI {
         this.setItem(1, 5, new GUIItem(Material.EXP_BOTTLE, "&b&lGeneral Changelogs", 1, ";&rLatest Version;&bv" + LobbyAPI.getVersionNumber("GENERAL") + ";;&rLast Update: **" + ((LobbyAPI.getLatestChangelog("GENERAL") != null)?format.format(new Date(LobbyAPI.getLatestChangelog("GENERAL").getTimestamp())):"None") + "**;;&aClick to view more changelogs!"));
 
         this.setItem(2, 2, new GUIItem(Material.NETHER_STAR, "&b&lCrystal Quest", 1, ";&rLatest Version;&bv" + LobbyAPI.getVersionNumber("CRYSTAL_QUEST") + ";;&rLast Update: **" + ((LobbyAPI.getLatestChangelog("CRYSTAL_QUEST") != null)?format.format(new Date(LobbyAPI.getLatestChangelog("CRYSTAL_QUEST").getTimestamp())):"None") + "**;;&aClick to view more changelogs!"));
-        this.setItem(2, 3, new GUIItem(Material.IRON_SWORD, "&c&lBackstab", 1, ";&rLatest Version;&bv" + LobbyAPI.getVersionNumber("BACKSTAB") + ";;&rLast Update: **" + ((LobbyAPI.getLatestChangelog("BACKSTAB") != null)?format.format(new Date(LobbyAPI.getLatestChangelog("BACKSTAB").getTimestamp())):"None") + "**;;&aClick to view more changelogs!"));
+        this.setItem(2, 3, new GUIItem(Material.IRON_SWORD, "&c&lDuels", 1, ";&rLatest Version;&bv" + LobbyAPI.getVersionNumber("DUELS") + ";;&rLast Update: **" + ((LobbyAPI.getLatestChangelog("DUELS") != null)?format.format(new Date(LobbyAPI.getLatestChangelog("DUELS").getTimestamp())):"None") + "**;;&aClick to view more changelogs!"));
         this.setItem(2, 4, new GUIItem(Material.SNOW_BALL, "&a&lPaintball", 1, ";&rLatest Version;&bv" + LobbyAPI.getVersionNumber("PAINTBALL") + ";;&rLast Update: **" + ((LobbyAPI.getLatestChangelog("PAINTBALL") != null)?format.format(new Date(LobbyAPI.getLatestChangelog("PAINTBALL").getTimestamp())):"None") + "**;;&aClick to view more changelogs!"));
         this.setItem(2, 5, new GUIItem(Material.IRON_SPADE, "&b&lSpleef", 1, ";&rLatest Version;&bv" + LobbyAPI.getVersionNumber("SPLEEF") + ";;&rLast Update: **" + ((LobbyAPI.getLatestChangelog("SPLEEF") != null)?format.format(new Date(LobbyAPI.getLatestChangelog("SPLEEF").getTimestamp())):"None") + "**;;&aClick to view more changelogs!"));
         this.setItem(2, 6, new GUIItem(Material.BAKED_POTATO, "&c&lHot Potato", 1, ";&rLatest Version;&bv" + LobbyAPI.getVersionNumber("HOT_POTATO") + ";;&rLast Update: **" + ((LobbyAPI.getLatestChangelog("HOT_POTATO") != null)?format.format(new Date(LobbyAPI.getLatestChangelog("HOT_POTATO").getTimestamp())):"None") + "**;;&aClick to view more changelogs!"));
@@ -68,7 +68,7 @@ public class Changelogs extends GUI {
             }
             case IRON_SWORD: {
                 AuroraMCAPI.closeGUI(player);
-                ChangelogListing stats = new ChangelogListing(player, "BACKSTAB", "Backstab", item);
+                ChangelogListing stats = new ChangelogListing(player, "DUELS", "Duels", item);
                 stats.open(player);
                 AuroraMCAPI.openGUI(player, stats);
                 break;
