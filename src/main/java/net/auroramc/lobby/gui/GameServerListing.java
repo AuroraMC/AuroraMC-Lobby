@@ -41,7 +41,7 @@ public class GameServerListing extends GUI {
         int row = 2;
         int column = 2;
         for (GameServerInfo info : infos) {
-            this.setItem(row, column, new GUIItem(Material.STAINED_GLASS, "&3&l" + gameName + " Server " + info.getInfo().getName().split("-")[1], info.getCurrentPlayers(), ";&rPlayers: **" + info.getCurrentPlayers() + "**/**" + info.getMaxPlayers() + "**;&rGame: **" + info.getActiveGame() + "**" + ((info.getActiveMap().equalsIgnoreCase("n/a"))?";&rMap: **" + info.getActiveMap() + "**":"") + ";&rStatus: **" + info.getServerState().getName() + "**;;" + ((info.getCurrentPlayers() == info.getMaxPlayers())?"&cThis server is currently full!":"&aClick to join the server!"), (short)((info.getCurrentPlayers() == info.getMaxPlayers() || info.getServerState() == ServerState.INACTIVE)?14:((info.getServerState() == ServerState.STARTING)?4:0))));
+            this.setItem(row, column, new GUIItem(Material.STAINED_GLASS, "&3&l" + gameName + " Server " + info.getInfo().getName().split("-")[1], info.getCurrentPlayers(), ";&rPlayers: **" + info.getCurrentPlayers() + "**/**" + info.getMaxPlayers() + "**;&rGame: **" + info.getActiveGame() + "**" + ((!info.getActiveMap().equalsIgnoreCase("n/a"))?";&rMap: **" + info.getActiveMap() + "**":"") + ";&rStatus: **" + info.getServerState().getName() + "**;;" + ((info.getCurrentPlayers() == info.getMaxPlayers())?"&cThis server is currently full!":"&aClick to join the server!"), (short)((info.getCurrentPlayers() == info.getMaxPlayers() || info.getServerState() == ServerState.INACTIVE)?14:((info.getServerState() == ServerState.STARTING)?4:0))));
             column++;
             if (column == 7) {
                 row++;
@@ -72,7 +72,7 @@ public class GameServerListing extends GUI {
     }
 
     public void update() {
-        List<GameServerInfo> infos = LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getInfo().getServerType().getString("game").equalsIgnoreCase(gameCode) && (gameServerInfo.getServerState() == ServerState.STARTING || gameServerInfo.getServerState() == ServerState.WAITING_FOR_PLAYERS)).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).collect(Collectors.toList());
+        List<GameServerInfo> infos = LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getInfo().getServerType().getString("game").equalsIgnoreCase(gameCode) && (gameServerInfo.getServerState() == ServerState.STARTING || gameServerInfo.getServerState() == ServerState.WAITING_FOR_PLAYERS || gameServerInfo.getServerState() == ServerState.ACTIVE)).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).collect(Collectors.toList());
         int row = 2;
         int column = 2;
         for (int i = 0;i < 10;i++) {
@@ -80,7 +80,7 @@ public class GameServerListing extends GUI {
                 this.updateItem(row, column, null);
             } else {
                 GameServerInfo info = infos.get(i);
-                this.updateItem(row, column, new GUIItem(Material.STAINED_GLASS, "&3&l" + gameName + " Server " + info.getInfo().getName().split("-")[1], info.getCurrentPlayers(), ";&rPlayers: **" + info.getCurrentPlayers() + "**/**" + info.getMaxPlayers() + "**;&rGame: **" + info.getActiveGame() + "**" + ((info.getActiveMap().equalsIgnoreCase("n/a"))?";&rMap: **" + info.getActiveMap() + "**":"") + ";&rStatus: **" + info.getServerState().getName() + "**;;" + ((info.getCurrentPlayers() == info.getMaxPlayers())?"&cThis server is currently full!":"&aClick to join the server!"), (short)((info.getCurrentPlayers() == info.getMaxPlayers() || info.getServerState() == ServerState.INACTIVE)?14:((info.getServerState() == ServerState.STARTING)?4:0))));
+                this.updateItem(row, column, new GUIItem(Material.STAINED_GLASS, "&3&l" + gameName + " Server " + info.getInfo().getName().split("-")[1], info.getCurrentPlayers(), ";&rPlayers: **" + info.getCurrentPlayers() + "**/**" + info.getMaxPlayers() + "**;&rGame: **" + info.getActiveGame() + "**" + ((!info.getActiveMap().equalsIgnoreCase("n/a"))?";&rMap: **" + info.getActiveMap() + "**":"") + ";&rStatus: **" + info.getServerState().getName() + "**;;" + ((info.getCurrentPlayers() == info.getMaxPlayers())?"&cThis server is currently full!":"&aClick to join the server!"), (short)((info.getCurrentPlayers() == info.getMaxPlayers() || info.getServerState() == ServerState.INACTIVE)?14:((info.getServerState() == ServerState.STARTING)?4:0))));
             }
             column++;
             if (column == 7) {
