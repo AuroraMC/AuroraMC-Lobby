@@ -37,7 +37,7 @@ public class GameServerListing extends GUI {
         this.serverCode = serverCode;
         this.border("&3&lSelect a server!", null);
 
-        List<GameServerInfo> infos = LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getInfo().getServerType().getString("game").equalsIgnoreCase(gameCode) && (gameServerInfo.getServerState() == ServerState.STARTING || gameServerInfo.getServerState() == ServerState.WAITING_FOR_PLAYERS)).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).collect(Collectors.toList());
+        List<GameServerInfo> infos = LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getInfo().getServerType().getString("game").equalsIgnoreCase(gameCode) && (gameServerInfo.getServerState() == ServerState.STARTING || gameServerInfo.getServerState() == ServerState.WAITING_FOR_PLAYERS || gameServerInfo.getServerState() == ServerState.ACTIVE)).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).collect(Collectors.toList());
         int row = 2;
         int column = 2;
         for (GameServerInfo info : infos) {
