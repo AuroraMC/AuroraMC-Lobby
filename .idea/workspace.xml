@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Decrease multiplier">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix cooldowns" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -260,13 +258,7 @@
       <workItem from="1654468721780" duration="2000" />
       <workItem from="1654470268427" duration="38000" />
       <workItem from="1654470340452" duration="9000" />
-    </task>
-    <task id="LOCAL-00099" summary="Impl hide server name">
-      <created>1649085091806</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
-      <option name="project" value="LOCAL" />
-      <updated>1649085091806</updated>
+      <workItem from="1654470439844" duration="147000" />
     </task>
     <task id="LOCAL-00100" summary="Disable join message when hub invisibility is enabled, change join message based on hide disguise name">
       <created>1649086078203</created>
@@ -604,7 +596,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654461170081</updated>
     </task>
-    <option name="localTasksCounter" value="148" />
+    <task id="LOCAL-00148" summary="Fix cooldowns">
+      <created>1654470584554</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1654470584554</updated>
+    </task>
+    <option name="localTasksCounter" value="149" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -622,7 +621,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add version numbers to suffix" />
     <MESSAGE value="Trim version numbers, fix formatting" />
     <MESSAGE value="Change formatting" />
     <MESSAGE value="CHange entity locations" />
@@ -647,6 +645,7 @@
     <MESSAGE value="Fix error" />
     <MESSAGE value="Increase multiplier" />
     <MESSAGE value="Decrease multiplier" />
-    <option name="LAST_COMMIT_MESSAGE" value="Decrease multiplier" />
+    <MESSAGE value="Fix cooldowns" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix cooldowns" />
   </component>
 </project>
