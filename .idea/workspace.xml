@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Increase multiplier" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Decrease multiplier">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -254,14 +256,10 @@
       <workItem from="1654363358267" duration="132000" />
       <workItem from="1654363587474" duration="11000" />
       <workItem from="1654457715566" duration="835000" />
-      <workItem from="1654458767919" duration="2315000" />
-    </task>
-    <task id="LOCAL-00098" summary="Change format of lobby join messages">
-      <created>1649017048197</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1649017048197</updated>
+      <workItem from="1654458767919" duration="2914000" />
+      <workItem from="1654468721780" duration="2000" />
+      <workItem from="1654470268427" duration="38000" />
+      <workItem from="1654470340452" duration="9000" />
     </task>
     <task id="LOCAL-00099" summary="Impl hide server name">
       <created>1649085091806</created>
@@ -599,7 +597,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654460861050</updated>
     </task>
-    <option name="localTasksCounter" value="147" />
+    <task id="LOCAL-00147" summary="Decrease multiplier">
+      <created>1654461170081</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1654461170081</updated>
+    </task>
+    <option name="localTasksCounter" value="148" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -617,7 +622,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Spread out entities, fix formatting" />
     <MESSAGE value="Add version numbers to suffix" />
     <MESSAGE value="Trim version numbers, fix formatting" />
     <MESSAGE value="Change formatting" />
@@ -642,6 +646,7 @@
     <MESSAGE value="Fix async issue" />
     <MESSAGE value="Fix error" />
     <MESSAGE value="Increase multiplier" />
-    <option name="LAST_COMMIT_MESSAGE" value="Increase multiplier" />
+    <MESSAGE value="Decrease multiplier" />
+    <option name="LAST_COMMIT_MESSAGE" value="Decrease multiplier" />
   </component>
 </project>

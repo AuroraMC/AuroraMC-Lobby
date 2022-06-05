@@ -201,7 +201,7 @@ public class LobbyListener implements Listener {
                         } else {
                             gadget.onUse(player, player.getPlayer().getLocation());
                         }
-
+                        player.getLastUsed().put(gadget, System.currentTimeMillis());
                     }
                     return;
                 }
