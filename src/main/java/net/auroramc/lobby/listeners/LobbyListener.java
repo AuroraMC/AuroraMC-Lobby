@@ -28,10 +28,7 @@ import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.hanging.HangingBreakEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.player.PlayerArmorStandManipulateEvent;
-import org.bukkit.event.player.PlayerDropItemEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.event.player.*;
 import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.potion.PotionEffect;
@@ -42,6 +39,36 @@ import org.json.JSONObject;
 
 
 public class LobbyListener implements Listener {
+
+    private static int highX = 0, lowX = 0, highY = 0, lowY = 0, highZ = 0, lowZ = 0;
+
+    static {
+        JSONObject a = LobbyAPI.getLobbyMap().getMapData().getJSONObject("border_a");
+        JSONObject b = LobbyAPI.getLobbyMap().getMapData().getJSONObject("border_b");
+        if (a.getInt("x") > b.getInt("x")) {
+            highX = a.getInt("x");
+            lowX = b.getInt("x");
+        } else {
+            highX = b.getInt("x");
+            lowX = a.getInt("x");
+        }
+
+        if (a.getInt("y") > b.getInt("y")) {
+            highY = a.getInt("y");
+            lowY = b.getInt("y");
+        } else {
+            highY = b.getInt("y");
+            lowY = a.getInt("y");
+        }
+
+        if (a.getInt("z") > b.getInt("z")) {
+            highZ = a.getInt("z");
+            lowZ = b.getInt("z");
+        } else {
+            highZ = b.getInt("z");
+            lowZ = a.getInt("z");
+        }
+    }
 
     @EventHandler
     public void onBreak(BlockBreakEvent e) {
@@ -236,8 +263,21 @@ public class LobbyListener implements Listener {
     }
 
     @EventHandler
+    public void onToggleFlight(PlayerToggleFlightEvent e) {
+        AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer(e.getPlayer());
+        if (!player.getPreferences().isHubFlightEnabled() || (!player.hasPermission("elite") && !player.hasPermission("plus"))) {
+            e.setCancelled(true);
+            e.getPlayer().setAllowFlight(false);
+            e.getPlayer().setVelocity(e.getPlayer().getLocation().getDirection().normalize().multiply(1.25));
+            e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.ENDERDRAGON_WINGS, 1, 100);
+        }
+    }
+
+    @EventHandler
     public void onPreferenceChange(PlayerPreferenceChangeEvent e) {
-        e.getPlayer().getPlayer().setAllowFlight(e.getPlayer().getPreferences().isHubFlightEnabled());
+        if (!e.getPlayer().getPreferences().isHubFlightEnabled()) {
+            e.getPlayer().getPlayer().setFlying(false);
+        }
         if (e.getPlayer().getPreferences().isHubVisibilityEnabled()) {
             for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
                 if (player.equals(e.getPlayer())) {
@@ -289,33 +329,6 @@ public class LobbyListener implements Listener {
 
     @EventHandler
     public void onMove(PlayerMoveEvent e) {
-        int highX = 0, lowX = 0, highY = 0, lowY = 0, highZ = 0, lowZ = 0;
-        JSONObject a = LobbyAPI.getLobbyMap().getMapData().getJSONObject("border_a");
-        JSONObject b = LobbyAPI.getLobbyMap().getMapData().getJSONObject("border_b");
-        if (a.getInt("x") > b.getInt("x")) {
-            highX = a.getInt("x");
-            lowX = b.getInt("x");
-        } else {
-            highX = b.getInt("x");
-            lowX = a.getInt("x");
-        }
-
-        if (a.getInt("y") > b.getInt("y")) {
-            highY = a.getInt("y");
-            lowY = b.getInt("y");
-        } else {
-            highY = b.getInt("y");
-            lowY = a.getInt("y");
-        }
-
-        if (a.getInt("z") > b.getInt("z")) {
-            highZ = a.getInt("z");
-            lowZ = b.getInt("z");
-        } else {
-            highZ = b.getInt("z");
-            lowZ = a.getInt("z");
-        }
-
         if (e.getTo().getX() < lowX || e.getTo().getX() > highX || e.getTo().getY() < lowY || e.getTo().getY() > highY || e.getTo().getZ() < lowZ || e.getTo().getZ() > highZ) {
             //Call entity damage event so the games can handle them appropriately.
             JSONArray spawnLocations = LobbyAPI.getLobbyMap().getMapData().getJSONObject("spawn").getJSONArray("PLAYERS");
@@ -333,6 +346,8 @@ public class LobbyListener implements Listener {
             if (LobbyAPI.getLobbyMap().getMapData().getInt("time") > 12000) {
                 e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 1000000, 0, true, false), false);
             }
+        } else if (!e.getPlayer().getAllowFlight() && (new Location(e.getTo().getWorld(), e.getTo().getX(), e.getTo().getY() - 1, e.getTo().getZ())).getBlock().getType() != Material.AIR) {
+            e.getPlayer().setAllowFlight(true);
         }
     }
 }

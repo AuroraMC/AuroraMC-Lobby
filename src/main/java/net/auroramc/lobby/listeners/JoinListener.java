@@ -82,14 +82,7 @@ public class JoinListener implements Listener {
     @EventHandler
     public void onObjectCreate(PlayerObjectCreationEvent e) {
         AuroraMCLobbyPlayer player = new AuroraMCLobbyPlayer(e.getPlayer());
-        if (player.getPreferences().isHubFlightEnabled() && (player.hasPermission("elite") || player.hasPermission("plus"))) {
-            new BukkitRunnable(){
-                @Override
-                public void run() {
-                    player.getPlayer().setAllowFlight(true);
-                }
-            }.runTask(AuroraMCAPI.getCore());
-        }
+        player.getPlayer().setAllowFlight(true);
         for (AuroraMCPlayer player1 : AuroraMCAPI.getPlayers()) {
             if (!player1.equals(player) && player1.isLoaded()) {
                 if (!player.getPreferences().isHubVisibilityEnabled() || (player1.getPreferences().isHubInvisibilityEnabled() && !player.hasPermission("moderation"))) {
