@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix flipped if statement, fix updates to menu">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/AuroraMCLobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/AuroraMCLobby.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" afterDir="false" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add parenthesis">
       <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -259,28 +256,7 @@
       <workItem from="1654363358267" duration="132000" />
       <workItem from="1654363587474" duration="11000" />
       <workItem from="1654457715566" duration="835000" />
-      <workItem from="1654458767919" duration="374000" />
-    </task>
-    <task id="LOCAL-00090" summary="Change The Monke yaw">
-      <created>1649013523093</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1649013523093</updated>
-    </task>
-    <task id="LOCAL-00091" summary="Fix yaw">
-      <created>1649013890001</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1649013890001</updated>
-    </task>
-    <task id="LOCAL-00092" summary="Fix yaw">
-      <created>1649014154728</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1649014154728</updated>
+      <workItem from="1654458767919" duration="674000" />
     </task>
     <task id="LOCAL-00093" summary="Fix yaw">
       <created>1649014255930</created>
@@ -604,7 +580,28 @@
       <option name="project" value="LOCAL" />
       <updated>1654187317067</updated>
     </task>
-    <option name="localTasksCounter" value="139" />
+    <task id="LOCAL-00139" summary="Implement double jump">
+      <created>1654459235017</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1654459235017</updated>
+    </task>
+    <task id="LOCAL-00140" summary="Only toggle on flight toggle on">
+      <created>1654459338423</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1654459338423</updated>
+    </task>
+    <task id="LOCAL-00141" summary="Add parenthesis">
+      <created>1654459443839</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1654459443839</updated>
+    </task>
+    <option name="localTasksCounter" value="142" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -622,9 +619,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add daily bonuses claimed to claimed bonuses" />
-    <MESSAGE value="Spawn rest of required entities" />
-    <MESSAGE value="Update locations of NPCs" />
     <MESSAGE value="Fix Crystal Quest not being bold, add Featured Game." />
     <MESSAGE value="Fix joining being broken" />
     <MESSAGE value="Move NPC's" />
@@ -647,6 +641,9 @@
     <MESSAGE value="Display red when server is inactive" />
     <MESSAGE value="Fix game menu" />
     <MESSAGE value="Fix flipped if statement, fix updates to menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix flipped if statement, fix updates to menu" />
+    <MESSAGE value="Implement double jump" />
+    <MESSAGE value="Only toggle on flight toggle on" />
+    <MESSAGE value="Add parenthesis" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add parenthesis" />
   </component>
 </project>
