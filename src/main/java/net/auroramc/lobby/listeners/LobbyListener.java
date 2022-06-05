@@ -268,7 +268,7 @@ public class LobbyListener implements Listener {
         if (e.isFlying() && (!player.getPreferences().isHubFlightEnabled() || (!player.hasPermission("elite") && !player.hasPermission("plus")))) {
             e.getPlayer().setAllowFlight(false);
             e.setCancelled(true);
-            e.getPlayer().setVelocity(e.getPlayer().getLocation().getDirection().normalize().multiply(1.35));
+            e.getPlayer().setVelocity(e.getPlayer().getLocation().getDirection().normalize().multiply(2.7));
             e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.ENDERDRAGON_WINGS, 1, 100);
         }
     }

@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix error" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Increase multiplier">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -254,14 +256,7 @@
       <workItem from="1654363358267" duration="132000" />
       <workItem from="1654363587474" duration="11000" />
       <workItem from="1654457715566" duration="835000" />
-      <workItem from="1654458767919" duration="1030000" />
-    </task>
-    <task id="LOCAL-00096" summary="Seperate lobby updates">
-      <created>1649016433392</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1649016433392</updated>
+      <workItem from="1654458767919" duration="2015000" />
     </task>
     <task id="LOCAL-00097" summary="Fix location of lobby changelogs">
       <created>1649016647033</created>
@@ -599,7 +594,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654459719068</updated>
     </task>
-    <option name="localTasksCounter" value="145" />
+    <task id="LOCAL-00145" summary="Increase multiplier">
+      <created>1654459876641</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1654459876641</updated>
+    </task>
+    <option name="localTasksCounter" value="146" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -617,7 +619,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Change how entity name is displayed" />
     <MESSAGE value="Spread out entities, fix formatting" />
     <MESSAGE value="Add version numbers to suffix" />
     <MESSAGE value="Trim version numbers, fix formatting" />
@@ -642,6 +643,7 @@
     <MESSAGE value="Fix /fly" />
     <MESSAGE value="Fix async issue" />
     <MESSAGE value="Fix error" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix error" />
+    <MESSAGE value="Increase multiplier" />
+    <option name="LAST_COMMIT_MESSAGE" value="Increase multiplier" />
   </component>
 </project>
