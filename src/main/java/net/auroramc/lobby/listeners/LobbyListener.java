@@ -266,9 +266,9 @@ public class LobbyListener implements Listener {
     public void onToggleFlight(PlayerToggleFlightEvent e) {
         AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer(e.getPlayer());
         if (e.isFlying() && (!player.getPreferences().isHubFlightEnabled() || (!player.hasPermission("elite") && !player.hasPermission("plus")))) {
-            e.setCancelled(true);
             e.getPlayer().setAllowFlight(false);
-            e.getPlayer().setVelocity(e.getPlayer().getLocation().getDirection().normalize().multiply(1.25));
+            e.setCancelled(true);
+            e.getPlayer().setVelocity(e.getPlayer().getLocation().getDirection().normalize().multiply(1.35));
             e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.ENDERDRAGON_WINGS, 1, 100);
         }
     }
