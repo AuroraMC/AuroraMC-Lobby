@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix cooldowns" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add seconds to message">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/backend/LobbyDatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/backend/LobbyDatabaseManager.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -259,13 +262,11 @@
       <workItem from="1654470268427" duration="38000" />
       <workItem from="1654470340452" duration="9000" />
       <workItem from="1654470439844" duration="147000" />
-    </task>
-    <task id="LOCAL-00100" summary="Disable join message when hub invisibility is enabled, change join message based on hide disguise name">
-      <created>1649086078203</created>
-      <option name="number" value="00100" />
-      <option name="presentableId" value="LOCAL-00100" />
-      <option name="project" value="LOCAL" />
-      <updated>1649086078203</updated>
+      <workItem from="1654470754716" duration="611000" />
+      <workItem from="1654603652688" duration="74000" />
+      <workItem from="1654603769776" duration="57000" />
+      <workItem from="1654603881900" duration="2000" />
+      <workItem from="1655114387136" duration="333000" />
     </task>
     <task id="LOCAL-00101" summary="Fix hub join message when hide disguise name is on">
       <created>1649087601148</created>
@@ -603,7 +604,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654470584554</updated>
     </task>
-    <option name="localTasksCounter" value="149" />
+    <task id="LOCAL-00149" summary="Add seconds to message">
+      <created>1654470767636</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1654470767636</updated>
+    </task>
+    <option name="localTasksCounter" value="150" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -621,7 +629,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Trim version numbers, fix formatting" />
     <MESSAGE value="Change formatting" />
     <MESSAGE value="CHange entity locations" />
     <MESSAGE value="Change skins" />
@@ -646,6 +653,7 @@
     <MESSAGE value="Increase multiplier" />
     <MESSAGE value="Decrease multiplier" />
     <MESSAGE value="Fix cooldowns" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix cooldowns" />
+    <MESSAGE value="Add seconds to message" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add seconds to message" />
   </component>
 </project>
