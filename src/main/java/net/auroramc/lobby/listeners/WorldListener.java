@@ -67,6 +67,7 @@ public class WorldListener implements Listener {
                 direction = BlockFace.WEST;
             }
             chest.setFacingDirection(direction);
+            location.getBlock().getState().setData(chest);
             location.getBlock().getState().update();
             location.setY(location.getY() + 1);
             location.setX(location.getX() + 0.5);
