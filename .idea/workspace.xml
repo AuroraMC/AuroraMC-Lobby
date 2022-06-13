@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Centre Hologram">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Chest should now face direction of datapoint placement">
       <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/WorldListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/WorldListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -272,13 +271,7 @@
       <workItem from="1655115690645" duration="67000" />
       <workItem from="1655115767372" duration="346000" />
       <workItem from="1655116270425" duration="6000" />
-    </task>
-    <task id="LOCAL-00107" summary="Fix player bonus rank formatting">
-      <created>1649251196676</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
-      <option name="project" value="LOCAL" />
-      <updated>1649251196676</updated>
+      <workItem from="1655116315419" duration="340000" />
     </task>
     <task id="LOCAL-00108" summary="Fix admin/build/other achievements">
       <created>1649253464389</created>
@@ -616,7 +609,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655115525395</updated>
     </task>
-    <option name="localTasksCounter" value="156" />
+    <task id="LOCAL-00156" summary="Chest should now face direction of datapoint placement">
+      <created>1655116329539</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1655116329540</updated>
+    </task>
+    <option name="localTasksCounter" value="157" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -634,7 +634,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Stop disguised staff being punchable" />
     <MESSAGE value="Add lobby border" />
     <MESSAGE value="Implement gadgets" />
     <MESSAGE value="add core as dependency" />
@@ -659,6 +658,7 @@
     <MESSAGE value="Fix paintball server code" />
     <MESSAGE value="Spawn chest and hologram" />
     <MESSAGE value="Centre Hologram" />
-    <option name="LAST_COMMIT_MESSAGE" value="Centre Hologram" />
+    <MESSAGE value="Chest should now face direction of datapoint placement" />
+    <option name="LAST_COMMIT_MESSAGE" value="Chest should now face direction of datapoint placement" />
   </component>
 </project>

@@ -54,7 +54,7 @@ public class WorldListener implements Listener {
             int z = crateLocation.getInt("z");
             Location location = new Location(e.getWorld(), x, y, z);
             location.getBlock().setType(Material.CHEST);
-            Chest chest = (Chest) location.getBlock().getState();
+            Chest chest = (Chest) location.getBlock().getState().getData();
             BlockFace direction;
             float yaw = crateLocation.getFloat("yaw");
             if (yaw <= -135 || yaw >= 135) {
@@ -67,6 +67,7 @@ public class WorldListener implements Listener {
                 direction = BlockFace.WEST;
             }
             chest.setFacingDirection(direction);
+            location.getBlock().getState().update();
             location.setY(location.getY() + 1);
             location.setX(location.getX() + 0.5);
             location.setZ(location.getZ() + 0.5);
