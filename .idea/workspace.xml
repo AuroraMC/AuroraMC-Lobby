@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add menu opening">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix formatting">
       <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/ViewCrates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/ViewCrates.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -276,28 +275,7 @@
       <workItem from="1655117160720" duration="674000" />
       <workItem from="1655117922157" duration="12000" />
       <workItem from="1655117952501" duration="201000" />
-      <workItem from="1655118279506" duration="320000" />
-    </task>
-    <task id="LOCAL-00112" summary="Fix issue with join listener">
-      <created>1649373856630</created>
-      <option name="number" value="00112" />
-      <option name="presentableId" value="LOCAL-00112" />
-      <option name="project" value="LOCAL" />
-      <updated>1649373856630</updated>
-    </task>
-    <task id="LOCAL-00113" summary="Add daily bonuses claimed to claimed bonuses">
-      <created>1649530494442</created>
-      <option name="number" value="00113" />
-      <option name="presentableId" value="LOCAL-00113" />
-      <option name="project" value="LOCAL" />
-      <updated>1649530494442</updated>
-    </task>
-    <task id="LOCAL-00114" summary="Spawn rest of required entities">
-      <created>1649849082240</created>
-      <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL-00114" />
-      <option name="project" value="LOCAL" />
-      <updated>1649849082240</updated>
+      <workItem from="1655118279506" duration="716000" />
     </task>
     <task id="LOCAL-00115" summary="Update locations of NPCs">
       <created>1650043375022</created>
@@ -621,7 +599,28 @@
       <option name="project" value="LOCAL" />
       <updated>1655117563474</updated>
     </task>
-    <option name="localTasksCounter" value="161" />
+    <task id="LOCAL-00161" summary="Implement menu">
+      <created>1655118607638</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL-00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1655118607638</updated>
+    </task>
+    <task id="LOCAL-00162" summary="Fix formatting">
+      <created>1655118754728</created>
+      <option name="number" value="00162" />
+      <option name="presentableId" value="LOCAL-00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1655118754728</updated>
+    </task>
+    <task id="LOCAL-00163" summary="Fix formatting">
+      <created>1655118871333</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL-00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1655118871333</updated>
+    </task>
+    <option name="localTasksCounter" value="164" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -639,8 +638,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add core as dependency" />
-    <MESSAGE value="Update backstab to duels" />
     <MESSAGE value="Add duels specfic menu options" />
     <MESSAGE value="Display red when server is inactive" />
     <MESSAGE value="Fix game menu" />
@@ -664,6 +661,8 @@
     <MESSAGE value="Fix error" />
     <MESSAGE value="Fix defensive call issues" />
     <MESSAGE value="Add menu opening" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add menu opening" />
+    <MESSAGE value="Implement menu" />
+    <MESSAGE value="Fix formatting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix formatting" />
   </component>
 </project>
