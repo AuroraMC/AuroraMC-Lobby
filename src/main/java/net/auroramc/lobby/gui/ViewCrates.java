@@ -38,7 +38,7 @@ public class ViewCrates extends GUI {
         head.setDurability((short)3);
         SkullMeta meta = (SkullMeta) head.getItemMeta();
         meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&7&lIron Crate")));
-        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&7Iron Crates are the most common;&7and have the lowest chances to;&7win awesome stuff.;;&rCost: &a2,000 Tickets;;&aLeft-click to view available crates!;&aRight-click to purchase!")).split(";")));
+        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&7Iron Crates are the most common;&7and have the lowest chances to;&7win awesome stuff.;;&rCost: &d2,000 Tickets;;&aLeft-click to view available crates!;&aRight-click to purchase!")).split(";")));
         Field field;
         try {
             field = meta.getClass().getDeclaredField("profile");
@@ -61,7 +61,7 @@ public class ViewCrates extends GUI {
         head.setDurability((short)3);
         meta = (SkullMeta) head.getItemMeta();
         meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&6&lGold Crate")));
-        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&7Gold Crates are rare crates that;&7contain more legendary loot!.;;&rCost: &a10,000 Tickets;;&aLeft-click to view available crates!;&aRight-click to purchase!")).split(";")));
+        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&7Gold Crates are rare crates that;&7contain more legendary loot!;;&rCost: &d10,000 Tickets;;&aLeft-click to view available crates!;&aRight-click to purchase!")).split(";")));
         try {
             field = meta.getClass().getDeclaredField("profile");
         } catch (NoSuchFieldException | SecurityException e) {
@@ -83,7 +83,7 @@ public class ViewCrates extends GUI {
         head.setDurability((short)3);
         meta = (SkullMeta) head.getItemMeta();
         meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&b&lDiamond Crate")));
-        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&7Diamond Crates are legendary crates that;&7can not just give you cosmetics, but can also give you;&ra rank upgrade!!.;;&rCost: &a20,000 Tickets;;&aLeft-click to view available crates!;&aRight-click to purchase!")).split(";")));
+        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&7Diamond Crates are legendary crates that;&7can not just give you cosmetics, but can;&67also give you a rank upgrade!;;&rCost: &d20,000 Tickets;;&aLeft-click to view available crates!;&aRight-click to purchase!")).split(";")));
         try {
             field = meta.getClass().getDeclaredField("profile");
         } catch (NoSuchFieldException | SecurityException e) {
