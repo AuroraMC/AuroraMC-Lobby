@@ -18,6 +18,7 @@ import net.minecraft.server.v1_8_R3.EntityPlayer;
 import net.minecraft.server.v1_8_R3.PlayerInteractManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.craftbukkit.v1_8_R3.CraftServer;
 import org.bukkit.craftbukkit.v1_8_R3.CraftWorld;
 
@@ -63,6 +64,8 @@ public class LobbyAPI {
     private static EntityPlayer cqEntity;
     private static EntityPlayer paintballEntity;
     private static EntityPlayer duelsEntity;
+
+    private static Block chestBlock;
 
 
     static {
@@ -233,5 +236,13 @@ public class LobbyAPI {
 
     public static EntityPlayer getPaintballEntity() {
         return paintballEntity;
+    }
+
+    public static Block getChestBlock() {
+        return chestBlock;
+    }
+
+    public static void setChestBlock(Block chestBlock) {
+        LobbyAPI.chestBlock = chestBlock;
     }
 }

@@ -72,6 +72,9 @@ public class WorldListener implements Listener {
             Chest chest = new Chest(direction);
             state.setData(chest);
             state.update();
+
+            LobbyAPI.setChestBlock(location.getBlock());
+
             location.setY(location.getY() + 1);
             location.setX(location.getX() + 0.5);
             location.setZ(location.getZ() + 0.5);

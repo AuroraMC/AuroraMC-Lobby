@@ -16,6 +16,7 @@ import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.gui.GameMenu;
 import net.auroramc.lobby.gui.LobbySwitcher;
+import net.auroramc.lobby.gui.ViewCrates;
 import org.bukkit.*;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
@@ -181,6 +182,14 @@ public class LobbyListener implements Listener {
     public void onItemClick(PlayerInteractEvent e) {
             if (e.getPlayer().getGameMode() != GameMode.CREATIVE) {
                 e.setCancelled(true);
+            }
+            if (e.getClickedBlock() != null && e.getClickedBlock().getType() == Material.CHEST && e.getClickedBlock().equals(LobbyAPI.getChestBlock())) {
+                AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer(e.getPlayer());
+                ViewCrates crates = new ViewCrates(player);
+                crates.open(player);
+                AuroraMCAPI.openGUI(player, crates);
+                e.setCancelled(true);
+                return;
             }
             if (e.getItem() != null && e.getItem().getType() != Material.AIR) {
                 if (e.getPlayer().getInventory().getHeldItemSlot() == 3) {
