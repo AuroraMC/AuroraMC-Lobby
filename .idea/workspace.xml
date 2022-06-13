@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix paintball server code">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Centre Hologram">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/WorldListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/WorldListener.java" afterDir="false" />
     </list>
@@ -268,20 +268,10 @@
       <workItem from="1654603881900" duration="2000" />
       <workItem from="1655114387136" duration="736000" />
       <workItem from="1655115170786" duration="168000" />
-    </task>
-    <task id="LOCAL-00105" summary="Fix incorrect game code">
-      <created>1649106593745</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
-      <option name="project" value="LOCAL" />
-      <updated>1649106593746</updated>
-    </task>
-    <task id="LOCAL-00106" summary="Add message when joining and they haven't voted in the active poll">
-      <created>1649199921121</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1649199921121</updated>
+      <workItem from="1655115367252" duration="296000" />
+      <workItem from="1655115690645" duration="67000" />
+      <workItem from="1655115767372" duration="346000" />
+      <workItem from="1655116270425" duration="6000" />
     </task>
     <task id="LOCAL-00107" summary="Fix player bonus rank formatting">
       <created>1649251196676</created>
@@ -612,7 +602,21 @@
       <option name="project" value="LOCAL" />
       <updated>1655115082843</updated>
     </task>
-    <option name="localTasksCounter" value="154" />
+    <task id="LOCAL-00154" summary="Spawn chest and hologram">
+      <created>1655115417266</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1655115417266</updated>
+    </task>
+    <task id="LOCAL-00155" summary="Centre Hologram">
+      <created>1655115525395</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1655115525395</updated>
+    </task>
+    <option name="localTasksCounter" value="156" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -630,8 +634,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix lots of errors" />
-    <MESSAGE value="Update core" />
     <MESSAGE value="Stop disguised staff being punchable" />
     <MESSAGE value="Add lobby border" />
     <MESSAGE value="Implement gadgets" />
@@ -655,6 +657,8 @@
     <MESSAGE value="update map zip" />
     <MESSAGE value="Update entity location" />
     <MESSAGE value="Fix paintball server code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix paintball server code" />
+    <MESSAGE value="Spawn chest and hologram" />
+    <MESSAGE value="Centre Hologram" />
+    <option name="LAST_COMMIT_MESSAGE" value="Centre Hologram" />
   </component>
 </project>
