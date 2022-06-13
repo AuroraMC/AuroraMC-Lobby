@@ -56,7 +56,7 @@ public class AuroraMCLobby extends JavaPlugin {
         File region = new File(mapFolder, "region");
         region.mkdirs();
         try {
-            ZipUtil.unzip(getDataFolder().toPath().toAbsolutePath() + "/zip/22.zip", region.toPath().toAbsolutePath().toString());
+            ZipUtil.unzip(getDataFolder().toPath().toAbsolutePath() + "/zip/76.zip", region.toPath().toAbsolutePath().toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
