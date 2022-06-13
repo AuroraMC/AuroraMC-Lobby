@@ -4,9 +4,13 @@
 
 package net.auroramc.lobby.listeners;
 
+import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.utils.VoidGenerator;
+import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_8_R3.CraftWorld;
+import org.bukkit.entity.ArmorStand;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.world.WorldInitEvent;
@@ -42,6 +46,20 @@ public class WorldListener implements Listener {
 
             LobbyAPI.spawnEntities();
 
+            JSONObject crateLocation = mapData.getJSONObject("game").getJSONArray("CRATE").getJSONObject(0);
+            int x = crateLocation.getInt("x");
+            int y = crateLocation.getInt("y");
+            int z = crateLocation.getInt("z");
+            Location location = new Location(e.getWorld(), x, y, z);
+            location.getBlock().setType(Material.CHEST);
+            location.setY(location.getY() + 1);
+            ArmorStand stand = location.getWorld().spawn(location, ArmorStand.class);
+            stand.setVisible(false);
+            stand.setCustomName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight("&3&lOpen Crates")));
+            stand.setCustomNameVisible(true);
+            stand.setSmall(true);
+            stand.setMarker(true);
+            stand.setGravity(false);
         }
     }
 
