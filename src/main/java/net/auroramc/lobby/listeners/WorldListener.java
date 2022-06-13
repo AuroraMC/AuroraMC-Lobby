@@ -9,7 +9,9 @@ import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.utils.VoidGenerator;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
+import org.bukkit.block.BlockState;
 import org.bukkit.material.Chest;
 import org.bukkit.craftbukkit.v1_8_R3.CraftWorld;
 import org.bukkit.entity.ArmorStand;
@@ -53,8 +55,9 @@ public class WorldListener implements Listener {
             int y = crateLocation.getInt("y");
             int z = crateLocation.getInt("z");
             Location location = new Location(e.getWorld(), x, y, z);
-            location.getBlock().setType(Material.CHEST);
-            Chest chest = (Chest) location.getBlock().getState().getData();
+            Block block = location.getBlock();
+            block.setType(Material.CHEST);
+            BlockState state = block.getState();
             BlockFace direction;
             float yaw = crateLocation.getFloat("yaw");
             if (yaw <= -135 || yaw >= 135) {
@@ -66,9 +69,9 @@ public class WorldListener implements Listener {
             } else {
                 direction = BlockFace.WEST;
             }
-            chest.setFacingDirection(direction);
-            location.getBlock().getState().setData(chest);
-            location.getBlock().getState().update();
+            Chest chest = new Chest(direction);
+            state.setData(chest);
+            state.update();
             location.setY(location.getY() + 1);
             location.setX(location.getX() + 0.5);
             location.setZ(location.getZ() + 0.5);
