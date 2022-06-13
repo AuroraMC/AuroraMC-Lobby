@@ -49,7 +49,7 @@ public class GameMenu extends GUI {
                 break;
             }
             case SNOW_BALL: {
-                GameServerListing listing = new GameServerListing(player, "PAINTBALL", "Paintball", "Paintball");
+                GameServerListing listing = new GameServerListing(player, "PAINTBALL", "Paintball", "PB");
                 listing.open(player);
                 AuroraMCAPI.openGUI(player, listing);
                 break;
