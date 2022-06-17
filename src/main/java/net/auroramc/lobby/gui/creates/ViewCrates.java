@@ -2,17 +2,19 @@
  * Copyright (c) 2022 AuroraMC Ltd. All Rights Reserved.
  */
 
-package net.auroramc.lobby.gui;
+package net.auroramc.lobby.gui.creates;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import net.auroramc.core.api.AuroraMCAPI;
+import net.auroramc.core.api.cosmetics.Crate;
 import net.auroramc.core.api.players.AuroraMCPlayer;
 import net.auroramc.core.api.utils.gui.GUI;
 import net.auroramc.core.api.utils.gui.GUIItem;
 import net.auroramc.lobby.AuroraMCLobby;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
@@ -124,6 +126,41 @@ public class ViewCrates extends GUI {
 
     @Override
     public void onClick(int row, int column, ItemStack item, ClickType clickType) {
-
+        if (item.getType() != Material.SKULL_ITEM) {
+            player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ITEM_BREAK, 100, 0);
+        } else {
+            switch (column) {
+                case 1: {
+                    if (clickType.isLeftClick()) {
+                        IronCrateMenu menu = new IronCrateMenu(player, item);
+                        menu.open(player);
+                        AuroraMCAPI.openGUI(player, menu);
+                    }
+                    break;
+                }
+                case 3:{
+                    if (clickType.isLeftClick()) {
+                        GoldCrateMenu menu = new GoldCrateMenu(player, item);
+                        menu.open(player);
+                        AuroraMCAPI.openGUI(player, menu);
+                    }
+                    break;
+                }
+                case 5:{
+                    if (clickType.isLeftClick()) {
+                        DiamondCrateMenu menu = new DiamondCrateMenu(player, item);
+                        menu.open(player);
+                        AuroraMCAPI.openGUI(player, menu);
+                    }
+                    break;
+                }
+                case 7: {
+                    EmeraldCrateMenu menu = new EmeraldCrateMenu(player, item);
+                    menu.open(player);
+                    AuroraMCAPI.openGUI(player, menu);
+                    break;
+                }
+            }
+        }
     }
 }

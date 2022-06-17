@@ -5,6 +5,7 @@
 package net.auroramc.lobby.api.players;
 
 import net.auroramc.core.api.AuroraMCAPI;
+import net.auroramc.core.api.cosmetics.Crate;
 import net.auroramc.core.api.cosmetics.Gadget;
 import net.auroramc.core.api.players.AuroraMCPlayer;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
@@ -13,10 +14,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
 
@@ -34,11 +32,14 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
 
     private CheckForcefieldRunnable runnable;
 
+    private List<Crate> crates;
+
     public AuroraMCLobbyPlayer(AuroraMCPlayer oldPlayer) {
         super(oldPlayer);
         this.joinTimestamp = System.currentTimeMillis();
         lastUsed = new HashMap<>();
         moved = false;
+        crates = AuroraMCAPI.getDbManager().getCrates(this.getId());
 
         if (oldPlayer.getPreferences().isHubForcefieldEnabled()) {
             this.runnable = new CheckForcefieldRunnable(this);
@@ -340,5 +341,9 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
 
     public Map<Gadget, Long> getLastUsed() {
         return lastUsed;
+    }
+
+    public List<Crate> getCrates() {
+        return crates;
     }
 }
