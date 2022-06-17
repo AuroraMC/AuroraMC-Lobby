@@ -132,7 +132,7 @@ public class ViewCrates extends GUI {
             switch (column) {
                 case 1: {
                     if (clickType.isLeftClick()) {
-                        IronCrateMenu menu = new IronCrateMenu(player, item);
+                        IronCrateMenu menu = new IronCrateMenu(player);
                         menu.open(player);
                         AuroraMCAPI.openGUI(player, menu);
                     }
@@ -140,7 +140,7 @@ public class ViewCrates extends GUI {
                 }
                 case 3:{
                     if (clickType.isLeftClick()) {
-                        GoldCrateMenu menu = new GoldCrateMenu(player, item);
+                        GoldCrateMenu menu = new GoldCrateMenu(player);
                         menu.open(player);
                         AuroraMCAPI.openGUI(player, menu);
                     }
@@ -148,14 +148,14 @@ public class ViewCrates extends GUI {
                 }
                 case 5:{
                     if (clickType.isLeftClick()) {
-                        DiamondCrateMenu menu = new DiamondCrateMenu(player, item);
+                        DiamondCrateMenu menu = new DiamondCrateMenu(player);
                         menu.open(player);
                         AuroraMCAPI.openGUI(player, menu);
                     }
                     break;
                 }
                 case 7: {
-                    EmeraldCrateMenu menu = new EmeraldCrateMenu(player, item);
+                    EmeraldCrateMenu menu = new EmeraldCrateMenu(player);
                     menu.open(player);
                     AuroraMCAPI.openGUI(player, menu);
                     break;
