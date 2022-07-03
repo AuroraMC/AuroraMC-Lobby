@@ -6,6 +6,7 @@ package net.auroramc.lobby.api.backend;
 
 import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.core.api.backend.ServerInfo;
+import net.auroramc.core.api.cosmetics.Crate;
 import net.auroramc.lobby.AuroraMCLobby;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.util.Changelog;
@@ -252,6 +253,18 @@ public class LobbyDatabaseManager {
         try (Jedis connection = AuroraMCAPI.getDbManager().getRedisConnection()) {
             connection.set("poll." + pollId + "." + playerId, responseId + "");
             connection.hincrBy("responses." + pollId, responseId + "", 1);
+        }
+    }
+
+    public static void newCrate(Crate crate) {
+        try (Connection connection = AuroraMCAPI.getDbManager().getMySQLConnection()) {
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO crates(uuid, type, amc_id) VALUES (?,?,?)");
+            statement.setString(1, crate.getUuid().toString());
+            statement.setString(2, crate.getType());
+            statement.setInt(3, crate.getOwner());
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
