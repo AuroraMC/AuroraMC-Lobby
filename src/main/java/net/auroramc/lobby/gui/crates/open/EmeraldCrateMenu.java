@@ -2,7 +2,7 @@
  * Copyright (c) 2022 AuroraMC Ltd. All Rights Reserved.
  */
 
-package net.auroramc.lobby.gui.creates;
+package net.auroramc.lobby.gui.crates.open;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
@@ -11,7 +11,6 @@ import net.auroramc.core.api.cosmetics.Crate;
 import net.auroramc.core.api.utils.gui.GUI;
 import net.auroramc.core.api.utils.gui.GUIItem;
 import net.auroramc.core.cosmetics.crates.EmeraldCrate;
-import net.auroramc.core.cosmetics.crates.IronCrate;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import org.bukkit.Material;
 import org.bukkit.Sound;

@@ -2,14 +2,19 @@
  * Copyright (c) 2022 AuroraMC Ltd. All Rights Reserved.
  */
 
-package net.auroramc.lobby.gui.creates;
+package net.auroramc.lobby.gui.crates.buy;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.core.api.utils.gui.GUI;
 import net.auroramc.core.api.utils.gui.GUIItem;
+import net.auroramc.core.cosmetics.crates.DiamondCrate;
+import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
+import net.auroramc.lobby.gui.crates.buy.confirmation.ConfirmDiamond;
+import net.auroramc.lobby.utils.CrateUtil;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -22,10 +27,13 @@ import java.util.UUID;
 
 public class BuyDiamondCrate extends GUI {
 
+    private AuroraMCLobbyPlayer player;
 
-    public BuyDiamondCrate() {
+    public BuyDiamondCrate(AuroraMCLobbyPlayer player) {
         super("&b&lBuy Diamond Crates", 4, true);
         border("&b&lBuy Diamond Crates", null);
+
+        this.player = player;
 
         GameProfile profile = new GameProfile(UUID.randomUUID(), null);
         profile.getProperties().put("textures", new Property("textures", Base64.getEncoder().encodeToString("{textures:{SKIN:{url:\"http://textures.minecraft.net/texture/25807cc4c3b6958aea6156e84518d91a49c5f32971e6eb269a23a25a27145\"}}}".getBytes())));
@@ -53,7 +61,7 @@ public class BuyDiamondCrate extends GUI {
         ItemStack one = head.clone();
         meta = one.getItemMeta();
         meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&b&l1 Diamond Crate")));
-        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&rCost: &d2,000 Tickets;;&aClick here to purchase 1 Diamond Crate!")).split(";")));
+        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&rCost: &d" + String.format("%,d",CrateUtil.DIAMOND_CRATE_PRICE) + " Tickets;;&aClick here to purchase 1 Diamond Crate!")).split(";")));
         one.setItemMeta(meta);
         this.setItem(2, 2, new GUIItem(one));
 
@@ -61,7 +69,7 @@ public class BuyDiamondCrate extends GUI {
         five.setAmount(5);
         meta = five.getItemMeta();
         meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&b&l5 Diamond Crates")));
-        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&rCost: &d10,000 Tickets;;&aClick here to purchase 5 Diamond Crates!")).split(";")));
+        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&rCost: &d" + String.format("%,d",CrateUtil.DIAMOND_CRATE_PRICE * 5) + " Tickets;;&aClick here to purchase 5 Diamond Crates!")).split(";")));
         five.setItemMeta(meta);
         this.setItem(2, 4, new GUIItem(five));
 
@@ -69,13 +77,47 @@ public class BuyDiamondCrate extends GUI {
         ten.setAmount(10);
         meta = ten.getItemMeta();
         meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&b&l10 Diamond Crates")));
-        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&rCost: &d20,000 Tickets;;&aClick here to purchase 10 Diamond Crates!")).split(";")));
+        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&rCost: &d" + String.format("%,d",CrateUtil.DIAMOND_CRATE_PRICE * 10) + " Tickets;;&aClick here to purchase 10 Diamond Crates!")).split(";")));
         ten.setItemMeta(meta);
-        this.setItem(2, 4, new GUIItem(ten));
+        this.setItem(2, 6, new GUIItem(ten));
     }
 
     @Override
     public void onClick(int row, int column, ItemStack item, ClickType clickType) {
-
+        switch (column) {
+            case 2: {
+                if (player.getBank().getTickets() >= CrateUtil.DIAMOND_CRATE_PRICE) {
+                    ConfirmDiamond diamond = new ConfirmDiamond(player, 1);
+                    diamond.open(player);
+                    AuroraMCAPI.openGUI(player, diamond);
+                } else {
+                    player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ITEM_BREAK, 100, 0);
+                }
+                break;
+            }
+            case 4: {
+                if (player.getBank().getTickets() >= CrateUtil.DIAMOND_CRATE_PRICE * 5) {
+                    ConfirmDiamond diamond = new ConfirmDiamond(player, 5);
+                    diamond.open(player);
+                    AuroraMCAPI.openGUI(player, diamond);
+                } else {
+                    player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ITEM_BREAK, 100, 0);
+                }
+                break;
+            }
+            case 6: {
+                if (player.getBank().getTickets() >= CrateUtil.DIAMOND_CRATE_PRICE * 10) {
+                    ConfirmDiamond diamond = new ConfirmDiamond(player, 10);
+                    diamond.open(player);
+                    AuroraMCAPI.openGUI(player, diamond);
+                } else {
+                    player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ITEM_BREAK, 100, 0);
+                }
+                break;
+            }
+            default: {
+                player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ITEM_BREAK, 100, 0);
+            }
+        }
     }
 }

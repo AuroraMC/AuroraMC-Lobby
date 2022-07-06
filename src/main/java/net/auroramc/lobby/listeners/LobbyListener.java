@@ -16,7 +16,7 @@ import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.gui.GameMenu;
 import net.auroramc.lobby.gui.LobbySwitcher;
-import net.auroramc.lobby.gui.creates.ViewCrates;
+import net.auroramc.lobby.gui.crates.ViewCrates;
 import org.bukkit.*;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
