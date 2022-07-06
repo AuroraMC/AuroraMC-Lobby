@@ -60,7 +60,7 @@ public class BuyGoldCrate extends GUI {
 
         ItemStack one = head.clone();
         meta = one.getItemMeta();
-        meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&b&l1 Gold Crate")));
+        meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&6&l1 Gold Crate")));
         meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&rCost: &d" + String.format("%,d",CrateUtil.GOLD_CRATE_PRICE) + " Tickets;;&aClick here to purchase 1 Gold Crate!")).split(";")));
         one.setItemMeta(meta);
         this.setItem(2, 2, new GUIItem(one));
@@ -68,7 +68,7 @@ public class BuyGoldCrate extends GUI {
         ItemStack five = head.clone();
         five.setAmount(5);
         meta = five.getItemMeta();
-        meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&b&l5 Gold Crates")));
+        meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&6&l5 Gold Crates")));
         meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&rCost: &d" + String.format("%,d",CrateUtil.GOLD_CRATE_PRICE * 5) + " Tickets;;&aClick here to purchase 5 Gold Crates!")).split(";")));
         five.setItemMeta(meta);
         this.setItem(2, 4, new GUIItem(five));
@@ -76,7 +76,7 @@ public class BuyGoldCrate extends GUI {
         ItemStack ten = head.clone();
         ten.setAmount(10);
         meta = ten.getItemMeta();
-        meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&b&l10 Gold Crates")));
+        meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&6&l10 Gold Crates")));
         meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&rCost: &d" + String.format("%,d",CrateUtil.GOLD_CRATE_PRICE * 10) + " Tickets;;&aClick here to purchase 10 Gold Crates!")).split(";")));
         ten.setItemMeta(meta);
         this.setItem(2, 6, new GUIItem(ten));
