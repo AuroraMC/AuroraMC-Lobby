@@ -102,31 +102,31 @@ public class IronCrateMenu extends GUI {
                 Location location = LobbyAPI.getChestBlock().getLocation();
                 LobbyAPI.getChestStand().remove();
                 location.getBlock().setType(Material.AIR);
-                Location loc = new Location(location.getWorld(), location.getX() + 2, location.getY() - 1, location.getZ() + 2);
+                Location loc = new Location(location.getWorld(), location.getX() + 3, location.getY() - 1, location.getZ() + 3);
 
                 //Set Blocks
                 loc.getBlock().setType(Material.IRON_BLOCK);
                 loc.setY(loc.getY() + 1);
                 loc.getBlock().setType(Material.RED_SANDSTONE);
                 loc.getBlock().setData((byte)2);
-                loc.setX(loc.getX() - 4);
+                loc.setX(loc.getX() - 6);
                 loc.setY(loc.getY() - 1);
                 loc.getBlock().setType(Material.IRON_BLOCK);
                 loc.setY(loc.getY() + 1);
                 loc.getBlock().setType(Material.RED_SANDSTONE);
-                loc.setZ(loc.getZ() - 4);
+                loc.setZ(loc.getZ() - 6);
                 loc.setY(loc.getY() - 1);
                 loc.getBlock().setType(Material.IRON_BLOCK);
                 loc.setY(loc.getY() + 1);
                 loc.getBlock().setType(Material.RED_SANDSTONE);
-                loc.setX(loc.getX() + 4);
+                loc.setX(loc.getX() + 6);
                 loc.setY(loc.getY() - 1);
                 loc.getBlock().setType(Material.IRON_BLOCK);
                 loc.setY(loc.getY() + 1);
                 loc.getBlock().setType(Material.RED_SANDSTONE);
 
-                Location anvil = new Location(location.getWorld(), location.getX(), location.getY() + 2, location.getZ() + 2);
-                Location chest = new Location(location.getWorld(), location.getX(), location.getY(), location.getZ() + 2);
+                Location anvil = new Location(location.getWorld(), location.getX(), location.getY() + 2, location.getZ() + 3);
+                Location chest = new Location(location.getWorld(), location.getX(), location.getY(), location.getZ() + 3);
 
                 FallingBlock block = anvil.getWorld().spawnFallingBlock(anvil, Material.ANVIL, (byte)0);
                 block.setDropItem(false);
@@ -137,8 +137,8 @@ public class IronCrateMenu extends GUI {
                         block.remove();
                         chest.getBlock().setType(Material.CHEST);
 
-                        anvil.setZ(anvil.getZ() - 4);
-                        chest.setZ(chest.getZ() - 4);
+                        anvil.setZ(anvil.getZ() - 6);
+                        chest.setZ(chest.getZ() - 6);
                         FallingBlock block = anvil.getWorld().spawnFallingBlock(anvil, Material.ANVIL, (byte)0);
                         block.setDropItem(false);
                         block.setHurtEntities(false);
@@ -151,10 +151,10 @@ public class IronCrateMenu extends GUI {
                                 c.setData(new Chest(BlockFace.SOUTH));
                                 c.update();
 
-                                anvil.setX(anvil.getX() + 2);
-                                anvil.setZ(anvil.getZ() + 2);
-                                chest.setX(chest.getX() + 2);
-                                chest.setZ(chest.getZ() + 2);
+                                anvil.setX(anvil.getX() + 3);
+                                anvil.setZ(anvil.getZ() + 3);
+                                chest.setX(chest.getX() + 3);
+                                chest.setZ(chest.getZ() + 3);
                                 FallingBlock block = anvil.getWorld().spawnFallingBlock(anvil, Material.ANVIL, (byte)0);
                                 block.setDropItem(false);
                                 block.setHurtEntities(false);
@@ -167,8 +167,8 @@ public class IronCrateMenu extends GUI {
                                         c.setData(new Chest(BlockFace.WEST));
                                         c.update();
 
-                                        anvil.setX(anvil.getX() - 4);
-                                        chest.setX(chest.getX() - 4);
+                                        anvil.setX(anvil.getX() - 6);
+                                        chest.setX(chest.getX() - 6);
                                         FallingBlock block = anvil.getWorld().spawnFallingBlock(anvil, Material.ANVIL, (byte)0);
                                         block.setDropItem(false);
                                         block.setHurtEntities(false);
@@ -181,13 +181,13 @@ public class IronCrateMenu extends GUI {
                                                 c.setData(new Chest(BlockFace.EAST));
                                                 c.update();
                                             }
-                                        }.runTaskLater(AuroraMCAPI.getCore(), 20);
+                                        }.runTaskLater(AuroraMCAPI.getCore(), 15);
                                     }
-                                }.runTaskLater(AuroraMCAPI.getCore(), 20);
+                                }.runTaskLater(AuroraMCAPI.getCore(), 15);
                             }
-                        }.runTaskLater(AuroraMCAPI.getCore(), 20);
+                        }.runTaskLater(AuroraMCAPI.getCore(), 15);
                     }
-                }.runTaskLater(AuroraMCAPI.getCore(), 20);
+                }.runTaskLater(AuroraMCAPI.getCore(), 15);
             } else {
                 player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "Someone is already opening a crate! Please wait until they are finished to open one!"));
             }

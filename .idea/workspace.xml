@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix typo">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/IronCrateMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/IronCrateMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/WorldListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/WorldListener.java" afterDir="false" />
-    </list>
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Start iron crate animation" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -300,13 +295,7 @@
       <workItem from="1657288983607" duration="77000" />
       <workItem from="1657289086274" duration="999000" />
       <workItem from="1657290456594" duration="1012000" />
-    </task>
-    <task id="LOCAL-00121" summary="Spread out entities, fix formatting">
-      <created>1650048180706</created>
-      <option name="number" value="00121" />
-      <option name="presentableId" value="LOCAL-00121" />
-      <option name="project" value="LOCAL" />
-      <updated>1650048180707</updated>
+      <workItem from="1657291490184" duration="432000" />
     </task>
     <task id="LOCAL-00122" summary="Add version numbers to suffix">
       <created>1650048350267</created>
@@ -644,7 +633,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657284611607</updated>
     </task>
-    <option name="localTasksCounter" value="170" />
+    <task id="LOCAL-00170" summary="Start iron crate animation">
+      <created>1657291606876</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1657291606876</updated>
+    </task>
+    <option name="localTasksCounter" value="171" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -662,7 +658,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implement double jump" />
     <MESSAGE value="Only toggle on flight toggle on" />
     <MESSAGE value="Add parenthesis" />
     <MESSAGE value="Fix /fly" />
@@ -687,6 +682,7 @@
     <MESSAGE value="Finish crate menus" />
     <MESSAGE value="Fix formatting" />
     <MESSAGE value="Fix typo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix typo" />
+    <MESSAGE value="Start iron crate animation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start iron crate animation" />
   </component>
 </project>
