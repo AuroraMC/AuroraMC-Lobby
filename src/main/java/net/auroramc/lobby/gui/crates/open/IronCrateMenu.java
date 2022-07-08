@@ -18,6 +18,7 @@ import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.BlockState;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.FallingBlock;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
@@ -100,7 +101,11 @@ public class IronCrateMenu extends GUI {
 
             if (LobbyAPI.startOpen(crate, player)) {
                 Location location = LobbyAPI.getChestBlock().getLocation();
-                LobbyAPI.getChestStand().remove();
+                for (Entity entity : location.getWorld().getNearbyEntities(location, 2, 2, 2)) {
+                    if (entity.getEntityId() == LobbyAPI.getChestStand().getEntityId()) {
+                        entity.remove();
+                    }
+                }
                 location.getBlock().setType(Material.AIR);
                 Location loc = new Location(location.getWorld(), location.getX() + 3, location.getY() - 1, location.getZ() + 3);
 
@@ -114,16 +119,19 @@ public class IronCrateMenu extends GUI {
                 loc.getBlock().setType(Material.IRON_BLOCK);
                 loc.setY(loc.getY() + 1);
                 loc.getBlock().setType(Material.RED_SANDSTONE);
+                loc.getBlock().setData((byte)2);
                 loc.setZ(loc.getZ() - 6);
                 loc.setY(loc.getY() - 1);
                 loc.getBlock().setType(Material.IRON_BLOCK);
                 loc.setY(loc.getY() + 1);
                 loc.getBlock().setType(Material.RED_SANDSTONE);
+                loc.getBlock().setData((byte)2);
                 loc.setX(loc.getX() + 6);
                 loc.setY(loc.getY() - 1);
                 loc.getBlock().setType(Material.IRON_BLOCK);
                 loc.setY(loc.getY() + 1);
                 loc.getBlock().setType(Material.RED_SANDSTONE);
+                loc.getBlock().setData((byte)2);
 
                 Location anvil = new Location(location.getWorld(), location.getX(), location.getY() + 2, location.getZ() + 3);
                 Location chest = new Location(location.getWorld(), location.getX(), location.getY(), location.getZ() + 3);
@@ -181,13 +189,13 @@ public class IronCrateMenu extends GUI {
                                                 c.setData(new Chest(BlockFace.EAST));
                                                 c.update();
                                             }
-                                        }.runTaskLater(AuroraMCAPI.getCore(), 15);
+                                        }.runTaskLater(AuroraMCAPI.getCore(), 12);
                                     }
-                                }.runTaskLater(AuroraMCAPI.getCore(), 15);
+                                }.runTaskLater(AuroraMCAPI.getCore(), 12);
                             }
-                        }.runTaskLater(AuroraMCAPI.getCore(), 15);
+                        }.runTaskLater(AuroraMCAPI.getCore(), 12);
                     }
-                }.runTaskLater(AuroraMCAPI.getCore(), 15);
+                }.runTaskLater(AuroraMCAPI.getCore(), 12);
             } else {
                 player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "Someone is already opening a crate! Please wait until they are finished to open one!"));
             }
