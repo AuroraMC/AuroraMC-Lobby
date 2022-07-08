@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Finish crate menus">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/buy/BuyGoldCrate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/buy/BuyGoldCrate.java" afterDir="false" />
-    </list>
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix formatting" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -292,14 +289,7 @@
       <workItem from="1655474045012" duration="866000" />
       <workItem from="1656356624622" duration="1298000" />
       <workItem from="1656920343803" duration="12000" />
-      <workItem from="1657127524415" duration="5156000" />
-    </task>
-    <task id="LOCAL-00119" summary="Move NPC's">
-      <created>1650044140349</created>
-      <option name="number" value="00119" />
-      <option name="presentableId" value="LOCAL-00119" />
-      <option name="project" value="LOCAL" />
-      <updated>1650044140349</updated>
+      <workItem from="1657127524415" duration="5560000" />
     </task>
     <task id="LOCAL-00120" summary="Change how entity name is displayed">
       <created>1650047978819</created>
@@ -637,7 +627,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657133150583</updated>
     </task>
-    <option name="localTasksCounter" value="168" />
+    <task id="LOCAL-00168" summary="Fix formatting">
+      <created>1657138080118</created>
+      <option name="number" value="00168" />
+      <option name="presentableId" value="LOCAL-00168" />
+      <option name="project" value="LOCAL" />
+      <updated>1657138080118</updated>
+    </task>
+    <option name="localTasksCounter" value="169" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -676,10 +673,10 @@
     <MESSAGE value="Fix defensive call issues" />
     <MESSAGE value="Add menu opening" />
     <MESSAGE value="Implement menu" />
-    <MESSAGE value="Fix formatting" />
     <MESSAGE value="Change wording" />
     <MESSAGE value="Implement submenus" />
     <MESSAGE value="Finish crate menus" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finish crate menus" />
+    <MESSAGE value="Fix formatting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix formatting" />
   </component>
 </project>

@@ -46,7 +46,7 @@ public class ConfirmDiamond extends GUI {
                     DiamondCrate crate = CrateUtil.generateDiamondCrate(player.getId());
                     player.getCrates().add(crate);
                 }
-                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "You purchased &b" + amount + " Diamond Crates&r and &d" + (amount * CrateUtil.DIAMOND_CRATE_PRICE) + "Tickets&r were withdrawn from your account."));
+                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "You purchased &b" + amount + " Diamond Crates&r and &d" + (amount * CrateUtil.DIAMOND_CRATE_PRICE) + " Tickets&r were withdrawn from your account."));
             } else {
                 player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "You have insufficient funds to purchase that crate. You need &d" + ((amount * CrateUtil.DIAMOND_CRATE_PRICE) - player.getBank().getTickets()) + "&r additional Tickets."));
             }

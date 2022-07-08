@@ -49,7 +49,7 @@ public class ConfirmGold extends GUI {
                     GoldCrate crate = CrateUtil.generateGoldCrate(player.getId());
                     player.getCrates().add(crate);
                 }
-                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "You purchased &6" + amount + " Gold Crates&r and &d" + (amount * CrateUtil.GOLD_CRATE_PRICE) + "Tickets&r were withdrawn from your account."));
+                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "You purchased &6" + amount + " Gold Crates&r and &d" + (amount * CrateUtil.GOLD_CRATE_PRICE) + " Tickets&r were withdrawn from your account."));
             } else {
                 player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "You have insufficient funds to purchase that crate. You need &d" + ((amount * CrateUtil.GOLD_CRATE_PRICE) - player.getBank().getTickets()) + "&r additional Tickets."));
             }
