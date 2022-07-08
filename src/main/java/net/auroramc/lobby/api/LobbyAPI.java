@@ -8,10 +8,12 @@ import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.core.api.backend.ServerInfo;
+import net.auroramc.core.api.cosmetics.Crate;
 import net.auroramc.core.api.utils.gui.GUIItem;
 import net.auroramc.lobby.AuroraMCLobby;
 import net.auroramc.lobby.api.backend.GameServerInfo;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
+import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.api.util.Changelog;
 import net.auroramc.lobby.api.util.CommunityPoll;
 import net.minecraft.server.v1_8_R3.EntityPlayer;
@@ -21,6 +23,7 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.craftbukkit.v1_8_R3.CraftServer;
 import org.bukkit.craftbukkit.v1_8_R3.CraftWorld;
+import org.bukkit.entity.ArmorStand;
 
 import java.util.HashMap;
 import java.util.List;
@@ -66,6 +69,11 @@ public class LobbyAPI {
     private static EntityPlayer duelsEntity;
 
     private static Block chestBlock;
+    private static ArmorStand chestStand;
+
+    private static Crate currentCrate;
+    private static AuroraMCLobbyPlayer cratePlayer;
+    private static boolean crateAnimationFinished;
 
 
     static {
@@ -74,6 +82,10 @@ public class LobbyAPI {
         prefsItem = new GUIItem(Material.REDSTONE_COMPARATOR, "&a&lView Preferences");
         cosmeticsItem = new GUIItem(Material.EMERALD, "&a&lView Cosmetics");
         gameServers = new HashMap<>();
+
+        currentCrate = null;
+        cratePlayer = null;
+        crateAnimationFinished = true;
     }
 
 
@@ -244,5 +256,44 @@ public class LobbyAPI {
 
     public static void setChestBlock(Block chestBlock) {
         LobbyAPI.chestBlock = chestBlock;
+    }
+
+    public static ArmorStand getChestStand() {
+        return chestStand;
+    }
+
+    public static void setChestStand(ArmorStand chestStand) {
+        LobbyAPI.chestStand = chestStand;
+    }
+
+    public synchronized static boolean startOpen(Crate crate, AuroraMCLobbyPlayer player) {
+        if (currentCrate != null || cratePlayer != null) {
+            return false;
+        }
+        LobbyAPI.cratePlayer = player;
+        LobbyAPI.currentCrate = crate;
+        crateAnimationFinished = false;
+        return true;
+    }
+
+    public synchronized static void crateAnimationFinished() {
+        crateAnimationFinished = true;
+    }
+
+    public synchronized static void finishOpen() {
+        currentCrate = null;
+        cratePlayer = null;
+    }
+
+    public static AuroraMCLobbyPlayer getCratePlayer() {
+        return cratePlayer;
+    }
+
+    public static Crate getCurrentCrate() {
+        return currentCrate;
+    }
+
+    public static boolean isCrateAnimationFinished() {
+        return crateAnimationFinished;
     }
 }

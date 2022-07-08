@@ -85,6 +85,7 @@ public class WorldListener implements Listener {
             stand.setSmall(true);
             stand.setMarker(true);
             stand.setGravity(false);
+            LobbyAPI.setChestStand(stand);
         }
     }
 

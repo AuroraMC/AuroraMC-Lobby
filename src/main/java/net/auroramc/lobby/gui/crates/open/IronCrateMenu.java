@@ -11,12 +11,19 @@ import net.auroramc.core.api.cosmetics.Crate;
 import net.auroramc.core.api.utils.gui.GUI;
 import net.auroramc.core.api.utils.gui.GUIItem;
 import net.auroramc.core.cosmetics.crates.IronCrate;
+import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.block.BlockFace;
+import org.bukkit.block.BlockState;
+import org.bukkit.entity.FallingBlock;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.material.Chest;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
@@ -89,7 +96,101 @@ public class IronCrateMenu extends GUI {
             player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ITEM_BREAK, 100, 0);
         } else {
             Crate crate = availableCrates.get(((row - 1) * 7) + (column - 1));
-            //Do something
+            player.getPlayer().closeInventory();
+
+            if (LobbyAPI.startOpen(crate, player)) {
+                Location location = LobbyAPI.getChestBlock().getLocation();
+                LobbyAPI.getChestStand().remove();
+                location.getBlock().setType(Material.AIR);
+                Location loc = new Location(location.getWorld(), location.getX() + 2, location.getY() - 1, location.getZ() + 2);
+
+                //Set Blocks
+                loc.getBlock().setType(Material.IRON_BLOCK);
+                loc.setY(loc.getY() + 1);
+                loc.getBlock().setType(Material.RED_SANDSTONE);
+                loc.getBlock().setData((byte)2);
+                loc.setX(loc.getX() - 4);
+                loc.setY(loc.getY() - 1);
+                loc.getBlock().setType(Material.IRON_BLOCK);
+                loc.setY(loc.getY() + 1);
+                loc.getBlock().setType(Material.RED_SANDSTONE);
+                loc.setZ(loc.getZ() - 4);
+                loc.setY(loc.getY() - 1);
+                loc.getBlock().setType(Material.IRON_BLOCK);
+                loc.setY(loc.getY() + 1);
+                loc.getBlock().setType(Material.RED_SANDSTONE);
+                loc.setX(loc.getX() + 4);
+                loc.setY(loc.getY() - 1);
+                loc.getBlock().setType(Material.IRON_BLOCK);
+                loc.setY(loc.getY() + 1);
+                loc.getBlock().setType(Material.RED_SANDSTONE);
+
+                Location anvil = new Location(location.getWorld(), location.getX(), location.getY() + 2, location.getZ() + 2);
+                Location chest = new Location(location.getWorld(), location.getX(), location.getY(), location.getZ() + 2);
+
+                FallingBlock block = anvil.getWorld().spawnFallingBlock(anvil, Material.ANVIL, (byte)0);
+                block.setDropItem(false);
+                block.setHurtEntities(false);
+                new BukkitRunnable(){
+                    @Override
+                    public void run() {
+                        block.remove();
+                        chest.getBlock().setType(Material.CHEST);
+
+                        anvil.setZ(anvil.getZ() - 4);
+                        chest.setZ(chest.getZ() - 4);
+                        FallingBlock block = anvil.getWorld().spawnFallingBlock(anvil, Material.ANVIL, (byte)0);
+                        block.setDropItem(false);
+                        block.setHurtEntities(false);
+                        new BukkitRunnable(){
+                            @Override
+                            public void run() {
+                                block.remove();
+                                chest.getBlock().setType(Material.CHEST);
+                                BlockState c = chest.getBlock().getState();
+                                c.setData(new Chest(BlockFace.SOUTH));
+                                c.update();
+
+                                anvil.setX(anvil.getX() + 2);
+                                anvil.setZ(anvil.getZ() + 2);
+                                chest.setX(chest.getX() + 2);
+                                chest.setZ(chest.getZ() + 2);
+                                FallingBlock block = anvil.getWorld().spawnFallingBlock(anvil, Material.ANVIL, (byte)0);
+                                block.setDropItem(false);
+                                block.setHurtEntities(false);
+                                new BukkitRunnable(){
+                                    @Override
+                                    public void run() {
+                                        block.remove();
+                                        chest.getBlock().setType(Material.CHEST);
+                                        BlockState c = chest.getBlock().getState();
+                                        c.setData(new Chest(BlockFace.WEST));
+                                        c.update();
+
+                                        anvil.setX(anvil.getX() - 4);
+                                        chest.setX(chest.getX() - 4);
+                                        FallingBlock block = anvil.getWorld().spawnFallingBlock(anvil, Material.ANVIL, (byte)0);
+                                        block.setDropItem(false);
+                                        block.setHurtEntities(false);
+                                        new BukkitRunnable(){
+                                            @Override
+                                            public void run() {
+                                                block.remove();
+                                                chest.getBlock().setType(Material.CHEST);
+                                                BlockState c = chest.getBlock().getState();
+                                                c.setData(new Chest(BlockFace.EAST));
+                                                c.update();
+                                            }
+                                        }.runTaskLater(AuroraMCAPI.getCore(), 20);
+                                    }
+                                }.runTaskLater(AuroraMCAPI.getCore(), 20);
+                            }
+                        }.runTaskLater(AuroraMCAPI.getCore(), 20);
+                    }
+                }.runTaskLater(AuroraMCAPI.getCore(), 20);
+            } else {
+                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "Someone is already opening a crate! Please wait until they are finished to open one!"));
+            }
         }
     }
 }
