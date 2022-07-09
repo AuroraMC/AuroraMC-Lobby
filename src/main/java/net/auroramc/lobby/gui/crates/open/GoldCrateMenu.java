@@ -186,7 +186,7 @@ public class GoldCrateMenu extends GUI {
 
 
                 Location chest = new Location(location.getWorld(), location.getX(), location.getY(), location.getZ() + 3);
-                chest.getBlock().setType(Material.LAVA);
+                chest.getBlock().setType(Material.STATIONARY_LAVA);
                 chest.getBlock().setData((byte)3);
                 new BukkitRunnable(){
                     byte i = 2;
@@ -197,7 +197,7 @@ public class GoldCrateMenu extends GUI {
                             player.getPlayer().playSound(chest, Sound.BLAZE_HIT, 100, 1);
                             chest.setZ(chest.getZ() - 6);
 
-                            chest.getBlock().setType(Material.LAVA);
+                            chest.getBlock().setType(Material.STATIONARY_LAVA);
                             chest.getBlock().setData((byte)3);
                             new BukkitRunnable(){
                                 byte i = 2;
@@ -212,7 +212,7 @@ public class GoldCrateMenu extends GUI {
                                         chest.setX(chest.getX() + 3);
                                         chest.setZ(chest.getZ() + 3);
 
-                                        chest.getBlock().setType(Material.LAVA);
+                                        chest.getBlock().setType(Material.STATIONARY_LAVA);
                                         chest.getBlock().setData((byte)3);
                                         new BukkitRunnable(){
                                             byte i = 2;
@@ -226,7 +226,7 @@ public class GoldCrateMenu extends GUI {
                                                     player.getPlayer().playSound(chest, Sound.BLAZE_HIT, 100, 1);
                                                     chest.setX(chest.getX() - 6);
 
-                                                    chest.getBlock().setType(Material.LAVA);
+                                                    chest.getBlock().setType(Material.STATIONARY_LAVA);
                                                     chest.getBlock().setData((byte)3);
                                                     new BukkitRunnable(){
                                                         byte i = 2;
