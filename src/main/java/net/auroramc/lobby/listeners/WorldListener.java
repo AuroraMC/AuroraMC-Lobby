@@ -74,18 +74,6 @@ public class WorldListener implements Listener {
             state.update();
 
             LobbyAPI.setChestBlock(location.getBlock());
-
-            location.setY(location.getY() + 1);
-            location.setX(location.getX() + 0.5);
-            location.setZ(location.getZ() + 0.5);
-            ArmorStand stand = location.getWorld().spawn(location, ArmorStand.class);
-            stand.setVisible(false);
-            stand.setCustomName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight("&a&lOpen Crates")));
-            stand.setCustomNameVisible(true);
-            stand.setSmall(true);
-            stand.setMarker(true);
-            stand.setGravity(false);
-            LobbyAPI.setChestStand(stand);
         }
     }
 

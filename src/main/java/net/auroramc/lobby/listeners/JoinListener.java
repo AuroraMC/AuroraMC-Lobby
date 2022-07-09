@@ -14,6 +14,7 @@ import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import net.minecraft.server.v1_8_R3.*;
+import org.bukkit.entity.ArmorStand;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -30,7 +31,9 @@ import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.Team;
 import org.json.JSONArray;
+import org.json.JSONObject;
 
+import javax.persistence.Lob;
 import java.lang.reflect.Field;
 
 public class JoinListener implements Listener {
@@ -250,6 +253,20 @@ public class JoinListener implements Listener {
                                         con.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.REMOVE_PLAYER, player));
                                     }
                                 }.runTaskLater(AuroraMCAPI.getCore(), 80);
+                            }
+                            if (LobbyAPI.getChestStand() == null && LobbyAPI.getCurrentCrate() == null && LobbyAPI.getCratePlayer() == null) {
+                                Location location = LobbyAPI.getChestBlock().getLocation().clone();
+                                location.setY(location.getY() + 1);
+                                location.setX(location.getX() + 0.5);
+                                location.setZ(location.getZ() + 0.5);
+                                ArmorStand stand = location.getWorld().spawn(location, ArmorStand.class);
+                                stand.setVisible(false);
+                                stand.setCustomName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight("&a&lOpen Crates")));
+                                stand.setCustomNameVisible(true);
+                                stand.setSmall(true);
+                                stand.setMarker(true);
+                                stand.setGravity(false);
+                                LobbyAPI.setChestStand(stand);
                             }
 
                         }
