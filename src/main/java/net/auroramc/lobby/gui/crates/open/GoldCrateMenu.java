@@ -239,6 +239,7 @@ public class GoldCrateMenu extends GUI {
                                                                 c.update();
                                                                 player.getPlayer().playSound(chest, Sound.BLAZE_HIT, 100, 1);
                                                                 this.cancel();
+                                                                return;
                                                             }
                                                             chest.getBlock().setData(i);
                                                             i-=2;
@@ -259,6 +260,7 @@ public class GoldCrateMenu extends GUI {
                                 }
                             }.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
                             this.cancel();
+                            return;
                         }
                         chest.getBlock().setData(i);
                         i-=2;
