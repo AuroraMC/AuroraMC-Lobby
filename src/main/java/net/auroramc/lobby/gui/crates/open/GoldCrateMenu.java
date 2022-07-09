@@ -229,7 +229,7 @@ public class GoldCrateMenu extends GUI {
                                                     chest.getBlock().setType(Material.STATIONARY_LAVA);
                                                     chest.getBlock().setData((byte)3);
                                                     new BukkitRunnable(){
-                                                        byte i = 2;
+                                                        byte i = 4;
                                                         @Override
                                                         public void run() {
                                                             if (i == -1) {
