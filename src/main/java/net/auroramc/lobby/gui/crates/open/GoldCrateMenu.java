@@ -243,25 +243,25 @@ public class GoldCrateMenu extends GUI {
                                                             chest.getBlock().setData(i);
                                                             i--;
                                                         }
-                                                    }.runTaskTimer(AuroraMCAPI.getCore(), 8, 8);
+                                                    }.runTaskTimer(AuroraMCAPI.getCore(), 5, 5);
                                                     this.cancel();
                                                 }
                                                 chest.getBlock().setData(i);
                                                 i--;
                                             }
-                                        }.runTaskTimer(AuroraMCAPI.getCore(), 8, 8);
+                                        }.runTaskTimer(AuroraMCAPI.getCore(), 5, 5);
                                         this.cancel();
                                     }
                                     chest.getBlock().setData(i);
                                     i--;
                                 }
-                            }.runTaskTimer(AuroraMCAPI.getCore(), 8, 8);
+                            }.runTaskTimer(AuroraMCAPI.getCore(), 5, 5);
                             this.cancel();
                         }
                         chest.getBlock().setData(i);
                         i--;
                     }
-                }.runTaskTimer(AuroraMCAPI.getCore(), 8, 8);
+                }.runTaskTimer(AuroraMCAPI.getCore(), 5, 5);
             } else {
                 player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "Someone is already opening a crate! Please wait until they are finished to open one!"));
             }
