@@ -203,7 +203,7 @@ public class GoldCrateMenu extends GUI {
                                 byte i = 2;
                                 @Override
                                 public void run() {
-                                    if (i == 0) {
+                                    if (i == -1) {
                                         chest.getBlock().setType(Material.CHEST);
                                         BlockState c = chest.getBlock().getState();
                                         c.setData(new Chest(BlockFace.SOUTH));
@@ -218,7 +218,7 @@ public class GoldCrateMenu extends GUI {
                                             byte i = 2;
                                             @Override
                                             public void run() {
-                                                if (i == 0) {
+                                                if (i == -1) {
                                                     chest.getBlock().setType(Material.CHEST);
                                                     BlockState c = chest.getBlock().getState();
                                                     c.setData(new Chest(BlockFace.WEST));
@@ -232,7 +232,7 @@ public class GoldCrateMenu extends GUI {
                                                         byte i = 2;
                                                         @Override
                                                         public void run() {
-                                                            if (i == 0) {
+                                                            if (i == -1) {
                                                                 chest.getBlock().setType(Material.CHEST);
                                                                 BlockState c = chest.getBlock().getState();
                                                                 c.setData(new Chest(BlockFace.EAST));
@@ -243,25 +243,25 @@ public class GoldCrateMenu extends GUI {
                                                             chest.getBlock().setData(i);
                                                             i--;
                                                         }
-                                                    }.runTaskTimer(AuroraMCAPI.getCore(), 7, 7);
+                                                    }.runTaskTimer(AuroraMCAPI.getCore(), 8, 8);
                                                     this.cancel();
                                                 }
                                                 chest.getBlock().setData(i);
                                                 i--;
                                             }
-                                        }.runTaskTimer(AuroraMCAPI.getCore(), 7, 7);
+                                        }.runTaskTimer(AuroraMCAPI.getCore(), 8, 8);
                                         this.cancel();
                                     }
                                     chest.getBlock().setData(i);
                                     i--;
                                 }
-                            }.runTaskTimer(AuroraMCAPI.getCore(), 7, 7);
+                            }.runTaskTimer(AuroraMCAPI.getCore(), 8, 8);
                             this.cancel();
                         }
                         chest.getBlock().setData(i);
                         i--;
                     }
-                }.runTaskTimer(AuroraMCAPI.getCore(), 7, 7);
+                }.runTaskTimer(AuroraMCAPI.getCore(), 8, 8);
             } else {
                 player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "Someone is already opening a crate! Please wait until they are finished to open one!"));
             }

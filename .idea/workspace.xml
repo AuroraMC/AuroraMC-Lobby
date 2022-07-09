@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Speed up animation">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="fix sound">
       <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/GoldCrateMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/GoldCrateMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -299,14 +299,7 @@
       <workItem from="1657290456594" duration="1012000" />
       <workItem from="1657291490184" duration="3178000" />
       <workItem from="1657380342278" duration="2042000" />
-      <workItem from="1657382542960" duration="643000" />
-    </task>
-    <task id="LOCAL-00131" summary="Add lobby border">
-      <created>1650573989840</created>
-      <option name="number" value="00131" />
-      <option name="presentableId" value="LOCAL-00131" />
-      <option name="project" value="LOCAL" />
-      <updated>1650573989840</updated>
+      <workItem from="1657382542960" duration="974000" />
     </task>
     <task id="LOCAL-00132" summary="Implement gadgets">
       <created>1650659478492</created>
@@ -644,7 +637,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657383187117</updated>
     </task>
-    <option name="localTasksCounter" value="180" />
+    <task id="LOCAL-00180" summary="fix sound">
+      <created>1657383422581</created>
+      <option name="number" value="00180" />
+      <option name="presentableId" value="LOCAL-00180" />
+      <option name="project" value="LOCAL" />
+      <updated>1657383422581</updated>
+    </task>
+    <option name="localTasksCounter" value="181" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -662,7 +662,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update map zip" />
     <MESSAGE value="Update entity location" />
     <MESSAGE value="Fix paintball server code" />
     <MESSAGE value="Spawn chest and hologram" />
@@ -687,6 +686,7 @@
     <MESSAGE value="Disable liquid flow" />
     <MESSAGE value="Attempt gold animation" />
     <MESSAGE value="Speed up animation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Speed up animation" />
+    <MESSAGE value="fix sound" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix sound" />
   </component>
 </project>
