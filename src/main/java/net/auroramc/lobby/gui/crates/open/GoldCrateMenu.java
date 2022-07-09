@@ -232,7 +232,7 @@ public class GoldCrateMenu extends GUI {
                                                         byte i = 4;
                                                         @Override
                                                         public void run() {
-                                                            if (i < 1) {
+                                                            if (i < 0) {
                                                                 chest.getBlock().setType(Material.CHEST);
                                                                 BlockState c = chest.getBlock().getState();
                                                                 c.setData(new Chest(BlockFace.EAST));
