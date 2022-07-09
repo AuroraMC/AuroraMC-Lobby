@@ -101,7 +101,7 @@ public class GoldCrateMenu extends GUI {
 
             if (LobbyAPI.startOpen(crate, player)) {
                 Location location = LobbyAPI.getChestBlock().getLocation();
-                for (Entity entity : location.getWorld().getNearbyEntities(location, 2, 2, 2)) {
+                for (Entity entity : location.getWorld().getNearbyEntities(location, 4, 4, 4)) {
                     if (entity.getEntityId() == LobbyAPI.getChestStand().getEntityId()) {
                         entity.remove();
                     }
