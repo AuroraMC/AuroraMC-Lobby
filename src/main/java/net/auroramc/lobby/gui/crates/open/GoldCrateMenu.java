@@ -187,7 +187,7 @@ public class GoldCrateMenu extends GUI {
 
                 Location chest = new Location(location.getWorld(), location.getX(), location.getY(), location.getZ() + 3);
                 chest.getBlock().setType(Material.LAVA);
-                chest.getBlock().setData((byte)3);
+                chest.getBlock().setData((byte)2);
                 /*new BukkitRunnable(){
                     @Override
                     public void run() {
