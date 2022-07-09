@@ -194,7 +194,7 @@ public class GoldCrateMenu extends GUI {
                     public void run() {
                         if (i == 0) {
                             chest.getBlock().setType(Material.CHEST);
-                            player.getPlayer().playSound(chest, Sound.BLAZE_HIT, 1, 100);
+                            player.getPlayer().playSound(chest, Sound.BLAZE_HIT, 0, 100);
                             chest.setZ(chest.getZ() - 6);
 
                             chest.getBlock().setType(Material.LAVA);
@@ -208,7 +208,7 @@ public class GoldCrateMenu extends GUI {
                                         BlockState c = chest.getBlock().getState();
                                         c.setData(new Chest(BlockFace.SOUTH));
                                         c.update();
-                                        player.getPlayer().playSound(chest, Sound.BLAZE_HIT, 1, 100);
+                                        player.getPlayer().playSound(chest, Sound.BLAZE_HIT, 0, 100);
                                         chest.setX(chest.getX() + 3);
                                         chest.setZ(chest.getZ() + 3);
 
@@ -223,7 +223,7 @@ public class GoldCrateMenu extends GUI {
                                                     BlockState c = chest.getBlock().getState();
                                                     c.setData(new Chest(BlockFace.WEST));
                                                     c.update();
-                                                    player.getPlayer().playSound(chest, Sound.BLAZE_HIT, 1, 100);
+                                                    player.getPlayer().playSound(chest, Sound.BLAZE_HIT, 0, 100);
                                                     chest.setX(chest.getX() - 6);
 
                                                     chest.getBlock().setType(Material.LAVA);
@@ -237,31 +237,31 @@ public class GoldCrateMenu extends GUI {
                                                                 BlockState c = chest.getBlock().getState();
                                                                 c.setData(new Chest(BlockFace.EAST));
                                                                 c.update();
-                                                                player.getPlayer().playSound(chest, Sound.BLAZE_HIT, 1, 100);
+                                                                player.getPlayer().playSound(chest, Sound.BLAZE_HIT, 0, 100);
                                                                 this.cancel();
                                                             }
                                                             chest.getBlock().setData(i);
                                                             i--;
                                                         }
-                                                    }.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
+                                                    }.runTaskTimer(AuroraMCAPI.getCore(), 7, 7);
                                                     this.cancel();
                                                 }
                                                 chest.getBlock().setData(i);
                                                 i--;
                                             }
-                                        }.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
+                                        }.runTaskTimer(AuroraMCAPI.getCore(), 7, 7);
                                         this.cancel();
                                     }
                                     chest.getBlock().setData(i);
                                     i--;
                                 }
-                            }.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
+                            }.runTaskTimer(AuroraMCAPI.getCore(), 7, 7);
                             this.cancel();
                         }
                         chest.getBlock().setData(i);
                         i--;
                     }
-                }.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
+                }.runTaskTimer(AuroraMCAPI.getCore(), 7, 7);
             } else {
                 player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "Someone is already opening a crate! Please wait until they are finished to open one!"));
             }
