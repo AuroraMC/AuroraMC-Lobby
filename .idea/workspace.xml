@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Change block type" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix animation">
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/GoldCrateMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/GoldCrateMenu.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -297,21 +299,7 @@
       <workItem from="1657290456594" duration="1012000" />
       <workItem from="1657291490184" duration="3178000" />
       <workItem from="1657380342278" duration="2042000" />
-      <workItem from="1657382542960" duration="1471000" />
-    </task>
-    <task id="LOCAL-00135" summary="Add duels specfic menu options">
-      <created>1654186704234</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
-      <option name="project" value="LOCAL" />
-      <updated>1654186704234</updated>
-    </task>
-    <task id="LOCAL-00136" summary="Display red when server is inactive">
-      <created>1654186781999</created>
-      <option name="number" value="00136" />
-      <option name="presentableId" value="LOCAL-00136" />
-      <option name="project" value="LOCAL" />
-      <updated>1654186781999</updated>
+      <workItem from="1657382542960" duration="1818000" />
     </task>
     <task id="LOCAL-00137" summary="Fix game menu">
       <created>1654187182420</created>
@@ -642,7 +630,21 @@
       <option name="project" value="LOCAL" />
       <updated>1657383796190</updated>
     </task>
-    <option name="localTasksCounter" value="184" />
+    <task id="LOCAL-00184" summary="Fix animation">
+      <created>1657384277450</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1657384277450</updated>
+    </task>
+    <task id="LOCAL-00185" summary="Fix animation">
+      <created>1657384288701</created>
+      <option name="number" value="00185" />
+      <option name="presentableId" value="LOCAL-00185" />
+      <option name="project" value="LOCAL" />
+      <updated>1657384288701</updated>
+    </task>
+    <option name="localTasksCounter" value="186" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -660,7 +662,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Centre Hologram" />
     <MESSAGE value="Chest should now face direction of datapoint placement" />
     <MESSAGE value="Fix error" />
     <MESSAGE value="Fix defensive call issues" />
@@ -685,6 +686,7 @@
     <MESSAGE value="Modify timings, fix last stage" />
     <MESSAGE value="Modify timings" />
     <MESSAGE value="Change block type" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change block type" />
+    <MESSAGE value="Fix animation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix animation" />
   </component>
 </project>
