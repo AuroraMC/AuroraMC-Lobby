@@ -192,6 +192,8 @@ public class DiamondCrateMenu extends GUI {
                 loc = location.clone();
                 loc.setY(loc.getY() - 1);
 
+                loc.getBlock().setType(Material.SEA_LANTERN);
+
                 loc.setZ(loc.getZ() + 2);
                 loc.setX(loc.getX() + 1);
                 loc.getBlock().setType(Material.STAINED_CLAY);
