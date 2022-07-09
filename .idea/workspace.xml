@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="fix sound">
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/GoldCrateMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/GoldCrateMenu.java" afterDir="false" />
-    </list>
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Change block type" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -299,28 +297,7 @@
       <workItem from="1657290456594" duration="1012000" />
       <workItem from="1657291490184" duration="3178000" />
       <workItem from="1657380342278" duration="2042000" />
-      <workItem from="1657382542960" duration="974000" />
-    </task>
-    <task id="LOCAL-00132" summary="Implement gadgets">
-      <created>1650659478492</created>
-      <option name="number" value="00132" />
-      <option name="presentableId" value="LOCAL-00132" />
-      <option name="project" value="LOCAL" />
-      <updated>1650659478492</updated>
-    </task>
-    <task id="LOCAL-00133" summary="add core as dependency">
-      <created>1650715993213</created>
-      <option name="number" value="00133" />
-      <option name="presentableId" value="LOCAL-00133" />
-      <option name="project" value="LOCAL" />
-      <updated>1650715993213</updated>
-    </task>
-    <task id="LOCAL-00134" summary="Update backstab to duels">
-      <created>1654184397859</created>
-      <option name="number" value="00134" />
-      <option name="presentableId" value="LOCAL-00134" />
-      <option name="project" value="LOCAL" />
-      <updated>1654184397859</updated>
+      <workItem from="1657382542960" duration="1471000" />
     </task>
     <task id="LOCAL-00135" summary="Add duels specfic menu options">
       <created>1654186704234</created>
@@ -644,7 +621,28 @@
       <option name="project" value="LOCAL" />
       <updated>1657383422581</updated>
     </task>
-    <option name="localTasksCounter" value="181" />
+    <task id="LOCAL-00181" summary="Modify timings, fix last stage">
+      <created>1657383533566</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL-00181" />
+      <option name="project" value="LOCAL" />
+      <updated>1657383533566</updated>
+    </task>
+    <task id="LOCAL-00182" summary="Modify timings">
+      <created>1657383691087</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
+      <option name="project" value="LOCAL" />
+      <updated>1657383691087</updated>
+    </task>
+    <task id="LOCAL-00183" summary="Change block type">
+      <created>1657383796190</created>
+      <option name="number" value="00183" />
+      <option name="presentableId" value="LOCAL-00183" />
+      <option name="project" value="LOCAL" />
+      <updated>1657383796190</updated>
+    </task>
+    <option name="localTasksCounter" value="184" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -662,9 +660,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update entity location" />
-    <MESSAGE value="Fix paintball server code" />
-    <MESSAGE value="Spawn chest and hologram" />
     <MESSAGE value="Centre Hologram" />
     <MESSAGE value="Chest should now face direction of datapoint placement" />
     <MESSAGE value="Fix error" />
@@ -687,6 +682,9 @@
     <MESSAGE value="Attempt gold animation" />
     <MESSAGE value="Speed up animation" />
     <MESSAGE value="fix sound" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix sound" />
+    <MESSAGE value="Modify timings, fix last stage" />
+    <MESSAGE value="Modify timings" />
+    <MESSAGE value="Change block type" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change block type" />
   </component>
 </project>

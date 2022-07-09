@@ -187,23 +187,23 @@ public class GoldCrateMenu extends GUI {
 
                 Location chest = new Location(location.getWorld(), location.getX(), location.getY(), location.getZ() + 3);
                 chest.getBlock().setType(Material.STATIONARY_LAVA);
-                chest.getBlock().setData((byte)3);
+                chest.getBlock().setData((byte)6);
                 new BukkitRunnable(){
-                    byte i = 2;
+                    byte i = 4;
                     @Override
                     public void run() {
-                        if (i == 0) {
+                        if (i < 0) {
                             chest.getBlock().setType(Material.CHEST);
                             player.getPlayer().playSound(chest, Sound.BLAZE_HIT, 100, 1);
                             chest.setZ(chest.getZ() - 6);
 
                             chest.getBlock().setType(Material.STATIONARY_LAVA);
-                            chest.getBlock().setData((byte)3);
+                            chest.getBlock().setData((byte)6);
                             new BukkitRunnable(){
-                                byte i = 2;
+                                byte i = 4;
                                 @Override
                                 public void run() {
-                                    if (i == -1) {
+                                    if (i  < 0) {
                                         chest.getBlock().setType(Material.CHEST);
                                         BlockState c = chest.getBlock().getState();
                                         c.setData(new Chest(BlockFace.SOUTH));
@@ -213,12 +213,12 @@ public class GoldCrateMenu extends GUI {
                                         chest.setZ(chest.getZ() + 3);
 
                                         chest.getBlock().setType(Material.STATIONARY_LAVA);
-                                        chest.getBlock().setData((byte)3);
+                                        chest.getBlock().setData((byte)6);
                                         new BukkitRunnable(){
-                                            byte i = 2;
+                                            byte i = 4;
                                             @Override
                                             public void run() {
-                                                if (i == -1) {
+                                                if (i < 0) {
                                                     chest.getBlock().setType(Material.CHEST);
                                                     BlockState c = chest.getBlock().getState();
                                                     c.setData(new Chest(BlockFace.WEST));
@@ -241,27 +241,29 @@ public class GoldCrateMenu extends GUI {
                                                                 this.cancel();
                                                             }
                                                             chest.getBlock().setData(i);
-                                                            i--;
+                                                            i-=2;
                                                         }
-                                                    }.runTaskTimer(AuroraMCAPI.getCore(), 5, 5);
+                                                    }.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
                                                     this.cancel();
+                                                    return;
                                                 }
                                                 chest.getBlock().setData(i);
-                                                i--;
+                                                i-=2;
                                             }
-                                        }.runTaskTimer(AuroraMCAPI.getCore(), 5, 5);
+                                        }.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
                                         this.cancel();
+                                        return;
                                     }
                                     chest.getBlock().setData(i);
-                                    i--;
+                                    i-=2;
                                 }
-                            }.runTaskTimer(AuroraMCAPI.getCore(), 5, 5);
+                            }.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
                             this.cancel();
                         }
                         chest.getBlock().setData(i);
-                        i--;
+                        i-=2;
                     }
-                }.runTaskTimer(AuroraMCAPI.getCore(), 5, 5);
+                }.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
             } else {
                 player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "Someone is already opening a crate! Please wait until they are finished to open one!"));
             }
