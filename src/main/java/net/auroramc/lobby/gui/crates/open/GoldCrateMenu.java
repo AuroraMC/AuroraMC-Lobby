@@ -187,63 +187,81 @@ public class GoldCrateMenu extends GUI {
 
                 Location chest = new Location(location.getWorld(), location.getX(), location.getY(), location.getZ() + 3);
                 chest.getBlock().setType(Material.LAVA);
-                chest.getBlock().setData((byte)0);
-                /*new BukkitRunnable(){
+                chest.getBlock().setData((byte)3);
+                new BukkitRunnable(){
+                    byte i = 2;
                     @Override
                     public void run() {
-                        chest.getBlock().setType(Material.CHEST);
+                        if (i == 0) {
+                            chest.getBlock().setType(Material.CHEST);
+                            player.getPlayer().playSound(chest, Sound.BLAZE_HIT, 1, 100);
+                            chest.setZ(chest.getZ() - 6);
 
-                        anvil.setZ(anvil.getZ() - 6);
-                        chest.setZ(chest.getZ() - 6);
-                        FallingBlock block = anvil.getWorld().spawnFallingBlock(anvil, Material.ANVIL, (byte)0);
-                        block.setDropItem(false);
-                        block.setHurtEntities(false);
-                        new BukkitRunnable(){
-                            @Override
-                            public void run() {
-                                block.remove();
-                                chest.getBlock().setType(Material.CHEST);
-                                BlockState c = chest.getBlock().getState();
-                                c.setData(new Chest(BlockFace.SOUTH));
-                                c.update();
-
-                                anvil.setX(anvil.getX() + 3);
-                                anvil.setZ(anvil.getZ() + 3);
-                                chest.setX(chest.getX() + 3);
-                                chest.setZ(chest.getZ() + 3);
-                                FallingBlock block = anvil.getWorld().spawnFallingBlock(anvil, Material.ANVIL, (byte)0);
-                                block.setDropItem(false);
-                                block.setHurtEntities(false);
-                                new BukkitRunnable(){
-                                    @Override
-                                    public void run() {
-                                        block.remove();
+                            chest.getBlock().setType(Material.LAVA);
+                            chest.getBlock().setData((byte)3);
+                            new BukkitRunnable(){
+                                byte i = 2;
+                                @Override
+                                public void run() {
+                                    if (i == 0) {
                                         chest.getBlock().setType(Material.CHEST);
                                         BlockState c = chest.getBlock().getState();
-                                        c.setData(new Chest(BlockFace.WEST));
+                                        c.setData(new Chest(BlockFace.SOUTH));
                                         c.update();
+                                        player.getPlayer().playSound(chest, Sound.BLAZE_HIT, 1, 100);
+                                        chest.setX(chest.getX() + 3);
+                                        chest.setZ(chest.getZ() + 3);
 
-                                        anvil.setX(anvil.getX() - 6);
-                                        chest.setX(chest.getX() - 6);
-                                        FallingBlock block = anvil.getWorld().spawnFallingBlock(anvil, Material.ANVIL, (byte)0);
-                                        block.setDropItem(false);
-                                        block.setHurtEntities(false);
+                                        chest.getBlock().setType(Material.LAVA);
+                                        chest.getBlock().setData((byte)3);
                                         new BukkitRunnable(){
+                                            byte i = 2;
                                             @Override
                                             public void run() {
-                                                block.remove();
-                                                chest.getBlock().setType(Material.CHEST);
-                                                BlockState c = chest.getBlock().getState();
-                                                c.setData(new Chest(BlockFace.EAST));
-                                                c.update();
+                                                if (i == 0) {
+                                                    chest.getBlock().setType(Material.CHEST);
+                                                    BlockState c = chest.getBlock().getState();
+                                                    c.setData(new Chest(BlockFace.WEST));
+                                                    c.update();
+                                                    player.getPlayer().playSound(chest, Sound.BLAZE_HIT, 1, 100);
+                                                    chest.setX(chest.getX() - 6);
+
+                                                    chest.getBlock().setType(Material.LAVA);
+                                                    chest.getBlock().setData((byte)3);
+                                                    new BukkitRunnable(){
+                                                        byte i = 2;
+                                                        @Override
+                                                        public void run() {
+                                                            if (i == 0) {
+                                                                chest.getBlock().setType(Material.CHEST);
+                                                                BlockState c = chest.getBlock().getState();
+                                                                c.setData(new Chest(BlockFace.EAST));
+                                                                c.update();
+                                                                player.getPlayer().playSound(chest, Sound.BLAZE_HIT, 1, 100);
+                                                                this.cancel();
+                                                            }
+                                                            chest.getBlock().setData(i);
+                                                            i--;
+                                                        }
+                                                    }.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
+                                                    this.cancel();
+                                                }
+                                                chest.getBlock().setData(i);
+                                                i--;
                                             }
-                                        }.runTaskLater(AuroraMCAPI.getCore(), 12);
+                                        }.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
+                                        this.cancel();
                                     }
-                                }.runTaskLater(AuroraMCAPI.getCore(), 12);
-                            }
-                        }.runTaskLater(AuroraMCAPI.getCore(), 12);
+                                    chest.getBlock().setData(i);
+                                    i--;
+                                }
+                            }.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
+                            this.cancel();
+                        }
+                        chest.getBlock().setData(i);
+                        i--;
                     }
-                }.runTaskLater(AuroraMCAPI.getCore(), 12);*/
+                }.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
             } else {
                 player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "Someone is already opening a crate! Please wait until they are finished to open one!"));
             }

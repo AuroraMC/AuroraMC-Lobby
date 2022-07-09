@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Test">
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" afterDir="false" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Disable liquid flow">
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/GoldCrateMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/GoldCrateMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -299,13 +299,7 @@
       <workItem from="1657290456594" duration="1012000" />
       <workItem from="1657291490184" duration="3178000" />
       <workItem from="1657380342278" duration="2042000" />
-    </task>
-    <task id="LOCAL-00128" summary="Fix lots of errors">
-      <created>1650383271100</created>
-      <option name="number" value="00128" />
-      <option name="presentableId" value="LOCAL-00128" />
-      <option name="project" value="LOCAL" />
-      <updated>1650383271100</updated>
+      <workItem from="1657382542960" duration="338000" />
     </task>
     <task id="LOCAL-00129" summary="Update core">
       <created>1650541889733</created>
@@ -643,7 +637,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657382281538</updated>
     </task>
-    <option name="localTasksCounter" value="177" />
+    <task id="LOCAL-00177" summary="Disable liquid flow">
+      <created>1657382555315</created>
+      <option name="number" value="00177" />
+      <option name="presentableId" value="LOCAL-00177" />
+      <option name="project" value="LOCAL" />
+      <updated>1657382555315</updated>
+    </task>
+    <option name="localTasksCounter" value="178" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -661,7 +662,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix cooldowns" />
     <MESSAGE value="Add seconds to message" />
     <MESSAGE value="Update map ID" />
     <MESSAGE value="update map zip" />
@@ -686,6 +686,7 @@
     <MESSAGE value="Testing a theory" />
     <MESSAGE value="Fix platform" />
     <MESSAGE value="Test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test" />
+    <MESSAGE value="Disable liquid flow" />
+    <option name="LAST_COMMIT_MESSAGE" value="Disable liquid flow" />
   </component>
 </project>
