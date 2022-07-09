@@ -157,13 +157,13 @@ public class GoldCrateMenu extends GUI {
                 loc.setX(loc.getX() - 2);
                 loc.getBlock().setType(Material.STAINED_CLAY);
                 loc.getBlock().setData((byte)4);
-                loc.setZ(loc.getZ() + 2);
-                loc.getBlock().setType(Material.STAINED_CLAY);
-                loc.getBlock().setData((byte)4);
                 loc.setZ(loc.getZ() - 2);
                 loc.getBlock().setType(Material.STAINED_CLAY);
                 loc.getBlock().setData((byte)4);
                 loc.setZ(loc.getZ() - 2);
+                loc.getBlock().setType(Material.STAINED_CLAY);
+                loc.getBlock().setData((byte)4);
+                loc.setX(loc.getX() + 2);
                 loc.getBlock().setType(Material.STAINED_CLAY);
                 loc.getBlock().setData((byte)4);
                 loc.setX(loc.getX() + 2);
@@ -187,7 +187,7 @@ public class GoldCrateMenu extends GUI {
 
                 Location chest = new Location(location.getWorld(), location.getX(), location.getY(), location.getZ() + 3);
                 chest.getBlock().setType(Material.LAVA);
-                chest.getBlock().setData((byte)2);
+                chest.getBlock().setData((byte)1);
                 /*new BukkitRunnable(){
                     @Override
                     public void run() {

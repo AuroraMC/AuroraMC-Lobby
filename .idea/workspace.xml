@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Change timings more">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Testing a theory">
       <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/GoldCrateMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/GoldCrateMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -299,21 +298,7 @@
       <workItem from="1657289086274" duration="999000" />
       <workItem from="1657290456594" duration="1012000" />
       <workItem from="1657291490184" duration="3178000" />
-      <workItem from="1657380342278" duration="1427000" />
-    </task>
-    <task id="LOCAL-00124" summary="Change formatting">
-      <created>1650048964485</created>
-      <option name="number" value="00124" />
-      <option name="presentableId" value="LOCAL-00124" />
-      <option name="project" value="LOCAL" />
-      <updated>1650048964485</updated>
-    </task>
-    <task id="LOCAL-00125" summary="CHange entity locations">
-      <created>1650049502715</created>
-      <option name="number" value="00125" />
-      <option name="presentableId" value="LOCAL-00125" />
-      <option name="project" value="LOCAL" />
-      <updated>1650049502715</updated>
+      <workItem from="1657380342278" duration="1796000" />
     </task>
     <task id="LOCAL-00126" summary="Change skins">
       <created>1650051331438</created>
@@ -644,7 +629,21 @@
       <option name="project" value="LOCAL" />
       <updated>1657292591681</updated>
     </task>
-    <option name="localTasksCounter" value="173" />
+    <task id="LOCAL-00173" summary="Start gold animation">
+      <created>1657381923274</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1657381923275</updated>
+    </task>
+    <task id="LOCAL-00174" summary="Testing a theory">
+      <created>1657382041504</created>
+      <option name="number" value="00174" />
+      <option name="presentableId" value="LOCAL-00174" />
+      <option name="project" value="LOCAL" />
+      <updated>1657382041505</updated>
+    </task>
+    <option name="localTasksCounter" value="175" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -662,8 +661,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix /fly" />
-    <MESSAGE value="Fix async issue" />
     <MESSAGE value="Increase multiplier" />
     <MESSAGE value="Decrease multiplier" />
     <MESSAGE value="Fix cooldowns" />
@@ -687,6 +684,8 @@
     <MESSAGE value="Start iron crate animation" />
     <MESSAGE value="Change timings, fix structure" />
     <MESSAGE value="Change timings more" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change timings more" />
+    <MESSAGE value="Start gold animation" />
+    <MESSAGE value="Testing a theory" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing a theory" />
   </component>
 </project>
