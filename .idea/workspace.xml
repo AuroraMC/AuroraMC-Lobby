@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Disable liquid flow">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Speed up animation">
       <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/GoldCrateMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/GoldCrateMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -299,21 +299,7 @@
       <workItem from="1657290456594" duration="1012000" />
       <workItem from="1657291490184" duration="3178000" />
       <workItem from="1657380342278" duration="2042000" />
-      <workItem from="1657382542960" duration="338000" />
-    </task>
-    <task id="LOCAL-00129" summary="Update core">
-      <created>1650541889733</created>
-      <option name="number" value="00129" />
-      <option name="presentableId" value="LOCAL-00129" />
-      <option name="project" value="LOCAL" />
-      <updated>1650541889733</updated>
-    </task>
-    <task id="LOCAL-00130" summary="Stop disguised staff being punchable">
-      <created>1650569780122</created>
-      <option name="number" value="00130" />
-      <option name="presentableId" value="LOCAL-00130" />
-      <option name="project" value="LOCAL" />
-      <updated>1650569780122</updated>
+      <workItem from="1657382542960" duration="643000" />
     </task>
     <task id="LOCAL-00131" summary="Add lobby border">
       <created>1650573989840</created>
@@ -644,7 +630,21 @@
       <option name="project" value="LOCAL" />
       <updated>1657382555315</updated>
     </task>
-    <option name="localTasksCounter" value="178" />
+    <task id="LOCAL-00178" summary="Attempt gold animation">
+      <created>1657383059025</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
+      <option name="project" value="LOCAL" />
+      <updated>1657383059025</updated>
+    </task>
+    <task id="LOCAL-00179" summary="Speed up animation">
+      <created>1657383187117</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1657383187117</updated>
+    </task>
+    <option name="localTasksCounter" value="180" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -662,8 +662,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add seconds to message" />
-    <MESSAGE value="Update map ID" />
     <MESSAGE value="update map zip" />
     <MESSAGE value="Update entity location" />
     <MESSAGE value="Fix paintball server code" />
@@ -687,6 +685,8 @@
     <MESSAGE value="Fix platform" />
     <MESSAGE value="Test" />
     <MESSAGE value="Disable liquid flow" />
-    <option name="LAST_COMMIT_MESSAGE" value="Disable liquid flow" />
+    <MESSAGE value="Attempt gold animation" />
+    <MESSAGE value="Speed up animation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Speed up animation" />
   </component>
 </project>
