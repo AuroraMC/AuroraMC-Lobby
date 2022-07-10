@@ -23,7 +23,7 @@ public class Structure {
         this.y = y;
         this.z = z;
         for (int i = 0;i < y;i++) {
-            levels.put(i, new StructureLevel(this, x, z, y));
+            levels.put(i, new StructureLevel(this, x, z, i));
         }
     }
 

@@ -4,19 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Move chests 2 blocks lower">
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/CrateStructures.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/structure/Structure.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/structure/StructureLevel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/structure/StructureRow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/structure/block/StructureBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/structure/block/StructureChest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/structure/block/StructureSlab.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/structure/block/StructureStairs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/DiamondCrateMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/DiamondCrateMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/EmeraldCrateMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/EmeraldCrateMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/WorldListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/WorldListener.java" afterDir="false" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Change how structures are generated">
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/structure/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/structure/Structure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/structure/StructureLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/structure/StructureLevel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -315,14 +305,7 @@
       <workItem from="1657474593024" duration="1649000" />
       <workItem from="1657476296204" duration="5904000" />
       <workItem from="1657484893223" duration="7000" />
-      <workItem from="1657484910017" duration="702000" />
-    </task>
-    <task id="LOCAL-00149" summary="Add seconds to message">
-      <created>1654470767636</created>
-      <option name="number" value="00149" />
-      <option name="presentableId" value="LOCAL-00149" />
-      <option name="project" value="LOCAL" />
-      <updated>1654470767636</updated>
+      <workItem from="1657484910017" duration="1130000" />
     </task>
     <task id="LOCAL-00150" summary="Update map ID">
       <created>1655114732933</created>
@@ -660,7 +643,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657475364318</updated>
     </task>
-    <option name="localTasksCounter" value="198" />
+    <task id="LOCAL-00198" summary="Change how structures are generated">
+      <created>1657485715707</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
+      <option name="project" value="LOCAL" />
+      <updated>1657485715707</updated>
+    </task>
+    <option name="localTasksCounter" value="199" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -678,7 +668,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix typo" />
     <MESSAGE value="Start iron crate animation" />
     <MESSAGE value="Change timings, fix structure" />
     <MESSAGE value="Change timings more" />
@@ -703,6 +692,7 @@
     <MESSAGE value="Add diamond crate animation" />
     <MESSAGE value="Remove blaze death sound" />
     <MESSAGE value="Move chests 2 blocks lower" />
-    <option name="LAST_COMMIT_MESSAGE" value="Move chests 2 blocks lower" />
+    <MESSAGE value="Change how structures are generated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change how structures are generated" />
   </component>
 </project>

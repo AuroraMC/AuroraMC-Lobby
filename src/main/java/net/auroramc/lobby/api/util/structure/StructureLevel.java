@@ -25,7 +25,7 @@ public class StructureLevel {
         this.level = level;
         this.z = z;
         for (int i = 0;i < x;i++) {
-            rows.put(i, new StructureRow(this, x, z));
+            rows.put(i, new StructureRow(this, z, i));
         }
     }
 
