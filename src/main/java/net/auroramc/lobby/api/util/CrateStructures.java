@@ -75,7 +75,7 @@ public class CrateStructures {
         diamondCrate.put(0, 0, 3, new StructureBlock(Material.DOUBLE_STEP));
         diamondCrate.put(3, 0, 0, new StructureBlock(Material.DOUBLE_STEP));
         diamondCrate.put(3, 0, 6, new StructureBlock(Material.DOUBLE_STEP));
-        diamondCrate.put(5, 0, 3, new StructureBlock(Material.DOUBLE_STEP));
+        diamondCrate.put(6, 0, 3, new StructureBlock(Material.DOUBLE_STEP));
         diamondCrate.put(0, 0, 1, new StructureStairs(Material.BIRCH_WOOD_STAIRS, BlockFace.EAST));
         diamondCrate.put(0, 0, 2, new StructureStairs(Material.BIRCH_WOOD_STAIRS, BlockFace.EAST));
         diamondCrate.put(0, 0, 4, new StructureStairs(Material.BIRCH_WOOD_STAIRS, BlockFace.EAST));
@@ -116,10 +116,10 @@ public class CrateStructures {
         emeraldCrate.put(0, 0, 3, new StructureBlock(Material.SEA_LANTERN));
         emeraldCrate.put(3, 0, 0, new StructureBlock(Material.SEA_LANTERN));
         emeraldCrate.put(3, 0, 6, new StructureBlock(Material.SEA_LANTERN));
-        emeraldCrate.put(5, 0, 3, new StructureBlock(Material.SEA_LANTERN));
+        emeraldCrate.put(6, 0, 3, new StructureBlock(Material.SEA_LANTERN));
         emeraldCrate.put(2, 0, 3, new StructureStairs(Material.SANDSTONE_STAIRS, BlockFace.WEST));
         emeraldCrate.put(3, 0, 2, new StructureStairs(Material.SANDSTONE_STAIRS, BlockFace.NORTH));
-        emeraldCrate.put(3, 0, 5, new StructureStairs(Material.SANDSTONE_STAIRS, BlockFace.SOUTH));
+        emeraldCrate.put(3, 0, 4, new StructureStairs(Material.SANDSTONE_STAIRS, BlockFace.SOUTH));
         emeraldCrate.put(4, 0, 3, new StructureStairs(Material.SANDSTONE_STAIRS, BlockFace.EAST));
         emeraldCrate.put(0, 0, 1, new StructureStairs(Material.SANDSTONE_STAIRS, BlockFace.EAST));
         emeraldCrate.put(0, 0, 2, new StructureStairs(Material.SANDSTONE_STAIRS, BlockFace.EAST));
@@ -139,6 +139,26 @@ public class CrateStructures {
         emeraldCrate.put(5, 0, 6, new StructureStairs(Material.SANDSTONE_STAIRS, BlockFace.NORTH));
         emeraldCrate.put(3, 0, 3, new StructureBlock(Material.SEA_LANTERN));
 
+        emeraldCrate.put(1, 0, 1, new StructureBlock(Material.PRISMARINE, (byte)2));
+        emeraldCrate.put(1, 0, 2, new StructureBlock(Material.PRISMARINE, (byte)2));
+        emeraldCrate.put(1, 0, 3, new StructureBlock(Material.PRISMARINE, (byte)2));
+        emeraldCrate.put(1, 0, 4, new StructureBlock(Material.PRISMARINE, (byte)2));
+        emeraldCrate.put(1, 0, 5, new StructureBlock(Material.PRISMARINE, (byte)2));
+        emeraldCrate.put(2, 0, 1, new StructureBlock(Material.PRISMARINE, (byte)2));
+        emeraldCrate.put(3, 0, 1, new StructureBlock(Material.PRISMARINE, (byte)2));
+        emeraldCrate.put(4, 0, 1, new StructureBlock(Material.PRISMARINE, (byte)2));
+        emeraldCrate.put(5, 0, 1, new StructureBlock(Material.PRISMARINE, (byte)2));
+        emeraldCrate.put(5, 0, 2, new StructureBlock(Material.PRISMARINE, (byte)2));
+        emeraldCrate.put(5, 0, 3, new StructureBlock(Material.PRISMARINE, (byte)2));
+        emeraldCrate.put(5, 0, 4, new StructureBlock(Material.PRISMARINE, (byte)2));
+        emeraldCrate.put(5, 0, 5, new StructureBlock(Material.PRISMARINE, (byte)2));
+        emeraldCrate.put(4, 0, 5, new StructureBlock(Material.PRISMARINE, (byte)2));
+        emeraldCrate.put(4, 0, 5, new StructureBlock(Material.PRISMARINE, (byte)2));
+        emeraldCrate.put(3, 0, 5, new StructureBlock(Material.PRISMARINE, (byte)2));
+        emeraldCrate.put(2, 0, 5, new StructureBlock(Material.PRISMARINE, (byte)2));
+        emeraldCrate.put(1, 0, 5, new StructureBlock(Material.PRISMARINE, (byte)2));
+
+
         //Corners
         emeraldCrate.put(6, 1, 6, new StructureBlock(Material.RED_SANDSTONE, (byte)2));
         emeraldCrate.put(6, 1, 0, new StructureBlock(Material.RED_SANDSTONE, (byte)2));
@@ -156,10 +176,10 @@ public class CrateStructures {
         emeraldCrate.put(6, 4, 0, new StructureBlock(Material.EMERALD_BLOCK));
         emeraldCrate.put(0, 4, 6, new StructureBlock(Material.EMERALD_BLOCK));
         emeraldCrate.put(0, 4, 0, new StructureBlock(Material.EMERALD_BLOCK));
-        emeraldCrate.put(6, 4, 6, new StructureBlock(Material.STONE_SLAB2));
-        emeraldCrate.put(6, 4, 0, new StructureBlock(Material.STONE_SLAB2));
-        emeraldCrate.put(0, 4, 6, new StructureBlock(Material.STONE_SLAB2));
-        emeraldCrate.put(0, 4, 0, new StructureBlock(Material.STONE_SLAB2));
+        emeraldCrate.put(6, 5, 6, new StructureBlock(Material.STONE_SLAB2));
+        emeraldCrate.put(6, 5, 0, new StructureBlock(Material.STONE_SLAB2));
+        emeraldCrate.put(0, 5, 6, new StructureBlock(Material.STONE_SLAB2));
+        emeraldCrate.put(0, 5, 0, new StructureBlock(Material.STONE_SLAB2));
 
         //Stair structure
         emeraldCrate.put(1, 3, 0, new StructureStairs(Material.RED_SANDSTONE_STAIRS, BlockFace.WEST, true));
@@ -172,7 +192,7 @@ public class CrateStructures {
         emeraldCrate.put(4, 5, 0, new StructureStairs(Material.RED_SANDSTONE_STAIRS, BlockFace.WEST, false));
         emeraldCrate.put(3, 4, 0, new StructureBlock(Material.STONE_SLAB2));
         emeraldCrate.put(3, 5, 0, new StructureBlock(Material.EMERALD_BLOCK));
-        emeraldCrate.put(3, 6, 0, new StructureBlock(Material.EMERALD_BLOCK));
+        emeraldCrate.put(3, 6, 0, new StructureBlock(Material.STONE_SLAB2));
 
         emeraldCrate.put(1, 3, 6, new StructureStairs(Material.RED_SANDSTONE_STAIRS, BlockFace.WEST, true));
         emeraldCrate.put(1, 4, 6, new StructureStairs(Material.RED_SANDSTONE_STAIRS, BlockFace.EAST, false));
@@ -184,7 +204,7 @@ public class CrateStructures {
         emeraldCrate.put(4, 5, 6, new StructureStairs(Material.RED_SANDSTONE_STAIRS, BlockFace.WEST, false));
         emeraldCrate.put(3, 4, 6, new StructureBlock(Material.STONE_SLAB2));
         emeraldCrate.put(3, 5, 6, new StructureBlock(Material.EMERALD_BLOCK));
-        emeraldCrate.put(3, 6, 6, new StructureBlock(Material.EMERALD_BLOCK));
+        emeraldCrate.put(3, 6, 6, new StructureBlock(Material.STONE_SLAB2));
 
         emeraldCrate.put(0, 3, 1, new StructureStairs(Material.RED_SANDSTONE_STAIRS, BlockFace.NORTH, true));
         emeraldCrate.put(0, 4, 1, new StructureStairs(Material.RED_SANDSTONE_STAIRS, BlockFace.SOUTH, false));
@@ -196,7 +216,7 @@ public class CrateStructures {
         emeraldCrate.put(0, 5, 4, new StructureStairs(Material.RED_SANDSTONE_STAIRS, BlockFace.NORTH, false));
         emeraldCrate.put(0, 4, 3, new StructureBlock(Material.STONE_SLAB2));
         emeraldCrate.put(0, 5, 3, new StructureBlock(Material.EMERALD_BLOCK));
-        emeraldCrate.put(0, 6, 3, new StructureBlock(Material.EMERALD_BLOCK));
+        emeraldCrate.put(0, 6, 3, new StructureBlock(Material.STONE_SLAB2));
 
         emeraldCrate.put(6, 3, 1, new StructureStairs(Material.RED_SANDSTONE_STAIRS, BlockFace.NORTH, true));
         emeraldCrate.put(6, 4, 1, new StructureStairs(Material.RED_SANDSTONE_STAIRS, BlockFace.SOUTH, false));
@@ -208,7 +228,7 @@ public class CrateStructures {
         emeraldCrate.put(6, 5, 4, new StructureStairs(Material.RED_SANDSTONE_STAIRS, BlockFace.NORTH, false));
         emeraldCrate.put(6, 4, 3, new StructureBlock(Material.STONE_SLAB2));
         emeraldCrate.put(6, 5, 3, new StructureBlock(Material.EMERALD_BLOCK));
-        emeraldCrate.put(6, 6, 3, new StructureBlock(Material.EMERALD_BLOCK));
+        emeraldCrate.put(6, 6, 3, new StructureBlock(Material.STONE_SLAB2));
 
 
     }

@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="FIx slight issue">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix issue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/structure/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/structure/Structure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/structure/StructureLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/structure/StructureLevel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/structure/StructureRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/structure/StructureRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/CrateStructures.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/CrateStructures.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -307,14 +305,7 @@
       <workItem from="1657474593024" duration="1649000" />
       <workItem from="1657476296204" duration="5904000" />
       <workItem from="1657484893223" duration="7000" />
-      <workItem from="1657484910017" duration="1799000" />
-    </task>
-    <task id="LOCAL-00151" summary="update map zip">
-      <created>1655114809159</created>
-      <option name="number" value="00151" />
-      <option name="presentableId" value="LOCAL-00151" />
-      <option name="project" value="LOCAL" />
-      <updated>1655114809159</updated>
+      <workItem from="1657484910017" duration="2875000" />
     </task>
     <task id="LOCAL-00152" summary="Update entity location">
       <created>1655114944557</created>
@@ -652,7 +643,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657486123315</updated>
     </task>
-    <option name="localTasksCounter" value="200" />
+    <task id="LOCAL-00200" summary="Fix issue">
+      <created>1657486902635</created>
+      <option name="number" value="00200" />
+      <option name="presentableId" value="LOCAL-00200" />
+      <option name="project" value="LOCAL" />
+      <updated>1657486902635</updated>
+    </task>
+    <option name="localTasksCounter" value="201" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -670,7 +668,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Change timings, fix structure" />
     <MESSAGE value="Change timings more" />
     <MESSAGE value="Start gold animation" />
     <MESSAGE value="Testing a theory" />
@@ -695,6 +692,7 @@
     <MESSAGE value="Move chests 2 blocks lower" />
     <MESSAGE value="Change how structures are generated" />
     <MESSAGE value="FIx slight issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="FIx slight issue" />
+    <MESSAGE value="Fix issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix issue" />
   </component>
 </project>
