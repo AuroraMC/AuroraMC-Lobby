@@ -118,7 +118,7 @@ public class EmeraldCrateMenu extends GUI {
                     public void run() {
                         if (i < 7) {
                             CrateStructures.getEmeraldCrate().getLevel(i).place(loc);
-                            loc.setY(loc.getY());
+                            loc.setY(loc.getY() + 1);
                             location.getWorld().playSound(location, Sound.DIG_STONE, 100, 0);
                         }
                         if (i > 0) {
@@ -127,12 +127,12 @@ public class EmeraldCrateMenu extends GUI {
                             loc2.getBlock().setType(Material.STATIONARY_WATER);
                             loc2.getBlock().setData(w);
 
-                            loc2.setZ(loc2.getZ() + 6);
+                            loc2.setX(loc2.getX() - 6);
                             loc2.getBlock().setType(Material.STATIONARY_WATER);
                             loc2.getBlock().setData(w);
 
                             loc2.setZ(loc2.getZ() - 3);
-                            loc2.setX(loc2.getX() - 3);
+                            loc2.setX(loc2.getX() + 3);
                             loc2.getBlock().setType(Material.STATIONARY_WATER);
                             loc2.getBlock().setData(w);
 
@@ -142,17 +142,17 @@ public class EmeraldCrateMenu extends GUI {
                             w--;
                         }
                         i++;
-                        if (i > 9) {
+                        if (i >= 9) {
                             Location loc2 = location.clone();
                             loc2.setX(loc2.getX() + 3);
-                            (new StructureChest(Material.CHEST, BlockFace.SOUTH)).place(loc2);
-
-                            loc2.setZ(loc2.getZ() + 6);
                             (new StructureChest(Material.CHEST, BlockFace.NORTH)).place(loc2);
+
+                            loc2.setX(loc2.getX() - 6);
+                            (new StructureChest(Material.CHEST, BlockFace.SOUTH)).place(loc2);
 
 
                             loc2.setZ(loc2.getZ() - 3);
-                            loc2.setX(loc2.getX() - 3);
+                            loc2.setX(loc2.getX() + 3);
                             (new StructureChest(Material.CHEST, BlockFace.EAST)).place(loc2);
 
                             loc2.setX(loc2.getX() + 6);
