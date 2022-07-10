@@ -136,7 +136,7 @@ public class EmeraldCrateMenu extends GUI {
                             loc2.getBlock().setType(Material.STATIONARY_WATER);
                             loc2.getBlock().setData(w);
 
-                            loc2.setX(loc2.getX() + 6);
+                            loc2.setZ(loc2.getZ() + 6);
                             loc2.getBlock().setType(Material.STATIONARY_WATER);
                             loc2.getBlock().setData(w);
                             w--;
