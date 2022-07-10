@@ -13,6 +13,7 @@ import net.auroramc.core.api.utils.gui.GUIItem;
 import net.auroramc.core.cosmetics.crates.IronCrate;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
+import net.auroramc.lobby.api.util.CrateStructures;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -107,31 +108,9 @@ public class IronCrateMenu extends GUI {
                     }
                 }
                 location.getBlock().setType(Material.AIR);
-                Location loc = new Location(location.getWorld(), location.getX() + 3, location.getY() - 1, location.getZ() + 3);
+                Location loc = new Location(location.getWorld(), location.getX() - 3, location.getY() - 1, location.getZ() - 3);
 
-                //Set Blocks
-                loc.getBlock().setType(Material.IRON_BLOCK);
-                loc.setY(loc.getY() + 1);
-                loc.getBlock().setType(Material.RED_SANDSTONE);
-                loc.getBlock().setData((byte)2);
-                loc.setX(loc.getX() - 6);
-                loc.setY(loc.getY() - 1);
-                loc.getBlock().setType(Material.IRON_BLOCK);
-                loc.setY(loc.getY() + 1);
-                loc.getBlock().setType(Material.RED_SANDSTONE);
-                loc.getBlock().setData((byte)2);
-                loc.setZ(loc.getZ() - 6);
-                loc.setY(loc.getY() - 1);
-                loc.getBlock().setType(Material.IRON_BLOCK);
-                loc.setY(loc.getY() + 1);
-                loc.getBlock().setType(Material.RED_SANDSTONE);
-                loc.getBlock().setData((byte)2);
-                loc.setX(loc.getX() + 6);
-                loc.setY(loc.getY() - 1);
-                loc.getBlock().setType(Material.IRON_BLOCK);
-                loc.setY(loc.getY() + 1);
-                loc.getBlock().setType(Material.RED_SANDSTONE);
-                loc.getBlock().setData((byte)2);
+                CrateStructures.getIronCrate().place(loc);
 
                 Location anvil = new Location(location.getWorld(), location.getX(), location.getY() + 2, location.getZ() + 3);
                 Location chest = new Location(location.getWorld(), location.getX(), location.getY(), location.getZ() + 3);

@@ -11,13 +11,22 @@ import net.auroramc.core.api.cosmetics.Crate;
 import net.auroramc.core.api.utils.gui.GUI;
 import net.auroramc.core.api.utils.gui.GUIItem;
 import net.auroramc.core.cosmetics.crates.EmeraldCrate;
+import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
+import net.auroramc.lobby.api.util.CrateStructures;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.block.BlockFace;
+import org.bukkit.block.BlockState;
+import org.bukkit.entity.Entity;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.material.Chest;
+import org.bukkit.material.Stairs;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
@@ -89,7 +98,116 @@ public class EmeraldCrateMenu extends GUI {
             player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ITEM_BREAK, 100, 0);
         } else {
             Crate crate = availableCrates.get(((row - 1) * 7) + (column - 1));
-            //Do something
+            player.getPlayer().closeInventory();
+
+            if (LobbyAPI.startOpen(crate, player)) {
+                Location location = LobbyAPI.getChestBlock().getLocation();
+                for (Entity entity : location.getWorld().getNearbyEntities(location, 4, 4, 4)) {
+                    if (entity.getEntityId() == LobbyAPI.getChestStand().getEntityId()) {
+                        entity.remove();
+                    }
+                }
+                location.getBlock().setType(Material.AIR);
+                Location loc = new Location(location.getWorld(), location.getX() - 3, location.getY() - 1, location.getZ() - 3);
+
+                CrateStructures.getEmeraldCrate().place(loc);
+
+                /*Location chest = new Location(location.getWorld(), location.getX(), location.getY() + 3, location.getZ() + 3);
+                chest.getBlock().setType(Material.CHEST);
+                new BukkitRunnable(){
+                    byte i = 2;
+                    @Override
+                    public void run() {
+                        chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
+                        if (i < 0) {
+                            chest.setZ(chest.getZ() - 6);
+                            chest.setY(chest.getY() + 3);
+
+                            chest.getBlock().setType(Material.CHEST);
+                            BlockState c = chest.getBlock().getState();
+                            c.setData(new Chest(BlockFace.SOUTH));
+                            c.update();
+                            new BukkitRunnable(){
+                                byte i = 2;
+                                @Override
+                                public void run() {
+                                    chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
+                                    if (i  < 0) {
+                                        chest.setX(chest.getX() + 3);
+                                        chest.setZ(chest.getZ() + 3);
+                                        chest.setY(chest.getY() + 3);
+
+                                        chest.getBlock().setType(Material.CHEST);
+                                        BlockState c = chest.getBlock().getState();
+                                        c.setData(new Chest(BlockFace.WEST));
+                                        c.update();
+                                        new BukkitRunnable(){
+                                            byte i = 2;
+                                            @Override
+                                            public void run() {
+                                                chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
+                                                if (i < 0) {
+                                                    chest.setX(chest.getX() - 6);
+                                                    chest.setY(chest.getY() + 3);
+
+                                                    chest.getBlock().setType(Material.CHEST);
+                                                    BlockState c = chest.getBlock().getState();
+                                                    c.setData(new Chest(BlockFace.EAST));
+                                                    c.update();
+                                                    new BukkitRunnable(){
+                                                        byte i = 2;
+                                                        @Override
+                                                        public void run() {
+                                                            chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
+                                                            if (i < 0) {
+                                                                this.cancel();
+                                                                return;
+                                                            }
+                                                            chest.getBlock().setType(Material.AIR);
+                                                            chest.setY(chest.getY() - 1);
+                                                            chest.getBlock().setType(Material.CHEST);
+                                                            BlockState c = chest.getBlock().getState();
+                                                            c.setData(new Chest(BlockFace.EAST));
+                                                            c.update();
+                                                            i--;
+                                                        }
+                                                    }.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
+                                                    this.cancel();
+                                                    return;
+                                                }
+                                                chest.getBlock().setType(Material.AIR);
+                                                chest.setY(chest.getY() - 1);
+                                                chest.getBlock().setType(Material.CHEST);
+                                                BlockState c = chest.getBlock().getState();
+                                                c.setData(new Chest(BlockFace.WEST));
+                                                c.update();
+                                                i--;
+                                            }
+                                        }.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
+                                        this.cancel();
+                                        return;
+                                    }
+                                    chest.getBlock().setType(Material.AIR);
+                                    chest.setY(chest.getY() - 1);
+                                    chest.getBlock().setType(Material.CHEST);
+                                    BlockState c = chest.getBlock().getState();
+                                    c.setData(new Chest(BlockFace.SOUTH));
+                                    c.update();
+                                    i--;
+                                }
+                            }.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
+                            this.cancel();
+                            return;
+                        }
+                        chest.getBlock().setType(Material.AIR);
+                        chest.setY(chest.getY() - 1);
+                        chest.getBlock().setType(Material.CHEST);
+                        i--;
+                    }
+                }.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);*/
+            } else {
+                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "Someone is already opening a crate! Please wait until they are finished to open one!"));
+            }
         }
     }
 }

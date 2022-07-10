@@ -13,6 +13,8 @@ import net.auroramc.core.api.utils.gui.GUIItem;
 import net.auroramc.core.cosmetics.crates.DiamondCrate;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
+import net.auroramc.lobby.api.util.CrateStructures;
+import net.auroramc.lobby.utils.CrateUtil;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -107,175 +109,17 @@ public class DiamondCrateMenu extends GUI {
                     }
                 }
                 location.getBlock().setType(Material.AIR);
-                Location loc = new Location(location.getWorld(), location.getX() + 3, location.getY() - 1, location.getZ() + 3);
+                Location loc = new Location(location.getWorld(), location.getX() - 3, location.getY() - 1, location.getZ() - 3);
 
-                //Set Blocks
-                placeCorner(loc);
-                loc.setX(loc.getX() - 6);
-                loc.setY(loc.getY() - 3);
-                placeCorner(loc);
-                loc.setZ(loc.getZ() - 6);
-                loc.setY(loc.getY() - 3);
-                placeCorner(loc);
-                loc.setX(loc.getX() + 6);
-                loc.setY(loc.getY() - 3);
-                placeCorner(loc);
-
-                //Reset loc.
-                loc = location.clone();
-                loc.setY(loc.getY() - 1);
-
-                loc.setZ(loc.getZ() + 3);
-                loc.getBlock().setType(Material.DOUBLE_STEP);
-                loc.setX(loc.getX() + 1);
-                loc.getBlock().setType(Material.BIRCH_WOOD_STAIRS);
-                loc.setX(loc.getX() + 1);
-                loc.getBlock().setType(Material.BIRCH_WOOD_STAIRS);
-                loc.setX(loc.getX() - 3);
-                loc.getBlock().setType(Material.BIRCH_WOOD_STAIRS);
-                loc.setX(loc.getX() - 1);
-                loc.getBlock().setType(Material.BIRCH_WOOD_STAIRS);
-
-
-                loc.setZ(loc.getZ() - 6);
-                loc.getBlock().setType(Material.BIRCH_WOOD_STAIRS);
-                BlockState state = loc.getBlock().getState();
-                Stairs stairs = new Stairs(Material.BIRCH_WOOD_STAIRS);
-                stairs.setFacingDirection(BlockFace.SOUTH);
-                state.setData(stairs);
-                state.update();
-                loc.setX(loc.getX() + 1);
-                loc.getBlock().setType(Material.BIRCH_WOOD_STAIRS);
-                state = loc.getBlock().getState();
-                stairs = new Stairs(Material.BIRCH_WOOD_STAIRS);
-                stairs.setFacingDirection(BlockFace.SOUTH);
-                state.setData(stairs);
-                state.update();
-                loc.setX(loc.getX() + 1);
-                loc.getBlock().setType(Material.DOUBLE_STEP);
-                loc.setX(loc.getX() + 1);
-                loc.getBlock().setType(Material.BIRCH_WOOD_STAIRS);
-                state = loc.getBlock().getState();
-                stairs = new Stairs(Material.BIRCH_WOOD_STAIRS);
-                stairs.setFacingDirection(BlockFace.SOUTH);
-                state.setData(stairs);
-                state.update();
-                loc.setX(loc.getX() + 1);
-                loc.getBlock().setType(Material.BIRCH_WOOD_STAIRS);
-                state = loc.getBlock().getState();
-                stairs = new Stairs(Material.BIRCH_WOOD_STAIRS);
-                stairs.setFacingDirection(BlockFace.SOUTH);
-                state.setData(stairs);
-                state.update();
-
-                loc.setX(loc.getX() + 1);
-                loc.setZ(loc.getZ() + 1);
-                loc.getBlock().setType(Material.BIRCH_WOOD_STAIRS);
-                state = loc.getBlock().getState();
-                stairs = new Stairs(Material.BIRCH_WOOD_STAIRS);
-                stairs.setFacingDirection(BlockFace.WEST);
-                state.setData(stairs);
-                state.update();
-                loc.setZ(loc.getZ() + 1);
-                loc.getBlock().setType(Material.BIRCH_WOOD_STAIRS);
-                state = loc.getBlock().getState();
-                stairs = new Stairs(Material.BIRCH_WOOD_STAIRS);
-                stairs.setFacingDirection(BlockFace.WEST);
-                state.setData(stairs);
-                state.update();
-                loc.setZ(loc.getZ() + 1);
-                loc.getBlock().setType(Material.DOUBLE_STEP);
-                loc.setZ(loc.getZ() + 1);
-                loc.getBlock().setType(Material.BIRCH_WOOD_STAIRS);
-                state = loc.getBlock().getState();
-                stairs = new Stairs(Material.BIRCH_WOOD_STAIRS);
-                stairs.setFacingDirection(BlockFace.WEST);
-                state.setData(stairs);
-                state.update();
-                loc.setZ(loc.getZ() + 1);
-                loc.getBlock().setType(Material.BIRCH_WOOD_STAIRS);
-                state = loc.getBlock().getState();
-                stairs = new Stairs(Material.BIRCH_WOOD_STAIRS);
-                stairs.setFacingDirection(BlockFace.WEST);
-                state.setData(stairs);
-                state.update();
-
-                loc.setX(loc.getX() - 6);
-                loc.getBlock().setType(Material.BIRCH_WOOD_STAIRS);
-                state = loc.getBlock().getState();
-                stairs = new Stairs(Material.BIRCH_WOOD_STAIRS);
-                stairs.setFacingDirection(BlockFace.EAST);
-                state.setData(stairs);
-                state.update();
-                loc.setZ(loc.getZ() - 1);
-                loc.getBlock().setType(Material.BIRCH_WOOD_STAIRS);
-                state = loc.getBlock().getState();
-                stairs = new Stairs(Material.BIRCH_WOOD_STAIRS);
-                stairs.setFacingDirection(BlockFace.EAST);
-                state.setData(stairs);
-                state.update();
-                loc.setZ(loc.getZ() - 1);
-                loc.getBlock().setType(Material.DOUBLE_STEP);
-                loc.setZ(loc.getZ() - 1);
-                loc.getBlock().setType(Material.BIRCH_WOOD_STAIRS);
-                state = loc.getBlock().getState();
-                stairs = new Stairs(Material.BIRCH_WOOD_STAIRS);
-                stairs.setFacingDirection(BlockFace.EAST);
-                state.setData(stairs);
-                state.update();
-                loc.setZ(loc.getZ() - 1);
-                loc.getBlock().setType(Material.BIRCH_WOOD_STAIRS);
-                state = loc.getBlock().getState();
-                stairs = new Stairs(Material.BIRCH_WOOD_STAIRS);
-                stairs.setFacingDirection(BlockFace.EAST);
-                state.setData(stairs);
-                state.update();
-
-                //Reset loc.
-                loc = location.clone();
-                loc.setY(loc.getY() - 1);
-
-                loc.setX(loc.getX() + 2);
-                loc.setZ(loc.getZ() + 1);
-                loc.getBlock().setType(Material.STAINED_CLAY);
-                loc.getBlock().setData((byte)3);
-                loc.setZ(loc.getZ() - 2);
-                loc.getBlock().setType(Material.STAINED_CLAY);
-                loc.getBlock().setData((byte)3);
-                loc.setX(loc.getX() - 4);
-                loc.getBlock().setType(Material.STAINED_CLAY);
-                loc.getBlock().setData((byte)3);
-                loc.setZ(loc.getZ() + 2);
-                loc.getBlock().setType(Material.STAINED_CLAY);
-                loc.getBlock().setData((byte)3);
-
-                //Reset loc.
-                loc = location.clone();
-                loc.setY(loc.getY() - 1);
-
-                loc.getBlock().setType(Material.SEA_LANTERN);
-
-                loc.setZ(loc.getZ() + 2);
-                loc.setX(loc.getX() + 1);
-                loc.getBlock().setType(Material.STAINED_CLAY);
-                loc.getBlock().setData((byte)3);
-                loc.setX(loc.getX() - 2);
-                loc.getBlock().setType(Material.STAINED_CLAY);
-                loc.getBlock().setData((byte)3);
-                loc.setZ(loc.getZ() - 4);
-                loc.getBlock().setType(Material.STAINED_CLAY);
-                loc.getBlock().setData((byte)3);
-                loc.setX(loc.getX() + 2);
-                loc.getBlock().setType(Material.STAINED_CLAY);
-                loc.getBlock().setData((byte)3);
+                CrateStructures.getDiamondCrate().place(loc);
 
                 Location chest = new Location(location.getWorld(), location.getX(), location.getY() + 3, location.getZ() + 3);
                 chest.getBlock().setType(Material.CHEST);
+                chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
                 new BukkitRunnable(){
                     byte i = 2;
                     @Override
                     public void run() {
-                        chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
                         if (i < 0) {
                             chest.setZ(chest.getZ() - 6);
                             chest.setY(chest.getY() + 3);
@@ -288,7 +132,6 @@ public class DiamondCrateMenu extends GUI {
                                 byte i = 2;
                                 @Override
                                 public void run() {
-                                    chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
                                     if (i  < 0) {
                                         chest.setX(chest.getX() + 3);
                                         chest.setZ(chest.getZ() + 3);
@@ -302,7 +145,6 @@ public class DiamondCrateMenu extends GUI {
                                             byte i = 2;
                                             @Override
                                             public void run() {
-                                                chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
                                                 if (i < 0) {
                                                     chest.setX(chest.getX() - 6);
                                                     chest.setY(chest.getY() + 3);
@@ -315,11 +157,11 @@ public class DiamondCrateMenu extends GUI {
                                                         byte i = 2;
                                                         @Override
                                                         public void run() {
-                                                            chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
                                                             if (i < 0) {
                                                                 this.cancel();
                                                                 return;
                                                             }
+                                                            chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
                                                             chest.getBlock().setType(Material.AIR);
                                                             chest.setY(chest.getY() - 1);
                                                             chest.getBlock().setType(Material.CHEST);
@@ -332,6 +174,7 @@ public class DiamondCrateMenu extends GUI {
                                                     this.cancel();
                                                     return;
                                                 }
+                                                chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
                                                 chest.getBlock().setType(Material.AIR);
                                                 chest.setY(chest.getY() - 1);
                                                 chest.getBlock().setType(Material.CHEST);
@@ -344,6 +187,7 @@ public class DiamondCrateMenu extends GUI {
                                         this.cancel();
                                         return;
                                     }
+                                    chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
                                     chest.getBlock().setType(Material.AIR);
                                     chest.setY(chest.getY() - 1);
                                     chest.getBlock().setType(Material.CHEST);
@@ -356,6 +200,7 @@ public class DiamondCrateMenu extends GUI {
                             this.cancel();
                             return;
                         }
+                        chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
                         chest.getBlock().setType(Material.AIR);
                         chest.setY(chest.getY() - 1);
                         chest.getBlock().setType(Material.CHEST);

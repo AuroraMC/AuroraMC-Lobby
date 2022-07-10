@@ -4,8 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Remove blaze death sound">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Move chests 2 blocks lower">
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/CrateStructures.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/structure/Structure.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/structure/StructureLevel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/structure/StructureRow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/structure/block/StructureBlock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/structure/block/StructureChest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/structure/block/StructureSlab.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/structure/block/StructureStairs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/DiamondCrateMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/DiamondCrateMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/EmeraldCrateMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/EmeraldCrateMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/WorldListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/WorldListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,11 +82,11 @@
       <recent name="net.auroramc.lobby.commands" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="net.auroramc.lobby.api.util.structure.block" />
       <recent name="net.auroramc.lobby.gui.crates.buy" />
       <recent name="net.auroramc.lobby.gui.crates.buy.confirmation" />
       <recent name="net.auroramc.lobby.gui.creates" />
       <recent name="net.auroramc.lobby.gui.changelog" />
-      <recent name="net.auroramc.lobby.api.util" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -301,14 +312,10 @@
       <workItem from="1657291490184" duration="3178000" />
       <workItem from="1657380342278" duration="2042000" />
       <workItem from="1657382542960" duration="8636000" />
-      <workItem from="1657474593024" duration="757000" />
-    </task>
-    <task id="LOCAL-00148" summary="Fix cooldowns">
-      <created>1654470584554</created>
-      <option name="number" value="00148" />
-      <option name="presentableId" value="LOCAL-00148" />
-      <option name="project" value="LOCAL" />
-      <updated>1654470584554</updated>
+      <workItem from="1657474593024" duration="1649000" />
+      <workItem from="1657476296204" duration="5904000" />
+      <workItem from="1657484893223" duration="7000" />
+      <workItem from="1657484910017" duration="702000" />
     </task>
     <task id="LOCAL-00149" summary="Add seconds to message">
       <created>1654470767636</created>
@@ -646,7 +653,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657475318231</updated>
     </task>
-    <option name="localTasksCounter" value="197" />
+    <task id="LOCAL-00197" summary="Move chests 2 blocks lower">
+      <created>1657475364318</created>
+      <option name="number" value="00197" />
+      <option name="presentableId" value="LOCAL-00197" />
+      <option name="project" value="LOCAL" />
+      <updated>1657475364318</updated>
+    </task>
+    <option name="localTasksCounter" value="198" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -664,7 +678,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix formatting" />
     <MESSAGE value="Fix typo" />
     <MESSAGE value="Start iron crate animation" />
     <MESSAGE value="Change timings, fix structure" />
@@ -689,6 +702,7 @@
     <MESSAGE value="Update stair direction" />
     <MESSAGE value="Add diamond crate animation" />
     <MESSAGE value="Remove blaze death sound" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove blaze death sound" />
+    <MESSAGE value="Move chests 2 blocks lower" />
+    <option name="LAST_COMMIT_MESSAGE" value="Move chests 2 blocks lower" />
   </component>
 </project>
