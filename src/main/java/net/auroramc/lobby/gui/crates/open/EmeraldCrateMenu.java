@@ -160,7 +160,7 @@ public class EmeraldCrateMenu extends GUI {
                             this.cancel();
                         }
                     }
-                }.runTaskTimer(AuroraMCAPI.getCore(), 0, 10);
+                }.runTaskTimer(AuroraMCAPI.getCore(), 0, 8);
             } else {
                 player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "Someone is already opening a crate! Please wait until they are finished to open one!"));
             }
