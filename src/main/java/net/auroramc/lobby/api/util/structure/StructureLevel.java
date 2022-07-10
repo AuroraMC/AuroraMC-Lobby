@@ -5,6 +5,7 @@
 package net.auroramc.lobby.api.util.structure;
 
 import net.auroramc.lobby.api.util.structure.block.StructureBlock;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
 import java.util.HashMap;

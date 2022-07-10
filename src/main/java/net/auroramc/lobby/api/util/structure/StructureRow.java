@@ -5,6 +5,7 @@
 package net.auroramc.lobby.api.util.structure;
 
 import net.auroramc.lobby.api.util.structure.block.StructureBlock;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
 import java.util.HashMap;
@@ -50,7 +51,7 @@ public class StructureRow {
             }
             Location block = end.clone();
             block.setZ(end.getZ() + i);
-            blocks.get(i).place(end);
+            blocks.get(i).place(block);
         }
     }
 }
