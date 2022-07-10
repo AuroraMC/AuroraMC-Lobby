@@ -128,6 +128,7 @@ public class DiamondCrateMenu extends GUI {
                             BlockState c = chest.getBlock().getState();
                             c.setData(new Chest(BlockFace.SOUTH));
                             c.update();
+                            chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
                             new BukkitRunnable(){
                                 byte i = 2;
                                 @Override
@@ -141,6 +142,7 @@ public class DiamondCrateMenu extends GUI {
                                         BlockState c = chest.getBlock().getState();
                                         c.setData(new Chest(BlockFace.WEST));
                                         c.update();
+                                        chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
                                         new BukkitRunnable(){
                                             byte i = 2;
                                             @Override
@@ -153,6 +155,7 @@ public class DiamondCrateMenu extends GUI {
                                                     BlockState c = chest.getBlock().getState();
                                                     c.setData(new Chest(BlockFace.EAST));
                                                     c.update();
+                                                    chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
                                                     new BukkitRunnable(){
                                                         byte i = 2;
                                                         @Override

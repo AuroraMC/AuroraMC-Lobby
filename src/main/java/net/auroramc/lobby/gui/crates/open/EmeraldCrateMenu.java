@@ -14,6 +14,7 @@ import net.auroramc.core.cosmetics.crates.EmeraldCrate;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.api.util.CrateStructures;
+import net.auroramc.lobby.api.util.structure.block.StructureChest;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -110,101 +111,55 @@ public class EmeraldCrateMenu extends GUI {
                 location.getBlock().setType(Material.AIR);
                 Location loc = new Location(location.getWorld(), location.getX() - 3, location.getY() - 1, location.getZ() - 3);
 
-                CrateStructures.getEmeraldCrate().place(loc);
-
-                /*Location chest = new Location(location.getWorld(), location.getX(), location.getY() + 3, location.getZ() + 3);
-                chest.getBlock().setType(Material.CHEST);
                 new BukkitRunnable(){
-                    byte i = 2;
+                    int i = 0;
+                    byte w = 7;
                     @Override
                     public void run() {
-                        chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
-                        if (i < 0) {
-                            chest.setZ(chest.getZ() - 6);
-                            chest.setY(chest.getY() + 3);
-
-                            chest.getBlock().setType(Material.CHEST);
-                            BlockState c = chest.getBlock().getState();
-                            c.setData(new Chest(BlockFace.SOUTH));
-                            c.update();
-                            new BukkitRunnable(){
-                                byte i = 2;
-                                @Override
-                                public void run() {
-                                    chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
-                                    if (i  < 0) {
-                                        chest.setX(chest.getX() + 3);
-                                        chest.setZ(chest.getZ() + 3);
-                                        chest.setY(chest.getY() + 3);
-
-                                        chest.getBlock().setType(Material.CHEST);
-                                        BlockState c = chest.getBlock().getState();
-                                        c.setData(new Chest(BlockFace.WEST));
-                                        c.update();
-                                        new BukkitRunnable(){
-                                            byte i = 2;
-                                            @Override
-                                            public void run() {
-                                                chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
-                                                if (i < 0) {
-                                                    chest.setX(chest.getX() - 6);
-                                                    chest.setY(chest.getY() + 3);
-
-                                                    chest.getBlock().setType(Material.CHEST);
-                                                    BlockState c = chest.getBlock().getState();
-                                                    c.setData(new Chest(BlockFace.EAST));
-                                                    c.update();
-                                                    new BukkitRunnable(){
-                                                        byte i = 2;
-                                                        @Override
-                                                        public void run() {
-                                                            chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
-                                                            if (i < 0) {
-                                                                this.cancel();
-                                                                return;
-                                                            }
-                                                            chest.getBlock().setType(Material.AIR);
-                                                            chest.setY(chest.getY() - 1);
-                                                            chest.getBlock().setType(Material.CHEST);
-                                                            BlockState c = chest.getBlock().getState();
-                                                            c.setData(new Chest(BlockFace.EAST));
-                                                            c.update();
-                                                            i--;
-                                                        }
-                                                    }.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
-                                                    this.cancel();
-                                                    return;
-                                                }
-                                                chest.getBlock().setType(Material.AIR);
-                                                chest.setY(chest.getY() - 1);
-                                                chest.getBlock().setType(Material.CHEST);
-                                                BlockState c = chest.getBlock().getState();
-                                                c.setData(new Chest(BlockFace.WEST));
-                                                c.update();
-                                                i--;
-                                            }
-                                        }.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
-                                        this.cancel();
-                                        return;
-                                    }
-                                    chest.getBlock().setType(Material.AIR);
-                                    chest.setY(chest.getY() - 1);
-                                    chest.getBlock().setType(Material.CHEST);
-                                    BlockState c = chest.getBlock().getState();
-                                    c.setData(new Chest(BlockFace.SOUTH));
-                                    c.update();
-                                    i--;
-                                }
-                            }.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
-                            this.cancel();
-                            return;
+                        if (i < 7) {
+                            CrateStructures.getEmeraldCrate().getLevel(i).place(loc);
+                            location.getWorld().playSound(location, Sound.DIG_STONE, 100, 0);
                         }
-                        chest.getBlock().setType(Material.AIR);
-                        chest.setY(chest.getY() - 1);
-                        chest.getBlock().setType(Material.CHEST);
-                        i--;
+                        if (i > 0) {
+                            Location loc2 = location.clone();
+                            loc2.setX(loc.getX() + 3);
+                            loc2.getBlock().setType(Material.STATIONARY_WATER);
+                            loc2.getBlock().setData(w);
+
+                            loc2.setZ(loc.getZ() + 6);
+                            loc2.getBlock().setType(Material.STATIONARY_WATER);
+                            loc2.getBlock().setData(w);
+
+                            loc2.setZ(loc.getZ() - 3);
+                            loc2.setX(loc.getX() - 3);
+                            loc2.getBlock().setType(Material.STATIONARY_WATER);
+                            loc2.getBlock().setData(w);
+
+                            loc2.setX(loc.getX() + 6);
+                            loc2.getBlock().setType(Material.STATIONARY_WATER);
+                            loc2.getBlock().setData(w);
+                            w--;
+                        }
+                        i++;
+                        if (i > 9) {
+                            Location loc2 = location.clone();
+                            loc2.setX(loc.getX() + 3);
+                            (new StructureChest(Material.CHEST, BlockFace.SOUTH)).place(loc2);
+
+                            loc2.setZ(loc.getZ() + 6);
+                            (new StructureChest(Material.CHEST, BlockFace.NORTH)).place(loc2);
+
+
+                            loc2.setZ(loc.getZ() - 3);
+                            loc2.setX(loc.getX() - 3);
+                            (new StructureChest(Material.CHEST, BlockFace.EAST)).place(loc2);
+
+                            loc2.setX(loc.getX() + 6);
+                            (new StructureChest(Material.CHEST, BlockFace.WEST)).place(loc2);
+                            this.cancel();
+                        }
                     }
-                }.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);*/
+                }.runTaskTimer(AuroraMCAPI.getCore(), 0, 10);
             } else {
                 player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "Someone is already opening a crate! Please wait until they are finished to open one!"));
             }
