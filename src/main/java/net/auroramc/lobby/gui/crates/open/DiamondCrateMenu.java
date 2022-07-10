@@ -269,50 +269,50 @@ public class DiamondCrateMenu extends GUI {
                 loc.getBlock().setType(Material.STAINED_CLAY);
                 loc.getBlock().setData((byte)3);
 
-                Location chest = new Location(location.getWorld(), location.getX(), location.getY() + 5, location.getZ() + 3);
+                Location chest = new Location(location.getWorld(), location.getX(), location.getY() + 3, location.getZ() + 3);
                 chest.getBlock().setType(Material.CHEST);
                 new BukkitRunnable(){
-                    byte i = 4;
+                    byte i = 2;
                     @Override
                     public void run() {
                         chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
                         if (i < 0) {
                             chest.setZ(chest.getZ() - 6);
-                            chest.setY(chest.getY() + 5);
+                            chest.setY(chest.getY() + 3);
 
                             chest.getBlock().setType(Material.CHEST);
                             BlockState c = chest.getBlock().getState();
                             c.setData(new Chest(BlockFace.SOUTH));
                             c.update();
                             new BukkitRunnable(){
-                                byte i = 4;
+                                byte i = 2;
                                 @Override
                                 public void run() {
                                     chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
                                     if (i  < 0) {
                                         chest.setX(chest.getX() + 3);
                                         chest.setZ(chest.getZ() + 3);
-                                        chest.setY(chest.getY() + 5);
+                                        chest.setY(chest.getY() + 3);
 
                                         chest.getBlock().setType(Material.CHEST);
                                         BlockState c = chest.getBlock().getState();
                                         c.setData(new Chest(BlockFace.WEST));
                                         c.update();
                                         new BukkitRunnable(){
-                                            byte i = 4;
+                                            byte i = 2;
                                             @Override
                                             public void run() {
                                                 chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
                                                 if (i < 0) {
                                                     chest.setX(chest.getX() - 6);
-                                                    chest.setY(chest.getY() + 5);
+                                                    chest.setY(chest.getY() + 3);
 
                                                     chest.getBlock().setType(Material.CHEST);
                                                     BlockState c = chest.getBlock().getState();
                                                     c.setData(new Chest(BlockFace.EAST));
                                                     c.update();
                                                     new BukkitRunnable(){
-                                                        byte i = 4;
+                                                        byte i = 2;
                                                         @Override
                                                         public void run() {
                                                             chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
