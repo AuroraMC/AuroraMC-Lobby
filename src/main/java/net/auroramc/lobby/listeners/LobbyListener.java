@@ -184,7 +184,7 @@ public class LobbyListener implements Listener {
             if (e.getPlayer().getGameMode() != GameMode.CREATIVE) {
                 e.setCancelled(true);
             }
-            if (e.getClickedBlock() != null && e.getClickedBlock().getType() == Material.CHEST && e.getClickedBlock().equals(LobbyAPI.getChestBlock())) {
+            if (e.getClickedBlock() != null && e.getClickedBlock().getType() == Material.CHEST && e.getClickedBlock().getLocation().equals(LobbyAPI.getChestBlock().getLocation())) {
                 AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer(e.getPlayer());
                 ViewCrates crates = new ViewCrates(player);
                 crates.open(player);
