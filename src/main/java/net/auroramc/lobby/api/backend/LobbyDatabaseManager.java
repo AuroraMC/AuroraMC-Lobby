@@ -32,7 +32,7 @@ public class LobbyDatabaseManager {
 
     public static void downloadMap() {
         try (Connection connection = AuroraMCAPI.getDbManager().getMySQLConnection()) {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM maps WHERE parse_version = 'LIVE' AND map_id = 76");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM maps WHERE parse_version = 'LIVE' AND map_id = 54");
             ResultSet set = statement.executeQuery();
             File file = new File(LobbyAPI.getLobby().getDataFolder(), "zip");
             if (file.exists()) {

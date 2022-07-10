@@ -19,6 +19,7 @@ import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.BlockState;
+import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.FallingBlock;
 import org.bukkit.event.inventory.ClickType;
@@ -102,8 +103,8 @@ public class IronCrateMenu extends GUI {
 
             if (LobbyAPI.startOpen(crate, player)) {
                 Location location = LobbyAPI.getChestBlock().getLocation();
-                for (Entity entity : location.getWorld().getNearbyEntities(location, 4, 4, 4)) {
-                    if (entity.getEntityId() == LobbyAPI.getChestStand().getEntityId()) {
+                for (Entity entity : location.getWorld().getNearbyEntities(location, 2, 2, 2)) {
+                    if (entity.getEntityId() == LobbyAPI.getChestStand().getEntityId() || entity instanceof ArmorStand) {
                         entity.remove();
                     }
                 }

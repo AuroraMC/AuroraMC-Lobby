@@ -13,12 +13,80 @@ import org.bukkit.block.BlockFace;
 
 public class CrateStructures {
 
+    private static final Structure baseCrate;
     private static final Structure ironCrate;
     private static final Structure goldCrate;
     private static final Structure diamondCrate;
     private static final Structure emeraldCrate;
 
     static {
+        baseCrate = new Structure(7, 7, 7);
+        baseCrate.put(0, 0, 0, new StructureBlock(Material.STAINED_CLAY));
+        baseCrate.put(1, 0, 0, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.SOUTH));
+        baseCrate.put(2, 0, 0, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.SOUTH));
+        baseCrate.put(3, 0, 0, new StructureStairs(Material.RED_SANDSTONE_STAIRS, BlockFace.SOUTH, true));
+        baseCrate.put(4, 0, 0, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.SOUTH));
+        baseCrate.put(5, 0, 0, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.SOUTH));
+        baseCrate.put(6, 0, 0, new StructureBlock(Material.STAINED_CLAY));
+
+        baseCrate.put(0, 0, 1, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.EAST));
+        baseCrate.put(1, 0, 1, new StructureBlock(Material.RED_SANDSTONE, (byte)2));
+        baseCrate.put(2, 0, 1, new StructureBlock(Material.STAINED_CLAY));
+        baseCrate.put(3, 0, 1, new StructureBlock(Material.STAINED_CLAY));
+        baseCrate.put(4, 0, 1, new StructureBlock(Material.STAINED_CLAY));
+        baseCrate.put(5, 0, 1, new StructureBlock(Material.RED_SANDSTONE, (byte)2));
+        baseCrate.put(6, 0, 1, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.WEST));
+
+        baseCrate.put(0, 0, 2, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.EAST));
+        baseCrate.put(1, 0, 2, new StructureBlock(Material.STAINED_CLAY));
+        baseCrate.put(2, 0, 2, new StructureStairs(Material.RED_SANDSTONE_STAIRS, BlockFace.NORTH));
+        baseCrate.put(3, 0, 2, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.NORTH));
+        baseCrate.put(4, 0, 2, new StructureStairs(Material.RED_SANDSTONE_STAIRS, BlockFace.NORTH));
+        baseCrate.put(5, 0, 2, new StructureBlock(Material.STAINED_CLAY));
+        baseCrate.put(6, 0, 2, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.WEST));
+
+        baseCrate.put(0, 0, 3, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.EAST, true));
+        baseCrate.put(1, 0, 3, new StructureBlock(Material.STAINED_CLAY));
+        baseCrate.put(2, 0, 3, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.WEST));
+        baseCrate.put(3, 0, 3, new StructureBlock(Material.GLOWSTONE));
+        baseCrate.put(4, 0, 3, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.EAST));
+        baseCrate.put(5, 0, 3, new StructureBlock(Material.STAINED_CLAY));
+        baseCrate.put(6, 0, 3, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.WEST, true));
+
+        baseCrate.put(0, 0, 4, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.EAST));
+        baseCrate.put(1, 0, 4, new StructureBlock(Material.STAINED_CLAY));
+        baseCrate.put(2, 0, 4, new StructureStairs(Material.RED_SANDSTONE_STAIRS, BlockFace.NORTH));
+        baseCrate.put(3, 0, 4, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.NORTH));
+        baseCrate.put(4, 0, 4, new StructureStairs(Material.RED_SANDSTONE_STAIRS, BlockFace.NORTH));
+        baseCrate.put(5, 0, 4, new StructureBlock(Material.STAINED_CLAY));
+        baseCrate.put(6, 0, 4, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.WEST));
+
+        baseCrate.put(0, 0, 5, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.EAST));
+        baseCrate.put(1, 0, 5, new StructureBlock(Material.RED_SANDSTONE, (byte)2));
+        baseCrate.put(2, 0, 5, new StructureBlock(Material.STAINED_CLAY));
+        baseCrate.put(3, 0, 5, new StructureBlock(Material.STAINED_CLAY));
+        baseCrate.put(4, 0, 5, new StructureBlock(Material.STAINED_CLAY));
+        baseCrate.put(5, 0, 5, new StructureBlock(Material.RED_SANDSTONE, (byte)2));
+        baseCrate.put(6, 0, 5, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.WEST));
+
+        baseCrate.put(0, 0, 6, new StructureBlock(Material.STAINED_CLAY));
+        baseCrate.put(1, 0, 6, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.NORTH));
+        baseCrate.put(2, 0, 6, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.NORTH));
+        baseCrate.put(3, 0, 6, new StructureStairs(Material.RED_SANDSTONE_STAIRS, BlockFace.NORTH, true));
+        baseCrate.put(4, 0, 6, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.NORTH));
+        baseCrate.put(5, 0, 6, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.NORTH));
+        baseCrate.put(6, 0, 6, new StructureBlock(Material.STAINED_CLAY));
+
+        for (int y = 1; y < 7; y++) {
+            for (int x = 0;x < 7;x++) {
+                for (int z = 0; z < 7;z++) {
+                    baseCrate.put(x, y, z, new StructureBlock());
+                }
+            }
+        }
+
+
+
         ironCrate = new Structure(7, 2, 7);
         ironCrate.put(6, 0, 6, new StructureBlock(Material.IRON_BLOCK));
         ironCrate.put(6, 0, 0, new StructureBlock(Material.IRON_BLOCK));
@@ -247,5 +315,9 @@ public class CrateStructures {
 
     public static Structure getIronCrate() {
         return ironCrate;
+    }
+
+    public static Structure getBaseCrate() {
+        return baseCrate;
     }
 }
