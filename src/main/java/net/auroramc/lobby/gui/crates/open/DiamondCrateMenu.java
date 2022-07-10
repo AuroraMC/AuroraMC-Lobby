@@ -269,87 +269,100 @@ public class DiamondCrateMenu extends GUI {
                 loc.getBlock().setType(Material.STAINED_CLAY);
                 loc.getBlock().setData((byte)3);
 
-                /*Location chest = new Location(location.getWorld(), location.getX(), location.getY(), location.getZ() + 3);
-                chest.getBlock().setType(Material.STATIONARY_LAVA);
-                chest.getBlock().setData((byte)6);
+                Location chest = new Location(location.getWorld(), location.getX(), location.getY() + 5, location.getZ() + 3);
+                chest.getBlock().setType(Material.CHEST);
                 new BukkitRunnable(){
                     byte i = 4;
                     @Override
                     public void run() {
+                        chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
                         if (i < 0) {
-                            chest.getBlock().setType(Material.CHEST);
-                            chest.getWorld().playSound(chest, Sound.BLAZE_HIT, 100, 1);
                             chest.setZ(chest.getZ() - 6);
+                            chest.setY(chest.getY() + 5);
 
-                            chest.getBlock().setType(Material.STATIONARY_LAVA);
-                            chest.getBlock().setData((byte)6);
+                            chest.getBlock().setType(Material.CHEST);
+                            BlockState c = chest.getBlock().getState();
+                            c.setData(new Chest(BlockFace.SOUTH));
+                            c.update();
                             new BukkitRunnable(){
                                 byte i = 4;
                                 @Override
                                 public void run() {
+                                    chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
                                     if (i  < 0) {
-                                        chest.getBlock().setType(Material.CHEST);
-                                        BlockState c = chest.getBlock().getState();
-                                        c.setData(new Chest(BlockFace.SOUTH));
-                                        c.update();
-                                        chest.getWorld().playSound(chest, Sound.BLAZE_HIT, 100, 1);
                                         chest.setX(chest.getX() + 3);
                                         chest.setZ(chest.getZ() + 3);
+                                        chest.setY(chest.getY() + 5);
 
-                                        chest.getBlock().setType(Material.STATIONARY_LAVA);
-                                        chest.getBlock().setData((byte)6);
+                                        chest.getBlock().setType(Material.CHEST);
+                                        BlockState c = chest.getBlock().getState();
+                                        c.setData(new Chest(BlockFace.WEST));
+                                        c.update();
                                         new BukkitRunnable(){
                                             byte i = 4;
                                             @Override
                                             public void run() {
+                                                chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
                                                 if (i < 0) {
-                                                    chest.getBlock().setType(Material.CHEST);
-                                                    BlockState c = chest.getBlock().getState();
-                                                    c.setData(new Chest(BlockFace.WEST));
-                                                    c.update();
                                                     chest.getWorld().playSound(chest, Sound.BLAZE_HIT, 100, 1);
                                                     chest.setX(chest.getX() - 6);
+                                                    chest.setY(chest.getY() + 5);
 
-                                                    chest.getBlock().setType(Material.STATIONARY_LAVA);
-                                                    chest.getBlock().setData((byte)3);
+                                                    chest.getBlock().setType(Material.CHEST);
+                                                    BlockState c = chest.getBlock().getState();
+                                                    c.setData(new Chest(BlockFace.EAST));
+                                                    c.update();
                                                     new BukkitRunnable(){
                                                         byte i = 4;
                                                         @Override
                                                         public void run() {
+                                                            chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
                                                             if (i < 0) {
-                                                                chest.getBlock().setType(Material.CHEST);
-                                                                BlockState c = chest.getBlock().getState();
-                                                                c.setData(new Chest(BlockFace.EAST));
-                                                                c.update();
-                                                                chest.getWorld().playSound(chest, Sound.BLAZE_HIT, 100, 1);
                                                                 this.cancel();
                                                                 return;
                                                             }
-                                                            chest.getBlock().setData(i);
-                                                            i-=2;
+                                                            chest.getBlock().setType(Material.AIR);
+                                                            chest.setY(chest.getY() - 1);
+                                                            chest.getBlock().setType(Material.CHEST);
+                                                            BlockState c = chest.getBlock().getState();
+                                                            c.setData(new Chest(BlockFace.EAST));
+                                                            c.update();
+                                                            i--;
                                                         }
                                                     }.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
                                                     this.cancel();
                                                     return;
                                                 }
-                                                chest.getBlock().setData(i);
-                                                i-=2;
+                                                chest.getBlock().setType(Material.AIR);
+                                                chest.setY(chest.getY() - 1);
+                                                chest.getBlock().setType(Material.CHEST);
+                                                BlockState c = chest.getBlock().getState();
+                                                c.setData(new Chest(BlockFace.WEST));
+                                                c.update();
+                                                i--;
                                             }
                                         }.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
                                         this.cancel();
                                         return;
                                     }
-                                    chest.getBlock().setData(i);
-                                    i-=2;
+                                    chest.getBlock().setType(Material.AIR);
+                                    chest.setY(chest.getY() - 1);
+                                    chest.getBlock().setType(Material.CHEST);
+                                    BlockState c = chest.getBlock().getState();
+                                    c.setData(new Chest(BlockFace.SOUTH));
+                                    c.update();
+                                    i--;
                                 }
                             }.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
                             this.cancel();
                             return;
                         }
-                        chest.getBlock().setData(i);
-                        i-=2;
+                        chest.getBlock().setType(Material.AIR);
+                        chest.setY(chest.getY() - 1);
+                        chest.getBlock().setType(Material.CHEST);
+                        i--;
                     }
-                }.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);*/
+                }.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
             } else {
                 player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "Someone is already opening a crate! Please wait until they are finished to open one!"));
             }
