@@ -304,7 +304,6 @@ public class DiamondCrateMenu extends GUI {
                                             public void run() {
                                                 chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
                                                 if (i < 0) {
-                                                    chest.getWorld().playSound(chest, Sound.BLAZE_HIT, 100, 1);
                                                     chest.setX(chest.getX() - 6);
                                                     chest.setY(chest.getY() + 5);
 
