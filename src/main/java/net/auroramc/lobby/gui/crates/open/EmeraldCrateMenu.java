@@ -145,18 +145,18 @@ public class EmeraldCrateMenu extends GUI {
                         if (i >= 9) {
                             Location loc2 = location.clone();
                             loc2.setX(loc2.getX() + 3);
-                            (new StructureChest(Material.CHEST, BlockFace.NORTH)).place(loc2);
+                            (new StructureChest(Material.CHEST, BlockFace.WEST)).place(loc2);
 
                             loc2.setX(loc2.getX() - 6);
-                            (new StructureChest(Material.CHEST, BlockFace.SOUTH)).place(loc2);
+                            (new StructureChest(Material.CHEST, BlockFace.EAST)).place(loc2);
 
 
                             loc2.setZ(loc2.getZ() - 3);
                             loc2.setX(loc2.getX() + 3);
-                            (new StructureChest(Material.CHEST, BlockFace.EAST)).place(loc2);
+                            (new StructureChest(Material.CHEST, BlockFace.SOUTH)).place(loc2);
 
-                            loc2.setX(loc2.getX() + 6);
-                            (new StructureChest(Material.CHEST, BlockFace.WEST)).place(loc2);
+                            loc2.setZ(loc2.getZ() + 6);
+                            (new StructureChest(Material.CHEST, BlockFace.NORTH)).place(loc2);
                             this.cancel();
                         }
                     }
