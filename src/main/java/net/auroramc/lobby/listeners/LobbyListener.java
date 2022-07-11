@@ -215,7 +215,7 @@ public class LobbyListener implements Listener {
                 Crate.CrateReward reward = LobbyAPI.getCurrentCrate().open(LobbyAPI.getCratePlayer());
                 if (reward.getCosmetic() != null) {
                     Location loc2 = block.getLocation().clone();
-                    loc2.add(0.5, 1, 0.5);
+                    loc2.add(0.5, 2, 0.5);
                     Item item = block.getLocation().getWorld().dropItem(loc2, new ItemStack(reward.getCosmetic().getMaterial(), 1, reward.getCosmetic().getData()));
                     item.setPickupDelay(1000000);
                     Location location = block.getLocation().clone();
@@ -404,7 +404,7 @@ public class LobbyListener implements Listener {
                         }
                     }.runTaskLater(AuroraMCAPI.getCore(), 200);
                 } else if (reward.getRank() != null) {
-                    Item item = block.getLocation().getWorld().dropItem(block.getLocation().clone().add(0.5, 1, 0.5), new ItemStack(Material.DIAMOND));
+                    Item item = block.getLocation().getWorld().dropItem(block.getLocation().clone().add(0.5, 2, 0.5), new ItemStack(Material.DIAMOND));
                     item.setPickupDelay(1000000);
                     Location location = block.getLocation().clone();
                     location.setY(location.getY() + 0.5);
@@ -490,7 +490,7 @@ public class LobbyListener implements Listener {
                     }.runTaskLater(AuroraMCAPI.getCore(), 200);
 
                 } else {
-                    Item item = block.getLocation().getWorld().dropItem(block.getLocation().clone().add(0.5, 1, 0.5), new ItemStack(Material.NETHER_STAR));
+                    Item item = block.getLocation().getWorld().dropItem(block.getLocation().clone().add(0.5, 2, 0.5), new ItemStack(Material.NETHER_STAR));
                     item.setPickupDelay(1000000);
                     Location location = block.getLocation().clone();
                     location.setY(location.getY() + 0.5);

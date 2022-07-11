@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="IntelliJ i stg i hate you so much">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/DiamondCrateMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/DiamondCrateMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/EmeraldCrateMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/EmeraldCrateMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/GoldCrateMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/GoldCrateMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/IronCrateMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/IronCrateMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" afterDir="false" />
-    </list>
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix lots of issues" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -319,14 +311,7 @@
       <workItem from="1657500951448" duration="85000" />
       <workItem from="1657532167425" duration="601000" />
       <workItem from="1657533377201" duration="9000" />
-      <workItem from="1657534841864" duration="350000" />
-    </task>
-    <task id="LOCAL-00166" summary="Implement submenus">
-      <created>1655474560478</created>
-      <option name="number" value="00166" />
-      <option name="presentableId" value="LOCAL-00166" />
-      <option name="project" value="LOCAL" />
-      <updated>1655474560478</updated>
+      <workItem from="1657534841864" duration="773000" />
     </task>
     <task id="LOCAL-00167" summary="Finish crate menus">
       <created>1657133150583</created>
@@ -664,7 +649,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657499133020</updated>
     </task>
-    <option name="localTasksCounter" value="215" />
+    <task id="LOCAL-00215" summary="Fix lots of issues">
+      <created>1657535322445</created>
+      <option name="number" value="00215" />
+      <option name="presentableId" value="LOCAL-00215" />
+      <option name="project" value="LOCAL" />
+      <updated>1657535322445</updated>
+    </task>
+    <option name="localTasksCounter" value="216" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -682,7 +674,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Modify entity radius" />
     <MESSAGE value="Fix hologram not disappearing" />
     <MESSAGE value="Start diamond animation" />
     <MESSAGE value="Add sea lantern to structure" />
@@ -707,6 +698,7 @@
     <MESSAGE value="Fix structure, fix being able to open more than 1 chest" />
     <MESSAGE value="Attempt fix at finishing opening properly" />
     <MESSAGE value="IntelliJ i stg i hate you so much" />
-    <option name="LAST_COMMIT_MESSAGE" value="IntelliJ i stg i hate you so much" />
+    <MESSAGE value="Fix lots of issues" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix lots of issues" />
   </component>
 </project>
