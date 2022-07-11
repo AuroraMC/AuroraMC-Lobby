@@ -42,6 +42,7 @@ public class AuroraMCLobby extends JavaPlugin {
         AuroraMCAPI.registerCommand(new CommandTeleport());
         AuroraMCAPI.registerCommand(new CommandVersion());
         AuroraMCAPI.registerCommand(new CommandFly());
+        AuroraMCAPI.registerCommand(new CommandCrate());
 
         LobbyDatabaseManager.downloadMap();
         File mapFolder = new File(Bukkit.getWorldContainer(), "world");

@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Handle player leaving while crate is in progress">
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/DiamondCrateMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/DiamondCrateMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/EmeraldCrateMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/EmeraldCrateMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/GoldCrateMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/GoldCrateMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/IronCrateMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/IronCrateMenu.java" afterDir="false" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="More handling of player disconnecting">
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/commands/admin/CommandCrate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/AuroraMCLobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/AuroraMCLobby.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -316,14 +315,8 @@
       <workItem from="1657500951448" duration="85000" />
       <workItem from="1657532167425" duration="601000" />
       <workItem from="1657533377201" duration="9000" />
-      <workItem from="1657534841864" duration="2791000" />
-    </task>
-    <task id="LOCAL-00177" summary="Disable liquid flow">
-      <created>1657382555315</created>
-      <option name="number" value="00177" />
-      <option name="presentableId" value="LOCAL-00177" />
-      <option name="project" value="LOCAL" />
-      <updated>1657382555315</updated>
+      <workItem from="1657534841864" duration="3102000" />
+      <workItem from="1657538011328" duration="408000" />
     </task>
     <task id="LOCAL-00178" summary="Attempt gold animation">
       <created>1657383059025</created>
@@ -661,7 +654,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657537545970</updated>
     </task>
-    <option name="localTasksCounter" value="226" />
+    <task id="LOCAL-00226" summary="More handling of player disconnecting">
+      <created>1657537660200</created>
+      <option name="number" value="00226" />
+      <option name="presentableId" value="LOCAL-00226" />
+      <option name="project" value="LOCAL" />
+      <updated>1657537660200</updated>
+    </task>
+    <option name="localTasksCounter" value="227" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -679,7 +679,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="FIx slight issue" />
     <MESSAGE value="Fix issue" />
     <MESSAGE value="Fix emerald structure" />
     <MESSAGE value="Fix sounds with Diamond crate, add chest animation for emerald crate" />
@@ -704,6 +703,7 @@
     <MESSAGE value="Fix stuff" />
     <MESSAGE value="Change radius, center co-ords" />
     <MESSAGE value="Handle player leaving while crate is in progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="Handle player leaving while crate is in progress" />
+    <MESSAGE value="More handling of player disconnecting" />
+    <option name="LAST_COMMIT_MESSAGE" value="More handling of player disconnecting" />
   </component>
 </project>
