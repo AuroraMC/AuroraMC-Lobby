@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Implement crate command">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix emerald crate" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -316,13 +314,7 @@
       <workItem from="1657534841864" duration="3102000" />
       <workItem from="1657538011328" duration="552000" />
       <workItem from="1657539174172" duration="19000" />
-    </task>
-    <task id="LOCAL-00179" summary="Speed up animation">
-      <created>1657383187117</created>
-      <option name="number" value="00179" />
-      <option name="presentableId" value="LOCAL-00179" />
-      <option name="project" value="LOCAL" />
-      <updated>1657383187117</updated>
+      <workItem from="1657542560817" duration="258000" />
     </task>
     <task id="LOCAL-00180" summary="fix sound">
       <created>1657383422581</created>
@@ -660,7 +652,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657538429960</updated>
     </task>
-    <option name="localTasksCounter" value="228" />
+    <task id="LOCAL-00228" summary="Fix emerald crate">
+      <created>1657542675917</created>
+      <option name="number" value="00228" />
+      <option name="presentableId" value="LOCAL-00228" />
+      <option name="project" value="LOCAL" />
+      <updated>1657542675917</updated>
+    </task>
+    <option name="localTasksCounter" value="229" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -678,7 +677,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix emerald structure" />
     <MESSAGE value="Fix sounds with Diamond crate, add chest animation for emerald crate" />
     <MESSAGE value="Fix structure generation" />
     <MESSAGE value="FIx water" />
@@ -703,6 +701,7 @@
     <MESSAGE value="Handle player leaving while crate is in progress" />
     <MESSAGE value="More handling of player disconnecting" />
     <MESSAGE value="Implement crate command" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement crate command" />
+    <MESSAGE value="Fix emerald crate" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix emerald crate" />
   </component>
 </project>

@@ -242,7 +242,7 @@ public class LobbyListener implements Listener {
                         }
                         case UNCOMMON: {
                             cratePlayer.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "You just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)"));
-                            Location loc = block.getLocation();
+                            Location loc = block.getLocation().add(0.5, 0, 0.5);
                             org.bukkit.entity.Firework firework = loc.getWorld().spawn(loc, org.bukkit.entity.Firework.class);
                             FireworkMeta meta = firework.getFireworkMeta();
                             meta.setPower(0);
@@ -258,7 +258,7 @@ public class LobbyListener implements Listener {
                         }
                         case RARE: {
                             cratePlayer.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "You just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)"));
-                            Location loc = block.getLocation();
+                            Location loc = block.getLocation().add(0.5, 0, 0.5);
                             org.bukkit.entity.Firework firework = loc.getWorld().spawn(loc, org.bukkit.entity.Firework.class);
                             FireworkMeta meta = firework.getFireworkMeta();
                             meta.setPower(0);
@@ -310,8 +310,8 @@ public class LobbyListener implements Listener {
                                 int i = 0;
                                 @Override
                                 public void run() {
-                                    Location location = block.getLocation();
-                                    org.bukkit.entity.Firework firework = location.getWorld().spawn(location, org.bukkit.entity.Firework.class);
+                                    Location loc = block.getLocation().add(0.5, 0, 0.5);
+                                    org.bukkit.entity.Firework firework = loc.getWorld().spawn(loc, org.bukkit.entity.Firework.class);
                                     FireworkMeta meta = firework.getFireworkMeta();
                                     meta.setPower(0);
                                     meta.addEffect(FireworkEffect.builder().withColor(Color.fromRGB(255,170,0)).trail(true).flicker(true).with(FireworkEffect.Type.BURST).build());
@@ -339,7 +339,7 @@ public class LobbyListener implements Listener {
                                 int i = 0;
                                 @Override
                                 public void run() {
-                                    Location location = block.getLocation();
+                                    Location location = block.getLocation().add(0.5, 0, 0.5);
                                     org.bukkit.entity.Firework firework = location.getWorld().spawn(location, org.bukkit.entity.Firework.class);
                                     FireworkMeta meta = firework.getFireworkMeta();
                                     meta.setPower(0);
@@ -427,7 +427,7 @@ public class LobbyListener implements Listener {
                         int i = 0;
                         @Override
                         public void run() {
-                            Location location = block.getLocation();
+                            Location location = block.getLocation().add(0.5, 0, 0.5);
                             org.bukkit.entity.Firework firework = location.getWorld().spawn(location, org.bukkit.entity.Firework.class);
                             FireworkMeta meta = firework.getFireworkMeta();
                             meta.setPower(0);
@@ -514,7 +514,7 @@ public class LobbyListener implements Listener {
                         int i = 0;
                         @Override
                         public void run() {
-                            Location location = block.getLocation();
+                            Location location = block.getLocation().add(0.5, 0, 0.5);
                             org.bukkit.entity.Firework firework = location.getWorld().spawn(location, org.bukkit.entity.Firework.class);
                             FireworkMeta meta = firework.getFireworkMeta();
                             meta.setPower(0);
