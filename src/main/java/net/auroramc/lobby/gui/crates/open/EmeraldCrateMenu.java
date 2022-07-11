@@ -102,6 +102,12 @@ public class EmeraldCrateMenu extends GUI {
             Crate crate = availableCrates.get(((row - 1) * 7) + (column - 1));
             player.getPlayer().closeInventory();
 
+            if (crate.open(player) == null) {
+                player.getPlayer().closeInventory();
+                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "You already have all of the rewards for this crate."));
+                return;
+            }
+
             if (LobbyAPI.startOpen(crate, player)) {
                 Location location = LobbyAPI.getChestBlock().getLocation();
                 for (Entity entity : location.getWorld().getNearbyEntities(location, 2, 2, 2)) {
