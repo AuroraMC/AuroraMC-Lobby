@@ -218,6 +218,7 @@ public class LobbyListener implements Listener {
                     loc2.add(0.5, 2, 0.5);
                     Item item = block.getLocation().getWorld().dropItem(loc2, new ItemStack(reward.getCosmetic().getMaterial(), 1, reward.getCosmetic().getData()));
                     item.setPickupDelay(1000000);
+                    item.setVelocity(new Vector());
                     Location location = block.getLocation().clone();
                     location.add(0.5, 1.5, 0.5);
                     ArmorStand stand = location.getWorld().spawn(location, ArmorStand.class);
@@ -406,6 +407,7 @@ public class LobbyListener implements Listener {
                 } else if (reward.getRank() != null) {
                     Item item = block.getLocation().getWorld().dropItem(block.getLocation().clone().add(0.5, 2, 0.5), new ItemStack(Material.DIAMOND));
                     item.setPickupDelay(1000000);
+                    item.setVelocity(new Vector());
                     Location location = block.getLocation().clone();
                     location.setY(location.getY() + 0.5);
                     location.setX(location.getX() + 0.5);
@@ -492,6 +494,7 @@ public class LobbyListener implements Listener {
                 } else {
                     Item item = block.getLocation().getWorld().dropItem(block.getLocation().clone().add(0.5, 2, 0.5), new ItemStack(Material.NETHER_STAR));
                     item.setPickupDelay(1000000);
+                    item.setVelocity(new Vector());
                     Location location = block.getLocation().clone();
                     location.setY(location.getY() + 0.5);
                     location.setX(location.getX() + 0.5);
