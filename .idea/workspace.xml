@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Move item downwards slightly">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/DiamondCrateMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/DiamondCrateMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/EmeraldCrateMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/EmeraldCrateMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/GoldCrateMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/GoldCrateMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/IronCrateMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/open/IronCrateMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" afterDir="false" />
-    </list>
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix stuff" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -318,21 +311,7 @@
       <workItem from="1657500951448" duration="85000" />
       <workItem from="1657532167425" duration="601000" />
       <workItem from="1657533377201" duration="9000" />
-      <workItem from="1657534841864" duration="1839000" />
-    </task>
-    <task id="LOCAL-00171" summary="Change timings, fix structure">
-      <created>1657292123687</created>
-      <option name="number" value="00171" />
-      <option name="presentableId" value="LOCAL-00171" />
-      <option name="project" value="LOCAL" />
-      <updated>1657292123687</updated>
-    </task>
-    <task id="LOCAL-00172" summary="Change timings more">
-      <created>1657292591681</created>
-      <option name="number" value="00172" />
-      <option name="presentableId" value="LOCAL-00172" />
-      <option name="project" value="LOCAL" />
-      <updated>1657292591681</updated>
+      <workItem from="1657534841864" duration="2142000" />
     </task>
     <task id="LOCAL-00173" summary="Start gold animation">
       <created>1657381923274</created>
@@ -663,7 +642,21 @@
       <option name="project" value="LOCAL" />
       <updated>1657535969324</updated>
     </task>
-    <option name="localTasksCounter" value="220" />
+    <task id="LOCAL-00220" summary="Attempt to stop player leaving area">
+      <created>1657536715964</created>
+      <option name="number" value="00220" />
+      <option name="presentableId" value="LOCAL-00220" />
+      <option name="project" value="LOCAL" />
+      <updated>1657536715964</updated>
+    </task>
+    <task id="LOCAL-00221" summary="Fix stuff">
+      <created>1657536877458</created>
+      <option name="number" value="00221" />
+      <option name="presentableId" value="LOCAL-00221" />
+      <option name="project" value="LOCAL" />
+      <updated>1657536877458</updated>
+    </task>
+    <option name="localTasksCounter" value="222" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -681,8 +674,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add diamond crate animation" />
-    <MESSAGE value="Remove blaze death sound" />
     <MESSAGE value="Move chests 2 blocks lower" />
     <MESSAGE value="Change how structures are generated" />
     <MESSAGE value="FIx slight issue" />
@@ -706,6 +697,8 @@
     <MESSAGE value="Cancel item velocity" />
     <MESSAGE value="Fix buy iron menu" />
     <MESSAGE value="Move item downwards slightly" />
-    <option name="LAST_COMMIT_MESSAGE" value="Move item downwards slightly" />
+    <MESSAGE value="Attempt to stop player leaving area" />
+    <MESSAGE value="Fix stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix stuff" />
   </component>
 </project>

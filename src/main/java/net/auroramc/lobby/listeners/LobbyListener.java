@@ -763,8 +763,8 @@ public class LobbyListener implements Listener {
             int x = crateLocation.getInt("x");
             int y = crateLocation.getInt("y");
             int z = crateLocation.getInt("z");
-            Location location = new Location(Bukkit.getWorld("world"), x, y, z);
-            if (Math.abs(e.getTo().getX() - location.getX()) > 3 || Math.abs(e.getTo().getZ() - location.getZ()) > 3 || Math.abs(e.getTo().getY() - location.getY()) > 3) {
+            Location location = new Location(Bukkit.getWorld("world"), x + 0.5, y, z + 0.5);
+            if (Math.abs(e.getTo().getX() - location.getX()) > 4 || Math.abs(e.getTo().getZ() - location.getZ()) > 4 || Math.abs(e.getTo().getY() - location.getY()) > 4) {
                 e.setCancelled(true);
             }
         } else if (LobbyAPI.getCratePlayer() != null) {
@@ -772,8 +772,8 @@ public class LobbyListener implements Listener {
             int x = crateLocation.getInt("x");
             int y = crateLocation.getInt("y");
             int z = crateLocation.getInt("z");
-            Location location = new Location(Bukkit.getWorld("world"), x, y, z);
-            if (Math.abs(e.getTo().getX() - location.getX()) <= 3 && Math.abs(e.getTo().getZ() - location.getZ()) <= 3 && Math.abs(e.getTo().getY() - location.getY()) <= 3) {
+            Location location = new Location(Bukkit.getWorld("world"), x + 0.5, y, z + 0.5);
+            if (Math.abs(e.getTo().getX() - location.getX()) <= 4 && Math.abs(e.getTo().getZ() - location.getZ()) <= 4 && Math.abs(e.getTo().getY() - location.getY()) <= 4) {
                 Vector vector = location.toVector().subtract(e.getPlayer().getLocation().toVector()).setY(4);
                 e.getPlayer().setVelocity(vector.normalize().multiply(1.5));
                 e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.CHICKEN_EGG_POP, 100, 1);
