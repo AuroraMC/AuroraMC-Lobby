@@ -276,11 +276,11 @@ public class LobbyAPI {
         return true;
     }
 
-    public synchronized static void crateAnimationFinished() {
+    public static void crateAnimationFinished() {
         crateAnimationFinished = true;
     }
 
-    public synchronized static void finishOpen() {
+    public static void finishOpen() {
         currentCrate = null;
         cratePlayer = null;
     }
