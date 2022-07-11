@@ -122,6 +122,10 @@ public class GoldCrateMenu extends GUI {
                     byte i = 4;
                     @Override
                     public void run() {
+                        if (!player.getPlayer().isOnline()) {
+                            this.cancel();
+                            return;
+                        }
                         if (i < 0) {
                             chest.getBlock().setType(Material.CHEST);
                             chest.getWorld().playSound(chest, Sound.BLAZE_HIT, 100, 1);
@@ -133,6 +137,10 @@ public class GoldCrateMenu extends GUI {
                                 byte i = 4;
                                 @Override
                                 public void run() {
+                                    if (!player.getPlayer().isOnline()) {
+                                        this.cancel();
+                                        return;
+                                    }
                                     if (i  < 0) {
                                         chest.getBlock().setType(Material.CHEST);
                                         BlockState c = chest.getBlock().getState();
@@ -148,6 +156,10 @@ public class GoldCrateMenu extends GUI {
                                             byte i = 4;
                                             @Override
                                             public void run() {
+                                                if (!player.getPlayer().isOnline()) {
+                                                    this.cancel();
+                                                    return;
+                                                }
                                                 if (i < 0) {
                                                     chest.getBlock().setType(Material.CHEST);
                                                     BlockState c = chest.getBlock().getState();
@@ -162,6 +174,10 @@ public class GoldCrateMenu extends GUI {
                                                         byte i = 4;
                                                         @Override
                                                         public void run() {
+                                                            if (!player.getPlayer().isOnline()) {
+                                                                this.cancel();
+                                                                return;
+                                                            }
                                                             if (i < 0) {
                                                                 chest.getBlock().setType(Material.CHEST);
                                                                 BlockState c = chest.getBlock().getState();

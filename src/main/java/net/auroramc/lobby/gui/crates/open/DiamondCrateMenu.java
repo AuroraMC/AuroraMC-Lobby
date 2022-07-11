@@ -122,6 +122,10 @@ public class DiamondCrateMenu extends GUI {
                     byte i = 2;
                     @Override
                     public void run() {
+                        if (!player.getPlayer().isOnline()) {
+                            this.cancel();
+                            return;
+                        }
                         if (i < 0) {
                             chest.setZ(chest.getZ() - 6);
                             chest.setY(chest.getY() + 3);
@@ -135,6 +139,10 @@ public class DiamondCrateMenu extends GUI {
                                 byte i = 2;
                                 @Override
                                 public void run() {
+                                    if (!player.getPlayer().isOnline()) {
+                                        this.cancel();
+                                        return;
+                                    }
                                     if (i  < 0) {
                                         chest.setX(chest.getX() + 3);
                                         chest.setZ(chest.getZ() + 3);
@@ -149,6 +157,10 @@ public class DiamondCrateMenu extends GUI {
                                             byte i = 2;
                                             @Override
                                             public void run() {
+                                                if (!player.getPlayer().isOnline()) {
+                                                    this.cancel();
+                                                    return;
+                                                }
                                                 if (i < 0) {
                                                     chest.setX(chest.getX() - 6);
                                                     chest.setY(chest.getY() + 3);
@@ -162,6 +174,10 @@ public class DiamondCrateMenu extends GUI {
                                                         byte i = 2;
                                                         @Override
                                                         public void run() {
+                                                            if (!player.getPlayer().isOnline()) {
+                                                                this.cancel();
+                                                                return;
+                                                            }
                                                             if (i < 0) {
                                                                 LobbyAPI.crateAnimationFinished();
                                                                 this.cancel();

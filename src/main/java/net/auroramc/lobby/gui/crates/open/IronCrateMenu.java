@@ -124,6 +124,10 @@ public class IronCrateMenu extends GUI {
                     @Override
                     public void run() {
                         block.remove();
+                        if (!player.getPlayer().isOnline()) {
+                            this.cancel();
+                            return;
+                        }
                         chest.getBlock().setType(Material.CHEST);
                         player.getPlayer().playSound(chest, Sound.ANVIL_LAND, 1, 100);
 
@@ -136,6 +140,10 @@ public class IronCrateMenu extends GUI {
                             @Override
                             public void run() {
                                 block.remove();
+                                if (!player.getPlayer().isOnline()) {
+                                    this.cancel();
+                                    return;
+                                }
                                 chest.getBlock().setType(Material.CHEST);
                                 player.getPlayer().playSound(chest, Sound.ANVIL_LAND, 1, 100);
                                 BlockState c = chest.getBlock().getState();
@@ -153,6 +161,10 @@ public class IronCrateMenu extends GUI {
                                     @Override
                                     public void run() {
                                         block.remove();
+                                        if (!player.getPlayer().isOnline()) {
+                                            this.cancel();
+                                            return;
+                                        }
                                         chest.getBlock().setType(Material.CHEST);
                                         player.getPlayer().playSound(chest, Sound.ANVIL_LAND, 1, 100);
                                         BlockState c = chest.getBlock().getState();
@@ -168,6 +180,10 @@ public class IronCrateMenu extends GUI {
                                             @Override
                                             public void run() {
                                                 block.remove();
+                                                if (!player.getPlayer().isOnline()) {
+                                                    this.cancel();
+                                                    return;
+                                                }
                                                 chest.getBlock().setType(Material.CHEST);
                                                 player.getPlayer().playSound(chest, Sound.ANVIL_LAND, 1, 100);
                                                 BlockState c = chest.getBlock().getState();

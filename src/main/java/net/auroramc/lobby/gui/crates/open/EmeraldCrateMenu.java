@@ -118,6 +118,10 @@ public class EmeraldCrateMenu extends GUI {
                     byte w = 7;
                     @Override
                     public void run() {
+                        if (!player.getPlayer().isOnline()) {
+                            this.cancel();
+                            return;
+                        }
                         if (i < 7) {
                             CrateStructures.getEmeraldCrate().getLevel(i).place(loc);
                             loc.setY(loc.getY() + 1);
