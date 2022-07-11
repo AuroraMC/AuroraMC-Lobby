@@ -37,21 +37,21 @@ public class CrateStructures {
         baseCrate.put(5, 0, 1, new StructureBlock(Material.RED_SANDSTONE, (byte)2));
         baseCrate.put(6, 0, 1, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.WEST));
 
-        baseCrate.put(0, 0, 2, new StructureStairs(Material.RED_SANDSTONE_STAIRS, BlockFace.EAST));
+        baseCrate.put(0, 0, 2, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.EAST));
         baseCrate.put(1, 0, 2, new StructureBlock(Material.HARD_CLAY));
         baseCrate.put(2, 0, 2, new StructureStairs(Material.RED_SANDSTONE_STAIRS, BlockFace.NORTH));
         baseCrate.put(3, 0, 2, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.NORTH));
         baseCrate.put(4, 0, 2, new StructureStairs(Material.RED_SANDSTONE_STAIRS, BlockFace.NORTH));
         baseCrate.put(5, 0, 2, new StructureBlock(Material.HARD_CLAY));
-        baseCrate.put(6, 0, 2, new StructureStairs(Material.RED_SANDSTONE_STAIRS, BlockFace.WEST));
+        baseCrate.put(6, 0, 2, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.WEST));
 
-        baseCrate.put(0, 0, 3, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.EAST, true));
+        baseCrate.put(0, 0, 3, new StructureStairs(Material.RED_SANDSTONE_STAIRS, BlockFace.EAST, true));
         baseCrate.put(1, 0, 3, new StructureBlock(Material.HARD_CLAY));
         baseCrate.put(2, 0, 3, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.WEST));
         baseCrate.put(3, 0, 3, new StructureBlock(Material.GLOWSTONE));
         baseCrate.put(4, 0, 3, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.EAST));
         baseCrate.put(5, 0, 3, new StructureBlock(Material.HARD_CLAY));
-        baseCrate.put(6, 0, 3, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.WEST, true));
+        baseCrate.put(6, 0, 3, new StructureStairs(Material.RED_SANDSTONE_STAIRS, BlockFace.WEST, true));
 
         baseCrate.put(0, 0, 4, new StructureStairs(Material.ACACIA_STAIRS, BlockFace.EAST));
         baseCrate.put(1, 0, 4, new StructureBlock(Material.HARD_CLAY));
