@@ -172,6 +172,7 @@ public class IronCrateMenu extends GUI {
                                                 BlockState c = chest.getBlock().getState();
                                                 c.setData(new Chest(BlockFace.EAST));
                                                 c.update();
+                                                LobbyAPI.crateAnimationFinished();
                                             }
                                         }.runTaskLater(AuroraMCAPI.getCore(), 11);
                                     }

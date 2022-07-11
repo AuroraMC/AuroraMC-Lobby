@@ -167,6 +167,7 @@ public class GoldCrateMenu extends GUI {
                                                                 c.setData(new Chest(BlockFace.EAST));
                                                                 c.update();
                                                                 chest.getWorld().playSound(chest, Sound.BLAZE_HIT, 100, 1);
+                                                                LobbyAPI.crateAnimationFinished();
                                                                 this.cancel();
                                                                 return;
                                                             }

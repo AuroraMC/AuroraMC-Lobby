@@ -205,7 +205,7 @@ public class LobbyListener implements Listener {
                 AuroraMCAPI.openGUI(player, crates);
                 e.setCancelled(true);
                 return;
-            } else if (e.getClickedBlock() != null && e.getClickedBlock().getType() == Material.CHEST && LobbyAPI.getCratePlayer() != null && LobbyAPI.getCratePlayer().getPlayer().equals(e.getPlayer())) {
+            } else if (e.getClickedBlock() != null && e.getClickedBlock().getType() == Material.CHEST && LobbyAPI.getCratePlayer() != null && LobbyAPI.getCratePlayer().getPlayer().equals(e.getPlayer()) && LobbyAPI.isCrateAnimationFinished()) {
                 CraftBlock block = (CraftBlock) e.getClickedBlock();
                 PacketPlayOutBlockAction packet = new PacketPlayOutBlockAction(new BlockPosition(block.getX(), block.getY(), block.getZ()), Blocks.CHEST, 1, 1);
                 for (Player player : Bukkit.getOnlinePlayers()) {
@@ -215,13 +215,11 @@ public class LobbyListener implements Listener {
                 Crate.CrateReward reward = LobbyAPI.getCurrentCrate().open(LobbyAPI.getCratePlayer());
                 if (reward.getCosmetic() != null) {
                     Location loc2 = block.getLocation().clone();
-                    loc2.setY(loc2.getY() + 1);
+                    loc2.add(0.5, 1, 0.5);
                     Item item = block.getLocation().getWorld().dropItem(loc2, new ItemStack(reward.getCosmetic().getMaterial(), 1, reward.getCosmetic().getData()));
                     item.setPickupDelay(1000000);
                     Location location = block.getLocation().clone();
-                    location.setY(location.getY() + 1.5);
-                    location.setX(location.getX() + 0.5);
-                    location.setZ(location.getZ() + 0.5);
+                    location.add(0.5, 1.5, 0.5);
                     ArmorStand stand = location.getWorld().spawn(location, ArmorStand.class);
                     stand.setVisible(false);
                     stand.setCustomName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(reward.getCosmetic().getDisplayName() + "&r (" + reward.getCosmetic().getRarity().getDisplayName() + "&r)")));
@@ -406,7 +404,7 @@ public class LobbyListener implements Listener {
                         }
                     }.runTaskLater(AuroraMCAPI.getCore(), 200);
                 } else if (reward.getRank() != null) {
-                    Item item = block.getLocation().getWorld().dropItem(block.getLocation().clone().add(0, 1, 0), new ItemStack(Material.NETHER_STAR));
+                    Item item = block.getLocation().getWorld().dropItem(block.getLocation().clone().add(0.5, 1, 0.5), new ItemStack(Material.DIAMOND));
                     item.setPickupDelay(1000000);
                     Location location = block.getLocation().clone();
                     location.setY(location.getY() + 0.5);
@@ -492,8 +490,92 @@ public class LobbyListener implements Listener {
                     }.runTaskLater(AuroraMCAPI.getCore(), 200);
 
                 } else {
+                    Item item = block.getLocation().getWorld().dropItem(block.getLocation().clone().add(0.5, 1, 0.5), new ItemStack(Material.NETHER_STAR));
+                    item.setPickupDelay(1000000);
+                    Location location = block.getLocation().clone();
+                    location.setY(location.getY() + 0.5);
+                    location.setX(location.getX() + 0.5);
+                    location.setZ(location.getZ() + 0.5);
+                    ArmorStand stand = location.getWorld().spawn(location, ArmorStand.class);
+                    stand.setVisible(false);
+                    stand.setCustomName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight("&b" + reward.getPlusDays() + " Plus Days&r (" + Cosmetic.Rarity.MYTHICAL.getDisplayName() + "&r)")));
+                    stand.setCustomNameVisible(true);
+                    stand.setSmall(true);
+                    stand.setMarker(true);
+                    stand.setGravity(false);
+                    for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
+                        player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + cratePlayer.getPlayer().getName() + "** just found &b" + reward.getPlusDays() + " Plus Days** (**" + Cosmetic.Rarity.MYTHICAL.getDisplayName() + "**)"));
+                        player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ENDERDRAGON_DEATH, 100, 0);
+                    }
+                    new BukkitRunnable(){
+                        int i = 0;
+                        @Override
+                        public void run() {
+                            Location location = block.getLocation();
+                            org.bukkit.entity.Firework firework = location.getWorld().spawn(location, org.bukkit.entity.Firework.class);
+                            FireworkMeta meta = firework.getFireworkMeta();
+                            meta.setPower(0);
+                            meta.addEffect(FireworkEffect.builder().withColor(Color.fromRGB(255,85,85)).trail(true).flicker(true).with(FireworkEffect.Type.BURST).build());
+                            firework.setFireworkMeta(meta);
+                            new BukkitRunnable(){
+                                @Override
+                                public void run() {
+                                    firework.detonate();
+                                }
+                            }.runTaskLater(AuroraMCAPI.getCore(), 2);
+                            i++;
+                            if (i > 20) {
+                                this.cancel();
+                            }
+                        }
+                    }.runTaskTimer(AuroraMCAPI.getCore(), 0, 5);
 
+                    new BukkitRunnable() {
+                        @Override
+                        public void run() {
+                            stand.remove();
+                            item.remove();
+                            JSONObject crateLocation = LobbyAPI.getLobbyMap().getMapData().getJSONObject("game").getJSONArray("CRATE").getJSONObject(0);
+                            int x = crateLocation.getInt("x");
+                            int y = crateLocation.getInt("y");
+                            int z = crateLocation.getInt("z");
+                            Location location = new Location(Bukkit.getWorld("world"), x, y, z);
+                            Location loc = new Location(location.getWorld(), location.getX() - 3, location.getY() - 1, location.getZ() - 3);
+                            CrateStructures.getBaseCrate().place(loc);
+                            Block block = location.getBlock();
+                            block.setType(Material.CHEST);
+                            BlockState state = block.getState();
+                            BlockFace direction;
+                            float yaw = crateLocation.getFloat("yaw");
+                            if (yaw <= -135 || yaw >= 135) {
+                                direction = BlockFace.NORTH;
+                            } else if (yaw > -135 && yaw < -45) {
+                                direction = BlockFace.EAST;
+                            } else if (yaw >= -45 && yaw <= 45) {
+                                direction = BlockFace.SOUTH;
+                            } else {
+                                direction = BlockFace.WEST;
+                            }
+                            org.bukkit.material.Chest chest = new Chest(direction);
+                            state.setData(chest);
+                            state.update();
+                            LobbyAPI.setChestBlock(block);
+                            location.setY(location.getY() + 1);
+                            location.setX(location.getX() + 0.5);
+                            location.setZ(location.getZ() + 0.5);
+                            ArmorStand stand = location.getWorld().spawn(location, ArmorStand.class);
+                            stand.setVisible(false);
+                            stand.setCustomName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight("&a&lOpen Crates")));
+                            stand.setCustomNameVisible(true);
+                            stand.setSmall(true);
+                            stand.setMarker(true);
+                            stand.setGravity(false);
+                            LobbyAPI.setChestStand(stand);
+
+                        }
+                    }.runTaskLater(AuroraMCAPI.getCore(), 200);
                 }
+                LobbyAPI.getCurrentCrate().opened(reward);
                 LobbyAPI.finishOpen();
                 e.setCancelled(true);
                 return;

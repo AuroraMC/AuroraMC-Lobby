@@ -158,6 +158,7 @@ public class EmeraldCrateMenu extends GUI {
 
                             loc2.setZ(loc2.getZ() + 6);
                             (new StructureChest(Material.CHEST, BlockFace.NORTH)).place(loc2);
+                            LobbyAPI.crateAnimationFinished();
                             this.cancel();
                         }
                     }

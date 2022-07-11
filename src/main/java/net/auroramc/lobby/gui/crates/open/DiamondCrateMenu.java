@@ -162,6 +162,7 @@ public class DiamondCrateMenu extends GUI {
                                                         @Override
                                                         public void run() {
                                                             if (i < 0) {
+                                                                LobbyAPI.crateAnimationFinished();
                                                                 this.cancel();
                                                                 return;
                                                             }
