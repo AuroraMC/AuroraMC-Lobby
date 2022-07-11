@@ -128,7 +128,7 @@ public class LobbyAPI {
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("&3&lThe Monke"));
         profile.getProperties().put("textures", new Property("textures", MONKEY_SKIN, MONKEY_SIGNATURE));
         monkeyEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
-        monkeyEntity.setLocation(4.5, 71.0, 0.5, -145.0f, 0f);
+        monkeyEntity.setLocation(4.5, 71.0, -0.5, 145.0f, 0f);
         AuroraMCAPI.registerFakePlayer(monkeyEntity);
 
 

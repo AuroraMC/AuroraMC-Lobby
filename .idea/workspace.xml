@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Attempt fix at finishing opening properly">
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" afterDir="false" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Move Monke NPC">
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -310,20 +310,6 @@
       <workItem from="1657492551387" duration="2209000" />
       <workItem from="1657495305229" duration="6000" />
       <workItem from="1657495318675" duration="3530000" />
-    </task>
-    <task id="LOCAL-00165" summary="Change wording">
-      <created>1655119190631</created>
-      <option name="number" value="00165" />
-      <option name="presentableId" value="LOCAL-00165" />
-      <option name="project" value="LOCAL" />
-      <updated>1655119190631</updated>
-    </task>
-    <task id="LOCAL-00166" summary="Implement submenus">
-      <created>1655474560478</created>
-      <option name="number" value="00166" />
-      <option name="presentableId" value="LOCAL-00166" />
-      <option name="project" value="LOCAL" />
-      <updated>1655474560478</updated>
     </task>
     <task id="LOCAL-00167" summary="Finish crate menus">
       <created>1657133150583</created>
@@ -654,7 +640,21 @@
       <option name="project" value="LOCAL" />
       <updated>1657498554075</updated>
     </task>
-    <option name="localTasksCounter" value="214" />
+    <task id="LOCAL-00214" summary="Move Monke NPC">
+      <created>1657499937537</created>
+      <option name="number" value="00214" />
+      <option name="presentableId" value="LOCAL-00214" />
+      <option name="project" value="LOCAL" />
+      <updated>1657499937537</updated>
+    </task>
+    <task id="LOCAL-00215" summary="Move Monke NPC">
+      <created>1657500038464</created>
+      <option name="number" value="00215" />
+      <option name="presentableId" value="LOCAL-00215" />
+      <option name="project" value="LOCAL" />
+      <updated>1657500038464</updated>
+    </task>
+    <option name="localTasksCounter" value="216" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -672,7 +672,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Make sounds global" />
     <MESSAGE value="Modify entity radius" />
     <MESSAGE value="Fix hologram not disappearing" />
     <MESSAGE value="Start diamond animation" />
@@ -697,6 +696,7 @@
     <MESSAGE value="FIx structure" />
     <MESSAGE value="Fix structure, fix being able to open more than 1 chest" />
     <MESSAGE value="Attempt fix at finishing opening properly" />
-    <option name="LAST_COMMIT_MESSAGE" value="Attempt fix at finishing opening properly" />
+    <MESSAGE value="Move Monke NPC" />
+    <option name="LAST_COMMIT_MESSAGE" value="Move Monke NPC" />
   </component>
 </project>
