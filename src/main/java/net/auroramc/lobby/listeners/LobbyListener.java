@@ -764,7 +764,7 @@ public class LobbyListener implements Listener {
             int y = crateLocation.getInt("y");
             int z = crateLocation.getInt("z");
             Location location = new Location(Bukkit.getWorld("world"), x, y, z);
-            if (Math.abs(e.getTo().getX() - location.getX()) > 3 && Math.abs(e.getTo().getZ() - location.getZ()) > 3 && Math.abs(e.getTo().getY() - location.getY()) > 3) {
+            if (Math.abs(e.getTo().getX() - location.getX()) > 3 || Math.abs(e.getTo().getZ() - location.getZ()) > 3 || Math.abs(e.getTo().getY() - location.getY()) > 3) {
                 e.setCancelled(true);
             }
         } else if (LobbyAPI.getCratePlayer() != null) {
