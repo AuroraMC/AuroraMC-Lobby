@@ -4,9 +4,17 @@
 
 package net.auroramc.lobby.listeners;
 
+import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.utils.VoidGenerator;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
+import org.bukkit.block.BlockState;
+import org.bukkit.material.Chest;
 import org.bukkit.craftbukkit.v1_8_R3.CraftWorld;
+import org.bukkit.entity.ArmorStand;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.world.WorldInitEvent;
@@ -22,6 +30,7 @@ public class WorldListener implements Listener {
             e.getWorld().setGameRuleValue("doMobSpawning", "false");
             e.getWorld().setGameRuleValue("doDaylightCycle", "false");
             e.getWorld().setGameRuleValue("doFireTick", "false");
+            e.getWorld().setGameRuleValue("randomTickSpeed", "0");
         }
     }
 
@@ -31,6 +40,7 @@ public class WorldListener implements Listener {
             e.getWorld().setGameRuleValue("doMobSpawning", "false");
             e.getWorld().setGameRuleValue("doDaylightCycle", "false");
             e.getWorld().setGameRuleValue("doFireTick", "false");
+            e.getWorld().setGameRuleValue("randomTickSpeed", "0");
             JSONObject mapData = LobbyAPI.getLobbyMap().getMapData();
             if (mapData.has("time")) {
                 e.getWorld().setTime(mapData.getInt("time"));
@@ -42,6 +52,30 @@ public class WorldListener implements Listener {
 
             LobbyAPI.spawnEntities();
 
+            JSONObject crateLocation = mapData.getJSONObject("game").getJSONArray("CRATE").getJSONObject(0);
+            int x = crateLocation.getInt("x");
+            int y = crateLocation.getInt("y");
+            int z = crateLocation.getInt("z");
+            Location location = new Location(e.getWorld(), x, y, z);
+            Block block = location.getBlock();
+            block.setType(Material.CHEST);
+            BlockState state = block.getState();
+            BlockFace direction;
+            float yaw = crateLocation.getFloat("yaw");
+            if (yaw <= -135 || yaw >= 135) {
+                direction = BlockFace.NORTH;
+            } else if (yaw > -135 && yaw < -45) {
+                direction = BlockFace.EAST;
+            } else if (yaw >= -45 && yaw <= 45) {
+                direction = BlockFace.SOUTH;
+            } else {
+                direction = BlockFace.WEST;
+            }
+            Chest chest = new Chest(direction);
+            state.setData(chest);
+            state.update();
+
+            LobbyAPI.setChestBlock(location.getBlock());
         }
     }
 

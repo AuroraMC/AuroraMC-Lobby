@@ -24,7 +24,7 @@ public class GameMenu extends GUI {
         border("&3&lBrowse Games", null);
 
         this.setItem(1, 4, new GUIItem(Material.NETHER_STAR, "&bCrystal Quest &3&lFEATURED GAME!", 1, "&8v" + LobbyAPI.getVersionNumber("CRYSTAL_QUEST") + ";;&7Collect Resources, Upgrade Gear and;&7protect your crystals at all costs!;;&aClick to view servers!"));
-        this.setItem(3, 2, new GUIItem(Material.IRON_SWORD, "&cBackstab", 1, "&8v" + LobbyAPI.getVersionNumber("BACKSTAB") + ";;&7Coming Soon™;;&aClick to view servers!"));
+        this.setItem(3, 2, new GUIItem(Material.IRON_SWORD, "&cDuels", 1, "&8v" + LobbyAPI.getVersionNumber("DUELS") + ";;&7Coming Soon™;;&aClick to view servers!"));
         this.setItem(3, 4, new GUIItem(Material.FIREWORK, "&eArcade Mode", 1, "&8v" + LobbyAPI.getVersionNumber("ARCADE_MODE") + ";;&7Play a selection of different arcade;&7games with or without your friends.;;&aClick to view servers!"));
         this.setItem(3, 6, new GUIItem(Material.SNOW_BALL, "&aPaintball", 1, "&8v" + LobbyAPI.getVersionNumber("PAINTBALL") + ";;&7Throw snowballs at each other to get as;&7many kills as possible before time runs out!;;&aClick to view servers!"));
     }
@@ -44,6 +44,18 @@ public class GameMenu extends GUI {
             }
             case FIREWORK: {
                 GameServerListing listing = new GameServerListing(player, "ARCADE_MODE", "Arcade Mode", "Arcade");
+                listing.open(player);
+                AuroraMCAPI.openGUI(player, listing);
+                break;
+            }
+            case SNOW_BALL: {
+                GameServerListing listing = new GameServerListing(player, "PAINTBALL", "Paintball", "PB");
+                listing.open(player);
+                AuroraMCAPI.openGUI(player, listing);
+                break;
+            }
+            case IRON_SWORD: {
+                GameServerListing listing = new GameServerListing(player, "DUELS", "Duels", "Duels");
                 listing.open(player);
                 AuroraMCAPI.openGUI(player, listing);
                 break;

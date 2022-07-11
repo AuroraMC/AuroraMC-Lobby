@@ -13,7 +13,10 @@ public enum ServerState {
     WAITING_FOR_PLAYERS("Waiting For Players"),
     STARTING("Starting Soon"),
     IN_GAME ("In-Game"),
-    ENDING("Ending");
+    ENDING("Ending"),
+    //Duel specific states.
+    ACTIVE("Active"),
+    INACTIVE("Inactive");
 
     private String name;
 

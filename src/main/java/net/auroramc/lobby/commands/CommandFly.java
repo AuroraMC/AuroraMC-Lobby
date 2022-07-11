@@ -24,9 +24,9 @@ public class CommandFly extends Command {
 
     @Override
     public void execute(AuroraMCPlayer player, String aliasUsed, List<String> args) {
-        player.getPlayer().setAllowFlight(!player.getPlayer().getAllowFlight());
-        player.getPreferences().setHubFlight(player.getPlayer().getAllowFlight());
-        player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Lobby", "Hub Flight: " + ((player.getPlayer().getAllowFlight())?"&aEnabled":"&cDisabled")));
+        player.getPlayer().setFlying(false);
+        player.getPreferences().setHubFlight(!player.getPreferences().isHubFlightEnabled());
+        player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Lobby", "Hub Flight: " + ((player.getPreferences().isHubFlightEnabled())?"&aEnabled":"&cDisabled")));
     }
 
     @Override

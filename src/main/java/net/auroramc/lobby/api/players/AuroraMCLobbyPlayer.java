@@ -5,18 +5,18 @@
 package net.auroramc.lobby.api.players;
 
 import net.auroramc.core.api.AuroraMCAPI;
+import net.auroramc.core.api.cosmetics.Crate;
 import net.auroramc.core.api.cosmetics.Gadget;
 import net.auroramc.core.api.players.AuroraMCPlayer;
+import net.auroramc.core.cosmetics.crates.EmeraldCrate;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
 import net.auroramc.lobby.api.util.CheckForcefieldRunnable;
+import net.auroramc.lobby.utils.CrateUtil;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
 
@@ -34,11 +34,14 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
 
     private CheckForcefieldRunnable runnable;
 
+    private List<Crate> crates;
+
     public AuroraMCLobbyPlayer(AuroraMCPlayer oldPlayer) {
         super(oldPlayer);
         this.joinTimestamp = System.currentTimeMillis();
         lastUsed = new HashMap<>();
         moved = false;
+        crates = AuroraMCAPI.getDbManager().getCrates(this.getId());
 
         if (oldPlayer.getPreferences().isHubForcefieldEnabled()) {
             this.runnable = new CheckForcefieldRunnable(this);
@@ -273,9 +276,12 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
 
     public void claimPlus() {
         getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("The Monke", "You claimed your monthly Plus bonus! You got:\n" +
+                "&a+1 Emerald Crate\n" +
                 "&6+10000 Crowns\n" +
                 "&d+10000 Tickets"));
         lastPlusBonus = System.currentTimeMillis();
+        EmeraldCrate crate = CrateUtil.generateEmeraldCrate(getId());
+        crates.add(crate);
         this.getBank().addTickets(10000, true, true);
         this.getBank().addCrowns(10000, true, true);
         LobbyDatabaseManager.setLastPlusBonus(this.getId(), lastPlusBonus);
@@ -340,5 +346,9 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
 
     public Map<Gadget, Long> getLastUsed() {
         return lastUsed;
+    }
+
+    public List<Crate> getCrates() {
+        return crates;
     }
 }

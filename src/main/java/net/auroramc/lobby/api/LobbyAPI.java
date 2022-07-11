@@ -8,18 +8,22 @@ import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.core.api.backend.ServerInfo;
+import net.auroramc.core.api.cosmetics.Crate;
 import net.auroramc.core.api.utils.gui.GUIItem;
 import net.auroramc.lobby.AuroraMCLobby;
 import net.auroramc.lobby.api.backend.GameServerInfo;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
+import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.api.util.Changelog;
 import net.auroramc.lobby.api.util.CommunityPoll;
 import net.minecraft.server.v1_8_R3.EntityPlayer;
 import net.minecraft.server.v1_8_R3.PlayerInteractManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.craftbukkit.v1_8_R3.CraftServer;
 import org.bukkit.craftbukkit.v1_8_R3.CraftWorld;
+import org.bukkit.entity.ArmorStand;
 
 import java.util.HashMap;
 import java.util.List;
@@ -40,8 +44,8 @@ public class LobbyAPI {
     private static final String PAINTBALL_SKIN = "ewogICJ0aW1lc3RhbXAiIDogMTY1MDExOTc2NTUxNywKICAicHJvZmlsZUlkIiA6ICI0ZDE2OTg3NzUyOWY0ODc3YWQxOWE1MDA2ZjM5NDBiMCIsCiAgInByb2ZpbGVOYW1lIiA6ICJBdXJvcmFNQyIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9lMjBlYmM4NTJhNGQxYzZhNzM2ODdjODM2OTVmYzE4YmU4NTVjNjI3NzIyYzJhYzQxOWYxMWUxZjAwN2QwNDhlIgogICAgfQogIH0KfQ==";
     private static final String PAINTBALL_SIGNATURE = "rmVcbIioK1+kpxwtrlDyeZ5ZQvlvI6CyKGsTuX3vCfIePH90EZS9moGA2y1fFdLjcusJ6fBM8yVcqda8+rDX/Et0rVFa53Z9uYLmnaUdLZkbbbFFeX54if6Gy+MvSWe5L9dnATzIheUNntxfRE4z9mAU2dmAr9gbiz1cd92uB4VUF2QwS7M5mAf4dP/svGXnRng9LmV1FCGR29tV2186SQSrTi33mugEVXDPO3N4Kw0XI90DOKINvjP29UjXuR9JEzW+IbJNxKWz0xJmMBWZUx+LNpdkNpEbdFyB0iD12Yx87+tXKOl4+JjkVOR4W3sFoO220/HUPGCP9x5lEf4iZgOcLeguKIjua9/0t6yW0kc5ns5Wj+2beTVFNeb6y8BqsLjuOV6NtBUuh7PPAB1K4mV18/t9qxdUpkFYurFYJzUo7LfJQQSeAncRPzD0CwQZrIiCnEbDkCVCDIqe3amFKELugOklf2TAkOMNvu56YinkmTAb9REE2PSAyTGPR9wVp8v+xLCQ7b7vhbuxjU/ezHzrgib6BJt1+6rjSMOxb3A4cu8GhRtfxkIIzvBprBIuf8brGjG2DsbacZgLxb46BrkZUCLSWVOBJeJsNPcz5lMQUpHyfXOLi4BVZ2Z8WbAirMU2RQO4UxQFP8huX61KtA8QjMWjZTbRS77hhaIiQSg=";
 
-    private static final String BACKSTAB_SKIN = "ewogICJ0aW1lc3RhbXAiIDogMTY1MDA1MDgwMTU5NCwKICAicHJvZmlsZUlkIiA6ICI0ZDE2OTg3NzUyOWY0ODc3YWQxOWE1MDA2ZjM5NDBiMCIsCiAgInByb2ZpbGVOYW1lIiA6ICJBdXJvcmFNQyIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9lOWQ0YTZhNDIzMGE5MDkxZDQwNTM5ZDhiOWVjNzZiMjhkMjMwMTZkYmM1MGRiMTk3OTgyZDg5NDY1YzQ3NDEiCiAgICB9CiAgfQp9";
-    private static final String BACKSTAB_SIGNATURE = "cmYL17h7mXEQkI/lb/YIktvLUu2+fWIJIf56cC56R7Gh6l8gbLq75B9Aokq9K6DCfYAUtalkyODW4FTdRXSh05Fh3oUFQYz6InPP7LJvl1IprhGX9vPlZJfRfTKo6D6ZT/jPOtLebCu7F6TQlT++5LmFa0X4wFiG9DZMBGSy6BMfzxubAEVVO12CMPCT2FTtLFidRwUewGqtmB2ticOfFJ/DWT2udeomSMjO48+nwfq5aaXYH+cNeswUuPLXrNdmYTTKSyhHPSX0Ws9ScmpVIYFY7QOC+q6sRIEisuE7oHSDBS1fmoXFohFcIMRuOyhX0LHWewhVymS9OjlsrQwhKF6yGKmESl78y1YoO4H2XxLKvdOnKSd2iaUC5KXlNBV5+Lg04c/gJBi2ZLA77vyZaQnOU+AO9ldMvY+PFN4L85XioRv1lY8kC2vxzfjy5FAWAnmSXa/SIw4fdREaUopiGCqYUJug5JAUhKStP79rlVrrGRqM7Xq/f1aysQZJrloB0iBrC6E72Eb7uEMnroTB1ejE3Kl1mF6mTlrtMSeS0DNR7VRX5IjeIwP1mvNQOZoFEODw17IqwWuhyg1qZvDF13PaW1Ik6k8Wfx7i+YOPot+ILQy0/JObixZnON6V7zb+HMqp3KzAyr0zIroPyHBrpSmhHFejxGxUiLJUOQCiFeQ=";
+    private static final String DUELS_SKIN = "ewogICJ0aW1lc3RhbXAiIDogMTY1MDA1MDgwMTU5NCwKICAicHJvZmlsZUlkIiA6ICI0ZDE2OTg3NzUyOWY0ODc3YWQxOWE1MDA2ZjM5NDBiMCIsCiAgInByb2ZpbGVOYW1lIiA6ICJBdXJvcmFNQyIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9lOWQ0YTZhNDIzMGE5MDkxZDQwNTM5ZDhiOWVjNzZiMjhkMjMwMTZkYmM1MGRiMTk3OTgyZDg5NDY1YzQ3NDEiCiAgICB9CiAgfQp9";
+    private static final String DUELS_SIGNATURE = "cmYL17h7mXEQkI/lb/YIktvLUu2+fWIJIf56cC56R7Gh6l8gbLq75B9Aokq9K6DCfYAUtalkyODW4FTdRXSh05Fh3oUFQYz6InPP7LJvl1IprhGX9vPlZJfRfTKo6D6ZT/jPOtLebCu7F6TQlT++5LmFa0X4wFiG9DZMBGSy6BMfzxubAEVVO12CMPCT2FTtLFidRwUewGqtmB2ticOfFJ/DWT2udeomSMjO48+nwfq5aaXYH+cNeswUuPLXrNdmYTTKSyhHPSX0Ws9ScmpVIYFY7QOC+q6sRIEisuE7oHSDBS1fmoXFohFcIMRuOyhX0LHWewhVymS9OjlsrQwhKF6yGKmESl78y1YoO4H2XxLKvdOnKSd2iaUC5KXlNBV5+Lg04c/gJBi2ZLA77vyZaQnOU+AO9ldMvY+PFN4L85XioRv1lY8kC2vxzfjy5FAWAnmSXa/SIw4fdREaUopiGCqYUJug5JAUhKStP79rlVrrGRqM7Xq/f1aysQZJrloB0iBrC6E72Eb7uEMnroTB1ejE3Kl1mF6mTlrtMSeS0DNR7VRX5IjeIwP1mvNQOZoFEODw17IqwWuhyg1qZvDF13PaW1Ik6k8Wfx7i+YOPot+ILQy0/JObixZnON6V7zb+HMqp3KzAyr0zIroPyHBrpSmhHFejxGxUiLJUOQCiFeQ=";
 
     private static LobbyMap map;
     private static AuroraMCLobby lobby;
@@ -62,7 +66,14 @@ public class LobbyAPI {
     private static EntityPlayer arcadeEntity;
     private static EntityPlayer cqEntity;
     private static EntityPlayer paintballEntity;
-    private static EntityPlayer backstabEntity;
+    private static EntityPlayer duelsEntity;
+
+    private static Block chestBlock;
+    private static ArmorStand chestStand;
+
+    private static Crate currentCrate;
+    private static AuroraMCLobbyPlayer cratePlayer;
+    private static boolean crateAnimationFinished;
 
 
     static {
@@ -71,6 +82,10 @@ public class LobbyAPI {
         prefsItem = new GUIItem(Material.REDSTONE_COMPARATOR, "&a&lView Preferences");
         cosmeticsItem = new GUIItem(Material.EMERALD, "&a&lView Cosmetics");
         gameServers = new HashMap<>();
+
+        currentCrate = null;
+        cratePlayer = null;
+        crateAnimationFinished = true;
     }
 
 
@@ -113,33 +128,33 @@ public class LobbyAPI {
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("&3&lThe Monke"));
         profile.getProperties().put("textures", new Property("textures", MONKEY_SKIN, MONKEY_SIGNATURE));
         monkeyEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
-        monkeyEntity.setLocation(5, 61.0, 0, -145.0f, 0f);
+        monkeyEntity.setLocation(-11.5, 64.0, 14.5, -145.0f, 0f);
         AuroraMCAPI.registerFakePlayer(monkeyEntity);
 
 
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Arcade Mode§r "));
         profile.getProperties().put("textures", new Property("textures", ARCADE_SKIN, ARCADE_SIGNATURE));
         arcadeEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
-        arcadeEntity.setLocation(-9.5, 61.0, 11.5, -145f, 0f);
+        arcadeEntity.setLocation(-9.5, 64.0, 11.5, -145f, 0f);
         AuroraMCAPI.registerFakePlayer(arcadeEntity);
 
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Paintball§r "));
         profile.getProperties().put("textures", new Property("textures", PAINTBALL_SKIN, PAINTBALL_SIGNATURE));
         paintballEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
-        paintballEntity.setLocation(-13.5, 61.0, 8.5, -145f, 0f);
+        paintballEntity.setLocation(-13.5, 64.0, 8.5, -145f, 0f);
         AuroraMCAPI.registerFakePlayer(paintballEntity);
 
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Crystal Quest "));
         profile.getProperties().put("textures", new Property("textures", CQ_SKIN, CQ_SIGNATURE));
         cqEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
-        cqEntity.setLocation(-5.5, 61.0, 6.5, -145f, 0f);
+        cqEntity.setLocation(-5.5, 64.0, 6.5, -145f, 0f);
         AuroraMCAPI.registerFakePlayer(cqEntity);
 
-        profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Backstab§r "));
-        profile.getProperties().put("textures", new Property("textures", BACKSTAB_SKIN, BACKSTAB_SIGNATURE));
-        backstabEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
-        backstabEntity.setLocation(-5.5, 61.0, 14.5, -145f, 0f);
-        AuroraMCAPI.registerFakePlayer(backstabEntity);
+        profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Duels§r "));
+        profile.getProperties().put("textures", new Property("textures", DUELS_SKIN, DUELS_SIGNATURE));
+        duelsEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
+        duelsEntity.setLocation(-5.5, 64.0, 14.5, -145f, 0f);
+        AuroraMCAPI.registerFakePlayer(duelsEntity);
     }
 
      public static void addGameServer(String serverName) {
@@ -223,8 +238,8 @@ public class LobbyAPI {
         return arcadeEntity;
     }
 
-    public static EntityPlayer getBackstabEntity() {
-        return backstabEntity;
+    public static EntityPlayer getDuelsEntity() {
+        return duelsEntity;
     }
 
     public static EntityPlayer getCqEntity() {
@@ -233,5 +248,52 @@ public class LobbyAPI {
 
     public static EntityPlayer getPaintballEntity() {
         return paintballEntity;
+    }
+
+    public static Block getChestBlock() {
+        return chestBlock;
+    }
+
+    public static void setChestBlock(Block chestBlock) {
+        LobbyAPI.chestBlock = chestBlock;
+    }
+
+    public static ArmorStand getChestStand() {
+        return chestStand;
+    }
+
+    public static void setChestStand(ArmorStand chestStand) {
+        LobbyAPI.chestStand = chestStand;
+    }
+
+    public synchronized static boolean startOpen(Crate crate, AuroraMCLobbyPlayer player) {
+        if (currentCrate != null || cratePlayer != null) {
+            return false;
+        }
+        LobbyAPI.cratePlayer = player;
+        LobbyAPI.currentCrate = crate;
+        crateAnimationFinished = false;
+        return true;
+    }
+
+    public static void crateAnimationFinished() {
+        crateAnimationFinished = true;
+    }
+
+    public static void finishOpen() {
+        currentCrate = null;
+        cratePlayer = null;
+    }
+
+    public static AuroraMCLobbyPlayer getCratePlayer() {
+        return cratePlayer;
+    }
+
+    public static Crate getCurrentCrate() {
+        return currentCrate;
+    }
+
+    public static boolean isCrateAnimationFinished() {
+        return crateAnimationFinished;
     }
 }

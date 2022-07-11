@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Move NPC">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Attempt fix at finishing opening properly">
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,10 +54,16 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
   }
 }</component>
   <component name="RecentsManager">
@@ -65,9 +71,11 @@
       <recent name="net.auroramc.lobby.commands" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="net.auroramc.lobby.api.util.structure.block" />
+      <recent name="net.auroramc.lobby.gui.crates.buy" />
+      <recent name="net.auroramc.lobby.gui.crates.buy.confirmation" />
+      <recent name="net.auroramc.lobby.gui.creates" />
       <recent name="net.auroramc.lobby.gui.changelog" />
-      <recent name="net.auroramc.lobby.api.util" />
-      <recent name="net.auroramc.lobby.gui" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -245,351 +253,408 @@
       <workItem from="1650716640492" duration="51000" />
       <workItem from="1650716773156" duration="12000" />
       <workItem from="1650721077894" duration="3000" />
+      <workItem from="1654185841547" duration="15000" />
+      <workItem from="1654186354980" duration="458000" />
+      <workItem from="1654187066726" duration="37000" />
+      <workItem from="1654187117538" duration="20000" />
+      <workItem from="1654187153842" duration="335000" />
+      <workItem from="1654194084508" duration="112000" />
+      <workItem from="1654362530674" duration="29000" />
+      <workItem from="1654362571670" duration="68000" />
+      <workItem from="1654363358267" duration="132000" />
+      <workItem from="1654363587474" duration="11000" />
+      <workItem from="1654457715566" duration="835000" />
+      <workItem from="1654458767919" duration="2914000" />
+      <workItem from="1654468721780" duration="2000" />
+      <workItem from="1654470268427" duration="38000" />
+      <workItem from="1654470340452" duration="9000" />
+      <workItem from="1654470439844" duration="147000" />
+      <workItem from="1654470754716" duration="611000" />
+      <workItem from="1654603652688" duration="74000" />
+      <workItem from="1654603769776" duration="57000" />
+      <workItem from="1654603881900" duration="2000" />
+      <workItem from="1655114387136" duration="736000" />
+      <workItem from="1655115170786" duration="168000" />
+      <workItem from="1655115367252" duration="296000" />
+      <workItem from="1655115690645" duration="67000" />
+      <workItem from="1655115767372" duration="346000" />
+      <workItem from="1655116270425" duration="6000" />
+      <workItem from="1655116315419" duration="722000" />
+      <workItem from="1655117160720" duration="674000" />
+      <workItem from="1655117922157" duration="12000" />
+      <workItem from="1655117952501" duration="201000" />
+      <workItem from="1655118279506" duration="2104000" />
+      <workItem from="1655303067326" duration="755000" />
+      <workItem from="1655310286321" duration="2913000" />
+      <workItem from="1655330704031" duration="158000" />
+      <workItem from="1655470324399" duration="708000" />
+      <workItem from="1655473373830" duration="653000" />
+      <workItem from="1655474045012" duration="866000" />
+      <workItem from="1656356624622" duration="1298000" />
+      <workItem from="1656920343803" duration="12000" />
+      <workItem from="1657127524415" duration="5560000" />
+      <workItem from="1657284571067" duration="172000" />
+      <workItem from="1657288115577" duration="7000" />
+      <workItem from="1657288983607" duration="77000" />
+      <workItem from="1657289086274" duration="999000" />
+      <workItem from="1657290456594" duration="1012000" />
+      <workItem from="1657291490184" duration="3178000" />
+      <workItem from="1657380342278" duration="2042000" />
+      <workItem from="1657382542960" duration="8636000" />
+      <workItem from="1657474593024" duration="1649000" />
+      <workItem from="1657476296204" duration="5904000" />
+      <workItem from="1657484893223" duration="7000" />
+      <workItem from="1657484910017" duration="6772000" />
+      <workItem from="1657491799629" duration="236000" />
+      <workItem from="1657492277772" duration="82000" />
+      <workItem from="1657492551387" duration="2209000" />
+      <workItem from="1657495305229" duration="6000" />
+      <workItem from="1657495318675" duration="3530000" />
     </task>
-    <task id="LOCAL-00085" summary="Fixed more achievements">
-      <created>1649011646260</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
+    <task id="LOCAL-00165" summary="Change wording">
+      <created>1655119190631</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
       <option name="project" value="LOCAL" />
-      <updated>1649011646261</updated>
+      <updated>1655119190631</updated>
     </task>
-    <task id="LOCAL-00086" summary="Turn down forcefield">
-      <created>1649012541692</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
+    <task id="LOCAL-00166" summary="Implement submenus">
+      <created>1655474560478</created>
+      <option name="number" value="00166" />
+      <option name="presentableId" value="LOCAL-00166" />
       <option name="project" value="LOCAL" />
-      <updated>1649012541692</updated>
+      <updated>1655474560478</updated>
     </task>
-    <task id="LOCAL-00087" summary="Change forcefield slightly">
-      <created>1649012834880</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
+    <task id="LOCAL-00167" summary="Finish crate menus">
+      <created>1657133150583</created>
+      <option name="number" value="00167" />
+      <option name="presentableId" value="LOCAL-00167" />
       <option name="project" value="LOCAL" />
-      <updated>1649012834880</updated>
+      <updated>1657133150583</updated>
     </task>
-    <task id="LOCAL-00088" summary="Move players out of the way">
-      <created>1649013091693</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
+    <task id="LOCAL-00168" summary="Fix formatting">
+      <created>1657138080118</created>
+      <option name="number" value="00168" />
+      <option name="presentableId" value="LOCAL-00168" />
       <option name="project" value="LOCAL" />
-      <updated>1649013091693</updated>
+      <updated>1657138080118</updated>
     </task>
-    <task id="LOCAL-00089" summary="Move the monke">
-      <created>1649013355436</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
+    <task id="LOCAL-00169" summary="Fix typo">
+      <created>1657284611606</created>
+      <option name="number" value="00169" />
+      <option name="presentableId" value="LOCAL-00169" />
       <option name="project" value="LOCAL" />
-      <updated>1649013355436</updated>
+      <updated>1657284611607</updated>
     </task>
-    <task id="LOCAL-00090" summary="Change The Monke yaw">
-      <created>1649013523093</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
+    <task id="LOCAL-00170" summary="Start iron crate animation">
+      <created>1657291606876</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
       <option name="project" value="LOCAL" />
-      <updated>1649013523093</updated>
+      <updated>1657291606876</updated>
     </task>
-    <task id="LOCAL-00091" summary="Fix yaw">
-      <created>1649013890001</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
+    <task id="LOCAL-00171" summary="Change timings, fix structure">
+      <created>1657292123687</created>
+      <option name="number" value="00171" />
+      <option name="presentableId" value="LOCAL-00171" />
       <option name="project" value="LOCAL" />
-      <updated>1649013890001</updated>
+      <updated>1657292123687</updated>
     </task>
-    <task id="LOCAL-00092" summary="Fix yaw">
-      <created>1649014154728</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
+    <task id="LOCAL-00172" summary="Change timings more">
+      <created>1657292591681</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
       <option name="project" value="LOCAL" />
-      <updated>1649014154728</updated>
+      <updated>1657292591681</updated>
     </task>
-    <task id="LOCAL-00093" summary="Fix yaw">
-      <created>1649014255930</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
+    <task id="LOCAL-00173" summary="Start gold animation">
+      <created>1657381923274</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
       <option name="project" value="LOCAL" />
-      <updated>1649014255930</updated>
+      <updated>1657381923275</updated>
     </task>
-    <task id="LOCAL-00094" summary="Implement Hub Invisibility">
-      <created>1649014566647</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
+    <task id="LOCAL-00174" summary="Testing a theory">
+      <created>1657382041504</created>
+      <option name="number" value="00174" />
+      <option name="presentableId" value="LOCAL-00174" />
       <option name="project" value="LOCAL" />
-      <updated>1649014566647</updated>
+      <updated>1657382041505</updated>
     </task>
-    <task id="LOCAL-00095" summary="Fix NPE's">
-      <created>1649014733281</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
+    <task id="LOCAL-00175" summary="Fix platform">
+      <created>1657382185695</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL-00175" />
       <option name="project" value="LOCAL" />
-      <updated>1649014733281</updated>
+      <updated>1657382185695</updated>
     </task>
-    <task id="LOCAL-00096" summary="Seperate lobby updates">
-      <created>1649016433392</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
+    <task id="LOCAL-00176" summary="Test">
+      <created>1657382281538</created>
+      <option name="number" value="00176" />
+      <option name="presentableId" value="LOCAL-00176" />
       <option name="project" value="LOCAL" />
-      <updated>1649016433392</updated>
+      <updated>1657382281538</updated>
     </task>
-    <task id="LOCAL-00097" summary="Fix location of lobby changelogs">
-      <created>1649016647033</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
+    <task id="LOCAL-00177" summary="Disable liquid flow">
+      <created>1657382555315</created>
+      <option name="number" value="00177" />
+      <option name="presentableId" value="LOCAL-00177" />
       <option name="project" value="LOCAL" />
-      <updated>1649016647033</updated>
+      <updated>1657382555315</updated>
     </task>
-    <task id="LOCAL-00098" summary="Change format of lobby join messages">
-      <created>1649017048197</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
+    <task id="LOCAL-00178" summary="Attempt gold animation">
+      <created>1657383059025</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
       <option name="project" value="LOCAL" />
-      <updated>1649017048197</updated>
+      <updated>1657383059025</updated>
     </task>
-    <task id="LOCAL-00099" summary="Impl hide server name">
-      <created>1649085091806</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
+    <task id="LOCAL-00179" summary="Speed up animation">
+      <created>1657383187117</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
       <option name="project" value="LOCAL" />
-      <updated>1649085091806</updated>
+      <updated>1657383187117</updated>
     </task>
-    <task id="LOCAL-00100" summary="Disable join message when hub invisibility is enabled, change join message based on hide disguise name">
-      <created>1649086078203</created>
-      <option name="number" value="00100" />
-      <option name="presentableId" value="LOCAL-00100" />
+    <task id="LOCAL-00180" summary="fix sound">
+      <created>1657383422581</created>
+      <option name="number" value="00180" />
+      <option name="presentableId" value="LOCAL-00180" />
       <option name="project" value="LOCAL" />
-      <updated>1649086078203</updated>
+      <updated>1657383422581</updated>
     </task>
-    <task id="LOCAL-00101" summary="Fix hub join message when hide disguise name is on">
-      <created>1649087601148</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
+    <task id="LOCAL-00181" summary="Modify timings, fix last stage">
+      <created>1657383533566</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL-00181" />
       <option name="project" value="LOCAL" />
-      <updated>1649087601148</updated>
+      <updated>1657383533566</updated>
     </task>
-    <task id="LOCAL-00102" summary="Add claim message">
-      <created>1649097139365</created>
-      <option name="number" value="00102" />
-      <option name="presentableId" value="LOCAL-00102" />
+    <task id="LOCAL-00182" summary="Modify timings">
+      <created>1657383691087</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
       <option name="project" value="LOCAL" />
-      <updated>1649097139365</updated>
+      <updated>1657383691087</updated>
     </task>
-    <task id="LOCAL-00103" summary="Bolded discord message">
-      <created>1649097559292</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL-00103" />
+    <task id="LOCAL-00183" summary="Change block type">
+      <created>1657383796190</created>
+      <option name="number" value="00183" />
+      <option name="presentableId" value="LOCAL-00183" />
       <option name="project" value="LOCAL" />
-      <updated>1649097559292</updated>
+      <updated>1657383796190</updated>
     </task>
-    <task id="LOCAL-00104" summary="Add arcade to game menu">
-      <created>1649106230800</created>
-      <option name="number" value="00104" />
-      <option name="presentableId" value="LOCAL-00104" />
+    <task id="LOCAL-00184" summary="Fix animation">
+      <created>1657384277450</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
       <option name="project" value="LOCAL" />
-      <updated>1649106230800</updated>
+      <updated>1657384277450</updated>
     </task>
-    <task id="LOCAL-00105" summary="Fix incorrect game code">
-      <created>1649106593745</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
+    <task id="LOCAL-00185" summary="Fix animation">
+      <created>1657384288701</created>
+      <option name="number" value="00185" />
+      <option name="presentableId" value="LOCAL-00185" />
       <option name="project" value="LOCAL" />
-      <updated>1649106593746</updated>
+      <updated>1657384288701</updated>
     </task>
-    <task id="LOCAL-00106" summary="Add message when joining and they haven't voted in the active poll">
-      <created>1649199921121</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
+    <task id="LOCAL-00186" summary="Fix animation">
+      <created>1657384376977</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
       <option name="project" value="LOCAL" />
-      <updated>1649199921121</updated>
+      <updated>1657384376977</updated>
     </task>
-    <task id="LOCAL-00107" summary="Fix player bonus rank formatting">
-      <created>1649251196676</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
+    <task id="LOCAL-00187" summary="Fix animation">
+      <created>1657384390480</created>
+      <option name="number" value="00187" />
+      <option name="presentableId" value="LOCAL-00187" />
       <option name="project" value="LOCAL" />
-      <updated>1649251196676</updated>
+      <updated>1657384390480</updated>
     </task>
-    <task id="LOCAL-00108" summary="Fix admin/build/other achievements">
-      <created>1649253464389</created>
-      <option name="number" value="00108" />
-      <option name="presentableId" value="LOCAL-00108" />
+    <task id="LOCAL-00188" summary="Fix animation">
+      <created>1657384435212</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL-00188" />
       <option name="project" value="LOCAL" />
-      <updated>1649253464389</updated>
+      <updated>1657384435212</updated>
     </task>
-    <task id="LOCAL-00109" summary="Change hotpotato name">
-      <created>1649351424376</created>
-      <option name="number" value="00109" />
-      <option name="presentableId" value="LOCAL-00109" />
+    <task id="LOCAL-00189" summary="Make sounds global">
+      <created>1657384854678</created>
+      <option name="number" value="00189" />
+      <option name="presentableId" value="LOCAL-00189" />
       <option name="project" value="LOCAL" />
-      <updated>1649351424376</updated>
+      <updated>1657384854678</updated>
     </task>
-    <task id="LOCAL-00110" summary="Change column IDs for maps">
-      <created>1649351653304</created>
-      <option name="number" value="00110" />
-      <option name="presentableId" value="LOCAL-00110" />
+    <task id="LOCAL-00190" summary="Modify entity radius">
+      <created>1657385092607</created>
+      <option name="number" value="00190" />
+      <option name="presentableId" value="LOCAL-00190" />
       <option name="project" value="LOCAL" />
-      <updated>1649351653304</updated>
+      <updated>1657385092607</updated>
     </task>
-    <task id="LOCAL-00111" summary="Fix NPE">
-      <created>1649372993954</created>
-      <option name="number" value="00111" />
-      <option name="presentableId" value="LOCAL-00111" />
+    <task id="LOCAL-00191" summary="Fix hologram not disappearing">
+      <created>1657388056646</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
       <option name="project" value="LOCAL" />
-      <updated>1649372993954</updated>
+      <updated>1657388056646</updated>
     </task>
-    <task id="LOCAL-00112" summary="Fix issue with join listener">
-      <created>1649373856630</created>
-      <option name="number" value="00112" />
-      <option name="presentableId" value="LOCAL-00112" />
+    <task id="LOCAL-00192" summary="Start diamond animation">
+      <created>1657392632408</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
       <option name="project" value="LOCAL" />
-      <updated>1649373856630</updated>
+      <updated>1657392632408</updated>
     </task>
-    <task id="LOCAL-00113" summary="Add daily bonuses claimed to claimed bonuses">
-      <created>1649530494442</created>
-      <option name="number" value="00113" />
-      <option name="presentableId" value="LOCAL-00113" />
+    <task id="LOCAL-00193" summary="Add sea lantern to structure">
+      <created>1657392671464</created>
+      <option name="number" value="00193" />
+      <option name="presentableId" value="LOCAL-00193" />
       <option name="project" value="LOCAL" />
-      <updated>1649530494442</updated>
+      <updated>1657392671464</updated>
     </task>
-    <task id="LOCAL-00114" summary="Spawn rest of required entities">
-      <created>1649849082240</created>
-      <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL-00114" />
+    <task id="LOCAL-00194" summary="Update stair direction">
+      <created>1657393159162</created>
+      <option name="number" value="00194" />
+      <option name="presentableId" value="LOCAL-00194" />
       <option name="project" value="LOCAL" />
-      <updated>1649849082240</updated>
+      <updated>1657393159162</updated>
     </task>
-    <task id="LOCAL-00115" summary="Update locations of NPCs">
-      <created>1650043375022</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL-00115" />
+    <task id="LOCAL-00195" summary="Add diamond crate animation">
+      <created>1657475067846</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
       <option name="project" value="LOCAL" />
-      <updated>1650043375022</updated>
+      <updated>1657475067846</updated>
     </task>
-    <task id="LOCAL-00116" summary="Fix Crystal Quest not being bold, add Featured Game.">
-      <created>1650043561386</created>
-      <option name="number" value="00116" />
-      <option name="presentableId" value="LOCAL-00116" />
+    <task id="LOCAL-00196" summary="Remove blaze death sound">
+      <created>1657475318231</created>
+      <option name="number" value="00196" />
+      <option name="presentableId" value="LOCAL-00196" />
       <option name="project" value="LOCAL" />
-      <updated>1650043561386</updated>
+      <updated>1657475318231</updated>
     </task>
-    <task id="LOCAL-00117" summary="Fix joining being broken">
-      <created>1650043676975</created>
-      <option name="number" value="00117" />
-      <option name="presentableId" value="LOCAL-00117" />
+    <task id="LOCAL-00197" summary="Move chests 2 blocks lower">
+      <created>1657475364318</created>
+      <option name="number" value="00197" />
+      <option name="presentableId" value="LOCAL-00197" />
       <option name="project" value="LOCAL" />
-      <updated>1650043676975</updated>
+      <updated>1657475364318</updated>
     </task>
-    <task id="LOCAL-00118" summary="Fix joining being broken">
-      <created>1650043837688</created>
-      <option name="number" value="00118" />
-      <option name="presentableId" value="LOCAL-00118" />
+    <task id="LOCAL-00198" summary="Change how structures are generated">
+      <created>1657485715707</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
       <option name="project" value="LOCAL" />
-      <updated>1650043837688</updated>
+      <updated>1657485715707</updated>
     </task>
-    <task id="LOCAL-00119" summary="Move NPC's">
-      <created>1650044140349</created>
-      <option name="number" value="00119" />
-      <option name="presentableId" value="LOCAL-00119" />
+    <task id="LOCAL-00199" summary="FIx slight issue">
+      <created>1657486123315</created>
+      <option name="number" value="00199" />
+      <option name="presentableId" value="LOCAL-00199" />
       <option name="project" value="LOCAL" />
-      <updated>1650044140349</updated>
+      <updated>1657486123315</updated>
     </task>
-    <task id="LOCAL-00120" summary="Change how entity name is displayed">
-      <created>1650047978819</created>
-      <option name="number" value="00120" />
-      <option name="presentableId" value="LOCAL-00120" />
+    <task id="LOCAL-00200" summary="Fix issue">
+      <created>1657486902635</created>
+      <option name="number" value="00200" />
+      <option name="presentableId" value="LOCAL-00200" />
       <option name="project" value="LOCAL" />
-      <updated>1650047978819</updated>
+      <updated>1657486902635</updated>
     </task>
-    <task id="LOCAL-00121" summary="Spread out entities, fix formatting">
-      <created>1650048180706</created>
-      <option name="number" value="00121" />
-      <option name="presentableId" value="LOCAL-00121" />
+    <task id="LOCAL-00201" summary="Fix emerald structure">
+      <created>1657487911455</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
       <option name="project" value="LOCAL" />
-      <updated>1650048180707</updated>
+      <updated>1657487911455</updated>
     </task>
-    <task id="LOCAL-00122" summary="Add version numbers to suffix">
-      <created>1650048350267</created>
-      <option name="number" value="00122" />
-      <option name="presentableId" value="LOCAL-00122" />
+    <task id="LOCAL-00202" summary="Fix sounds with Diamond crate, add chest animation for emerald crate">
+      <created>1657488766130</created>
+      <option name="number" value="00202" />
+      <option name="presentableId" value="LOCAL-00202" />
       <option name="project" value="LOCAL" />
-      <updated>1650048350267</updated>
+      <updated>1657488766130</updated>
     </task>
-    <task id="LOCAL-00123" summary="Trim version numbers, fix formatting">
-      <created>1650048490355</created>
-      <option name="number" value="00123" />
-      <option name="presentableId" value="LOCAL-00123" />
+    <task id="LOCAL-00203" summary="Fix structure generation">
+      <created>1657489027740</created>
+      <option name="number" value="00203" />
+      <option name="presentableId" value="LOCAL-00203" />
       <option name="project" value="LOCAL" />
-      <updated>1650048490355</updated>
+      <updated>1657489027740</updated>
     </task>
-    <task id="LOCAL-00124" summary="Change formatting">
-      <created>1650048964485</created>
-      <option name="number" value="00124" />
-      <option name="presentableId" value="LOCAL-00124" />
+    <task id="LOCAL-00204" summary="FIx water">
+      <created>1657489375312</created>
+      <option name="number" value="00204" />
+      <option name="presentableId" value="LOCAL-00204" />
       <option name="project" value="LOCAL" />
-      <updated>1650048964485</updated>
+      <updated>1657489375312</updated>
     </task>
-    <task id="LOCAL-00125" summary="CHange entity locations">
-      <created>1650049502715</created>
-      <option name="number" value="00125" />
-      <option name="presentableId" value="LOCAL-00125" />
+    <task id="LOCAL-00205" summary="Fix chest locations">
+      <created>1657489543770</created>
+      <option name="number" value="00205" />
+      <option name="presentableId" value="LOCAL-00205" />
       <option name="project" value="LOCAL" />
-      <updated>1650049502715</updated>
+      <updated>1657489543770</updated>
     </task>
-    <task id="LOCAL-00126" summary="Change skins">
-      <created>1650051331438</created>
-      <option name="number" value="00126" />
-      <option name="presentableId" value="LOCAL-00126" />
+    <task id="LOCAL-00206" summary="Fix water Z">
+      <created>1657489597852</created>
+      <option name="number" value="00206" />
+      <option name="presentableId" value="LOCAL-00206" />
       <option name="project" value="LOCAL" />
-      <updated>1650051331438</updated>
+      <updated>1657489597852</updated>
     </task>
-    <task id="LOCAL-00127" summary="Update paintball skin">
-      <created>1650119812814</created>
-      <option name="number" value="00127" />
-      <option name="presentableId" value="LOCAL-00127" />
+    <task id="LOCAL-00207" summary="Change timings">
+      <created>1657489785548</created>
+      <option name="number" value="00207" />
+      <option name="presentableId" value="LOCAL-00207" />
       <option name="project" value="LOCAL" />
-      <updated>1650119812815</updated>
+      <updated>1657489785548</updated>
     </task>
-    <task id="LOCAL-00128" summary="Fix lots of errors">
-      <created>1650383271100</created>
-      <option name="number" value="00128" />
-      <option name="presentableId" value="LOCAL-00128" />
+    <task id="LOCAL-00208" summary="Allow chests to be opened">
+      <created>1657497008495</created>
+      <option name="number" value="00208" />
+      <option name="presentableId" value="LOCAL-00208" />
       <option name="project" value="LOCAL" />
-      <updated>1650383271100</updated>
+      <updated>1657497008495</updated>
     </task>
-    <task id="LOCAL-00129" summary="Update core">
-      <created>1650541889733</created>
-      <option name="number" value="00129" />
-      <option name="presentableId" value="LOCAL-00129" />
+    <task id="LOCAL-00209" summary="FIx lobby">
+      <created>1657497236990</created>
+      <option name="number" value="00209" />
+      <option name="presentableId" value="LOCAL-00209" />
       <option name="project" value="LOCAL" />
-      <updated>1650541889733</updated>
+      <updated>1657497236990</updated>
     </task>
-    <task id="LOCAL-00130" summary="Stop disguised staff being punchable">
-      <created>1650569780122</created>
-      <option name="number" value="00130" />
-      <option name="presentableId" value="LOCAL-00130" />
+    <task id="LOCAL-00210" summary="FIx locations, fix structure">
+      <created>1657497786320</created>
+      <option name="number" value="00210" />
+      <option name="presentableId" value="LOCAL-00210" />
       <option name="project" value="LOCAL" />
-      <updated>1650569780122</updated>
+      <updated>1657497786320</updated>
     </task>
-    <task id="LOCAL-00131" summary="Add lobby border">
-      <created>1650573989840</created>
-      <option name="number" value="00131" />
-      <option name="presentableId" value="LOCAL-00131" />
+    <task id="LOCAL-00211" summary="FIx structure">
+      <created>1657498010838</created>
+      <option name="number" value="00211" />
+      <option name="presentableId" value="LOCAL-00211" />
       <option name="project" value="LOCAL" />
-      <updated>1650573989840</updated>
+      <updated>1657498010838</updated>
     </task>
-    <task id="LOCAL-00132" summary="Implement gadgets">
-      <created>1650659478492</created>
-      <option name="number" value="00132" />
-      <option name="presentableId" value="LOCAL-00132" />
+    <task id="LOCAL-00212" summary="Fix structure, fix being able to open more than 1 chest">
+      <created>1657498311777</created>
+      <option name="number" value="00212" />
+      <option name="presentableId" value="LOCAL-00212" />
       <option name="project" value="LOCAL" />
-      <updated>1650659478492</updated>
+      <updated>1657498311777</updated>
     </task>
-    <task id="LOCAL-00133" summary="add core as dependency">
-      <created>1650715993213</created>
-      <option name="number" value="00133" />
-      <option name="presentableId" value="LOCAL-00133" />
+    <task id="LOCAL-00213" summary="Attempt fix at finishing opening properly">
+      <created>1657498554075</created>
+      <option name="number" value="00213" />
+      <option name="presentableId" value="LOCAL-00213" />
       <option name="project" value="LOCAL" />
-      <updated>1650715993213</updated>
+      <updated>1657498554075</updated>
     </task>
-    <option name="localTasksCounter" value="134" />
+    <option name="localTasksCounter" value="214" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -607,31 +672,31 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix admin/build/other achievements" />
-    <MESSAGE value="Change hotpotato name" />
-    <MESSAGE value="Change column IDs for maps" />
-    <MESSAGE value="Fix NPE" />
-    <MESSAGE value="Fix issue with join listener" />
-    <MESSAGE value="Add daily bonuses claimed to claimed bonuses" />
-    <MESSAGE value="Spawn rest of required entities" />
-    <MESSAGE value="Update locations of NPCs" />
-    <MESSAGE value="Fix Crystal Quest not being bold, add Featured Game." />
-    <MESSAGE value="Fix joining being broken" />
-    <MESSAGE value="Move NPC's" />
-    <MESSAGE value="Change how entity name is displayed" />
-    <MESSAGE value="Spread out entities, fix formatting" />
-    <MESSAGE value="Add version numbers to suffix" />
-    <MESSAGE value="Trim version numbers, fix formatting" />
-    <MESSAGE value="Change formatting" />
-    <MESSAGE value="CHange entity locations" />
-    <MESSAGE value="Change skins" />
-    <MESSAGE value="Update paintball skin" />
-    <MESSAGE value="Fix lots of errors" />
-    <MESSAGE value="Update core" />
-    <MESSAGE value="Stop disguised staff being punchable" />
-    <MESSAGE value="Add lobby border" />
-    <MESSAGE value="Implement gadgets" />
-    <MESSAGE value="add core as dependency" />
-    <option name="LAST_COMMIT_MESSAGE" value="add core as dependency" />
+    <MESSAGE value="Make sounds global" />
+    <MESSAGE value="Modify entity radius" />
+    <MESSAGE value="Fix hologram not disappearing" />
+    <MESSAGE value="Start diamond animation" />
+    <MESSAGE value="Add sea lantern to structure" />
+    <MESSAGE value="Update stair direction" />
+    <MESSAGE value="Add diamond crate animation" />
+    <MESSAGE value="Remove blaze death sound" />
+    <MESSAGE value="Move chests 2 blocks lower" />
+    <MESSAGE value="Change how structures are generated" />
+    <MESSAGE value="FIx slight issue" />
+    <MESSAGE value="Fix issue" />
+    <MESSAGE value="Fix emerald structure" />
+    <MESSAGE value="Fix sounds with Diamond crate, add chest animation for emerald crate" />
+    <MESSAGE value="Fix structure generation" />
+    <MESSAGE value="FIx water" />
+    <MESSAGE value="Fix chest locations" />
+    <MESSAGE value="Fix water Z" />
+    <MESSAGE value="Change timings" />
+    <MESSAGE value="Allow chests to be opened" />
+    <MESSAGE value="FIx lobby" />
+    <MESSAGE value="FIx locations, fix structure" />
+    <MESSAGE value="FIx structure" />
+    <MESSAGE value="Fix structure, fix being able to open more than 1 chest" />
+    <MESSAGE value="Attempt fix at finishing opening properly" />
+    <option name="LAST_COMMIT_MESSAGE" value="Attempt fix at finishing opening properly" />
   </component>
 </project>

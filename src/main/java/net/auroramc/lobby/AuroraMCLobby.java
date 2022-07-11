@@ -31,13 +31,7 @@ public class AuroraMCLobby extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        Bukkit.getPluginManager().registerEvents(new ShutdownEventListener(), this);
-        Bukkit.getPluginManager().registerEvents(new JoinListener(), this);
-        Bukkit.getPluginManager().registerEvents(new WorldListener(), this);
-        Bukkit.getPluginManager().registerEvents(new LobbyListener(), this);
-        Bukkit.getPluginManager().registerEvents(new ProtocolListener(), this);
-        Bukkit.getPluginManager().registerEvents(new LeaveListener(), this);
-        Bukkit.getPluginManager().registerEvents(new FakePlayerListener(), this);
+
 
         LobbyAPI.init(this);
 
@@ -62,7 +56,7 @@ public class AuroraMCLobby extends JavaPlugin {
         File region = new File(mapFolder, "region");
         region.mkdirs();
         try {
-            ZipUtil.unzip(getDataFolder().toPath().toAbsolutePath() + "/zip/22.zip", region.toPath().toAbsolutePath().toString());
+            ZipUtil.unzip(getDataFolder().toPath().toAbsolutePath() + "/zip/54.zip", region.toPath().toAbsolutePath().toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -88,6 +82,16 @@ public class AuroraMCLobby extends JavaPlugin {
         LobbyAPI.setLobbyMap(new LobbyMap(id, name, author, jsonObject));
         LobbyAPI.loadVersionNumbers();
         LobbyAPI.loadGameServers();
+
+        Bukkit.getPluginManager().registerEvents(new ShutdownEventListener(), this);
+        Bukkit.getPluginManager().registerEvents(new JoinListener(), this);
+        Bukkit.getPluginManager().registerEvents(new WorldListener(), this);
+        Bukkit.getPluginManager().registerEvents(new LobbyListener(), this);
+        Bukkit.getPluginManager().registerEvents(new ProtocolListener(), this);
+        Bukkit.getPluginManager().registerEvents(new LeaveListener(), this);
+        Bukkit.getPluginManager().registerEvents(new FakePlayerListener(), this);
+
+
         new UpdateServersRunnable().runTaskTimer(AuroraMCAPI.getCore(), 20, 100);
         new UpdateDataRunnable().runTaskTimer(AuroraMCAPI.getCore(), 0, 20);
         new UpdatePollRunnable().runTaskTimer(AuroraMCAPI.getCore(), 36400, 36400);
