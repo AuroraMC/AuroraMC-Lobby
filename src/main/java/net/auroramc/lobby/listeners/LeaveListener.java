@@ -65,6 +65,7 @@ public class LeaveListener implements Listener {
             stand.setMarker(true);
             stand.setGravity(false);
             LobbyAPI.setChestStand(stand);
+            LobbyAPI.finishOpen();
         }
     }
 

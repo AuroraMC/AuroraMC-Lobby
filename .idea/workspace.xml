@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix stuff" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Handle player leaving while crate is in progress">
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -311,28 +313,7 @@
       <workItem from="1657500951448" duration="85000" />
       <workItem from="1657532167425" duration="601000" />
       <workItem from="1657533377201" duration="9000" />
-      <workItem from="1657534841864" duration="2142000" />
-    </task>
-    <task id="LOCAL-00173" summary="Start gold animation">
-      <created>1657381923274</created>
-      <option name="number" value="00173" />
-      <option name="presentableId" value="LOCAL-00173" />
-      <option name="project" value="LOCAL" />
-      <updated>1657381923275</updated>
-    </task>
-    <task id="LOCAL-00174" summary="Testing a theory">
-      <created>1657382041504</created>
-      <option name="number" value="00174" />
-      <option name="presentableId" value="LOCAL-00174" />
-      <option name="project" value="LOCAL" />
-      <updated>1657382041505</updated>
-    </task>
-    <task id="LOCAL-00175" summary="Fix platform">
-      <created>1657382185695</created>
-      <option name="number" value="00175" />
-      <option name="presentableId" value="LOCAL-00175" />
-      <option name="project" value="LOCAL" />
-      <updated>1657382185695</updated>
+      <workItem from="1657534841864" duration="2450000" />
     </task>
     <task id="LOCAL-00176" summary="Test">
       <created>1657382281538</created>
@@ -656,7 +637,28 @@
       <option name="project" value="LOCAL" />
       <updated>1657536877458</updated>
     </task>
-    <option name="localTasksCounter" value="222" />
+    <task id="LOCAL-00222" summary="Change radius, center co-ords">
+      <created>1657537056558</created>
+      <option name="number" value="00222" />
+      <option name="presentableId" value="LOCAL-00222" />
+      <option name="project" value="LOCAL" />
+      <updated>1657537056558</updated>
+    </task>
+    <task id="LOCAL-00223" summary="Handle player leaving while crate is in progress">
+      <created>1657537296738</created>
+      <option name="number" value="00223" />
+      <option name="presentableId" value="LOCAL-00223" />
+      <option name="project" value="LOCAL" />
+      <updated>1657537296738</updated>
+    </task>
+    <task id="LOCAL-00224" summary="Handle player leaving while crate is in progress">
+      <created>1657537303623</created>
+      <option name="number" value="00224" />
+      <option name="presentableId" value="LOCAL-00224" />
+      <option name="project" value="LOCAL" />
+      <updated>1657537303623</updated>
+    </task>
+    <option name="localTasksCounter" value="225" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -674,8 +676,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Move chests 2 blocks lower" />
-    <MESSAGE value="Change how structures are generated" />
     <MESSAGE value="FIx slight issue" />
     <MESSAGE value="Fix issue" />
     <MESSAGE value="Fix emerald structure" />
@@ -699,6 +699,8 @@
     <MESSAGE value="Move item downwards slightly" />
     <MESSAGE value="Attempt to stop player leaving area" />
     <MESSAGE value="Fix stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix stuff" />
+    <MESSAGE value="Change radius, center co-ords" />
+    <MESSAGE value="Handle player leaving while crate is in progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="Handle player leaving while crate is in progress" />
   </component>
 </project>
