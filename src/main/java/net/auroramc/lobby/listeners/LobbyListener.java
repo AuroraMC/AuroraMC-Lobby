@@ -280,7 +280,7 @@ public class LobbyListener implements Listener {
                                     int i = 0;
                                     @Override
                                     public void run() {
-                                        Location location = block.getLocation();
+                                        Location location = block.getLocation().add(0.5, 0, 0.5);;
                                         org.bukkit.entity.Firework firework = location.getWorld().spawn(location, org.bukkit.entity.Firework.class);
                                         FireworkMeta meta = firework.getFireworkMeta();
                                         meta.setPower(0);
