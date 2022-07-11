@@ -766,7 +766,7 @@ public class LobbyListener implements Listener {
             int z = crateLocation.getInt("z");
             Location location = new Location(Bukkit.getWorld("world"), x + 0.5, y, z + 0.5);
             if (Math.abs(e.getTo().getX() - location.getX()) > 4 || Math.abs(e.getTo().getZ() - location.getZ()) > 4 || Math.abs(e.getTo().getY() - location.getY()) > 4) {
-                e.setCancelled(true);
+                e.getPlayer().teleport(location);
             }
         } else if (LobbyAPI.getCratePlayer() != null) {
             JSONObject crateLocation = LobbyAPI.getLobbyMap().getMapData().getJSONObject("game").getJSONArray("CRATE").getJSONObject(0);
