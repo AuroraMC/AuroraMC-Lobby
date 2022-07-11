@@ -110,6 +110,7 @@ public class EmeraldCrateMenu extends GUI {
                     }
                 }
                 location.getBlock().setType(Material.AIR);
+                player.getPlayer().teleport(location);
                 Location loc = new Location(location.getWorld(), location.getX() - 3, location.getY() - 1, location.getZ() - 3);
 
                 new BukkitRunnable(){

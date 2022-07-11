@@ -758,6 +758,26 @@ public class LobbyListener implements Listener {
             }
         } else if (!e.getPlayer().getAllowFlight() && (new Location(e.getTo().getWorld(), e.getTo().getX(), e.getTo().getY() - 1, e.getTo().getZ())).getBlock().getType() != Material.AIR) {
             e.getPlayer().setAllowFlight(true);
+        } else if (LobbyAPI.getCratePlayer() != null && e.getPlayer().equals(LobbyAPI.getCratePlayer().getPlayer())) {
+            JSONObject crateLocation = LobbyAPI.getLobbyMap().getMapData().getJSONObject("game").getJSONArray("CRATE").getJSONObject(0);
+            int x = crateLocation.getInt("x");
+            int y = crateLocation.getInt("y");
+            int z = crateLocation.getInt("z");
+            Location location = new Location(Bukkit.getWorld("world"), x, y, z);
+            if (Math.abs(e.getTo().getX() - location.getX()) > 3 && Math.abs(e.getTo().getZ() - location.getZ()) > 3 && Math.abs(e.getTo().getY() - location.getY()) > 3) {
+                e.setCancelled(true);
+            }
+        } else if (LobbyAPI.getCratePlayer() != null) {
+            JSONObject crateLocation = LobbyAPI.getLobbyMap().getMapData().getJSONObject("game").getJSONArray("CRATE").getJSONObject(0);
+            int x = crateLocation.getInt("x");
+            int y = crateLocation.getInt("y");
+            int z = crateLocation.getInt("z");
+            Location location = new Location(Bukkit.getWorld("world"), x, y, z);
+            if (Math.abs(e.getTo().getX() - location.getX()) <= 3 && Math.abs(e.getTo().getZ() - location.getZ()) <= 3 && Math.abs(e.getTo().getY() - location.getY()) <= 3) {
+                Vector vector = location.toVector().subtract(e.getPlayer().getLocation().toVector()).setY(4);
+                e.getPlayer().setVelocity(vector.normalize().multiply(1.5));
+                e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.CHICKEN_EGG_POP, 100, 1);
+            }
         }
     }
 }
