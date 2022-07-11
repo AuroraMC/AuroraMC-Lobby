@@ -211,12 +211,15 @@ public class LobbyListener implements Listener {
                 for (Player player : Bukkit.getOnlinePlayers()) {
                     ((CraftPlayer)player).getHandle().playerConnection.sendPacket(packet);
                 }
+                AuroraMCPlayer cratePlayer = LobbyAPI.getCratePlayer();
                 Crate.CrateReward reward = LobbyAPI.getCurrentCrate().open(LobbyAPI.getCratePlayer());
                 if (reward.getCosmetic() != null) {
-                    Item item = block.getLocation().getWorld().dropItem(block.getLocation().clone().add(0, 1, 0), new ItemStack(reward.getCosmetic().getMaterial(), 1, reward.getCosmetic().getData()));
+                    Location loc2 = block.getLocation().clone();
+                    loc2.setY(loc2.getY() + 1);
+                    Item item = block.getLocation().getWorld().dropItem(loc2, new ItemStack(reward.getCosmetic().getMaterial(), 1, reward.getCosmetic().getData()));
                     item.setPickupDelay(1000000);
                     Location location = block.getLocation().clone();
-                    location.setY(location.getY() + 0.5);
+                    location.setY(location.getY() + 1.5);
                     location.setX(location.getX() + 0.5);
                     location.setZ(location.getZ() + 0.5);
                     ArmorStand stand = location.getWorld().spawn(location, ArmorStand.class);
@@ -226,20 +229,20 @@ public class LobbyListener implements Listener {
                     stand.setSmall(true);
                     stand.setMarker(true);
                     stand.setGravity(false);
-                    LobbyAPI.getCratePlayer().getUnlockedCosmetics().add(reward.getCosmetic());
+                    cratePlayer.getUnlockedCosmetics().add(reward.getCosmetic());
                     new BukkitRunnable(){
                         @Override
                         public void run() {
-                            AuroraMCAPI.getDbManager().addCosmetic(LobbyAPI.getCratePlayer().getPlayer().getUniqueId(), reward.getCosmetic());
+                            AuroraMCAPI.getDbManager().addCosmetic(cratePlayer.getPlayer().getUniqueId(), reward.getCosmetic());
                         }
                     }.runTaskAsynchronously(AuroraMCAPI.getCore());
                     switch (reward.getCosmetic().getRarity()) {
                         case COMMON: {
-                            LobbyAPI.getCratePlayer().getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "You just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)"));
+                            cratePlayer.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "You just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)"));
                             break;
                         }
                         case UNCOMMON: {
-                            LobbyAPI.getCratePlayer().getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "You just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)"));
+                            cratePlayer.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "You just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)"));
                             Location loc = block.getLocation();
                             org.bukkit.entity.Firework firework = loc.getWorld().spawn(loc, org.bukkit.entity.Firework.class);
                             FireworkMeta meta = firework.getFireworkMeta();
@@ -255,7 +258,7 @@ public class LobbyListener implements Listener {
                             break;
                         }
                         case RARE: {
-                            LobbyAPI.getCratePlayer().getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "You just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)"));
+                            cratePlayer.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "You just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)"));
                             Location loc = block.getLocation();
                             org.bukkit.entity.Firework firework = loc.getWorld().spawn(loc, org.bukkit.entity.Firework.class);
                             FireworkMeta meta = firework.getFireworkMeta();
@@ -272,7 +275,7 @@ public class LobbyListener implements Listener {
                         }
                         case EPIC: {
                             for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
-                                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + LobbyAPI.getCratePlayer().getPlayer().getName() + "** just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)"));
+                                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + cratePlayer.getPlayer().getName() + "** just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)"));
                                 player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.PORTAL_TRAVEL, 100, 0);
                                 new BukkitRunnable(){
                                     int i = 0;
@@ -301,7 +304,7 @@ public class LobbyListener implements Listener {
                         }
                         case LEGENDARY: {
                             for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
-                                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + LobbyAPI.getCratePlayer().getPlayer().getName() + "** just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)"));
+                                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + cratePlayer.getPlayer().getName() + "** just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)"));
                                 player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ENDERDRAGON_GROWL, 100, 0);
                             }
                             new BukkitRunnable(){
@@ -330,7 +333,7 @@ public class LobbyListener implements Listener {
                         }
                         case MYTHICAL: {
                             for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
-                                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + LobbyAPI.getCratePlayer().getPlayer().getName() + "** just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)"));
+                                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + cratePlayer.getPlayer().getName() + "** just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)"));
                                 player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ENDERDRAGON_DEATH, 100, 0);
                             }
                             new BukkitRunnable(){
@@ -417,7 +420,7 @@ public class LobbyListener implements Listener {
                     stand.setMarker(true);
                     stand.setGravity(false);
                     for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
-                        player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + LobbyAPI.getCratePlayer().getPlayer().getName() + "** just found &" + reward.getRank().getPrefixColor() + reward.getRank().getName() + " Rank** (**" + Cosmetic.Rarity.MYTHICAL.getDisplayName() + "**)"));
+                        player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + cratePlayer.getPlayer().getName() + "** just found &" + reward.getRank().getPrefixColor() + reward.getRank().getName() + " Rank** (**" + Cosmetic.Rarity.MYTHICAL.getDisplayName() + "**)"));
                         player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ENDERDRAGON_DEATH, 100, 0);
                     }
                     new BukkitRunnable(){
@@ -487,9 +490,11 @@ public class LobbyListener implements Listener {
 
                         }
                     }.runTaskLater(AuroraMCAPI.getCore(), 200);
+
                 } else {
 
                 }
+                LobbyAPI.finishOpen();
                 e.setCancelled(true);
                 return;
             }
