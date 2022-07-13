@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix epic firework location">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Stop players in a crate opening being affected by forcefields, limit /crate to 50 crates at a time">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/commands/admin/CommandCrate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/commands/admin/CommandCrate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -319,14 +319,8 @@
       <workItem from="1657539174172" duration="19000" />
       <workItem from="1657542560817" duration="258000" />
       <workItem from="1657543245088" duration="1150000" />
-      <workItem from="1657702702533" duration="1243000" />
-    </task>
-    <task id="LOCAL-00183" summary="Change block type">
-      <created>1657383796190</created>
-      <option name="number" value="00183" />
-      <option name="presentableId" value="LOCAL-00183" />
-      <option name="project" value="LOCAL" />
-      <updated>1657383796190</updated>
+      <workItem from="1657702702533" duration="1633000" />
+      <workItem from="1657706397054" duration="20000" />
     </task>
     <task id="LOCAL-00184" summary="Fix animation">
       <created>1657384277450</created>
@@ -664,7 +658,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657543801699</updated>
     </task>
-    <option name="localTasksCounter" value="232" />
+    <task id="LOCAL-00232" summary="Stop players in a crate opening being affected by forcefields, limit /crate to 50 crates at a time">
+      <created>1657705945169</created>
+      <option name="number" value="00232" />
+      <option name="presentableId" value="LOCAL-00232" />
+      <option name="project" value="LOCAL" />
+      <updated>1657705945170</updated>
+    </task>
+    <option name="localTasksCounter" value="233" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -682,7 +683,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix chest locations" />
     <MESSAGE value="Fix water Z" />
     <MESSAGE value="Change timings" />
     <MESSAGE value="Allow chests to be opened" />
@@ -707,6 +707,7 @@
     <MESSAGE value="Move firework to center" />
     <MESSAGE value="Teleport to middle when leaving area" />
     <MESSAGE value="Fix epic firework location" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix epic firework location" />
+    <MESSAGE value="Stop players in a crate opening being affected by forcefields, limit /crate to 50 crates at a time" />
+    <option name="LAST_COMMIT_MESSAGE" value="Stop players in a crate opening being affected by forcefields, limit /crate to 50 crates at a time" />
   </component>
 </project>

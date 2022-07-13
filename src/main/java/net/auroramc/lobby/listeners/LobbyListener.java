@@ -4,6 +4,8 @@
 
 package net.auroramc.lobby.listeners;
 
+import com.google.common.io.ByteArrayDataOutput;
+import com.google.common.io.ByteStreams;
 import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.core.api.cosmetics.Cosmetic;
 import net.auroramc.core.api.cosmetics.Crate;
@@ -423,6 +425,13 @@ public class LobbyListener implements Listener {
                         player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + cratePlayer.getPlayer().getName() + "** just found &" + reward.getRank().getPrefixColor() + reward.getRank().getName() + " Rank** (**" + Cosmetic.Rarity.MYTHICAL.getDisplayName() + "**)"));
                         player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ENDERDRAGON_DEATH, 100, 0);
                     }
+                    cratePlayer.setRank(reward.getRank());
+                    new BukkitRunnable() {
+                        @Override
+                        public void run() {
+                            AuroraMCAPI.getDbManager().setRank(cratePlayer, reward.getRank());
+                        }
+                    }.runTaskAsynchronously(AuroraMCAPI.getCore());
                     new BukkitRunnable(){
                         int i = 0;
                         @Override
@@ -510,6 +519,11 @@ public class LobbyListener implements Listener {
                         player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + cratePlayer.getPlayer().getName() + "** just found &b" + reward.getPlusDays() + " Plus Days** (**" + Cosmetic.Rarity.MYTHICAL.getDisplayName() + "**)"));
                         player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ENDERDRAGON_DEATH, 100, 0);
                     }
+                    ByteArrayDataOutput out = ByteStreams.newDataOutput();
+                    out.writeUTF("AddPlusDays");
+                    out.writeUTF(cratePlayer.getName());
+                    out.writeInt(reward.getPlusDays());
+                    cratePlayer.getPlayer().sendPluginMessage(AuroraMCAPI.getCore(), "BungeeCord", out.toByteArray());
                     new BukkitRunnable(){
                         int i = 0;
                         @Override
