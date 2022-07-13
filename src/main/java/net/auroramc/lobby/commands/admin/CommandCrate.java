@@ -46,12 +46,12 @@ public class CommandCrate extends Command {
                     try {
                         amount = Integer.parseInt(args.get(2));
                     } catch (NumberFormatException e) {
-                        player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "That is not a valid amount."));
+                        player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "That is not a valid amount. You must choose a number between 1 and 50."));
                         return;
                     }
 
-                    if (amount < 1) {
-                        player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "That is not a valid amount."));
+                    if (amount < 1 || amount > 50) {
+                        player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "That is not a valid amount. You must choose a number between 1 and 50."));
                         return;
                     }
 

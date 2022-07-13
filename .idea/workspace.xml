@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Teleport to middle when leaving area" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix epic firework location">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/commands/admin/CommandCrate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/commands/admin/CommandCrate.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -315,14 +318,8 @@
       <workItem from="1657538011328" duration="552000" />
       <workItem from="1657539174172" duration="19000" />
       <workItem from="1657542560817" duration="258000" />
-      <workItem from="1657543245088" duration="376000" />
-    </task>
-    <task id="LOCAL-00182" summary="Modify timings">
-      <created>1657383691087</created>
-      <option name="number" value="00182" />
-      <option name="presentableId" value="LOCAL-00182" />
-      <option name="project" value="LOCAL" />
-      <updated>1657383691087</updated>
+      <workItem from="1657543245088" duration="1150000" />
+      <workItem from="1657702702533" duration="1243000" />
     </task>
     <task id="LOCAL-00183" summary="Change block type">
       <created>1657383796190</created>
@@ -660,7 +657,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657543436849</updated>
     </task>
-    <option name="localTasksCounter" value="231" />
+    <task id="LOCAL-00231" summary="Fix epic firework location">
+      <created>1657543801699</created>
+      <option name="number" value="00231" />
+      <option name="presentableId" value="LOCAL-00231" />
+      <option name="project" value="LOCAL" />
+      <updated>1657543801699</updated>
+    </task>
+    <option name="localTasksCounter" value="232" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -678,7 +682,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="FIx water" />
     <MESSAGE value="Fix chest locations" />
     <MESSAGE value="Fix water Z" />
     <MESSAGE value="Change timings" />
@@ -703,6 +706,7 @@
     <MESSAGE value="Fix emerald crate" />
     <MESSAGE value="Move firework to center" />
     <MESSAGE value="Teleport to middle when leaving area" />
-    <option name="LAST_COMMIT_MESSAGE" value="Teleport to middle when leaving area" />
+    <MESSAGE value="Fix epic firework location" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix epic firework location" />
   </component>
 </project>

@@ -5,6 +5,7 @@
 package net.auroramc.lobby.api.util;
 
 import net.auroramc.core.api.AuroraMCAPI;
+import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
@@ -29,7 +30,7 @@ public class CheckForcefieldRunnable extends BukkitRunnable {
         for (Entity entity : players) {
             AuroraMCLobbyPlayer moved = (AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer(player.getPlayer());
             AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer((Player) entity);
-            if (player.getPreferences().isHubForcefieldEnabled() && !moved.getPreferences().isIgnoreHubKnockbackEnabled()) {
+            if (player.getPreferences().isHubForcefieldEnabled() && (LobbyAPI.getCratePlayer() == null || LobbyAPI.getCratePlayer().getPlayer().equals(moved.getPlayer())) && !moved.getPreferences().isIgnoreHubKnockbackEnabled()) {
                 Vector vector = this.player.getPlayer().getLocation().toVector().subtract(player.getPlayer().getLocation().toVector()).setY(4);
                 if (vector.getX() > -0.5 && vector.getX() < 0.5) {
                     vector.setX(4);
@@ -39,7 +40,7 @@ public class CheckForcefieldRunnable extends BukkitRunnable {
                 }
                 this.player.getPlayer().setVelocity(vector.normalize().multiply(1.5));
                 this.player.getPlayer().playSound(this.player.getPlayer().getLocation(), Sound.CHICKEN_EGG_POP, 100, 1);
-            } else if (moved.getPreferences().isHubForcefieldEnabled() && !player.getPreferences().isIgnoreHubKnockbackEnabled()) {
+            } else if (moved.getPreferences().isHubForcefieldEnabled() && (LobbyAPI.getCratePlayer() == null || LobbyAPI.getCratePlayer().getPlayer().equals(player.getPlayer())) && !player.getPreferences().isIgnoreHubKnockbackEnabled()) {
                 Vector vector = player.getPlayer().getLocation().toVector().subtract(this.player.getPlayer().getPlayer().getLocation().toVector()).setY(4);
                 if (vector.getX() > -0.5 && vector.getX() < 0.5) {
                     vector.setX(4);
