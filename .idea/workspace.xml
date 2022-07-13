@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Ranks and plus days now apply correctly">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Implement monthly bonuses">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/players/AuroraMCLobbyPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/players/AuroraMCLobbyPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/TheMonke.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/TheMonke.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -323,14 +322,8 @@
       <workItem from="1657702702533" duration="1633000" />
       <workItem from="1657706397054" duration="20000" />
       <workItem from="1657706437591" duration="77000" />
-      <workItem from="1657706838096" duration="663000" />
-    </task>
-    <task id="LOCAL-00185" summary="Fix animation">
-      <created>1657384288701</created>
-      <option name="number" value="00185" />
-      <option name="presentableId" value="LOCAL-00185" />
-      <option name="project" value="LOCAL" />
-      <updated>1657384288701</updated>
+      <workItem from="1657706838096" duration="2454000" />
+      <workItem from="1657714827175" duration="31000" />
     </task>
     <task id="LOCAL-00186" summary="Fix animation">
       <created>1657384376977</created>
@@ -668,7 +661,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657706508371</updated>
     </task>
-    <option name="localTasksCounter" value="234" />
+    <task id="LOCAL-00234" summary="Implement monthly bonuses">
+      <created>1657707514070</created>
+      <option name="number" value="00234" />
+      <option name="presentableId" value="LOCAL-00234" />
+      <option name="project" value="LOCAL" />
+      <updated>1657707514070</updated>
+    </task>
+    <option name="localTasksCounter" value="235" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -686,7 +686,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Change timings" />
     <MESSAGE value="Allow chests to be opened" />
     <MESSAGE value="FIx lobby" />
     <MESSAGE value="FIx locations, fix structure" />
@@ -711,6 +710,7 @@
     <MESSAGE value="Fix epic firework location" />
     <MESSAGE value="Stop players in a crate opening being affected by forcefields, limit /crate to 50 crates at a time" />
     <MESSAGE value="Ranks and plus days now apply correctly" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ranks and plus days now apply correctly" />
+    <MESSAGE value="Implement monthly bonuses" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement monthly bonuses" />
   </component>
 </project>

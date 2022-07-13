@@ -46,7 +46,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
         moved = false;
         crates = AuroraMCAPI.getDbManager().getCrates(this.getId());
 
-        if (oldPlayer.getPreferences().isHubForcefieldEnabled()) {
+        if (oldPlayer.getPreferences().isHubForcefieldEnabled() && (oldPlayer.hasPermission("social") || oldPlayer.hasPermission("admin"))) {
             this.runnable = new CheckForcefieldRunnable(this);
             this.runnable.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
         } else {
