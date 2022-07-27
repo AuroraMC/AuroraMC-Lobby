@@ -31,6 +31,7 @@ import org.bukkit.block.BlockState;
 import org.bukkit.craftbukkit.v1_8_R3.block.CraftBlock;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.*;
+import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -603,9 +604,6 @@ public class LobbyListener implements Listener {
                     AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer(e.getPlayer());
                     if (player.getActiveCosmetics().containsKey(Cosmetic.CosmeticType.GADGET)) {
                         Gadget gadget = (Gadget) player.getActiveCosmetics().get(Cosmetic.CosmeticType.GADGET);
-                        if (gadget.getId() == 801) {
-                            e.setCancelled(false);
-                        }
                         if (System.currentTimeMillis() - player.getLastUsed().getOrDefault(gadget, 0L) < gadget.getCooldown() * 1000L) {
                             double amount = ((player.getLastUsed().getOrDefault(gadget, 0L) + (gadget.getCooldown() * 1000L)) - System.currentTimeMillis()) / 100d;
                             long amount1 = Math.round(amount);
@@ -613,6 +611,8 @@ public class LobbyListener implements Listener {
                                 amount1 = 0;
                             }
                             player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Gadgets", "You cannot use this gadget for **" + (amount1 / 10f) + " seconds**."));
+                            e.setUseItemInHand(Event.Result.DENY);
+                            e.setUseInteractedBlock(Event.Result.DENY);
                             return;
                         }
                         if (e.getClickedBlock() != null) {
