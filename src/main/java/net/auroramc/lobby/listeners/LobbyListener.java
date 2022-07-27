@@ -604,7 +604,7 @@ public class LobbyListener implements Listener {
                     AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer(e.getPlayer());
                     if (player.getActiveCosmetics().containsKey(Cosmetic.CosmeticType.GADGET)) {
                         Gadget gadget = (Gadget) player.getActiveCosmetics().get(Cosmetic.CosmeticType.GADGET);
-                        if (e.getItem().getType() == Material.FISHING_ROD && e.getClickedBlock() == null) {
+                        if (e.getItem().getType() == Material.FISHING_ROD && e.getClickedBlock() != null) {
                             return;
                         }
                         if (System.currentTimeMillis() - player.getLastUsed().getOrDefault(gadget, 0L) < gadget.getCooldown() * 1000L) {
