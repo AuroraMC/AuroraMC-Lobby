@@ -603,6 +603,9 @@ public class LobbyListener implements Listener {
                     AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer(e.getPlayer());
                     if (player.getActiveCosmetics().containsKey(Cosmetic.CosmeticType.GADGET)) {
                         Gadget gadget = (Gadget) player.getActiveCosmetics().get(Cosmetic.CosmeticType.GADGET);
+                        if (gadget.getId() == 801) {
+                            e.setCancelled(false);
+                        }
                         if (System.currentTimeMillis() - player.getLastUsed().getOrDefault(gadget, 0L) < gadget.getCooldown() * 1000L) {
                             double amount = ((player.getLastUsed().getOrDefault(gadget, 0L) + (gadget.getCooldown() * 1000L)) - System.currentTimeMillis()) / 100d;
                             long amount1 = Math.round(amount);
@@ -611,9 +614,6 @@ public class LobbyListener implements Listener {
                             }
                             player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Gadgets", "You cannot use this gadget for **" + (amount1 / 10f) + " seconds**."));
                             return;
-                        }
-                        if (gadget.getId() == 801) {
-                            e.setCancelled(false);
                         }
                         if (e.getClickedBlock() != null) {
                             gadget.onUse(player, e.getClickedBlock().getLocation());
