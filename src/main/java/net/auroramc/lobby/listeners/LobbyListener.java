@@ -618,6 +618,9 @@ public class LobbyListener implements Listener {
                             e.setUseInteractedBlock(Event.Result.DENY);
                             return;
                         }
+                        if (gadget.getId() == 801) {
+                            e.setCancelled(false);
+                        }
                         if (e.getClickedBlock() != null) {
                             gadget.onUse(player, e.getClickedBlock().getLocation());
                         } else {
