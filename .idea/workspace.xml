@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Implement monthly bonuses">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Disable forcefield when not social or admin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/players/AuroraMCLobbyPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/players/AuroraMCLobbyPlayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -324,13 +323,14 @@
       <workItem from="1657706437591" duration="77000" />
       <workItem from="1657706838096" duration="2454000" />
       <workItem from="1657714827175" duration="31000" />
-    </task>
-    <task id="LOCAL-00186" summary="Fix animation">
-      <created>1657384376977</created>
-      <option name="number" value="00186" />
-      <option name="presentableId" value="LOCAL-00186" />
-      <option name="project" value="LOCAL" />
-      <updated>1657384376977</updated>
+      <workItem from="1657714887853" duration="379000" />
+      <workItem from="1657749524184" duration="84000" />
+      <workItem from="1658419218189" duration="715000" />
+      <workItem from="1658423823051" duration="11000" />
+      <workItem from="1658423914671" duration="8000" />
+      <workItem from="1658706740557" duration="1269000" />
+      <workItem from="1658939660321" duration="39000" />
+      <workItem from="1658940318286" duration="93000" />
     </task>
     <task id="LOCAL-00187" summary="Fix animation">
       <created>1657384390480</created>
@@ -668,7 +668,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657707514070</updated>
     </task>
-    <option name="localTasksCounter" value="235" />
+    <task id="LOCAL-00235" summary="Disable forcefield when not social or admin">
+      <created>1657714923564</created>
+      <option name="number" value="00235" />
+      <option name="presentableId" value="LOCAL-00235" />
+      <option name="project" value="LOCAL" />
+      <updated>1657714923564</updated>
+    </task>
+    <option name="localTasksCounter" value="236" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -686,7 +693,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Allow chests to be opened" />
     <MESSAGE value="FIx lobby" />
     <MESSAGE value="FIx locations, fix structure" />
     <MESSAGE value="FIx structure" />
@@ -711,6 +717,7 @@
     <MESSAGE value="Stop players in a crate opening being affected by forcefields, limit /crate to 50 crates at a time" />
     <MESSAGE value="Ranks and plus days now apply correctly" />
     <MESSAGE value="Implement monthly bonuses" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement monthly bonuses" />
+    <MESSAGE value="Disable forcefield when not social or admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="Disable forcefield when not social or admin" />
   </component>
 </project>
