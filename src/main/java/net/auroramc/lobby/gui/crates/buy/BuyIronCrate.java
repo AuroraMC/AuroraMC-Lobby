@@ -97,7 +97,7 @@ public class BuyIronCrate extends GUI {
             }
             case 4: {
                 if (player.getBank().getTickets() >= CrateUtil.IRON_CRATE_PRICE * 5) {
-                    ConfirmIron diamond = new ConfirmIron(player, 1);
+                    ConfirmIron diamond = new ConfirmIron(player, 5);
                     diamond.open(player);
                     AuroraMCAPI.openGUI(player, diamond);
                 } else {
@@ -107,7 +107,7 @@ public class BuyIronCrate extends GUI {
             }
             case 6: {
                 if (player.getBank().getTickets() >= CrateUtil.IRON_CRATE_PRICE * 10) {
-                    ConfirmIron diamond = new ConfirmIron(player, 1);
+                    ConfirmIron diamond = new ConfirmIron(player, 10);
                     diamond.open(player);
                     AuroraMCAPI.openGUI(player, diamond);
                 } else {

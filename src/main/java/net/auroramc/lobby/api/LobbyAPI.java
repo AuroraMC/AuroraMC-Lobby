@@ -128,32 +128,32 @@ public class LobbyAPI {
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("&3&lThe Monke"));
         profile.getProperties().put("textures", new Property("textures", MONKEY_SKIN, MONKEY_SIGNATURE));
         monkeyEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
-        monkeyEntity.setLocation(4.5, 71.0, -0.5, 145.0f, 0f);
+        monkeyEntity.setLocation(7.5, 71.0, 13.5, 145.0f, 0f);
         AuroraMCAPI.registerFakePlayer(monkeyEntity);
 
 
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Arcade Mode§r "));
         profile.getProperties().put("textures", new Property("textures", ARCADE_SKIN, ARCADE_SIGNATURE));
         arcadeEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
-        arcadeEntity.setLocation(-35.5, 89.0, 5.5, -145f, 0f);
+        arcadeEntity.setLocation(-12.5, 70.0, 42.5, -145f, 0f);
         AuroraMCAPI.registerFakePlayer(arcadeEntity);
 
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Paintball§r "));
         profile.getProperties().put("textures", new Property("textures", PAINTBALL_SKIN, PAINTBALL_SIGNATURE));
         paintballEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
-        paintballEntity.setLocation(-52.5, 91.0, 58.5, -145f, 0f);
+        paintballEntity.setLocation(-14.5, 70.0, 39.5, -145f, 0f);
         AuroraMCAPI.registerFakePlayer(paintballEntity);
 
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Crystal Quest "));
         profile.getProperties().put("textures", new Property("textures", CQ_SKIN, CQ_SIGNATURE));
         cqEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
-        cqEntity.setLocation(0.5, 78.0, 75.5, -145f, 0f);
+        cqEntity.setLocation(-17.5, 70.0, 33.5, -145f, 0f);
         AuroraMCAPI.registerFakePlayer(cqEntity);
 
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Duels§r "));
         profile.getProperties().put("textures", new Property("textures", DUELS_SKIN, DUELS_SIGNATURE));
         duelsEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
-        duelsEntity.setLocation(-46.5, 79.0, 85.5, -145f, 0f);
+        duelsEntity.setLocation(-16.5, 70.0, 36.5, -145f, 0f);
         AuroraMCAPI.registerFakePlayer(duelsEntity);
     }
 

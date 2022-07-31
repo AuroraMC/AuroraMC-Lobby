@@ -109,6 +109,7 @@ public class IronCrateMenu extends GUI {
                     }
                 }
                 location.getBlock().setType(Material.AIR);
+                player.getPlayer().teleport(location.add(0.5, 0, 0.5));
                 Location loc = new Location(location.getWorld(), location.getX() - 3, location.getY() - 1, location.getZ() - 3);
 
                 CrateStructures.getIronCrate().place(loc);
@@ -123,6 +124,10 @@ public class IronCrateMenu extends GUI {
                     @Override
                     public void run() {
                         block.remove();
+                        if (!player.getPlayer().isOnline()) {
+                            this.cancel();
+                            return;
+                        }
                         chest.getBlock().setType(Material.CHEST);
                         player.getPlayer().playSound(chest, Sound.ANVIL_LAND, 1, 100);
 
@@ -135,6 +140,10 @@ public class IronCrateMenu extends GUI {
                             @Override
                             public void run() {
                                 block.remove();
+                                if (!player.getPlayer().isOnline()) {
+                                    this.cancel();
+                                    return;
+                                }
                                 chest.getBlock().setType(Material.CHEST);
                                 player.getPlayer().playSound(chest, Sound.ANVIL_LAND, 1, 100);
                                 BlockState c = chest.getBlock().getState();
@@ -152,6 +161,10 @@ public class IronCrateMenu extends GUI {
                                     @Override
                                     public void run() {
                                         block.remove();
+                                        if (!player.getPlayer().isOnline()) {
+                                            this.cancel();
+                                            return;
+                                        }
                                         chest.getBlock().setType(Material.CHEST);
                                         player.getPlayer().playSound(chest, Sound.ANVIL_LAND, 1, 100);
                                         BlockState c = chest.getBlock().getState();
@@ -167,11 +180,16 @@ public class IronCrateMenu extends GUI {
                                             @Override
                                             public void run() {
                                                 block.remove();
+                                                if (!player.getPlayer().isOnline()) {
+                                                    this.cancel();
+                                                    return;
+                                                }
                                                 chest.getBlock().setType(Material.CHEST);
                                                 player.getPlayer().playSound(chest, Sound.ANVIL_LAND, 1, 100);
                                                 BlockState c = chest.getBlock().getState();
                                                 c.setData(new Chest(BlockFace.EAST));
                                                 c.update();
+                                                LobbyAPI.crateAnimationFinished();
                                             }
                                         }.runTaskLater(AuroraMCAPI.getCore(), 11);
                                     }

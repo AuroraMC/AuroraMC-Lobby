@@ -110,6 +110,7 @@ public class DiamondCrateMenu extends GUI {
                     }
                 }
                 location.getBlock().setType(Material.AIR);
+                player.getPlayer().teleport(location.add(0.5, 0, 0.5));
                 Location loc = new Location(location.getWorld(), location.getX() - 3, location.getY() - 1, location.getZ() - 3);
 
                 CrateStructures.getDiamondCrate().place(loc);
@@ -121,6 +122,10 @@ public class DiamondCrateMenu extends GUI {
                     byte i = 2;
                     @Override
                     public void run() {
+                        if (!player.getPlayer().isOnline()) {
+                            this.cancel();
+                            return;
+                        }
                         if (i < 0) {
                             chest.setZ(chest.getZ() - 6);
                             chest.setY(chest.getY() + 3);
@@ -134,6 +139,10 @@ public class DiamondCrateMenu extends GUI {
                                 byte i = 2;
                                 @Override
                                 public void run() {
+                                    if (!player.getPlayer().isOnline()) {
+                                        this.cancel();
+                                        return;
+                                    }
                                     if (i  < 0) {
                                         chest.setX(chest.getX() + 3);
                                         chest.setZ(chest.getZ() + 3);
@@ -148,6 +157,10 @@ public class DiamondCrateMenu extends GUI {
                                             byte i = 2;
                                             @Override
                                             public void run() {
+                                                if (!player.getPlayer().isOnline()) {
+                                                    this.cancel();
+                                                    return;
+                                                }
                                                 if (i < 0) {
                                                     chest.setX(chest.getX() - 6);
                                                     chest.setY(chest.getY() + 3);
@@ -161,7 +174,12 @@ public class DiamondCrateMenu extends GUI {
                                                         byte i = 2;
                                                         @Override
                                                         public void run() {
+                                                            if (!player.getPlayer().isOnline()) {
+                                                                this.cancel();
+                                                                return;
+                                                            }
                                                             if (i < 0) {
+                                                                LobbyAPI.crateAnimationFinished();
                                                                 this.cancel();
                                                                 return;
                                                             }

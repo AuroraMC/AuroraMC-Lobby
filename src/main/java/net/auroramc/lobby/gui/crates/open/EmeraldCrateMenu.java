@@ -102,6 +102,12 @@ public class EmeraldCrateMenu extends GUI {
             Crate crate = availableCrates.get(((row - 1) * 7) + (column - 1));
             player.getPlayer().closeInventory();
 
+            if (crate.open(player) == null) {
+                player.getPlayer().closeInventory();
+                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "You already have all of the rewards for this crate."));
+                return;
+            }
+
             if (LobbyAPI.startOpen(crate, player)) {
                 Location location = LobbyAPI.getChestBlock().getLocation();
                 for (Entity entity : location.getWorld().getNearbyEntities(location, 2, 2, 2)) {
@@ -110,6 +116,7 @@ public class EmeraldCrateMenu extends GUI {
                     }
                 }
                 location.getBlock().setType(Material.AIR);
+                player.getPlayer().teleport(location.add(0.5, 0, 0.5));
                 Location loc = new Location(location.getWorld(), location.getX() - 3, location.getY() - 1, location.getZ() - 3);
 
                 new BukkitRunnable(){
@@ -117,6 +124,10 @@ public class EmeraldCrateMenu extends GUI {
                     byte w = 7;
                     @Override
                     public void run() {
+                        if (!player.getPlayer().isOnline()) {
+                            this.cancel();
+                            return;
+                        }
                         if (i < 7) {
                             CrateStructures.getEmeraldCrate().getLevel(i).place(loc);
                             loc.setY(loc.getY() + 1);
@@ -158,6 +169,7 @@ public class EmeraldCrateMenu extends GUI {
 
                             loc2.setZ(loc2.getZ() + 6);
                             (new StructureChest(Material.CHEST, BlockFace.NORTH)).place(loc2);
+                            LobbyAPI.crateAnimationFinished();
                             this.cancel();
                         }
                     }

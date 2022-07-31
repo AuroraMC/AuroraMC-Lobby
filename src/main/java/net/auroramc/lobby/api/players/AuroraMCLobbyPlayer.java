@@ -8,7 +8,10 @@ import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.core.api.cosmetics.Crate;
 import net.auroramc.core.api.cosmetics.Gadget;
 import net.auroramc.core.api.players.AuroraMCPlayer;
+import net.auroramc.core.cosmetics.crates.DiamondCrate;
 import net.auroramc.core.cosmetics.crates.EmeraldCrate;
+import net.auroramc.core.cosmetics.crates.GoldCrate;
+import net.auroramc.core.cosmetics.crates.IronCrate;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
 import net.auroramc.lobby.api.util.CheckForcefieldRunnable;
 import net.auroramc.lobby.utils.CrateUtil;
@@ -43,7 +46,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
         moved = false;
         crates = AuroraMCAPI.getDbManager().getCrates(this.getId());
 
-        if (oldPlayer.getPreferences().isHubForcefieldEnabled()) {
+        if (oldPlayer.getPreferences().isHubForcefieldEnabled() && (oldPlayer.hasPermission("social") || oldPlayer.hasPermission("admin"))) {
             this.runnable = new CheckForcefieldRunnable(this);
             this.runnable.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
         } else {
@@ -265,25 +268,64 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
     }
 
     public void claimMonthly() {
+        int amount;
+        String crates;
+
+        switch (getRank()) {
+            case PLAYER: {
+                amount = 1000;
+                crates = "&7+1 Iron Crate";
+                IronCrate crate = CrateUtil.generateIronCrate(getId());
+                this.crates.add(crate);
+                break;
+            }
+            case ELITE: {
+                amount = 2500;
+                crates = "&7+2 Iron Crates\n" +
+                        "&6+1 Gold Crate";
+                IronCrate crate = CrateUtil.generateIronCrate(getId());
+                GoldCrate crate2 = CrateUtil.generateGoldCrate(getId());
+                this.crates.add(crate);
+                this.crates.add(crate2);
+                break;
+            }
+            default: {
+                amount = 5000;
+                crates = "&6+1 Gold Crate\n" +
+                        "&b+2 Diamond Crate";
+                DiamondCrate crate = CrateUtil.generateDiamondCrate(getId());
+                this.crates.add(crate);
+                crate = CrateUtil.generateDiamondCrate(getId());
+                this.crates.add(crate);
+                GoldCrate crate2 = CrateUtil.generateGoldCrate(getId());
+                this.crates.add(crate2);
+                break;
+            }
+        }
+
         getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("The Monke", "You claimed your monthly bonus! You got:\n" +
-                "&6+10000 Crowns\n" +
-                "&d+10000 Tickets"));
+                crates + "\n" +
+                "&6+" + String.format("%,d", amount) + "  Crowns\n" +
+                "&d+" + String.format("%,d", amount) + " Tickets"));
         lastMonthlyBonus = System.currentTimeMillis();
-        this.getBank().addTickets(10000, true, true);
-        this.getBank().addCrowns(10000, true, true);
+        this.getBank().addTickets(amount, true, true);
+        this.getBank().addCrowns(amount, true, true);
         LobbyDatabaseManager.setLastMonthlyBonus(this.getId(), lastMonthlyBonus);
     }
 
     public void claimPlus() {
         getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("The Monke", "You claimed your monthly Plus bonus! You got:\n" +
                 "&a+1 Emerald Crate\n" +
-                "&6+10000 Crowns\n" +
-                "&d+10000 Tickets"));
+                "&d+1 Diamond Crate\n" +
+                "&6+5,000 Crowns\n" +
+                "&d+5,000 Tickets"));
         lastPlusBonus = System.currentTimeMillis();
         EmeraldCrate crate = CrateUtil.generateEmeraldCrate(getId());
+        DiamondCrate crate2 = CrateUtil.generateDiamondCrate(getId());
         crates.add(crate);
-        this.getBank().addTickets(10000, true, true);
-        this.getBank().addCrowns(10000, true, true);
+        crates.add(crate2);
+        this.getBank().addTickets(5000, true, true);
+        this.getBank().addCrowns(5000, true, true);
         LobbyDatabaseManager.setLastPlusBonus(this.getId(), lastPlusBonus);
     }
 

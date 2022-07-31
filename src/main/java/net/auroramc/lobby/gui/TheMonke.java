@@ -74,12 +74,27 @@ public class TheMonke extends GUI {
             this.setItem(2, 2, new GUIItem(Material.REDSTONE_BLOCK, "&3&lLoyalty Bonus", 1, ";&cYou have already claimed;&ctoday's bonus!;;&rDaily bonuses claimed: **" + player.getDailyBonusClaimed() + "**;;&rCome back tomorrow to claim again!"));
         }
         if (claimMonthly) {
-            this.setItem(2, 4, new GUIItem(Material.DIAMOND_BLOCK, "&3&lMonthly Bonus", 1, "&rRank: &" + ((player.getRank() == Rank.PLAYER)?'7':player.getRank().getPrefixColor()) + player.getRank().getName() + ";;&rBonus:;&6+10000 Crowns;&d+10000 Tickets;;&aClick to claim!"));
+            String reward;
+            switch (player.getRank()) {
+                case PLAYER: {
+                    reward = "&7+1 Iron Crate;&6+1,000 Crowns;&d+1,000 Tickets";
+                    break;
+                }
+                case ELITE:{
+                    reward = "&7+2 Iron Crates;&6+1 Gold Crate;&6+2,500 Crowns;&d+2,500 Tickets";
+                    break;
+                }
+                default: {
+                    reward = "&6+1 Gold Crate;&b+2 Diamond Crates;&6+5,000 Crowns;&d+5,000 Tickets";
+                    break;
+                }
+            }
+            this.setItem(2, 4, new GUIItem(Material.DIAMOND_BLOCK, "&3&lMonthly Bonus", 1, "&rRank: &" + ((player.getRank() == Rank.PLAYER)?'7':player.getRank().getPrefixColor()) + player.getRank().getName() + ";;&rBonus:;" + reward + ";;&aClick to claim!"));
         } else {
             this.setItem(2, 4, new GUIItem(Material.REDSTONE_BLOCK, "&3&lMonthly Bonus", 1, ";&cYou have already claimed;&cthis months bonus!;;&rCome back next month to claim again!"));
         }
         if (claimPlus) {
-            this.setItem(2, 6, new GUIItem(Material.EMERALD_BLOCK, "&3&lPlus Bonus", 1, ";&rClaim your Plus bonus for:;&a+1 Emerald Crate;&6+10000 Crowns;&d+10000 Tickets;;&aClick to claim!"));
+            this.setItem(2, 6, new GUIItem(Material.EMERALD_BLOCK, "&3&lPlus Bonus", 1, ";&rClaim your Plus bonus for:;&b+1 Diamond Crate;&a+1 Emerald Crate;&6+5,000 Crowns;&d+5,000 Tickets;;&aClick to claim!"));
         } else {
             this.setItem(2, 6, new GUIItem(Material.REDSTONE_BLOCK, "&3&lPlus Bonus", 1, ";&cYou have already claimed;&cthis months Plus bonus!;;&rCome back in 30 days to claim again!"));
         }
