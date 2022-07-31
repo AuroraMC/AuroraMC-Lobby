@@ -372,10 +372,10 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
     }
 
     public boolean canClaimPlus() {
-        if (lastPlusBonus == -1) {
+        if (lastPlusBonus == -1 && this.hasPermission("plus")) {
             return true;
         }
-        return lastPlusBonus / 2592000000L < System.currentTimeMillis() / 2592000000L;
+        return lastPlusBonus / 2592000000L < System.currentTimeMillis() / 2592000000L  && this.hasPermission("plus");
     }
 
     public boolean hasMoved() {

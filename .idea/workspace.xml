@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix grappling hook">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Update NPC Locations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -333,13 +333,8 @@
       <workItem from="1658940318286" duration="93000" />
       <workItem from="1658942798046" duration="381000" />
       <workItem from="1658943313284" duration="1094000" />
-    </task>
-    <task id="LOCAL-00195" summary="Add diamond crate animation">
-      <created>1657475067846</created>
-      <option name="number" value="00195" />
-      <option name="presentableId" value="LOCAL-00195" />
-      <option name="project" value="LOCAL" />
-      <updated>1657475067846</updated>
+      <workItem from="1659026675196" duration="833000" />
+      <workItem from="1659278227436" duration="16000" />
     </task>
     <task id="LOCAL-00196" summary="Remove blaze death sound">
       <created>1657475318231</created>
@@ -677,7 +672,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658944147158</updated>
     </task>
-    <option name="localTasksCounter" value="244" />
+    <task id="LOCAL-00244" summary="Update NPC Locations">
+      <created>1659026900016</created>
+      <option name="number" value="00244" />
+      <option name="presentableId" value="LOCAL-00244" />
+      <option name="project" value="LOCAL" />
+      <updated>1659026900016</updated>
+    </task>
+    <option name="localTasksCounter" value="245" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -695,7 +697,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix structure, fix being able to open more than 1 chest" />
     <MESSAGE value="Attempt fix at finishing opening properly" />
     <MESSAGE value="IntelliJ i stg i hate you so much" />
     <MESSAGE value="Fix lots of issues" />
@@ -720,6 +721,7 @@
     <MESSAGE value="Fix Grappling Hook" />
     <MESSAGE value="Undo last commit" />
     <MESSAGE value="Fix grappling hook" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix grappling hook" />
+    <MESSAGE value="Update NPC Locations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update NPC Locations" />
   </component>
 </project>
