@@ -16,9 +16,9 @@ import java.util.UUID;
 
 public class CrateUtil {
 
-    public static final long IRON_CRATE_PRICE = 2000;
-    public static final long GOLD_CRATE_PRICE = 10000;
-    public static final long DIAMOND_CRATE_PRICE = 20000;
+    public static final long IRON_CRATE_PRICE = 5000;
+    public static final long GOLD_CRATE_PRICE = 15000;
+    public static final long DIAMOND_CRATE_PRICE = 30000;
 
 
     public static IronCrate generateIronCrate(int owner) {
