@@ -83,7 +83,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
             }
         }
 
-        if (oldPlayer.getStats().getLobbyTimeMs() > 18000000) {
+        if (oldPlayer.getStats().getLobbyTimeMs() > 86400000) {
             if (!getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(11))) {
                 getStats().achievementGained(AuroraMCAPI.getAchievement(11), 1, true);
             }
