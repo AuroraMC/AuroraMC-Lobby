@@ -25,47 +25,49 @@ public class LeaveListener implements Listener {
 
     @EventHandler
     public void onLeave(PlayerLeaveEvent e) {
-        AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) e.getPlayer();
-        player.deactivateForcefield();
-        player.getStats().addLobbyTime(System.currentTimeMillis() - player.getJoinTimestamp(), true);
-        if (LobbyAPI.getCratePlayer() != null && LobbyAPI.getCratePlayer().getPlayer().equals(e.getPlayer().getPlayer())) {
-            JSONObject crateLocation = LobbyAPI.getLobbyMap().getMapData().getJSONObject("game").getJSONArray("CRATE").getJSONObject(0);
-            int x = crateLocation.getInt("x");
-            int y = crateLocation.getInt("y");
-            int z = crateLocation.getInt("z");
-            Location location = new Location(Bukkit.getWorld("world"), x, y, z);
-            Location loc = new Location(location.getWorld(), location.getX() - 3, location.getY() - 1, location.getZ() - 3);
-            CrateStructures.getBaseCrate().place(loc);
-            Block block = location.getBlock();
-            block.setType(Material.CHEST);
-            BlockState state = block.getState();
-            BlockFace direction;
-            float yaw = crateLocation.getFloat("yaw");
-            if (yaw <= -135 || yaw >= 135) {
-                direction = BlockFace.NORTH;
-            } else if (yaw > -135 && yaw < -45) {
-                direction = BlockFace.EAST;
-            } else if (yaw >= -45 && yaw <= 45) {
-                direction = BlockFace.SOUTH;
-            } else {
-                direction = BlockFace.WEST;
+        if (e.getPlayer().isLoaded()) {
+            AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) e.getPlayer();
+            player.deactivateForcefield();
+            player.getStats().addLobbyTime(System.currentTimeMillis() - player.getJoinTimestamp(), true);
+            if (LobbyAPI.getCratePlayer() != null && LobbyAPI.getCratePlayer().getPlayer().equals(e.getPlayer().getPlayer())) {
+                JSONObject crateLocation = LobbyAPI.getLobbyMap().getMapData().getJSONObject("game").getJSONArray("CRATE").getJSONObject(0);
+                int x = crateLocation.getInt("x");
+                int y = crateLocation.getInt("y");
+                int z = crateLocation.getInt("z");
+                Location location = new Location(Bukkit.getWorld("world"), x, y, z);
+                Location loc = new Location(location.getWorld(), location.getX() - 3, location.getY() - 1, location.getZ() - 3);
+                CrateStructures.getBaseCrate().place(loc);
+                Block block = location.getBlock();
+                block.setType(Material.CHEST);
+                BlockState state = block.getState();
+                BlockFace direction;
+                float yaw = crateLocation.getFloat("yaw");
+                if (yaw <= -135 || yaw >= 135) {
+                    direction = BlockFace.NORTH;
+                } else if (yaw > -135 && yaw < -45) {
+                    direction = BlockFace.EAST;
+                } else if (yaw >= -45 && yaw <= 45) {
+                    direction = BlockFace.SOUTH;
+                } else {
+                    direction = BlockFace.WEST;
+                }
+                org.bukkit.material.Chest chest = new Chest(direction);
+                state.setData(chest);
+                state.update();
+                LobbyAPI.setChestBlock(block);
+                location.setY(location.getY() + 1);
+                location.setX(location.getX() + 0.5);
+                location.setZ(location.getZ() + 0.5);
+                ArmorStand stand = location.getWorld().spawn(location, ArmorStand.class);
+                stand.setVisible(false);
+                stand.setCustomName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight("&a&lOpen Crates")));
+                stand.setCustomNameVisible(true);
+                stand.setSmall(true);
+                stand.setMarker(true);
+                stand.setGravity(false);
+                LobbyAPI.setChestStand(stand);
+                LobbyAPI.finishOpen();
             }
-            org.bukkit.material.Chest chest = new Chest(direction);
-            state.setData(chest);
-            state.update();
-            LobbyAPI.setChestBlock(block);
-            location.setY(location.getY() + 1);
-            location.setX(location.getX() + 0.5);
-            location.setZ(location.getZ() + 0.5);
-            ArmorStand stand = location.getWorld().spawn(location, ArmorStand.class);
-            stand.setVisible(false);
-            stand.setCustomName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight("&a&lOpen Crates")));
-            stand.setCustomNameVisible(true);
-            stand.setSmall(true);
-            stand.setMarker(true);
-            stand.setGravity(false);
-            LobbyAPI.setChestStand(stand);
-            LobbyAPI.finishOpen();
         }
     }
 
