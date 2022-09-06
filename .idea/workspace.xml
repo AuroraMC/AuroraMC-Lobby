@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add branch to bversions">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Prevent error on kick">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LeaveListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LeaveListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -346,13 +345,8 @@
       <workItem from="1659546636238" duration="152000" />
       <workItem from="1659550497892" duration="35000" />
       <workItem from="1660586607776" duration="123000" />
-    </task>
-    <task id="LOCAL-00199" summary="FIx slight issue">
-      <created>1657486123315</created>
-      <option name="number" value="00199" />
-      <option name="presentableId" value="LOCAL-00199" />
-      <option name="project" value="LOCAL" />
-      <updated>1657486123315</updated>
+      <workItem from="1660586866412" duration="66000" />
+      <workItem from="1662464988912" duration="31000" />
     </task>
     <task id="LOCAL-00200" summary="Fix issue">
       <created>1657486902635</created>
@@ -690,7 +684,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659550513855</updated>
     </task>
-    <option name="localTasksCounter" value="248" />
+    <task id="LOCAL-00248" summary="Prevent error on kick">
+      <created>1660586882346</created>
+      <option name="number" value="00248" />
+      <option name="presentableId" value="LOCAL-00248" />
+      <option name="project" value="LOCAL" />
+      <updated>1660586882346</updated>
+    </task>
+    <option name="localTasksCounter" value="249" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -708,7 +709,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Move item up more" />
     <MESSAGE value="Cancel item velocity" />
     <MESSAGE value="Fix buy iron menu" />
     <MESSAGE value="Move item downwards slightly" />
@@ -733,6 +733,7 @@
     <MESSAGE value="Fix plus bonus" />
     <MESSAGE value="Fix Hub Explorer being given too early" />
     <MESSAGE value="Add branch to bversions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add branch to bversions" />
+    <MESSAGE value="Prevent error on kick" />
+    <option name="LAST_COMMIT_MESSAGE" value="Prevent error on kick" />
   </component>
 </project>
