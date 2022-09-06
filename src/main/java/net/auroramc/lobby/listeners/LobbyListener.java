@@ -406,7 +406,7 @@ public class LobbyListener implements Listener {
                             stand.setGravity(false);
                             LobbyAPI.setChestStand(stand);
                         }
-                    }.runTaskLater(AuroraMCAPI.getCore(), 200);
+                    }.runTaskLater(AuroraMCAPI.getCore(), 60);
                 } else if (reward.getRank() != null) {
                     Item item = block.getLocation().getWorld().dropItem(block.getLocation().clone().add(0.5, 1.5, 0.5), new ItemStack(Material.DIAMOND));
                     item.setPickupDelay(1000000);
