@@ -45,9 +45,9 @@ public class ParkourRun {
         new BukkitRunnable() {
             @Override
             public void run() {
-                previouslyReachedCheckpoints = AuroraMCAPI.getDbManager().getReachedCheckpoints(player, parkour);
-                previous = AuroraMCAPI.getDbManager().getTime(player, parkour);
-                splitTimes = AuroraMCAPI.getDbManager().getSplitTimes(player, parkour);
+//                previouslyReachedCheckpoints = AuroraMCAPI.getDbManager().getReachedCheckpoints(player, parkour);
+//                previous = AuroraMCAPI.getDbManager().getTime(player, parkour);
+//                splitTimes = AuroraMCAPI.getDbManager().getSplitTimes(player, parkour);
             }
         }.runTaskAsynchronously(AuroraMCAPI.getCore());
         actionBarTask = new BukkitRunnable(){
@@ -74,7 +74,7 @@ public class ParkourRun {
                     new BukkitRunnable() {
                         @Override
                         public void run() {
-                            AuroraMCAPI.getDbManager().setSplitTime(player, parkour, checkpoint.getCheckpointNo(), ms, true);
+//                            AuroraMCAPI.getDbManager().setSplitTime(player, parkour, checkpoint.getCheckpointNo(), ms, true);
                         }
                     }.runTaskAsynchronously(AuroraMCAPI.getCore());
                     splitTimes.put(checkpoint.getCheckpointNo(), ms);
@@ -86,7 +86,7 @@ public class ParkourRun {
                 new BukkitRunnable() {
                     @Override
                     public void run() {
-                        AuroraMCAPI.getDbManager().setSplitTime(player, parkour, checkpoint.getCheckpointNo(), ms, false);
+//                        AuroraMCAPI.getDbManager().setSplitTime(player, parkour, checkpoint.getCheckpointNo(), ms, false);
                     }
                 }.runTaskAsynchronously(AuroraMCAPI.getCore());
                 splitTimes.put(checkpoint.getCheckpointNo(), ms);
@@ -104,7 +104,7 @@ public class ParkourRun {
             new BukkitRunnable() {
                 @Override
                 public void run() {
-                   AuroraMCAPI.getDbManager().reachedCheckpoint(player, parkour, checkpoint);
+//                   AuroraMCAPI.getDbManager().reachedCheckpoint(player, parkour, checkpoint);
                 }
             }.runTaskAsynchronously(AuroraMCAPI.getCore());
 
@@ -132,7 +132,7 @@ public class ParkourRun {
             new BukkitRunnable(){
                 @Override
                 public void run() {
-                    AuroraMCAPI.getDbManager().addAttempt(player, parkour, time);
+//                    AuroraMCAPI.getDbManager().addAttempt(player, parkour, time);
                 }
             }.runTaskAsynchronously(AuroraMCAPI.getCore());
         } else {
@@ -146,7 +146,7 @@ public class ParkourRun {
                 new BukkitRunnable() {
                     @Override
                     public void run() {
-                        AuroraMCAPI.getDbManager().addAttempt(player, parkour, time);
+//                        AuroraMCAPI.getDbManager().addAttempt(player, parkour, time);
                     }
                 }.runTaskAsynchronously(AuroraMCAPI.getCore());
 
@@ -177,7 +177,7 @@ public class ParkourRun {
                     new BukkitRunnable() {
                         @Override
                         public void run() {
-                            AuroraMCAPI.getDbManager().setSplitTime(player, parkour, finalCheck, splitMs, true);
+//                            AuroraMCAPI.getDbManager().setSplitTime(player, parkour, finalCheck, splitMs, true);
                         }
                     }.runTaskAsynchronously(AuroraMCAPI.getCore());
                 } else {
@@ -189,7 +189,7 @@ public class ParkourRun {
                 new BukkitRunnable() {
                     @Override
                     public void run() {
-                        AuroraMCAPI.getDbManager().setSplitTime(player, parkour, finalCheck, splitMs, false);
+//                        AuroraMCAPI.getDbManager().setSplitTime(player, parkour, finalCheck, splitMs, false);
                     }
                 }.runTaskAsynchronously(AuroraMCAPI.getCore());
             }
@@ -201,14 +201,14 @@ public class ParkourRun {
                     new BukkitRunnable() {
                         @Override
                         public void run() {
-                            AuroraMCAPI.getDbManager().newTime(player, finishMili, true, parkour);
-                            int position = AuroraMCAPI.getDbManager().leaderboardPosition(player, parkour);
+//                            AuroraMCAPI.getDbManager().newTime(player, finishMili, true, parkour);
+//                            int position = AuroraMCAPI.getDbManager().leaderboardPosition(player, parkour);
 
-                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You are in &a" + position + ((position % 10 == 1) ? "st" : ((position % 10 == 2) ? "nd" : ((position % 10 == 3) ? ((position == 13) ? "th" : "rd") : "th"))) + " place** for the **" + parkour.getName() + "** parkour!"));
+//                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You are in &a" + position + ((position % 10 == 1) ? "st" : ((position % 10 == 2) ? "nd" : ((position % 10 == 3) ? ((position == 13) ? "th" : "rd") : "th"))) + " place** for the **" + parkour.getName() + "** parkour!"));
                             new BukkitRunnable() {
                                 @Override
                                 public void run() {
-                                    parkour.getLeaderboard().refresh();
+//                                    parkour.getLeaderboard().refresh();
                                 }
                             }.runTask(AuroraMCAPI.getCore());
                         }
@@ -218,8 +218,8 @@ public class ParkourRun {
                     new BukkitRunnable() {
                         @Override
                         public void run() {
-                            int position = AuroraMCAPI.getDbManager().leaderboardPosition(player, parkour);
-                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You are in &a" + position + ((position % 10 == 1) ? "st" : ((position % 10 == 2) ? "nd" : ((position % 10 == 3) ? ((position == 13) ? "th" : "rd") : "th"))) + " place** for the **" + parkour.getName() + "** parkour!"));
+//                            int position = AuroraMCAPI.getDbManager().leaderboardPosition(player, parkour);
+//                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You are in &a" + position + ((position % 10 == 1) ? "st" : ((position % 10 == 2) ? "nd" : ((position % 10 == 3) ? ((position == 13) ? "th" : "rd") : "th"))) + " place** for the **" + parkour.getName() + "** parkour!"));
                         }
                     }.runTaskAsynchronously(AuroraMCAPI.getCore());
                 }
@@ -234,9 +234,9 @@ public class ParkourRun {
                     new BukkitRunnable() {
                         @Override
                         public void run() {
-                            AuroraMCAPI.getDbManager().newTime(player, finishMili, false, parkour);
-                            int position = AuroraMCAPI.getDbManager().leaderboardPosition(player, parkour);
-                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You are in &a" + position + ((position % 10 == 1) ? "st" : ((position % 10 == 2) ? "nd" : ((position % 10 == 3) ? ((position == 13) ? "th" : "rd") : "th"))) + " place** for the **" + parkour.getName() + "** parkour!"));
+//                            AuroraMCAPI.getDbManager().newTime(player, finishMili, false, parkour);
+//                            int position = AuroraMCAPI.getDbManager().leaderboardPosition(player, parkour);
+//                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You are in &a" + position + ((position % 10 == 1) ? "st" : ((position % 10 == 2) ? "nd" : ((position % 10 == 3) ? ((position == 13) ? "th" : "rd") : "th"))) + " place** for the **" + parkour.getName() + "** parkour!"));
                         }
                     }.runTaskAsynchronously(AuroraMCAPI.getCore());
                 } else {
