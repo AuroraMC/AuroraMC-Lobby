@@ -61,7 +61,7 @@ public class BuyIronCrate extends GUI {
         ItemStack one = head.clone();
         meta = one.getItemMeta();
         meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&7&l1 Iron Crate")));
-        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&rCost: &d" + String.format("%,d",CrateUtil.IRON_CRATE_PRICE) + " Tickets;;&aClick here to purchase 1 Iron Crate!")).split(";")));
+        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&r&fCost: &d" + String.format("%,d",CrateUtil.IRON_CRATE_PRICE) + " Tickets;;&aClick here to purchase 1 Iron Crate!")).split(";")));
         one.setItemMeta(meta);
         this.setItem(2, 2, new GUIItem(one));
 
@@ -69,7 +69,7 @@ public class BuyIronCrate extends GUI {
         five.setAmount(5);
         meta = five.getItemMeta();
         meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&7&l5 Iron Crates")));
-        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&rCost: &d" + String.format("%,d",CrateUtil.IRON_CRATE_PRICE * 5) + " Tickets;;&aClick here to purchase 5 Iron Crates!")).split(";")));
+        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&r&fCost: &d" + String.format("%,d",CrateUtil.IRON_CRATE_PRICE * 5) + " Tickets;;&aClick here to purchase 5 Iron Crates!")).split(";")));
         five.setItemMeta(meta);
         this.setItem(2, 4, new GUIItem(five));
 
@@ -77,7 +77,7 @@ public class BuyIronCrate extends GUI {
         ten.setAmount(10);
         meta = ten.getItemMeta();
         meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&7&l10 Iron Crates")));
-        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&rCost: &d" + String.format("%,d",CrateUtil.IRON_CRATE_PRICE * 10) + " Tickets;;&aClick here to purchase 10 Iron Crates!")).split(";")));
+        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&r&fCost: &d" + String.format("%,d",CrateUtil.IRON_CRATE_PRICE * 10) + " Tickets;;&aClick here to purchase 10 Iron Crates!")).split(";")));
         ten.setItemMeta(meta);
         this.setItem(2, 6, new GUIItem(ten));
     }

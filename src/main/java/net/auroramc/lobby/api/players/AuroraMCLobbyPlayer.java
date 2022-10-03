@@ -13,6 +13,8 @@ import net.auroramc.core.cosmetics.crates.EmeraldCrate;
 import net.auroramc.core.cosmetics.crates.GoldCrate;
 import net.auroramc.core.cosmetics.crates.IronCrate;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
+import net.auroramc.lobby.api.parkour.Parkour;
+import net.auroramc.lobby.api.parkour.ParkourRun;
 import net.auroramc.lobby.api.util.CheckForcefieldRunnable;
 import net.auroramc.lobby.utils.CrateUtil;
 import org.bukkit.potion.PotionEffect;
@@ -32,6 +34,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
     private long lastMonthlyBonus;
     private long lastPlusBonus;
     private boolean moved;
+    private ParkourRun activeParkourRun;
 
     private Map<Gadget, Long> lastUsed;
 
@@ -392,5 +395,17 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
 
     public List<Crate> getCrates() {
         return crates;
+    }
+
+    public void parkourStart(Parkour parkour) {
+        this.activeParkourRun = new ParkourRun(this, parkour);
+    }
+
+    public void parkourEnd() {
+        this.activeParkourRun = null;
+    }
+
+    public boolean isInParkour() {
+        return activeParkourRun != null;
     }
 }

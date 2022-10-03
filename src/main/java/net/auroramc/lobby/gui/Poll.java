@@ -28,7 +28,7 @@ public class Poll extends GUI {
         this.border("&3&lCommunity Poll", "");
         this.player = player;
 
-        this.setItem(0, 4, new GUIItem(Material.BOOK, "&3&lCommunity Poll", 1, ";&rQuestion:;&b" + LobbyAPI.getPoll().getQuestion()));
+        this.setItem(0, 4, new GUIItem(Material.BOOK, "&3&lCommunity Poll", 1, ";&r&fQuestion:;&b" + LobbyAPI.getPoll().getQuestion()));
 
         switch (LobbyAPI.getPoll().getAnswers().size()) {
             case 2: {

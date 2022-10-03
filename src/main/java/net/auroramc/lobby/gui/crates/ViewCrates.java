@@ -44,7 +44,7 @@ public class ViewCrates extends GUI {
         head.setDurability((short)3);
         SkullMeta meta = (SkullMeta) head.getItemMeta();
         meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&7&lIron Crate")));
-        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&7Iron Crates are the most common;&7and have the lowest chances to;&7win awesome stuff.;;&rCost: &d" + String.format("%,d", CrateUtil.IRON_CRATE_PRICE) +" Tickets;;&aLeft-click to view available crates!;&aRight-click to purchase!")).split(";")));
+        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&7Iron Crates are the most common;&7and have the lowest chances to;&7win awesome stuff.;;&r&fCost: &d" + String.format("%,d", CrateUtil.IRON_CRATE_PRICE) +" Tickets;;&aLeft-click to view available crates!;&aRight-click to purchase!")).split(";")));
         Field field;
         try {
             field = meta.getClass().getDeclaredField("profile");
@@ -67,7 +67,7 @@ public class ViewCrates extends GUI {
         head.setDurability((short)3);
         meta = (SkullMeta) head.getItemMeta();
         meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&6&lGold Crate")));
-        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&7Gold Crates are rare crates that;&7contain more legendary loot!;;&rCost: &d" + String.format("%,d",CrateUtil.GOLD_CRATE_PRICE) + " Tickets;;&aLeft-click to view available crates!;&aRight-click to purchase!")).split(";")));
+        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&7Gold Crates are rare crates that;&7contain more legendary loot!;;&r&fCost: &d" + String.format("%,d",CrateUtil.GOLD_CRATE_PRICE) + " Tickets;;&aLeft-click to view available crates!;&aRight-click to purchase!")).split(";")));
         try {
             field = meta.getClass().getDeclaredField("profile");
         } catch (NoSuchFieldException | SecurityException e) {
@@ -89,7 +89,7 @@ public class ViewCrates extends GUI {
         head.setDurability((short)3);
         meta = (SkullMeta) head.getItemMeta();
         meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&b&lDiamond Crate")));
-        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&7Diamond Crates are legendary crates that;&7can not just give you cosmetics, but can;&7also give you a rank upgrade!;;&rCost: &d" + String.format("%,d",CrateUtil.DIAMOND_CRATE_PRICE) + " Tickets;;&aLeft-click to view available crates!;&aRight-click to purchase!")).split(";")));
+        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&7Diamond Crates are legendary crates that;&7can not just give you cosmetics, but can;&7also give you a rank upgrade!;;&r&fCost: &d" + String.format("%,d",CrateUtil.DIAMOND_CRATE_PRICE) + " Tickets;;&aLeft-click to view available crates!;&aRight-click to purchase!")).split(";")));
         try {
             field = meta.getClass().getDeclaredField("profile");
         } catch (NoSuchFieldException | SecurityException e) {
@@ -111,7 +111,7 @@ public class ViewCrates extends GUI {
         head.setDurability((short)3);
         meta = (SkullMeta) head.getItemMeta();
         meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&a&lEmerald Crate")));
-        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&7Emerald Crates are legendary crates that not;&7only give you a very high chance to find;&7legendary loot, but also contains no duplicates!;;&cNote: &rThese crates can only be obtained;&rby claiming a Plus Bonus from The Monke.;;&aLeft-click to view available crates!")).split(";")));
+        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&7Emerald Crates are legendary crates that not;&7only give you a very high chance to find;&7legendary loot, but also contains no duplicates!;;&cNote: &r&fThese crates can only be obtained;&r&fby claiming a Plus Bonus from The Monke.;;&aLeft-click to view available crates!")).split(";")));
         try {
             field = meta.getClass().getDeclaredField("profile");
         } catch (NoSuchFieldException | SecurityException e) {
