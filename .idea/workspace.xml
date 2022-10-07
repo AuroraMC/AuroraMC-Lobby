@@ -4,32 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Lower time it takes for platform to disappear to 3 seconds">
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/LeaderboardHologram.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/Parkour.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/ParkourRun.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/Reward.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/plates/BorderPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/plates/Checkpoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/plates/EndPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/plates/PressurePlate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/plates/RestartPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/plates/StartPoint.java" afterDir="false" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Comment out db pulls to allow plugin to build">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/backend/LobbyDatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/backend/LobbyDatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/Parkour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/Parkour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/ParkourRun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/ParkourRun.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/players/AuroraMCLobbyPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/players/AuroraMCLobbyPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/GameServerListing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/GameServerListing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/LobbySwitcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/LobbySwitcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/Poll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/Poll.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/TheMonke.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/TheMonke.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/changelog/ChangelogListing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/changelog/ChangelogListing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/changelog/Changelogs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/changelog/Changelogs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/ViewCrates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/ViewCrates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/buy/BuyDiamondCrate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/buy/BuyDiamondCrate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/buy/BuyGoldCrate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/buy/BuyGoldCrate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/buy/BuyIronCrate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/buy/BuyIronCrate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/buy/confirmation/ConfirmDiamond.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/buy/confirmation/ConfirmDiamond.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/buy/confirmation/ConfirmGold.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/buy/confirmation/ConfirmGold.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/buy/confirmation/ConfirmIron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/crates/buy/confirmation/ConfirmIron.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -383,20 +363,10 @@
       <workItem from="1664712948881" duration="3079000" />
       <workItem from="1664797188205" duration="759000" />
       <workItem from="1664800825926" duration="51000" />
-    </task>
-    <task id="LOCAL-00201" summary="Fix emerald structure">
-      <created>1657487911455</created>
-      <option name="number" value="00201" />
-      <option name="presentableId" value="LOCAL-00201" />
-      <option name="project" value="LOCAL" />
-      <updated>1657487911455</updated>
-    </task>
-    <task id="LOCAL-00202" summary="Fix sounds with Diamond crate, add chest animation for emerald crate">
-      <created>1657488766130</created>
-      <option name="number" value="00202" />
-      <option name="presentableId" value="LOCAL-00202" />
-      <option name="project" value="LOCAL" />
-      <updated>1657488766130</updated>
+      <workItem from="1664801054993" duration="360000" />
+      <workItem from="1664802210301" duration="601000" />
+      <workItem from="1664972123945" duration="3097000" />
+      <workItem from="1665093370353" duration="874000" />
     </task>
     <task id="LOCAL-00203" summary="Fix structure generation">
       <created>1657489027740</created>
@@ -727,7 +697,21 @@
       <option name="project" value="LOCAL" />
       <updated>1662467636583</updated>
     </task>
-    <option name="localTasksCounter" value="250" />
+    <task id="LOCAL-00250" summary="Start work on parkour, fix bug in GUI for later versions">
+      <created>1664801097018</created>
+      <option name="number" value="00250" />
+      <option name="presentableId" value="LOCAL-00250" />
+      <option name="project" value="LOCAL" />
+      <updated>1664801097018</updated>
+    </task>
+    <task id="LOCAL-00251" summary="Comment out db pulls to allow plugin to build">
+      <created>1664801184874</created>
+      <option name="number" value="00251" />
+      <option name="presentableId" value="LOCAL-00251" />
+      <option name="project" value="LOCAL" />
+      <updated>1664801184874</updated>
+    </task>
+    <option name="localTasksCounter" value="252" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -745,8 +729,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix buy iron menu" />
-    <MESSAGE value="Move item downwards slightly" />
     <MESSAGE value="Attempt to stop player leaving area" />
     <MESSAGE value="Fix stuff" />
     <MESSAGE value="Change radius, center co-ords" />
@@ -770,6 +752,8 @@
     <MESSAGE value="Add branch to bversions" />
     <MESSAGE value="Prevent error on kick" />
     <MESSAGE value="Lower time it takes for platform to disappear to 3 seconds" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lower time it takes for platform to disappear to 3 seconds" />
+    <MESSAGE value="Start work on parkour, fix bug in GUI for later versions" />
+    <MESSAGE value="Comment out db pulls to allow plugin to build" />
+    <option name="LAST_COMMIT_MESSAGE" value="Comment out db pulls to allow plugin to build" />
   </component>
 </project>

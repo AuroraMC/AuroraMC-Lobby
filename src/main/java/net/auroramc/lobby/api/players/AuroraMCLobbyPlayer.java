@@ -408,4 +408,8 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
     public boolean isInParkour() {
         return activeParkourRun != null;
     }
+
+    public ParkourRun getActiveParkourRun() {
+        return activeParkourRun;
+    }
 }

@@ -27,12 +27,12 @@ public class Parkour {
     private final LeaderboardHologram leaderboard;
 
     @SuppressWarnings("unused")
-    public Parkour(int id, UUID server, String name, StartPoint start, EndPoint end, List<Checkpoint> checkpoints, RestartPoint restartPoint, List<BorderPoint> borderPoints, Reward checkpointCommand, Reward endCommand, LeaderboardHologram leaderboard) {
+    public Parkour(int id, UUID server, String name, Reward checkpointCommand, Reward endCommand, LeaderboardHologram leaderboard) {
         this.id = id;
         this.server = server;
         this.start = start;
         this.start.setParkour(this);
-        this.endPoint = end;
+        this.endPoint = endPoint;
         this.endPoint.setParkour(this);
         this.checkpoints = checkpoints;
         for (Checkpoint checkpoint : checkpoints) {
