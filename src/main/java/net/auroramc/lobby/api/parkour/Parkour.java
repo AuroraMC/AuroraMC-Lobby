@@ -4,7 +4,6 @@
 
 package net.auroramc.lobby.api.parkour;
 
-import com.sun.tools.javac.comp.Check;
 import net.auroramc.core.api.utils.holograms.Hologram;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.parkour.plates.*;
