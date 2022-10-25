@@ -8,6 +8,7 @@ import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.core.api.cosmetics.Crate;
+import net.auroramc.core.api.players.AuroraMCPlayer;
 import net.auroramc.core.api.utils.gui.GUI;
 import net.auroramc.core.api.utils.gui.GUIItem;
 import net.auroramc.core.cosmetics.crates.GoldCrate;
@@ -103,9 +104,9 @@ public class GoldCrateMenu extends GUI {
 
             if (LobbyAPI.startOpen(crate, player)) {
                 Location location = LobbyAPI.getChestBlock().getLocation();
-                for (Entity entity : location.getWorld().getNearbyEntities(location, 2, 2, 2)) {
-                    if (entity.getEntityId() == LobbyAPI.getChestStand().getEntityId() || entity instanceof ArmorStand) {
-                        entity.remove();
+                for (AuroraMCPlayer player1 :  AuroraMCAPI.getPlayers()) {
+                    if (player1.getHolograms().containsKey("crates")) {
+                        player1.getHolograms().get("crates").despawn();
                     }
                 }
                 location.getBlock().setType(Material.AIR);

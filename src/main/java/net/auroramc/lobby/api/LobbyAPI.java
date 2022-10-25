@@ -10,9 +10,12 @@ import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.core.api.backend.ServerInfo;
 import net.auroramc.core.api.cosmetics.Crate;
 import net.auroramc.core.api.utils.gui.GUIItem;
+import net.auroramc.core.api.utils.holograms.Hologram;
 import net.auroramc.lobby.AuroraMCLobby;
 import net.auroramc.lobby.api.backend.GameServerInfo;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
+import net.auroramc.lobby.api.parkour.Parkour;
+import net.auroramc.lobby.api.parkour.Reward;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.api.util.Changelog;
 import net.auroramc.lobby.api.util.CommunityPoll;
@@ -25,10 +28,8 @@ import org.bukkit.craftbukkit.v1_8_R3.CraftServer;
 import org.bukkit.craftbukkit.v1_8_R3.CraftWorld;
 import org.bukkit.entity.ArmorStand;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class LobbyAPI {
 
@@ -69,11 +70,14 @@ public class LobbyAPI {
     private static EntityPlayer duelsEntity;
 
     private static Block chestBlock;
-    private static ArmorStand chestStand;
 
     private static Crate currentCrate;
     private static AuroraMCLobbyPlayer cratePlayer;
     private static boolean crateAnimationFinished;
+
+    private static Parkour easy;
+    private static Parkour medium;
+    private static Parkour hard;
 
 
     static {
@@ -258,14 +262,6 @@ public class LobbyAPI {
         LobbyAPI.chestBlock = chestBlock;
     }
 
-    public static ArmorStand getChestStand() {
-        return chestStand;
-    }
-
-    public static void setChestStand(ArmorStand chestStand) {
-        LobbyAPI.chestStand = chestStand;
-    }
-
     public synchronized static boolean startOpen(Crate crate, AuroraMCLobbyPlayer player) {
         if (currentCrate != null || cratePlayer != null) {
             return false;
@@ -295,5 +291,23 @@ public class LobbyAPI {
 
     public static boolean isCrateAnimationFinished() {
         return crateAnimationFinished;
+    }
+
+    public static void loadParkours() {
+        easy = new Parkour(1, "&aEasy Parkour", new Reward("+50 XP\n+50 Crowns\n+50 Tickets", 50, 50, 50, Collections.emptyMap(), Collections.emptyList()), new Reward("+500 XP\n+500 Crowns\n+500 Tickets", 500, 500, 500, Collections.emptyMap(), Collections.emptyList()));
+        medium = new Parkour(2, "&6Medium Parkour", new Reward("+50 XP\n+50 Crowns\n+50 Tickets", 50, 50, 50, Collections.emptyMap(), Collections.emptyList()), new Reward("+500 XP\n+500 Crowns\n+500 Tickets", 500, 500, 500, Collections.emptyMap(), Collections.emptyList()));
+        hard = new Parkour(3, "&cHard Parkour", new Reward("+50 XP\n+50 Crowns\n+50 Tickets", 50, 50, 50, Collections.emptyMap(), Collections.emptyList()), new Reward("+500 XP\n+500 Crowns\n+500 Tickets", 500, 500, 500, Collections.emptyMap(), Collections.emptyList()));
+    }
+
+    public static Parkour getEasy() {
+        return easy;
+    }
+
+    public static Parkour getHard() {
+        return hard;
+    }
+
+    public static Parkour getMedium() {
+        return medium;
     }
 }

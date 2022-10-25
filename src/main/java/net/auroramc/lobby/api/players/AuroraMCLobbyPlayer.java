@@ -8,15 +8,18 @@ import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.core.api.cosmetics.Crate;
 import net.auroramc.core.api.cosmetics.Gadget;
 import net.auroramc.core.api.players.AuroraMCPlayer;
+import net.auroramc.core.api.utils.holograms.Hologram;
 import net.auroramc.core.cosmetics.crates.DiamondCrate;
 import net.auroramc.core.cosmetics.crates.EmeraldCrate;
 import net.auroramc.core.cosmetics.crates.GoldCrate;
 import net.auroramc.core.cosmetics.crates.IronCrate;
+import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
 import net.auroramc.lobby.api.parkour.Parkour;
 import net.auroramc.lobby.api.parkour.ParkourRun;
 import net.auroramc.lobby.api.util.CheckForcefieldRunnable;
 import net.auroramc.lobby.utils.CrateUtil;
+import org.bukkit.Location;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -33,7 +36,6 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
     private int dailyBonusClaimed;
     private long lastMonthlyBonus;
     private long lastPlusBonus;
-    private boolean moved;
     private ParkourRun activeParkourRun;
 
     private Map<Gadget, Long> lastUsed;
@@ -48,6 +50,8 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
         lastUsed = new HashMap<>();
         moved = false;
         crates = AuroraMCAPI.getDbManager().getCrates(this.getId());
+
+        AuroraMCLobbyPlayer pl = this;
 
         if (oldPlayer.getPreferences().isHubForcefieldEnabled() && (oldPlayer.hasPermission("social") || oldPlayer.hasPermission("admin"))) {
             this.runnable = new CheckForcefieldRunnable(this);
@@ -213,6 +217,19 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
                 } else {
                     getPlayer().removePotionEffect(PotionEffectType.SPEED);
                 }
+                Location location = LobbyAPI.getChestBlock().getLocation().clone();
+                location.setY(location.getY() + 1);
+                Hologram hologram = new Hologram(pl, location, null);
+                hologram.addLine(1, "&3&lOpen Crates");
+                long amount = crates.stream().filter(crate -> crate.getOpened() > 0).count();
+                if (amount > 0) {
+                    hologram.addLine(2, "&fYou have &b" + amount + " &fcrates to open!");
+                }
+                if (LobbyAPI.isCrateAnimationFinished()) {
+                    //Only spawn if there isnt already someone opening a crate.
+                    hologram.spawn();
+                }
+                pl.getHolograms().put("crates", hologram);
             }
         }.runTask(AuroraMCAPI.getCore());
     }
@@ -379,14 +396,6 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
             return true;
         }
         return lastPlusBonus / 2592000000L < System.currentTimeMillis() / 2592000000L  && this.hasPermission("plus");
-    }
-
-    public boolean hasMoved() {
-        return moved;
-    }
-
-    public void moved() {
-        this.moved = true;
     }
 
     public Map<Gadget, Long> getLastUsed() {

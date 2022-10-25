@@ -16,6 +16,7 @@ import net.auroramc.core.gui.cosmetics.Cosmetics;
 import net.auroramc.core.gui.preferences.Preferences;
 import net.auroramc.core.gui.stats.stats.Stats;
 import net.auroramc.lobby.api.LobbyAPI;
+import net.auroramc.lobby.api.parkour.ParkourRun;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.api.util.CrateStructures;
 import net.auroramc.lobby.gui.GameMenu;
@@ -56,10 +57,13 @@ import org.bukkit.util.Vector;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import javax.persistence.Lob;
+
 
 public class LobbyListener implements Listener {
 
     private static int highX = 0, lowX = 0, highY = 0, lowY = 0, highZ = 0, lowZ = 0;
+    final double STILL = -0.0784000015258789;
 
     static {
         JSONObject a = LobbyAPI.getLobbyMap().getMapData().getJSONObject("border_a");
@@ -214,8 +218,14 @@ public class LobbyListener implements Listener {
                 for (Player player : Bukkit.getOnlinePlayers()) {
                     ((CraftPlayer)player).getHandle().playerConnection.sendPacket(packet);
                 }
-                AuroraMCPlayer cratePlayer = LobbyAPI.getCratePlayer();
+                AuroraMCLobbyPlayer cratePlayer = LobbyAPI.getCratePlayer();
                 Crate.CrateReward reward = LobbyAPI.getCurrentCrate().open(LobbyAPI.getCratePlayer());
+                long amount = cratePlayer.getCrates().stream().filter(crate -> crate.getOpened() > 0).count();
+                if (amount > 0) {
+                    cratePlayer.getHolograms().get("crates").getLines().get(2).setText("&fYou have &b" + amount + " &fcrates to open!");
+                } else {
+                    cratePlayer.getHolograms().get("crates").removeLine(2);
+                }
                 if (reward.getCosmetic() != null) {
                     Location loc2 = block.getLocation().clone();
                     loc2.add(0.5, 1.5, 0.5);
@@ -397,14 +407,11 @@ public class LobbyListener implements Listener {
                             location.setY(location.getY() + 1);
                             location.setX(location.getX() + 0.5);
                             location.setZ(location.getZ() + 0.5);
-                            ArmorStand stand = location.getWorld().spawn(location, ArmorStand.class);
-                            stand.setVisible(false);
-                            stand.setCustomName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight("&a&lOpen Crates")));
-                            stand.setCustomNameVisible(true);
-                            stand.setSmall(true);
-                            stand.setMarker(true);
-                            stand.setGravity(false);
-                            LobbyAPI.setChestStand(stand);
+                            for (AuroraMCPlayer player1 :  AuroraMCAPI.getPlayers()) {
+                                if (player1.getHolograms().containsKey("crates")) {
+                                    player1.getHolograms().get("crates").spawn();
+                                }
+                            }
                         }
                     }.runTaskLater(AuroraMCAPI.getCore(), 60);
                 } else if (reward.getRank() != null) {
@@ -489,14 +496,11 @@ public class LobbyListener implements Listener {
                             location.setY(location.getY() + 1);
                             location.setX(location.getX() + 0.5);
                             location.setZ(location.getZ() + 0.5);
-                            ArmorStand stand = location.getWorld().spawn(location, ArmorStand.class);
-                            stand.setVisible(false);
-                            stand.setCustomName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight("&a&lOpen Crates")));
-                            stand.setCustomNameVisible(true);
-                            stand.setSmall(true);
-                            stand.setMarker(true);
-                            stand.setGravity(false);
-                            LobbyAPI.setChestStand(stand);
+                            for (AuroraMCPlayer player1 :  AuroraMCAPI.getPlayers()) {
+                                if (player1.getHolograms().containsKey("crates")) {
+                                    player1.getHolograms().get("crates").spawn();
+                                }
+                            }
 
                         }
                     }.runTaskLater(AuroraMCAPI.getCore(), 200);
@@ -581,14 +585,11 @@ public class LobbyListener implements Listener {
                             location.setY(location.getY() + 1);
                             location.setX(location.getX() + 0.5);
                             location.setZ(location.getZ() + 0.5);
-                            ArmorStand stand = location.getWorld().spawn(location, ArmorStand.class);
-                            stand.setVisible(false);
-                            stand.setCustomName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight("&a&lOpen Crates")));
-                            stand.setCustomNameVisible(true);
-                            stand.setSmall(true);
-                            stand.setMarker(true);
-                            stand.setGravity(false);
-                            LobbyAPI.setChestStand(stand);
+                            for (AuroraMCPlayer player1 :  AuroraMCAPI.getPlayers()) {
+                                if (player1.getHolograms().containsKey("crates")) {
+                                    player1.getHolograms().get("crates").spawn();
+                                }
+                            }
                             LobbyAPI.finishOpen();
 
                         }
@@ -699,11 +700,16 @@ public class LobbyListener implements Listener {
     @EventHandler
     public void onToggleFlight(PlayerToggleFlightEvent e) {
         AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer(e.getPlayer());
-        if (e.isFlying() && (!player.getPreferences().isHubFlightEnabled() || (!player.hasPermission("elite") && !player.hasPermission("plus")))) {
-            e.getPlayer().setAllowFlight(false);
-            e.setCancelled(true);
-            e.getPlayer().setVelocity(e.getPlayer().getLocation().getDirection().normalize().multiply(2.2));
-            e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.ENDERDRAGON_WINGS, 1, 100);
+        if (e.isFlying() && player.isInParkour()) {
+            player.getActiveParkourRun().end(ParkourRun.FailCause.FLY);
+            player.parkourEnd();
+        } else {
+            if (e.isFlying() && (!player.getPreferences().isHubFlightEnabled() || (!player.hasPermission("elite") && !player.hasPermission("plus")))) {
+                e.getPlayer().setAllowFlight(false);
+                e.setCancelled(true);
+                e.getPlayer().setVelocity(e.getPlayer().getLocation().getDirection().normalize().multiply(2.2));
+                e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.ENDERDRAGON_WINGS, 1, 100);
+            }
         }
     }
 
@@ -763,8 +769,41 @@ public class LobbyListener implements Listener {
 
     @EventHandler
     public void onMove(PlayerMoveEvent e) {
+        AuroraMCPlayer player = AuroraMCAPI.getPlayer(e.getPlayer());
+        if (player instanceof AuroraMCLobbyPlayer) {
+            AuroraMCLobbyPlayer p = (AuroraMCLobbyPlayer) player;
+            if (p.isInParkour()) {
+                if (e.getPlayer().isOnGround()) {
+                    p.getActiveParkourRun().touchedGround();
+                }
+                if (e.getPlayer().getVelocity().getY() > STILL) {
+                    if (p.getActiveParkourRun().hasTouchedGround() && !player.getPlayer().isOnGround()) {
+                        p.getActiveParkourRun().leftGround();
+                        p.getActiveParkourRun().jumped();
+                    }
+                }
+                Location from = e.getFrom().clone();
+                Location to = e.getTo().clone();
+                from.setY(0);
+                to.setY(0);
+                double distance = Math.abs(from.distance(to));
+                {
+                    p.getActiveParkourRun().addTravel(distance);
+                }
+            }
+        }
         if (e.getTo().getX() < lowX || e.getTo().getX() > highX || e.getTo().getY() < lowY || e.getTo().getY() > highY || e.getTo().getZ() < lowZ || e.getTo().getZ() > highZ) {
             //Call entity damage event so the games can handle them appropriately.
+            if (player instanceof AuroraMCLobbyPlayer) {
+                AuroraMCLobbyPlayer p = (AuroraMCLobbyPlayer) player;
+                if (p.isInParkour()) {
+                    Location l = p.getActiveParkourRun().getParkour().getRestartPoint().getLocation().clone();
+                    if(p.getActiveParkourRun().getLastReached() != 0) {
+                        l = p.getActiveParkourRun().getParkour().getCheckpoint(p.getActiveParkourRun().getLastReached()).getLocation().clone();
+                    }
+                    e.getPlayer().teleport(l.add(0.5,0.5, 0.5));
+                }
+            }
             JSONArray spawnLocations = LobbyAPI.getLobbyMap().getMapData().getJSONObject("spawn").getJSONArray("PLAYERS");
             if (spawnLocations == null || spawnLocations.length() == 0) {
                 LobbyAPI.getLobby().getLogger().info("An invalid waiting lobby was supplied, assuming 0, 64, 0 spawn position.");
@@ -801,6 +840,77 @@ public class LobbyListener implements Listener {
                 Vector vector = e.getPlayer().getLocation().toVector().subtract(location.toVector()).setY(4);
                 e.getPlayer().setVelocity(vector.normalize().multiply(1.5));
                 e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.CHICKEN_EGG_POP, 100, 1);
+            }
+        } else if (!e.getTo().getBlock().equals(e.getFrom().getBlock())) {
+            if (player instanceof AuroraMCLobbyPlayer) {
+                switch (e.getTo().getBlock().getType()) {
+                    case IRON_PLATE:{
+                        AuroraMCLobbyPlayer p = (AuroraMCLobbyPlayer) player;
+                        if (e.getTo().getBlock().equals(LobbyAPI.getEasy().getStart().getLocation().getBlock())) {
+                            //Wants to start easy parkour
+                            if (p.isInParkour()) {
+                                if (p.getActiveParkourRun().getParkour().equals(LobbyAPI.getEasy())) {
+                                    p.getActiveParkourRun().restart();
+                                    p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have restarted the parkour!"));
+                                } else {
+                                    p.getActiveParkourRun().end(ParkourRun.FailCause.NEW_PARKOUR);
+                                    p.parkourStart(LobbyAPI.getEasy());
+                                    p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have started the **Easy** parkour!"));
+                                }
+                            } else {
+                                if ((!player.getPreferences().isHubFlightEnabled() || (!player.hasPermission("elite") && !player.hasPermission("plus")))) {
+                                    player.getPlayer().setFlying(false);
+                                    player.getPlayer().setAllowFlight(false);
+                                }
+                                p.parkourStart(LobbyAPI.getEasy());
+                                p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have started the **Easy** parkour!"));
+                            }
+                        } else if (e.getTo().getBlock().equals(LobbyAPI.getMedium().getStart().getLocation().getBlock())) {
+                            if (p.isInParkour()) {
+                                if (p.getActiveParkourRun().getParkour().equals(LobbyAPI.getMedium())) {
+                                    p.getActiveParkourRun().restart();
+                                    p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have restarted the parkour!"));
+                                } else {
+                                    p.getActiveParkourRun().end(ParkourRun.FailCause.NEW_PARKOUR);
+                                    p.parkourStart(LobbyAPI.getMedium());
+                                    p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have started the **Medium** parkour!"));
+                                }
+                            } else {
+                                if ((!player.getPreferences().isHubFlightEnabled() || (!player.hasPermission("elite") && !player.hasPermission("plus")))) {
+                                    player.getPlayer().setFlying(false);
+                                    player.getPlayer().setAllowFlight(false);
+                                }
+                                p.parkourStart(LobbyAPI.getEasy());
+                                p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have started the **Medium** parkour!"));
+                            }
+                        } else if (e.getTo().getBlock().equals(LobbyAPI.getHard().getStart().getLocation().getBlock())) {
+                            if (p.isInParkour()) {
+                                if (p.getActiveParkourRun().getParkour().equals(LobbyAPI.getHard())) {
+                                    p.getActiveParkourRun().restart();
+                                    p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have restarted the parkour!"));
+                                } else {
+                                    p.getActiveParkourRun().end(ParkourRun.FailCause.NEW_PARKOUR);
+                                    p.parkourStart(LobbyAPI.getHard());
+                                    p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have started the **Hard** parkour!"));
+                                }
+                            } else {
+                                if ((!player.getPreferences().isHubFlightEnabled() || (!player.hasPermission("elite") && !player.hasPermission("plus")))) {
+                                    player.getPlayer().setFlying(false);
+                                    player.getPlayer().setAllowFlight(false);
+                                }
+                                p.parkourStart(LobbyAPI.getHard());
+                                p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have started the **Hard** parkour!"));
+                            }
+                        }
+                        break;
+                    }
+                    case GOLD_PLATE: {
+
+                    }
+                    case WOOD_PLATE: {
+
+                    }
+                }
             }
         }
     }

@@ -309,6 +309,17 @@ public class ParkourRun {
         this.jumps++;
     }
 
+    public int getLastReached() {
+        return lastReached;
+    }
+
+    public void restart() {
+        startTime = System.currentTimeMillis();
+        checkpoints.clear();
+        lastReached = 0;
+        currentSplit = startTime;
+    }
+
     /**
      * Executed when the player travels when doing the parkour.
      * @param distance the distance travelled.
@@ -318,5 +329,17 @@ public class ParkourRun {
     }
 
     public enum FailCause {FLY, TELEPORTATION, NOT_ENOUGH_CHECKPOINTS, NEW_PARKOUR, LEAVE}
+
+    public boolean hasTouchedGround() {
+        return touchedGround;
+    }
+
+    public void touchedGround() {
+        touchedGround = true;
+    }
+
+    public void leftGround() {
+        touchedGround = false;
+    }
 
 }

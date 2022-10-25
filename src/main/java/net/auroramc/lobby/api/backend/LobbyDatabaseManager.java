@@ -15,6 +15,7 @@ import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.api.util.Changelog;
 import net.auroramc.lobby.api.util.CommunityPoll;
 import org.apache.commons.io.FileUtils;
+import org.bukkit.Bukkit;
 import org.json.JSONObject;
 import redis.clients.jedis.Jedis;
 
@@ -30,12 +31,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
 
 public class LobbyDatabaseManager {
 
     public static void downloadMap() {
         try (Connection connection = AuroraMCAPI.getDbManager().getMySQLConnection()) {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM maps WHERE parse_version = 'LIVE' AND map_id = 54");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM maps WHERE parse_version = '" + ((AuroraMCAPI.isTestServer())?"TEST":"LIVE") + "' AND map_id = 54");
             ResultSet set = statement.executeQuery();
             File file = new File(LobbyAPI.getLobby().getDataFolder(), "zip");
             if (file.exists()) {
@@ -441,6 +443,30 @@ public class LobbyDatabaseManager {
             return -1;
         }
         return -1;
+    }
+
+    public static HashMap<Integer, List<String>> getLeaderboard(Parkour parkour) {
+        HashMap<Integer, List<String>> leaderboard = new HashMap<>();
+
+        try (Connection connection = AuroraMCAPI.getDbManager().getMySQLConnection()) {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM pk_playertimes WHERE parkour_id = ? ORDER BY `time` ASC LIMIT 10");
+            statement.setInt(1, parkour.getId());
+
+            ResultSet results = statement.executeQuery();
+            int counter = 1;
+            while (results.next()) {
+                List<String> record = new ArrayList<>();
+                record.add(results.getString(4));
+                record.add(results.getString(3));
+                record.add(results.getString(1));
+                leaderboard.put(counter, record);
+                counter++;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return leaderboard;
     }
 
 }

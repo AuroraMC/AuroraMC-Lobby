@@ -5,6 +5,7 @@
 package net.auroramc.lobby;
 
 import net.auroramc.core.api.utils.ZipUtil;
+import net.auroramc.core.api.utils.holograms.Hologram;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.LobbyMap;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
@@ -18,6 +19,7 @@ import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.lobby.commands.admin.*;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -92,10 +94,11 @@ public class AuroraMCLobby extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new LeaveListener(), this);
         Bukkit.getPluginManager().registerEvents(new FakePlayerListener(), this);
 
-
         new UpdateServersRunnable().runTaskTimer(AuroraMCAPI.getCore(), 20, 100);
         new UpdateDataRunnable().runTaskTimer(AuroraMCAPI.getCore(), 0, 20);
         new UpdatePollRunnable().runTaskTimer(AuroraMCAPI.getCore(), 36400, 36400);
         new UpdateScoreboardRunnable().runTaskTimer(AuroraMCAPI.getCore(), 400, 400);
+
+        LobbyAPI.loadParkours();
     }
 }
