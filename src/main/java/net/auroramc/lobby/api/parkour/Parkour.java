@@ -48,6 +48,7 @@ public class Parkour {
         while (locations.has(id + " CHECKPOINT" + i)) {
             JSONArray location = locations.getJSONArray(id + " CHECKPOINT" + i);
             this.checkpoints.add(new Checkpoint(new Location(LobbyAPI.getLobby().getServer().getWorld("world"), location.getJSONObject(0).getInt("x") + 0.5, location.getJSONObject(0).getInt("y") + 0.5, location.getJSONObject(0).getInt("z") + 0.5, location.getJSONObject(0).getFloat("yaw"),  0), i));
+            i++;
         }
         this.players = new ArrayList<>();
         this.checkpointCommand = checkpointCommand;
