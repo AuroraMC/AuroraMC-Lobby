@@ -59,12 +59,6 @@ public class CommandCrate extends Command {
                         case "iron": {
                             for (int i = 0;i < amount;i++) {
                                 Crate crate = CrateUtil.generateIronCrate(id);
-                                new BukkitRunnable(){
-                                    @Override
-                                    public void run() {
-                                        LobbyDatabaseManager.newCrate(crate);
-                                    }
-                                }.runTaskAsynchronously(AuroraMCAPI.getCore());
                                 if (AuroraMCAPI.getPlayer(args.get(0)) != null) {
                                     ((AuroraMCLobbyPlayer)AuroraMCAPI.getPlayer(args.get(0))).getCrates().add(crate);
                                 }
@@ -74,12 +68,6 @@ public class CommandCrate extends Command {
                         case "gold": {
                             for (int i = 0;i < amount;i++) {
                                 Crate crate = CrateUtil.generateGoldCrate(id);
-                                new BukkitRunnable(){
-                                    @Override
-                                    public void run() {
-                                        LobbyDatabaseManager.newCrate(crate);
-                                    }
-                                }.runTaskAsynchronously(AuroraMCAPI.getCore());
                                 if (AuroraMCAPI.getPlayer(args.get(0)) != null) {
                                     ((AuroraMCLobbyPlayer)AuroraMCAPI.getPlayer(args.get(0))).getCrates().add(crate);
                                 }
@@ -89,12 +77,6 @@ public class CommandCrate extends Command {
                         case "diamond": {
                             for (int i = 0;i < amount;i++) {
                                 Crate crate = CrateUtil.generateDiamondCrate(id);
-                                new BukkitRunnable(){
-                                    @Override
-                                    public void run() {
-                                        LobbyDatabaseManager.newCrate(crate);
-                                    }
-                                }.runTaskAsynchronously(AuroraMCAPI.getCore());
                                 if (AuroraMCAPI.getPlayer(args.get(0)) != null) {
                                     ((AuroraMCLobbyPlayer)AuroraMCAPI.getPlayer(args.get(0))).getCrates().add(crate);
                                 }
@@ -104,12 +86,6 @@ public class CommandCrate extends Command {
                         case "emerald": {
                             for (int i = 0;i < amount;i++) {
                                 Crate crate = CrateUtil.generateEmeraldCrate(id);
-                                new BukkitRunnable(){
-                                    @Override
-                                    public void run() {
-                                        LobbyDatabaseManager.newCrate(crate);
-                                    }
-                                }.runTaskAsynchronously(AuroraMCAPI.getCore());
                                 if (AuroraMCAPI.getPlayer(args.get(0)) != null) {
                                     ((AuroraMCLobbyPlayer)AuroraMCAPI.getPlayer(args.get(0))).getCrates().add(crate);
                                 }
