@@ -47,6 +47,7 @@ public class AuroraMCLobby extends JavaPlugin {
         AuroraMCAPI.registerCommand(new CommandCrate());
 
         LobbyDatabaseManager.downloadMap();
+        getLogger().info("Map downloaded, deleting world directory...");
         File mapFolder = new File(Bukkit.getWorldContainer(), "world");
         if (mapFolder.exists()) {
             try {
@@ -59,11 +60,12 @@ public class AuroraMCLobby extends JavaPlugin {
         File region = new File(mapFolder, "region");
         region.mkdirs();
         try {
+            getLogger().info("Unzipping map...");
             ZipUtil.unzip(getDataFolder().toPath().toAbsolutePath() + "/zip/54.zip", region.toPath().toAbsolutePath().toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        getLogger().info("Loading map data into memory...");
         File data = new File(region, "map.json");
         JSONParser parser = new JSONParser();
         Object object;
@@ -83,6 +85,8 @@ public class AuroraMCLobby extends JavaPlugin {
         String author = jsonObject.getString("author");
 
         LobbyAPI.setLobbyMap(new LobbyMap(id, name, author, jsonObject));
+
+        getLogger().info("Map loaded, loading other info...");
         LobbyAPI.loadVersionNumbers();
         LobbyAPI.loadGameServers();
 
@@ -100,5 +104,6 @@ public class AuroraMCLobby extends JavaPlugin {
         new UpdateScoreboardRunnable().runTaskTimer(AuroraMCAPI.getCore(), 400, 400);
 
         LobbyAPI.loadParkours();
+        getLogger().info("Startup complete.");
     }
 }
