@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Removed useless import">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add more info on startup">
       <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/AuroraMCLobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/AuroraMCLobby.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/Parkour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/Parkour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/WorldListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/WorldListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -408,14 +407,7 @@
       <workItem from="1666738022648" duration="184000" />
       <workItem from="1666738227010" duration="31000" />
       <workItem from="1666738277232" duration="332000" />
-      <workItem from="1666739939582" duration="1896000" />
-    </task>
-    <task id="LOCAL-00205" summary="Fix chest locations">
-      <created>1657489543770</created>
-      <option name="number" value="00205" />
-      <option name="presentableId" value="LOCAL-00205" />
-      <option name="project" value="LOCAL" />
-      <updated>1657489543770</updated>
+      <workItem from="1666739939582" duration="2216000" />
     </task>
     <task id="LOCAL-00206" summary="Fix water Z">
       <created>1657489597852</created>
@@ -753,7 +745,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666740508890</updated>
     </task>
-    <option name="localTasksCounter" value="254" />
+    <task id="LOCAL-00254" summary="Add more info on startup">
+      <created>1666887305776</created>
+      <option name="number" value="00254" />
+      <option name="presentableId" value="LOCAL-00254" />
+      <option name="project" value="LOCAL" />
+      <updated>1666887305776</updated>
+    </task>
+    <option name="localTasksCounter" value="255" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -771,7 +770,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Change radius, center co-ords" />
     <MESSAGE value="Handle player leaving while crate is in progress" />
     <MESSAGE value="More handling of player disconnecting" />
     <MESSAGE value="Implement crate command" />
@@ -796,6 +794,7 @@
     <MESSAGE value="Comment out db pulls to allow plugin to build" />
     <MESSAGE value="Start parkour work" />
     <MESSAGE value="Removed useless import" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed useless import" />
+    <MESSAGE value="Add more info on startup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add more info on startup" />
   </component>
 </project>

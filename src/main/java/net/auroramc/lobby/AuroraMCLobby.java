@@ -90,6 +90,7 @@ public class AuroraMCLobby extends JavaPlugin {
         LobbyAPI.loadVersionNumbers();
         LobbyAPI.loadGameServers();
 
+        getLogger().info("Registering listeners...");
         Bukkit.getPluginManager().registerEvents(new ShutdownEventListener(), this);
         Bukkit.getPluginManager().registerEvents(new JoinListener(), this);
         Bukkit.getPluginManager().registerEvents(new WorldListener(), this);
@@ -102,8 +103,6 @@ public class AuroraMCLobby extends JavaPlugin {
         new UpdateDataRunnable().runTaskTimer(AuroraMCAPI.getCore(), 0, 20);
         new UpdatePollRunnable().runTaskTimer(AuroraMCAPI.getCore(), 36400, 36400);
         new UpdateScoreboardRunnable().runTaskTimer(AuroraMCAPI.getCore(), 400, 400);
-
-        LobbyAPI.loadParkours();
         getLogger().info("Startup complete.");
     }
 }

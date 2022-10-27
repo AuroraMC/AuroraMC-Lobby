@@ -42,6 +42,8 @@ public class WorldListener implements Listener {
             e.getWorld().setGameRuleValue("doDaylightCycle", "false");
             e.getWorld().setGameRuleValue("doFireTick", "false");
             e.getWorld().setGameRuleValue("randomTickSpeed", "0");
+            LobbyAPI.getLobby().getLogger().info("Loading parkours...");
+            LobbyAPI.loadParkours();
             JSONObject mapData = LobbyAPI.getLobbyMap().getMapData();
             if (mapData.has("time")) {
                 e.getWorld().setTime(mapData.getInt("time"));
