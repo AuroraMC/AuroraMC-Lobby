@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix issue with loading parkours">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Update SQL statements">
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/backend/LobbyDatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/backend/LobbyDatabaseManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/ParkourRun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/ParkourRun.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -412,14 +411,7 @@
       <workItem from="1666888326725" duration="81000" />
       <workItem from="1666888584277" duration="423000" />
       <workItem from="1666889033047" duration="69000" />
-      <workItem from="1666889135769" duration="18000" />
-    </task>
-    <task id="LOCAL-00208" summary="Allow chests to be opened">
-      <created>1657497008495</created>
-      <option name="number" value="00208" />
-      <option name="presentableId" value="LOCAL-00208" />
-      <option name="project" value="LOCAL" />
-      <updated>1657497008495</updated>
+      <workItem from="1666889135769" duration="979000" />
     </task>
     <task id="LOCAL-00209" summary="FIx lobby">
       <created>1657497236990</created>
@@ -757,7 +749,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666887846391</updated>
     </task>
-    <option name="localTasksCounter" value="257" />
+    <task id="LOCAL-00257" summary="Update SQL statements">
+      <created>1666889279827</created>
+      <option name="number" value="00257" />
+      <option name="presentableId" value="LOCAL-00257" />
+      <option name="project" value="LOCAL" />
+      <updated>1666889279827</updated>
+    </task>
+    <option name="localTasksCounter" value="258" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -775,7 +774,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implement crate command" />
     <MESSAGE value="Fix emerald crate" />
     <MESSAGE value="Move firework to center" />
     <MESSAGE value="Teleport to middle when leaving area" />
@@ -800,6 +798,7 @@
     <MESSAGE value="Add more info on startup" />
     <MESSAGE value="Change where parkours are loaded" />
     <MESSAGE value="Fix issue with loading parkours" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix issue with loading parkours" />
+    <MESSAGE value="Update SQL statements" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update SQL statements" />
   </component>
 </project>

@@ -221,7 +221,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
                 location.setY(location.getY() + 1);
                 Hologram hologram = new Hologram(pl, location, null);
                 hologram.addLine(1, "&3&lOpen Crates");
-                long amount = crates.stream().filter(crate -> crate.getOpened() > 0).count();
+                long amount = crates.stream().filter(crate -> crate.getOpened() == 0).count();
                 if (amount > 0) {
                     hologram.addLine(2, "&fYou have &b" + amount + " &fcrates to open!");
                 }
