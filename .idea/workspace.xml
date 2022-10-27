@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add more info on startup">
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/AuroraMCLobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/AuroraMCLobby.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/WorldListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/WorldListener.java" afterDir="false" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix issue with loading parkours">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/backend/LobbyDatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/backend/LobbyDatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/ParkourRun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/ParkourRun.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -407,21 +408,11 @@
       <workItem from="1666738022648" duration="184000" />
       <workItem from="1666738227010" duration="31000" />
       <workItem from="1666738277232" duration="332000" />
-      <workItem from="1666739939582" duration="2216000" />
-    </task>
-    <task id="LOCAL-00206" summary="Fix water Z">
-      <created>1657489597852</created>
-      <option name="number" value="00206" />
-      <option name="presentableId" value="LOCAL-00206" />
-      <option name="project" value="LOCAL" />
-      <updated>1657489597852</updated>
-    </task>
-    <task id="LOCAL-00207" summary="Change timings">
-      <created>1657489785548</created>
-      <option name="number" value="00207" />
-      <option name="presentableId" value="LOCAL-00207" />
-      <option name="project" value="LOCAL" />
-      <updated>1657489785548</updated>
+      <workItem from="1666739939582" duration="2852000" />
+      <workItem from="1666888326725" duration="81000" />
+      <workItem from="1666888584277" duration="423000" />
+      <workItem from="1666889033047" duration="69000" />
+      <workItem from="1666889135769" duration="18000" />
     </task>
     <task id="LOCAL-00208" summary="Allow chests to be opened">
       <created>1657497008495</created>
@@ -752,7 +743,21 @@
       <option name="project" value="LOCAL" />
       <updated>1666887305776</updated>
     </task>
-    <option name="localTasksCounter" value="255" />
+    <task id="LOCAL-00255" summary="Change where parkours are loaded">
+      <created>1666887624696</created>
+      <option name="number" value="00255" />
+      <option name="presentableId" value="LOCAL-00255" />
+      <option name="project" value="LOCAL" />
+      <updated>1666887624696</updated>
+    </task>
+    <task id="LOCAL-00256" summary="Fix issue with loading parkours">
+      <created>1666887846391</created>
+      <option name="number" value="00256" />
+      <option name="presentableId" value="LOCAL-00256" />
+      <option name="project" value="LOCAL" />
+      <updated>1666887846391</updated>
+    </task>
+    <option name="localTasksCounter" value="257" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -770,8 +775,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Handle player leaving while crate is in progress" />
-    <MESSAGE value="More handling of player disconnecting" />
     <MESSAGE value="Implement crate command" />
     <MESSAGE value="Fix emerald crate" />
     <MESSAGE value="Move firework to center" />
@@ -795,6 +798,8 @@
     <MESSAGE value="Start parkour work" />
     <MESSAGE value="Removed useless import" />
     <MESSAGE value="Add more info on startup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add more info on startup" />
+    <MESSAGE value="Change where parkours are loaded" />
+    <MESSAGE value="Fix issue with loading parkours" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix issue with loading parkours" />
   </component>
 </project>

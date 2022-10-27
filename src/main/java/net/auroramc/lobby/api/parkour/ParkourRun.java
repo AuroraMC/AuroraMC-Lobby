@@ -130,12 +130,10 @@ public class ParkourRun {
                     break;
             }
             long time = System.currentTimeMillis() - startTime;
-            new BukkitRunnable(){
-                @Override
-                public void run() {
-                    LobbyDatabaseManager.addAttempt(player, parkour, time);
-                }
-            }.runTaskAsynchronously(AuroraMCAPI.getCore());
+            player.getStats().incrementStatistic(0, "pktime", time, true);
+            player.getStats().incrementStatistic(0, "pkcheckpoints", checkpointsHit, true);
+            player.getStats().incrementStatistic(0, "pkjumps", jumps, true);
+            player.getStats().incrementStatistic(0, "pkdistance", Math.round(totalDistanceTravelled * 10), true);
         } else {
             if (checkpoints.size() != parkour.getNoCheckpoints()) {
                 if (actionBarTask != null) {
@@ -144,12 +142,10 @@ public class ParkourRun {
                 }
 
                 long time = System.currentTimeMillis() - startTime;
-                new BukkitRunnable() {
-                    @Override
-                    public void run() {
-                        LobbyDatabaseManager.addAttempt(player, parkour, time);
-                    }
-                }.runTaskAsynchronously(AuroraMCAPI.getCore());
+                player.getStats().incrementStatistic(0, "pktime", time, true);
+                player.getStats().incrementStatistic(0, "pkcheckpoints", checkpointsHit, true);
+                player.getStats().incrementStatistic(0, "pkjumps", jumps, true);
+                player.getStats().incrementStatistic(0, "pkdistance", Math.round(totalDistanceTravelled * 10), true);
 
                 player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You did not reach enough checkpoints, parkour failed!"));
                 parkour.playerEnd(player);
