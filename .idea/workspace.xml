@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Update SQL statements">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Flip lambda expression for crates">
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/players/AuroraMCLobbyPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/players/AuroraMCLobbyPlayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -411,14 +410,7 @@
       <workItem from="1666888326725" duration="81000" />
       <workItem from="1666888584277" duration="423000" />
       <workItem from="1666889033047" duration="69000" />
-      <workItem from="1666889135769" duration="979000" />
-    </task>
-    <task id="LOCAL-00209" summary="FIx lobby">
-      <created>1657497236990</created>
-      <option name="number" value="00209" />
-      <option name="presentableId" value="LOCAL-00209" />
-      <option name="project" value="LOCAL" />
-      <updated>1657497236990</updated>
+      <workItem from="1666889135769" duration="1598000" />
     </task>
     <task id="LOCAL-00210" summary="FIx locations, fix structure">
       <created>1657497786320</created>
@@ -756,7 +748,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666889279827</updated>
     </task>
-    <option name="localTasksCounter" value="258" />
+    <task id="LOCAL-00258" summary="Flip lambda expression for crates">
+      <created>1666891182740</created>
+      <option name="number" value="00258" />
+      <option name="presentableId" value="LOCAL-00258" />
+      <option name="project" value="LOCAL" />
+      <updated>1666891182740</updated>
+    </task>
+    <option name="localTasksCounter" value="259" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -774,7 +773,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix emerald crate" />
     <MESSAGE value="Move firework to center" />
     <MESSAGE value="Teleport to middle when leaving area" />
     <MESSAGE value="Fix epic firework location" />
@@ -799,6 +797,7 @@
     <MESSAGE value="Change where parkours are loaded" />
     <MESSAGE value="Fix issue with loading parkours" />
     <MESSAGE value="Update SQL statements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update SQL statements" />
+    <MESSAGE value="Flip lambda expression for crates" />
+    <option name="LAST_COMMIT_MESSAGE" value="Flip lambda expression for crates" />
   </component>
 </project>
