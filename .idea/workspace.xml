@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Update how totals are displayed">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix holograms">
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -431,13 +431,7 @@
       <workItem from="1666975374748" duration="269000" />
       <workItem from="1666975774566" duration="709000" />
       <workItem from="1666976532628" duration="21000" />
-    </task>
-    <task id="LOCAL-00215" summary="Fix lots of issues">
-      <created>1657535322445</created>
-      <option name="number" value="00215" />
-      <option name="presentableId" value="LOCAL-00215" />
-      <option name="project" value="LOCAL" />
-      <updated>1657535322445</updated>
+      <workItem from="1666977356768" duration="386000" />
     </task>
     <task id="LOCAL-00216" summary="Move item up more">
       <created>1657535671652</created>
@@ -775,7 +769,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666976367250</updated>
     </task>
-    <option name="localTasksCounter" value="264" />
+    <task id="LOCAL-00264" summary="Fix holograms">
+      <created>1666977522544</created>
+      <option name="number" value="00264" />
+      <option name="presentableId" value="LOCAL-00264" />
+      <option name="project" value="LOCAL" />
+      <updated>1666977522544</updated>
+    </task>
+    <option name="localTasksCounter" value="265" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -793,7 +794,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implement monthly bonuses" />
     <MESSAGE value="Disable forcefield when not social or admin" />
     <MESSAGE value="Fix Grappling Hook" />
     <MESSAGE value="Undo last commit" />
@@ -818,6 +818,7 @@
     <MESSAGE value="Implement exploit prevention" />
     <MESSAGE value="Fix some GUIs, now show playercount in some places" />
     <MESSAGE value="Update how totals are displayed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update how totals are displayed" />
+    <MESSAGE value="Fix holograms" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix holograms" />
   </component>
 </project>
