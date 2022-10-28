@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Move holograms down">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix parkour items">
       <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -434,21 +434,7 @@
       <workItem from="1666977356768" duration="386000" />
       <workItem from="1666977979308" duration="165000" />
       <workItem from="1666978175697" duration="190000" />
-      <workItem from="1666978852901" duration="365000" />
-    </task>
-    <task id="LOCAL-00220" summary="Attempt to stop player leaving area">
-      <created>1657536715964</created>
-      <option name="number" value="00220" />
-      <option name="presentableId" value="LOCAL-00220" />
-      <option name="project" value="LOCAL" />
-      <updated>1657536715964</updated>
-    </task>
-    <task id="LOCAL-00221" summary="Fix stuff">
-      <created>1657536877458</created>
-      <option name="number" value="00221" />
-      <option name="presentableId" value="LOCAL-00221" />
-      <option name="project" value="LOCAL" />
-      <updated>1657536877458</updated>
+      <workItem from="1666978852901" duration="792000" />
     </task>
     <task id="LOCAL-00222" summary="Change radius, center co-ords">
       <created>1657537056558</created>
@@ -779,7 +765,21 @@
       <option name="project" value="LOCAL" />
       <updated>1666978879540</updated>
     </task>
-    <option name="localTasksCounter" value="269" />
+    <task id="LOCAL-00269" summary="Fix medium parkour">
+      <created>1666979227828</created>
+      <option name="number" value="00269" />
+      <option name="presentableId" value="LOCAL-00269" />
+      <option name="project" value="LOCAL" />
+      <updated>1666979227828</updated>
+    </task>
+    <task id="LOCAL-00270" summary="Fix parkour items">
+      <created>1666979340790</created>
+      <option name="number" value="00270" />
+      <option name="presentableId" value="LOCAL-00270" />
+      <option name="project" value="LOCAL" />
+      <updated>1666979340790</updated>
+    </task>
+    <option name="localTasksCounter" value="271" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -797,8 +797,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Undo last commit" />
-    <MESSAGE value="Fix grappling hook" />
     <MESSAGE value="Update NPC Locations" />
     <MESSAGE value="Fix plus bonus" />
     <MESSAGE value="Fix Hub Explorer being given too early" />
@@ -822,6 +820,8 @@
     <MESSAGE value="Fix holograms" />
     <MESSAGE value="Move holograms" />
     <MESSAGE value="Move holograms down" />
-    <option name="LAST_COMMIT_MESSAGE" value="Move holograms down" />
+    <MESSAGE value="Fix medium parkour" />
+    <MESSAGE value="Fix parkour items" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix parkour items" />
   </component>
 </project>

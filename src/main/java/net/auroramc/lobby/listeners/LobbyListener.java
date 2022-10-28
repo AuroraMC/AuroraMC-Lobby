@@ -269,9 +269,6 @@ public class LobbyListener implements Listener {
                         case GOLD_PLATE: {
                             player.getPlayer().setFallDistance(0);
                             Location l = player.getActiveParkourRun().getParkour().getRestartPoint().getLocation().clone();
-                            l.setX(l.getX() + 0.5);
-                            l.setY(l.getY() + 0.5);
-                            l.setZ(l.getZ() + 0.5);
                             player.getPlayer().setVelocity(new Vector(0, 0, 0));
                             player.getPlayer().teleport(l);
                             player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have been teleported to your last checkpoint!"));
@@ -287,9 +284,6 @@ public class LobbyListener implements Listener {
                         case WOOD_DOOR: {
                             player.getPlayer().setFallDistance(0);
                             Location l = player.getActiveParkourRun().getParkour().getRestartPoint().getLocation().clone();
-                            l.setX(l.getX() + 0.5);
-                            l.setY(l.getY() + 0.5);
-                            l.setZ(l.getZ() + 0.5);
                             player.getPlayer().setVelocity(new Vector(0, 0, 0));
                             player.getPlayer().teleport(l);
                             player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have been teleported to the restart point!"));
@@ -1066,13 +1060,13 @@ public class LobbyListener implements Listener {
                                 break;
                             }
                         }
-                        for (Checkpoint checkpoint : LobbyAPI.getEasy().getCheckpoints()) {
+                        for (Checkpoint checkpoint : LobbyAPI.getMedium().getCheckpoints()) {
                             if (e.getTo().getBlock().equals(checkpoint.getLocation().getBlock())) {
                                 where = checkpoint;
                                 break;
                             }
                         }
-                        for (Checkpoint checkpoint : LobbyAPI.getEasy().getCheckpoints()) {
+                        for (Checkpoint checkpoint : LobbyAPI.getMedium().getCheckpoints()) {
                             if (e.getTo().getBlock().equals(checkpoint.getLocation().getBlock())) {
                                 where = checkpoint;
                                 break;
