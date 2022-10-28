@@ -45,7 +45,6 @@ public class Parkour {
         this.endPoint.setParkour(this);
         this.checkpoints = new ArrayList<>();
         this.holograms = new ArrayList<>();
-        boolean last = false;
         int i = 1;
         while (locations.has(id + " CHECKPOINT" + i)) {
             JSONArray location = locations.getJSONArray(id + " CHECKPOINT" + i);

@@ -9,10 +9,12 @@ import net.auroramc.core.api.players.AuroraMCPlayer;
 import net.auroramc.core.api.utils.gui.GUI;
 import net.auroramc.core.api.utils.gui.GUIItem;
 import net.auroramc.lobby.api.LobbyAPI;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.util.Vector;
 
 public class GameMenu extends GUI {
 
@@ -27,6 +29,10 @@ public class GameMenu extends GUI {
         this.setItem(3, 2, new GUIItem(Material.IRON_SWORD, "&cDuels", 1, "&8v" + LobbyAPI.getVersionNumber("DUELS") + ";;&7Battle your opponent and be the last player standing!;;&fJoin **" + LobbyAPI.getGameTotals().get("DUELS") + "**&f other players!;;&aClick to view servers!"));
         this.setItem(3, 4, new GUIItem(Material.FIREWORK, "&eArcade Mode", 1, "&8v" + LobbyAPI.getVersionNumber("ARCADE_MODE") + ";;&7Play a selection of different arcade;&7games with or without your friends.;;&fJoin **" + LobbyAPI.getGameTotals().get("ARCADE_MODE") + "**&f other players!;;&aClick to view servers!"));
         this.setItem(3, 6, new GUIItem(Material.SNOW_BALL, "&aPaintball", 1, "&8v" + LobbyAPI.getVersionNumber("PAINTBALL") + ";;&7Throw snowballs at each other to get as;&7many kills as possible before time runs out!;;&fJoin **" + LobbyAPI.getGameTotals().get("PAINTBALL") + "**&f other players!;;&aClick to view servers!"));
+
+        this.setItem(5, 3, new GUIItem(Material.WOOL, "&a&lQuick Teleport to Easy Parkour", 1,";&fTeleport to our &aEasy&f parkour!;;&aClick here to teleport!", (short)5));
+        this.setItem(5, 4, new GUIItem(Material.WOOL, "&6&lQuick Teleport to Medium Parkour", 1,";&fTeleport to our &6Medium&f parkour!;;&aClick here to teleport!", (short)1));
+        this.setItem(5, 5, new GUIItem(Material.WOOL, "&c&lQuick Teleport to Hard Parkour", 1,";&fTeleport to our &cHard&f parkour!;;&aClick here to teleport!", (short)14));
     }
 
     @Override
@@ -59,6 +65,29 @@ public class GameMenu extends GUI {
                 listing.open(player);
                 AuroraMCAPI.openGUI(player, listing);
                 break;
+            }
+            case WOOL: {
+                Location l = null;
+                switch (column) {
+                    case 3: {
+                        l = LobbyAPI.getEasy().getRestartPoint().getLocation().clone();
+                        player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have been teleported to the &aEasy&r parkour."));
+                        break;
+                    }
+                    case 4: {
+                        l = LobbyAPI.getMedium().getRestartPoint().getLocation().clone();
+                        player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have been teleported to the &6Medium&r parkour."));
+                        break;
+                    }
+                    case 5: {
+                        l = LobbyAPI.getHard().getRestartPoint().getLocation().clone();
+                        player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have been teleported to the &cHard&r parkour."));
+                        break;
+                    }
+                }
+                player.getPlayer().setVelocity(new Vector(0, 0, 0));
+                player.getPlayer().teleport(l);
+                player.getPlayer().closeInventory();
             }
         }
     }
