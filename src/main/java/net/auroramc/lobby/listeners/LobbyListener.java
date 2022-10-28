@@ -970,6 +970,9 @@ public class LobbyListener implements Listener {
                                 }
                             } else {
                                 player.getPlayer().setFlying(false);
+                                if (player.getPreferences().isHubSpeedEnabled()) {
+                                    player.getPlayer().removePotionEffect(PotionEffectType.SPEED);
+                                }
                                 if ((!player.getPreferences().isHubFlightEnabled() || (!player.hasPermission("elite") && !player.hasPermission("plus")))) {
                                     player.getPlayer().setAllowFlight(false);
                                 }
@@ -988,6 +991,9 @@ public class LobbyListener implements Listener {
                                 }
                             } else {
                                 player.getPlayer().setFlying(false);
+                                if (player.getPreferences().isHubSpeedEnabled()) {
+                                    player.getPlayer().removePotionEffect(PotionEffectType.SPEED);
+                                }
                                 if ((!player.getPreferences().isHubFlightEnabled() || (!player.hasPermission("elite") && !player.hasPermission("plus")))) {
                                     player.getPlayer().setAllowFlight(false);
                                 }
@@ -1006,6 +1012,9 @@ public class LobbyListener implements Listener {
                                 }
                             } else {
                                 player.getPlayer().setFlying(false);
+                                if (player.getPreferences().isHubSpeedEnabled()) {
+                                    player.getPlayer().removePotionEffect(PotionEffectType.SPEED);
+                                }
                                 if ((!player.getPreferences().isHubFlightEnabled() || (!player.hasPermission("elite") && !player.hasPermission("plus")))) {
                                     player.getPlayer().setAllowFlight(false);
                                 }

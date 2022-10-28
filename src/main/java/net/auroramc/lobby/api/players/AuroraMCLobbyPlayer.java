@@ -426,6 +426,9 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
             getPlayer().getInventory().setItem(3, new ItemStack(Material.AIR));
         }
         getPlayer().getInventory().setItem(5, new ItemStack(Material.AIR));
+        if (getPreferences().isHubSpeedEnabled()) {
+            getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 10000000, 1, true, false));
+        }
     }
 
     public boolean isInParkour() {

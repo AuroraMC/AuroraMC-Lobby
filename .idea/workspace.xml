@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Change loc of leaderboard holograms">
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/Parkour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/Parkour.java" afterDir="false" />
-    </list>
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix issue" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -440,21 +438,7 @@
       <workItem from="1666984463658" duration="56000" />
       <workItem from="1666984532633" duration="104000" />
       <workItem from="1666991999744" duration="1751000" />
-      <workItem from="1666993862684" duration="344000" />
-    </task>
-    <task id="LOCAL-00233" summary="Ranks and plus days now apply correctly">
-      <created>1657706508370</created>
-      <option name="number" value="00233" />
-      <option name="presentableId" value="LOCAL-00233" />
-      <option name="project" value="LOCAL" />
-      <updated>1657706508371</updated>
-    </task>
-    <task id="LOCAL-00234" summary="Implement monthly bonuses">
-      <created>1657707514070</created>
-      <option name="number" value="00234" />
-      <option name="presentableId" value="LOCAL-00234" />
-      <option name="project" value="LOCAL" />
-      <updated>1657707514070</updated>
+      <workItem from="1666993862684" duration="746000" />
     </task>
     <task id="LOCAL-00235" summary="Disable forcefield when not social or admin">
       <created>1657714923564</created>
@@ -785,7 +769,21 @@
       <option name="project" value="LOCAL" />
       <updated>1666994006050</updated>
     </task>
-    <option name="localTasksCounter" value="282" />
+    <task id="LOCAL-00282" summary="add debug message">
+      <created>1666994213371</created>
+      <option name="number" value="00282" />
+      <option name="presentableId" value="LOCAL-00282" />
+      <option name="project" value="LOCAL" />
+      <updated>1666994213371</updated>
+    </task>
+    <task id="LOCAL-00283" summary="Fix issue">
+      <created>1666994361815</created>
+      <option name="number" value="00283" />
+      <option name="presentableId" value="LOCAL-00283" />
+      <option name="project" value="LOCAL" />
+      <updated>1666994361815</updated>
+    </task>
+    <option name="localTasksCounter" value="284" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -803,8 +801,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Change where parkours are loaded" />
-    <MESSAGE value="Fix issue with loading parkours" />
     <MESSAGE value="Update SQL statements" />
     <MESSAGE value="Flip lambda expression for crates" />
     <MESSAGE value="Fix lambda expression for crates" />
@@ -828,6 +824,8 @@
     <MESSAGE value="Fix message, increase blocks needed for teleport on fall" />
     <MESSAGE value="FIx messages" />
     <MESSAGE value="Change loc of leaderboard holograms" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change loc of leaderboard holograms" />
+    <MESSAGE value="add debug message" />
+    <MESSAGE value="Fix issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix issue" />
   </component>
 </project>
