@@ -16,7 +16,9 @@ import net.auroramc.core.gui.cosmetics.Cosmetics;
 import net.auroramc.core.gui.preferences.Preferences;
 import net.auroramc.core.gui.stats.stats.Stats;
 import net.auroramc.lobby.api.LobbyAPI;
+import net.auroramc.lobby.api.parkour.Parkour;
 import net.auroramc.lobby.api.parkour.ParkourRun;
+import net.auroramc.lobby.api.parkour.plates.Checkpoint;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.api.util.CrateStructures;
 import net.auroramc.lobby.gui.GameMenu;
@@ -843,9 +845,9 @@ public class LobbyListener implements Listener {
             }
         } else if (!e.getTo().getBlock().equals(e.getFrom().getBlock())) {
             if (player instanceof AuroraMCLobbyPlayer) {
+                AuroraMCLobbyPlayer p = (AuroraMCLobbyPlayer) player;
                 switch (e.getTo().getBlock().getType()) {
-                    case IRON_PLATE:{
-                        AuroraMCLobbyPlayer p = (AuroraMCLobbyPlayer) player;
+                    case WOOD_PLATE: {
                         if (e.getTo().getBlock().equals(LobbyAPI.getEasy().getStart().getLocation().getBlock())) {
                             //Wants to start easy parkour
                             if (p.isInParkour()) {
@@ -904,11 +906,74 @@ public class LobbyListener implements Listener {
                         }
                         break;
                     }
-                    case GOLD_PLATE: {
-
+                    case IRON_PLATE: {
+                        //End plate
+                        if (e.getTo().getBlock().equals(LobbyAPI.getEasy().getEndPoint().getLocation().getBlock())) {
+                            if (p.isInParkour()) {
+                                if (p.getActiveParkourRun().getParkour().equals(LobbyAPI.getEasy())) {
+                                    p.getActiveParkourRun().end(null);
+                                } else {
+                                    p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "This end point is for a different parkour!"));
+                                }
+                            } else {
+                                p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You must start a parkour in order to end one!"));
+                            }
+                        } else if (e.getTo().getBlock().equals(LobbyAPI.getMedium().getEndPoint().getLocation().getBlock())) {
+                            if (p.isInParkour()) {
+                                if (p.getActiveParkourRun().getParkour().equals(LobbyAPI.getMedium())) {
+                                    p.getActiveParkourRun().end(null);
+                                } else {
+                                    p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "This end point is for a different parkour!"));
+                                }
+                            } else {
+                                p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You must start a parkour in order to end one!"));
+                            }
+                        } else if (e.getTo().getBlock().equals(LobbyAPI.getHard().getEndPoint().getLocation().getBlock())) {
+                            if (p.isInParkour()) {
+                                if (p.getActiveParkourRun().getParkour().equals(LobbyAPI.getHard())) {
+                                    p.getActiveParkourRun().end(null);
+                                } else {
+                                    p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "This end point is for a different parkour!"));
+                                }
+                            } else {
+                                p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You must start a parkour in order to end one!"));
+                            }
+                        }
+                        break;
                     }
-                    case WOOD_PLATE: {
-
+                    case GOLD_PLATE: {
+                        //checkpoint plate
+                        Checkpoint where = null;
+                        for (Checkpoint checkpoint : LobbyAPI.getEasy().getCheckpoints()) {
+                            if (e.getTo().getBlock().equals(checkpoint.getLocation().getBlock())) {
+                                where = checkpoint;
+                                break;
+                            }
+                        }
+                        for (Checkpoint checkpoint : LobbyAPI.getEasy().getCheckpoints()) {
+                            if (e.getTo().getBlock().equals(checkpoint.getLocation().getBlock())) {
+                                where = checkpoint;
+                                break;
+                            }
+                        }
+                        for (Checkpoint checkpoint : LobbyAPI.getEasy().getCheckpoints()) {
+                            if (e.getTo().getBlock().equals(checkpoint.getLocation().getBlock())) {
+                                where = checkpoint;
+                                break;
+                            }
+                        }
+                        if (where != null) {
+                            if (p.isInParkour()) {
+                                if (p.getActiveParkourRun().getParkour().equals(where.getParkour())) {
+                                    p.getActiveParkourRun().checkpoint(where);
+                                } else {
+                                    p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "This checkpoint is for a different parkour!"));
+                                }
+                            } else {
+                                p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You must start a parkour in order to reach a checkpoint!"));
+                            }
+                        }
+                        break;
                     }
                 }
             }

@@ -16,6 +16,6 @@ public class EndPoint extends PressurePlate {
 
     @Override
     public Material getMaterial() {
-        return Material.GOLD_PLATE;
+        return Material.IRON_PLATE;
     }
 }

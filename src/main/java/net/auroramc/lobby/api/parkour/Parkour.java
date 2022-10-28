@@ -132,15 +132,18 @@ public class Parkour {
         Hologram hologram = new Hologram(null, start.getLocation().clone().add(0, 2, 0), null);
         hologram.addLine(1, "&3&l" + name);
         hologram.addLine(2, "&bParkour Start");
+        hologram.spawn();
         holograms.add(hologram);
         hologram = new Hologram(null, endPoint.getLocation().clone().add(0, 2, 0), null);
         hologram.addLine(1, "&3&l" + name);
         hologram.addLine(2, "&bParkour End");
+        hologram.spawn();
         holograms.add(hologram);
         for (Checkpoint checkpoint : checkpoints) {
             hologram = new Hologram(null, checkpoint.getLocation().clone().add(0, 2, 0), null);
             hologram.addLine(1, "&3&l" + name);
             hologram.addLine(2, "&bCheckpoint #" + checkpoint.getCheckpointNo());
+            hologram.spawn();
             holograms.add(hologram);
         }
     }

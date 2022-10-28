@@ -19,7 +19,7 @@ public class Checkpoint extends PressurePlate {
 
     @Override
     public Material getMaterial() {
-        return Material.WOOD_PLATE;
+        return Material.GOLD_PLATE;
     }
 
     public int getCheckpointNo() {

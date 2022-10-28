@@ -17,6 +17,6 @@ public class StartPoint extends PressurePlate {
 
     @Override
     public Material getMaterial() {
-        return Material.IRON_PLATE;
+        return Material.WOOD_PLATE;
     }
 }
