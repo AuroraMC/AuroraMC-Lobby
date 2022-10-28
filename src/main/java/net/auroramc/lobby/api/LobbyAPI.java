@@ -359,6 +359,7 @@ public class LobbyAPI {
 
     public static void updateTotals() {
         AtomicInteger amount = new AtomicInteger();
+        amount.set(0);
         LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getInfo().getServerType().getString("game").equalsIgnoreCase("CRYSTAL_QUEST")).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).forEach(info -> amount.addAndGet(info.getCurrentPlayers()));
         gameTotals.put("CRYSTAL_QUEST",amount.get());
         gameHolos.get("CRYSTAL_QUEST").getLines().get(1).setText("&b" + amount.get() + " &fPlayers Online");

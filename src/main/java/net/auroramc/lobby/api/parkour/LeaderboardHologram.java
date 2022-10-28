@@ -54,8 +54,13 @@ public class LeaderboardHologram {
             lines.add(new UniversalHologramLine(hologram, "&b#" + place + "&r - &b" + record.get(0) + "&r - &b" + Parkour.formatTime(Long.parseLong(record.get(1))), i));
             i++;
         }
-        hologram.setLines(lines);
-        hologram.update();
+        new BukkitRunnable(){
+            @Override
+            public void run() {
+                hologram.setLines(lines);
+                hologram.update();
+            }
+        }.runTask(LobbyAPI.getLobby());
     }
 
     public Location getLocation() {
