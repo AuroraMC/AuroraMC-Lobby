@@ -99,6 +99,7 @@ public class ParkourRun {
             if (!previouslyReachedCheckpoints.contains(checkpoint)) {
                 if (parkour.getCheckpointCommand() != null) {
                     parkour.getCheckpointCommand().apply(player);
+                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().convert(parkour.getCheckpointCommand().getRewardString()));
                 }
             }
             previouslyReachedCheckpoints.add(checkpoint);
@@ -272,6 +273,7 @@ public class ParkourRun {
                     }
                     if (parkour.getEndCommand() != null) {
                         parkour.getEndCommand().apply(player);
+                        player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().convert(parkour.getEndCommand().getRewardString()));
                     }
 
                     player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "Well done! You completed the **" + parkour.getName() + "** in **" + formatTime(finishMili) + "**! Your reward will be applied shortly!"));
