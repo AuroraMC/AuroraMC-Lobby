@@ -13,8 +13,10 @@ import net.auroramc.core.api.players.scoreboard.PlayerScoreboard;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
+import net.auroramc.lobby.api.util.ServerState;
 import net.minecraft.server.v1_8_R3.*;
-import org.bukkit.entity.ArmorStand;
+import org.bukkit.scoreboard.DisplaySlot;
+import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -24,17 +26,15 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.Team;
 import org.json.JSONArray;
-import org.json.JSONObject;
 
-import javax.persistence.Lob;
 import java.lang.reflect.Field;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class JoinListener implements Listener {
 
@@ -199,6 +199,27 @@ public class JoinListener implements Listener {
         scoreboard.setLine(2, "    ");
         scoreboard.setLine(1, "&7auroramc.net");
 
+        Scoreboard scoreboard2 = player.getScoreboard().getScoreboard();
+        Team team = scoreboard2.registerNewTeam("cq");
+        team.setPrefix("§b§l");
+        team.setSuffix("§3§lFEATURED!");
+        team.addEntry("Crystal Quest ");
+
+        team = scoreboard2.registerNewTeam("ds");
+        team.setPrefix("§c§l");
+        team.setSuffix("§7v" + LobbyAPI.getVersionNumber("DUELS").trim());
+        team.addEntry("Duels§r ");
+
+        team = scoreboard2.registerNewTeam("pb");
+        team.setPrefix("§a§l");
+        team.setSuffix("§7v" + LobbyAPI.getVersionNumber("PAINTBALL").trim());
+        team.addEntry("Paintball§r ");
+
+        team = scoreboard2.registerNewTeam("ac");
+        team.setPrefix("§e§l");
+        team.setSuffix("§7v" + LobbyAPI.getVersionNumber("ARCADE_MODE").trim());
+        team.addEntry("Arcade Mode§r ");
+
         player.getPlayer().getInventory().setItem(8, LobbyAPI.getLobbyItem().getItem());
         player.getPlayer().getInventory().setItem(7, LobbyAPI.getPrefsItem().getItem());
         player.getPlayer().getInventory().setItem(4, LobbyAPI.getCosmeticsItem().getItem());
@@ -208,70 +229,6 @@ public class JoinListener implements Listener {
         if (LobbyAPI.getPoll() != null) {
             if (!LobbyDatabaseManager.hasVoted(LobbyAPI.getPoll().getId(), player.getId())) {
                 player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Community Polls", "There is currently a poll active that you haven't voted in! Visit **The Monke** to vote! Every vote counts!"));
-            }
-        }
-    }
-
-    @EventHandler
-    public void onMove(PlayerMoveEvent e) {
-        if (AuroraMCAPI.getPlayer(e.getPlayer()) instanceof AuroraMCLobbyPlayer && !e.getFrom().equals(e.getTo())) {
-            AuroraMCLobbyPlayer lobbyPlayer = (AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer(e.getPlayer());
-            if (lobbyPlayer != null) {
-                if (!lobbyPlayer.hasMoved()) {
-                    lobbyPlayer.moved();
-                    Scoreboard scoreboard = lobbyPlayer.getScoreboard().getScoreboard();
-                    Team team = scoreboard.registerNewTeam("cq");
-                    team.setPrefix("§b§l");
-                    team.setSuffix("§3§lFEATURED!");
-                    team.addEntry("Crystal Quest ");
-
-                    team = scoreboard.registerNewTeam("ds");
-                    team.setPrefix("§c§l");
-                    team.setSuffix("§7v" + LobbyAPI.getVersionNumber("DUELS").trim());
-                    team.addEntry("Duels§r ");
-
-                    team = scoreboard.registerNewTeam("pb");
-                    team.setPrefix("§a§l");
-                    team.setSuffix("§7v" + LobbyAPI.getVersionNumber("PAINTBALL").trim());
-                    team.addEntry("Paintball§r ");
-
-                    team = scoreboard.registerNewTeam("ac");
-                    team.setPrefix("§e§l");
-                    team.setSuffix("§7v" + LobbyAPI.getVersionNumber("ARCADE_MODE").trim());
-                    team.addEntry("Arcade Mode§r ");
-                    new BukkitRunnable(){
-                        @Override
-                        public void run() {
-                            for (EntityPlayer player : AuroraMCAPI.getFakePlayers().values()) {
-                                PlayerConnection con = ((CraftPlayer) e.getPlayer().getPlayer()).getHandle().playerConnection;
-                                con.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER, player));
-                                con.sendPacket(new PacketPlayOutNamedEntitySpawn(player));
-                                con.sendPacket(new PacketPlayOutEntityHeadRotation(player, (byte) ((player.yaw * 256.0F) / 360.0F)));
-                                new BukkitRunnable(){
-                                    @Override
-                                    public void run() {
-                                        con.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.REMOVE_PLAYER, player));
-                                    }
-                                }.runTaskLater(AuroraMCAPI.getCore(), 80);
-                            }
-                            if (LobbyAPI.getChestStand() == null && LobbyAPI.getCurrentCrate() == null && LobbyAPI.getCratePlayer() == null) {
-                                Location location = LobbyAPI.getChestBlock().getLocation().clone();
-                                location.setY(location.getY() + 1);
-                                location.setX(location.getX() + 0.5);
-                                location.setZ(location.getZ() + 0.5);
-                                ArmorStand stand = location.getWorld().spawn(location, ArmorStand.class);
-                                stand.setVisible(false);
-                                stand.setCustomName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight("&a&lOpen Crates")));
-                                stand.setCustomNameVisible(true);
-                                stand.setSmall(true);
-                                stand.setMarker(true);
-                                stand.setGravity(false);
-                                LobbyAPI.setChestStand(stand);
-                            }
-
-                        }
-                    }.runTask(AuroraMCAPI.getCore());
-                }
             }
         }
     }

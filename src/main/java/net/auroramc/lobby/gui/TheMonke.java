@@ -38,7 +38,7 @@ public class TheMonke extends GUI {
         GameProfile profile = new GameProfile(UUID.randomUUID(), null);
         profile.getProperties().put("textures", new Property("textures", Base64.getEncoder().encodeToString("{textures:{SKIN:{url:\"http://textures.minecraft.net/texture/f60e33fb112437571888d217227c3b3b6dbc7d58558f4b1f0e5af70db3afc309\"}}}".getBytes())));
 
-        head = new GUIItem(Material.SKULL_ITEM, "&3&lDiscord", 1, ";&rThe AuroraMC Discord is the main;&rcommunication platform that is used by;&rAuroraMC. If you want to interact with;&rmembers of the community, don't hesitate;&rto join the discord!;;&aClick to get the link!", (short)3).getItem();
+        head = new GUIItem(Material.SKULL_ITEM, "&3&lDiscord", 1, ";&r&fThe AuroraMC Discord is the main;&r&fcommunication platform that is used by;&r&fAuroraMC. If you want to interact with;&r&fmembers of the community, don't hesitate;&r&fto join the discord!;;&aClick to get the link!", (short)3).getItem();
         SkullMeta meta = (SkullMeta) head.getItemMeta();
         Field field;
         try {
@@ -62,16 +62,16 @@ public class TheMonke extends GUI {
         this.border("&3&lThe Monke", null);
         this.player = player;
 
-        this.setItem(0, 4, new GUIItem(Material.EMPTY_MAP, "&3&lChangelogs", 1, ";&rLatest Update:;&b" + ((LobbyAPI.getLatestChangelog() != null)?LobbyAPI.getLatestChangelog().getUpdateTitle():"None") + ";;&aClick to view more changelogs!"));
+        this.setItem(0, 4, new GUIItem(Material.EMPTY_MAP, "&3&lChangelogs", 1, ";&r&fLatest Update:;&b" + ((LobbyAPI.getLatestChangelog() != null)?LobbyAPI.getLatestChangelog().getUpdateTitle():"None") + ";;&aClick to view more changelogs!"));
 
         boolean claimDaily = player.canClaimDaily();
         boolean claimMonthly = player.canClaimMonthly();
         boolean claimPlus = player.canClaimPlus();
 
         if (claimDaily) {
-            this.setItem(2, 2, new GUIItem(Material.IRON_BLOCK, "&3&lLoyalty Bonus", 1, ";&rClaim your daily bonus for:;&6+100 Crowns;&d+100 Tickets;&a+100 XP;;&rDaily bonuses claimed: **" + player.getDailyBonusClaimed() + "**;&aClick to claim!"));
+            this.setItem(2, 2, new GUIItem(Material.IRON_BLOCK, "&3&lLoyalty Bonus", 1, ";&r&fClaim your daily bonus for:;&6+100 Crowns;&d+100 Tickets;&a+100 XP;;&r&fDaily bonuses claimed: **" + player.getDailyBonusClaimed() + "**;&aClick to claim!"));
         } else {
-            this.setItem(2, 2, new GUIItem(Material.REDSTONE_BLOCK, "&3&lLoyalty Bonus", 1, ";&cYou have already claimed;&ctoday's bonus!;;&rDaily bonuses claimed: **" + player.getDailyBonusClaimed() + "**;;&rCome back tomorrow to claim again!"));
+            this.setItem(2, 2, new GUIItem(Material.REDSTONE_BLOCK, "&3&lLoyalty Bonus", 1, ";&cYou have already claimed;&ctoday's bonus!;;&r&fDaily bonuses claimed: **" + player.getDailyBonusClaimed() + "**;;&r&fCome back tomorrow to claim again!"));
         }
         if (claimMonthly) {
             String reward;
@@ -89,20 +89,20 @@ public class TheMonke extends GUI {
                     break;
                 }
             }
-            this.setItem(2, 4, new GUIItem(Material.DIAMOND_BLOCK, "&3&lMonthly Bonus", 1, "&rRank: &" + ((player.getRank() == Rank.PLAYER)?'7':player.getRank().getPrefixColor()) + player.getRank().getName() + ";;&rBonus:;" + reward + ";;&aClick to claim!"));
+            this.setItem(2, 4, new GUIItem(Material.DIAMOND_BLOCK, "&3&lMonthly Bonus", 1, "&r&fRank: &" + ((player.getRank() == Rank.PLAYER)?'7':player.getRank().getPrefixColor()) + player.getRank().getName() + ";;&r&fBonus:;" + reward + ";;&aClick to claim!"));
         } else {
-            this.setItem(2, 4, new GUIItem(Material.REDSTONE_BLOCK, "&3&lMonthly Bonus", 1, ";&cYou have already claimed;&cthis months bonus!;;&rCome back next month to claim again!"));
+            this.setItem(2, 4, new GUIItem(Material.REDSTONE_BLOCK, "&3&lMonthly Bonus", 1, ";&cYou have already claimed;&cthis months bonus!;;&r&fCome back next month to claim again!"));
         }
         if (claimPlus) {
-            this.setItem(2, 6, new GUIItem(Material.EMERALD_BLOCK, "&3&lPlus Bonus", 1, ";&rClaim your Plus bonus for:;&b+1 Diamond Crate;&a+1 Emerald Crate;&6+5,000 Crowns;&d+5,000 Tickets;;&aClick to claim!"));
+            this.setItem(2, 6, new GUIItem(Material.EMERALD_BLOCK, "&3&lPlus Bonus", 1, ";&r&fClaim your Plus bonus for:;&b+1 Diamond Crate;&a+1 Emerald Crate;&6+5,000 Crowns;&d+5,000 Tickets;;&aClick to claim!"));
         } else {
-            this.setItem(2, 6, new GUIItem(Material.REDSTONE_BLOCK, "&3&lPlus Bonus", 1, ";&cYou have already claimed;&cthis months Plus bonus!;;&rCome back in 30 days to claim again!"));
+            this.setItem(2, 6, new GUIItem(Material.REDSTONE_BLOCK, "&3&lPlus Bonus", 1, ";&cYou have already claimed;&cthis months Plus bonus!;;&r&fCome back in 30 days to claim again!"));
         }
 
         if (LobbyAPI.getPoll() == null || LobbyDatabaseManager.hasVoted(LobbyAPI.getPoll().getId(), player.getId())) {
-            this.setItem(3, 3, new GUIItem(Material.BOOK, "&3&lCommunity Poll", 1, ";&rCommunity Polls are a way for;&rour Community Management team to;&rget feedback on the network!;;" + ((LobbyAPI.getPoll() == null)?"&cThere is currently no poll in progress!":"&cYou've already voted in the active poll!")));
+            this.setItem(3, 3, new GUIItem(Material.BOOK, "&3&lCommunity Poll", 1, ";&r&fCommunity Polls are a way for;&r&four Community Management team to;&r&fget feedback on the network!;;" + ((LobbyAPI.getPoll() == null)?"&cThere is currently no poll in progress!":"&cYou've already voted in the active poll!")));
         } else {
-            this.setItem(3, 3, new GUIItem(Material.BOOK, "&3&lCommunity Poll", 1, ";&rCurrent Poll:;&b" + LobbyAPI.getPoll().getQuestion() + ";;&aClick to answer!"));
+            this.setItem(3, 3, new GUIItem(Material.BOOK, "&3&lCommunity Poll", 1, ";&r&fCurrent Poll:;&b" + LobbyAPI.getPoll().getQuestion() + ";;&aClick to answer!"));
         }
 
         this.setItem(3, 5, new GUIItem(head));
@@ -114,7 +114,7 @@ public class TheMonke extends GUI {
             case IRON_BLOCK: {
                 if (player.canClaimDaily()) {
                     player.claimDaily();
-                    this.updateItem(2, 2, new GUIItem(Material.REDSTONE_BLOCK, "&3&lLoyalty Bonus", 1, ";&cYou have already claimed;&ctoday's bonus!;;&rDaily bonuses claimed: **" + player.getDailyBonusClaimed() + "**;;&rCome back tomorrow to claim again!"));
+                    this.updateItem(2, 2, new GUIItem(Material.REDSTONE_BLOCK, "&3&lLoyalty Bonus", 1, ";&cYou have already claimed;&ctoday's bonus!;;&r&fDaily bonuses claimed: **" + player.getDailyBonusClaimed() + "**;;&r&fCome back tomorrow to claim again!"));
                     player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.NOTE_PLING, 100, 1);
                 }
                 break;
@@ -122,7 +122,7 @@ public class TheMonke extends GUI {
             case DIAMOND_BLOCK: {
                 if (player.canClaimMonthly()) {
                     player.claimMonthly();
-                    this.updateItem(2, 4, new GUIItem(Material.REDSTONE_BLOCK, "&3&lMonthly Bonus", 1, ";&cYou have already claimed;&cthis months bonus!;;&rCome back next month to claim again!"));
+                    this.updateItem(2, 4, new GUIItem(Material.REDSTONE_BLOCK, "&3&lMonthly Bonus", 1, ";&cYou have already claimed;&cthis months bonus!;;&r&fCome back next month to claim again!"));
                     player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.NOTE_PLING, 100, 1);
                 }
                 break;
@@ -130,7 +130,7 @@ public class TheMonke extends GUI {
             case EMERALD_BLOCK: {
                 if (player.canClaimPlus()) {
                     player.claimPlus();
-                    this.updateItem(2, 6, new GUIItem(Material.REDSTONE_BLOCK, "&3&lMonthly Bonus", 1, ";&cYou have already claimed;&cthis months Plus bonus!;;&rCome back in 30 days to claim again!"));
+                    this.updateItem(2, 6, new GUIItem(Material.REDSTONE_BLOCK, "&3&lMonthly Bonus", 1, ";&cYou have already claimed;&cthis months Plus bonus!;;&r&fCome back in 30 days to claim again!"));
                     player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.NOTE_PLING, 100, 1);
                 }
                 break;
@@ -161,7 +161,7 @@ public class TheMonke extends GUI {
                 ComponentBuilder componentHover = new ComponentBuilder(AuroraMCAPI.getFormatter().convert("&3&lAuroraMC Discord\n"
                         + "\n"
                         + WordUtils.wrap("The AuroraMC Discord is the main communication platform that is used by," +
-                        " AuroraMC. If you want to interact with members of the community, don't hesitate to join the discord!", 40, "\n&r", false)
+                        " AuroraMC. If you want to interact with members of the community, don't hesitate to join the discord!", 40, "\n&r&f", false)
                         + "\n\n&aClick here to join our discord."));
                 component.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, componentHover.create()));
                 player.getPlayer().spigot().sendMessage(component);

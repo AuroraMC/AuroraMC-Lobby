@@ -9,9 +9,13 @@ import net.auroramc.core.api.backend.ServerInfo;
 import net.auroramc.core.api.cosmetics.Crate;
 import net.auroramc.lobby.AuroraMCLobby;
 import net.auroramc.lobby.api.LobbyAPI;
+import net.auroramc.lobby.api.parkour.Parkour;
+import net.auroramc.lobby.api.parkour.plates.Checkpoint;
+import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.api.util.Changelog;
 import net.auroramc.lobby.api.util.CommunityPoll;
 import org.apache.commons.io.FileUtils;
+import org.bukkit.Bukkit;
 import org.json.JSONObject;
 import redis.clients.jedis.Jedis;
 
@@ -27,12 +31,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
 
 public class LobbyDatabaseManager {
 
     public static void downloadMap() {
         try (Connection connection = AuroraMCAPI.getDbManager().getMySQLConnection()) {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM maps WHERE parse_version = 'LIVE' AND map_id = 54");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM maps WHERE parse_version = '" + ((AuroraMCAPI.isTestServer())?"TEST":"LIVE") + "' AND map_id = 54");
             ResultSet set = statement.executeQuery();
             File file = new File(LobbyAPI.getLobby().getDataFolder(), "zip");
             if (file.exists()) {
@@ -268,5 +273,168 @@ public class LobbyDatabaseManager {
         }
     }
 
+    public static List<Checkpoint> getReachedCheckpoints(AuroraMCLobbyPlayer player, Parkour parkour) {
+        try (Connection connection = AuroraMCAPI.getDbManager().getMySQLConnection()) {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM pk_reachedcheckpoints WHERE parkour_id = ? AND amc_id = ?");
+            statement.setInt(2, player.getId());
+            statement.setInt(1, parkour.getId());
+
+            ResultSet resultSet = statement.executeQuery();
+
+            List<Checkpoint> checkpoints = new ArrayList<>();
+            while (resultSet.next()) {
+                checkpoints.add(parkour.getCheckpoint(resultSet.getInt(3)));
+            }
+            return checkpoints;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new ArrayList<>();
+    }
+
+    public static void reachedCheckpoint(AuroraMCLobbyPlayer player, Parkour parkour, Checkpoint checkpoint) {
+        try (Connection connection = AuroraMCAPI.getDbManager().getMySQLConnection()) {
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO pk_reachedcheckpoints VALUES (?, ?, ?)");
+            statement.setInt(1, player.getId());
+            statement.setInt(2, parkour.getId());
+            statement.setInt(3, checkpoint.getCheckpointNo());
+
+            statement.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static long getTime(AuroraMCLobbyPlayer player, Parkour parkour) {
+        try (Connection connection = AuroraMCAPI.getDbManager().getMySQLConnection()) {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM pk_playertimes WHERE parkour_id = ? AND amc_id = ?");
+            statement.setInt(2, player.getId());
+            statement.setInt(1, parkour.getId());
+
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                return resultSet.getLong(3);
+            } else {
+                return -1;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    @SuppressWarnings("unused")
+    public static void newTime(AuroraMCLobbyPlayer player, long time, boolean beatBefore, Parkour parkour) {
+        if (beatBefore) {
+            try (Connection connection = AuroraMCAPI.getDbManager().getMySQLConnection()) {
+                PreparedStatement statement = connection.prepareStatement("UPDATE pk_playertimes SET time = ? WHERE amc_id = ? AND parkour_id = ?");
+
+                statement.setLong(1, time);
+                statement.setInt(2, player.getId());
+                statement.setInt(3, parkour.getId());
+
+                boolean result = statement.execute();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            try (Connection connection = AuroraMCAPI.getDbManager().getMySQLConnection()) {
+                PreparedStatement statement = connection.prepareStatement("INSERT INTO pk_playertimes(amc_id, parkour_id, time) values (?,?,?)");
+
+                statement.setInt(1, player.getId());
+                statement.setInt(2, parkour.getId());
+                statement.setLong(3, time);
+
+                boolean result = statement.execute();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static Map<Integer, Long> getSplitTimes(AuroraMCLobbyPlayer player, Parkour parkour) {
+        HashMap<Integer, Long> splitTimes = new HashMap<>();
+        try (Connection connection = AuroraMCAPI.getDbManager().getMySQLConnection()) {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM pk_splittimes WHERE amc_id = ? AND parkour_id = ?");
+            statement.setInt(1, player.getId());
+            statement.setInt(2, parkour.getId());
+
+            ResultSet set = statement.executeQuery();
+            while (set.next()) {
+                splitTimes.put(set.getInt(3), set.getLong(4));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return splitTimes;
+    }
+
+    public static void setSplitTime(AuroraMCLobbyPlayer player, Parkour parkour, int checkpoint, long time, boolean reachedBefore) {
+        try (Connection connection = AuroraMCAPI.getDbManager().getMySQLConnection()) {
+            PreparedStatement statement;
+            if (reachedBefore) {
+                statement = connection.prepareStatement("UPDATE pk_splittimes SET time = ? WHERE amc_id = ? AND parkour_id = ? AND checkpoint = ?");
+                statement.setLong(1, time);
+                statement.setInt(2, parkour.getId());
+                statement.setInt(3, parkour.getId());
+                statement.setInt(4, checkpoint);
+            } else {
+                statement = connection.prepareStatement("INSERT INTO pk_splittimes VALUES(?, ?, ?, ?)");
+                statement.setInt(1, player.getId());
+                statement.setInt(2, parkour.getId());
+                statement.setInt(3, checkpoint);
+                statement.setLong(4, time);
+            }
+
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static int leaderboardPosition(AuroraMCLobbyPlayer player, Parkour parkour) {
+        try (Connection connection = AuroraMCAPI.getDbManager().getMySQLConnection()) {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM pk_playertimes WHERE parkour_id = ? ORDER BY `time` ASC ");
+            statement.setInt(1, parkour.getId());
+
+            ResultSet results = statement.executeQuery();
+            int counter = 1;
+            while (results.next()) {
+                if (results.getInt(1) == player.getId()) {
+                    return counter;
+                } else {
+                    counter++;
+                }
+            }
+        } catch (SQLException e) {
+            return -1;
+        }
+        return -1;
+    }
+
+    public static HashMap<Integer, List<String>> getLeaderboard(Parkour parkour) {
+        HashMap<Integer, List<String>> leaderboard = new HashMap<>();
+
+        try (Connection connection = AuroraMCAPI.getDbManager().getMySQLConnection()) {
+            PreparedStatement statement = connection.prepareStatement("SELECT pk_playertimes.amc_id,pk_playertimes.time,auroramc_players.name FROM pk_playertimes INNER JOIN auroramc_players ON auroramc_players.id=pk_playertimes.amc_id WHERE parkour_id = ? ORDER BY `time` ASC LIMIT 10");
+            statement.setInt(1, parkour.getId());
+
+            ResultSet results = statement.executeQuery();
+            int counter = 1;
+            while (results.next()) {
+                List<String> record = new ArrayList<>();
+                record.add(results.getString(3));
+                record.add(results.getString(2));
+                record.add(results.getString(1));
+                leaderboard.put(counter, record);
+                counter++;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return leaderboard;
+    }
 
 }

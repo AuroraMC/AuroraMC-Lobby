@@ -28,8 +28,8 @@ public class ConfirmDiamond extends GUI {
         this.player = player;
         this.amount = amount;
 
-        this.setItem(2, 2, new GUIItem(Material.STAINED_CLAY, "&c&lCancel", 1, ";&rGo back to the previous menu.", (short)14));
-        this.setItem(2, 6, new GUIItem(Material.STAINED_CLAY, "&a&lConfirm", 1, ";&d" + (CrateUtil.DIAMOND_CRATE_PRICE * amount) + " Tickets&r will be taken from your account.", (short)5));
+        this.setItem(2, 2, new GUIItem(Material.STAINED_CLAY, "&c&lCancel", 1, ";&r&fGo back to the previous menu.", (short)14));
+        this.setItem(2, 6, new GUIItem(Material.STAINED_CLAY, "&a&lConfirm", 1, ";&d" + (CrateUtil.DIAMOND_CRATE_PRICE * amount) + " Tickets&r&f will be taken from your account.", (short)5));
     }
 
     @Override
@@ -46,9 +46,9 @@ public class ConfirmDiamond extends GUI {
                     DiamondCrate crate = CrateUtil.generateDiamondCrate(player.getId());
                     player.getCrates().add(crate);
                 }
-                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "You purchased &b" + amount + " Diamond Crates&r and &d" + (amount * CrateUtil.DIAMOND_CRATE_PRICE) + " Tickets&r were withdrawn from your account."));
+                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "You purchased &b" + amount + " Diamond Crates&r&f and &d" + (amount * CrateUtil.DIAMOND_CRATE_PRICE) + " Tickets&r&f were withdrawn from your account."));
             } else {
-                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "You have insufficient funds to purchase that crate. You need &d" + ((amount * CrateUtil.DIAMOND_CRATE_PRICE) - player.getBank().getTickets()) + "&r additional Tickets."));
+                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "You have insufficient funds to purchase that crate. You need &d" + ((amount * CrateUtil.DIAMOND_CRATE_PRICE) - player.getBank().getTickets()) + "&r&f additional Tickets."));
             }
         } else {
             player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ITEM_BREAK, 100, 0);

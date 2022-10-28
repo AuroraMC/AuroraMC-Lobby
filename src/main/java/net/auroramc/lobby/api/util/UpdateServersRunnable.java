@@ -12,6 +12,9 @@ import net.auroramc.lobby.api.backend.GameServerInfo;
 import net.auroramc.lobby.gui.GameServerListing;
 import net.auroramc.lobby.gui.LobbySwitcher;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scoreboard.Objective;
+
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class UpdateServersRunnable extends BukkitRunnable {
 
@@ -20,6 +23,7 @@ public class UpdateServersRunnable extends BukkitRunnable {
         for (GameServerInfo info : LobbyAPI.getGameServers().values()) {
             info.fetchData();
         }
+        LobbyAPI.updateTotals();
         for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
             GUI gui = AuroraMCAPI.getGUI(player);
             if (gui != null) {

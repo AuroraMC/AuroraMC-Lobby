@@ -9,6 +9,10 @@ import com.mojang.authlib.properties.Property;
 import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.core.api.utils.gui.GUI;
 import net.auroramc.core.api.utils.gui.GUIItem;
+import net.auroramc.core.cosmetics.crates.DiamondCrate;
+import net.auroramc.core.cosmetics.crates.EmeraldCrate;
+import net.auroramc.core.cosmetics.crates.GoldCrate;
+import net.auroramc.core.cosmetics.crates.IronCrate;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.gui.crates.buy.BuyDiamondCrate;
 import net.auroramc.lobby.gui.crates.buy.BuyGoldCrate;
@@ -28,6 +32,7 @@ import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class ViewCrates extends GUI {
 
@@ -44,7 +49,7 @@ public class ViewCrates extends GUI {
         head.setDurability((short)3);
         SkullMeta meta = (SkullMeta) head.getItemMeta();
         meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&7&lIron Crate")));
-        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&7Iron Crates are the most common;&7and have the lowest chances to;&7win awesome stuff.;;&rCost: &d" + String.format("%,d", CrateUtil.IRON_CRATE_PRICE) +" Tickets;;&aLeft-click to view available crates!;&aRight-click to purchase!")).split(";")));
+        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight("&fYou have **" + player.getCrates().stream().filter(crate -> crate.getLoot() == null && crate instanceof IronCrate).count() + "**&f crates to open.;;&7Iron Crates are the most common;&7and have the lowest chances to;&7win awesome stuff.;;&r&fCost: &d" + String.format("%,d", CrateUtil.IRON_CRATE_PRICE) +" Tickets;;&aLeft-click to view available crates!;&aRight-click to purchase!")).split(";")));
         Field field;
         try {
             field = meta.getClass().getDeclaredField("profile");
@@ -67,7 +72,7 @@ public class ViewCrates extends GUI {
         head.setDurability((short)3);
         meta = (SkullMeta) head.getItemMeta();
         meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&6&lGold Crate")));
-        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&7Gold Crates are rare crates that;&7contain more legendary loot!;;&rCost: &d" + String.format("%,d",CrateUtil.GOLD_CRATE_PRICE) + " Tickets;;&aLeft-click to view available crates!;&aRight-click to purchase!")).split(";")));
+        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight("&fYou have **" + player.getCrates().stream().filter(crate -> crate.getLoot() == null && crate instanceof GoldCrate).count() + "**&f crates to open!;;&7Gold Crates are rare crates that;&7contain more legendary loot!;;&r&fCost: &d" + String.format("%,d",CrateUtil.GOLD_CRATE_PRICE) + " Tickets;;&aLeft-click to view available crates!;&aRight-click to purchase!")).split(";")));
         try {
             field = meta.getClass().getDeclaredField("profile");
         } catch (NoSuchFieldException | SecurityException e) {
@@ -89,7 +94,7 @@ public class ViewCrates extends GUI {
         head.setDurability((short)3);
         meta = (SkullMeta) head.getItemMeta();
         meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&b&lDiamond Crate")));
-        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&7Diamond Crates are legendary crates that;&7can not just give you cosmetics, but can;&7also give you a rank upgrade!;;&rCost: &d" + String.format("%,d",CrateUtil.DIAMOND_CRATE_PRICE) + " Tickets;;&aLeft-click to view available crates!;&aRight-click to purchase!")).split(";")));
+        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight("&fYou have **" + player.getCrates().stream().filter(crate -> crate.getLoot() == null && crate instanceof DiamondCrate).count() + "**&f crates to open!;;&7Diamond Crates are legendary crates that;&7can not just give you cosmetics, but can;&7also give you a rank upgrade!;;&r&fCost: &d" + String.format("%,d",CrateUtil.DIAMOND_CRATE_PRICE) + " Tickets;;&aLeft-click to view available crates!;&aRight-click to purchase!")).split(";")));
         try {
             field = meta.getClass().getDeclaredField("profile");
         } catch (NoSuchFieldException | SecurityException e) {
@@ -111,7 +116,7 @@ public class ViewCrates extends GUI {
         head.setDurability((short)3);
         meta = (SkullMeta) head.getItemMeta();
         meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&a&lEmerald Crate")));
-        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&7Emerald Crates are legendary crates that not;&7only give you a very high chance to find;&7legendary loot, but also contains no duplicates!;;&cNote: &rThese crates can only be obtained;&rby claiming a Plus Bonus from The Monke.;;&aLeft-click to view available crates!")).split(";")));
+        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight("&fYou have **" + player.getCrates().stream().filter(crate -> crate.getLoot() == null && crate instanceof EmeraldCrate).count() + "**&f crates to open!;;&7Emerald Crates are legendary crates that not;&7only give you a very high chance to find;&7legendary loot, but also contains no duplicates!;;&cNote: &r&fThese crates can only be obtained;&r&fby claiming a Plus Bonus from The Monke.;;&aLeft-click to view available crates!")).split(";")));
         try {
             field = meta.getClass().getDeclaredField("profile");
         } catch (NoSuchFieldException | SecurityException e) {

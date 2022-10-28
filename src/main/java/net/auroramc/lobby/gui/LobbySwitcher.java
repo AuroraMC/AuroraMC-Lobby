@@ -35,7 +35,7 @@ public class LobbySwitcher extends GUI {
         int row = 1;
         int column = 1;
         for (GameServerInfo info : infos) {
-            this.setItem(row, column, new GUIItem(Material.STAINED_GLASS, "&3&lLobby Server " + info.getInfo().getName().split("-")[1], info.getCurrentPlayers(), ";&rPlayers: **" + info.getCurrentPlayers() + "**/**" + info.getMaxPlayers() + ";;" + ((info.getCurrentPlayers() == info.getMaxPlayers())?"&cThis lobby is currently full! Purchase a rank;&cat store.auroramc.net to bypass this!":"&aClick to join this lobby!"), (short)((info.getCurrentPlayers() == info.getMaxPlayers())?14:0)));
+            this.setItem(row, column, new GUIItem(Material.STAINED_GLASS, "&3&lLobby Server " + info.getInfo().getName().split("-")[1], info.getCurrentPlayers(), ";&r&fPlayers: **" + info.getCurrentPlayers() + "**&f/**" + info.getMaxPlayers() + ";;" + ((info.getCurrentPlayers() == info.getMaxPlayers())?"&cThis lobby is currently full! Purchase a rank;&cat store.auroramc.net to bypass this!":"&aClick to join this lobby!"), (short)((info.getCurrentPlayers() == info.getMaxPlayers())?14:0)));
             column++;
             if (column == 8) {
                 row++;
@@ -74,7 +74,7 @@ public class LobbySwitcher extends GUI {
                 this.updateItem(row, column, null);
             } else {
                 GameServerInfo info = infos.get(i);
-                this.updateItem(row, column, new GUIItem(Material.STAINED_GLASS, "&3&lLobby Server " + info.getInfo().getName().split("-")[1], info.getCurrentPlayers(), ";&rPlayers: **" + info.getCurrentPlayers() + "**/**" + info.getMaxPlayers() + ";;" + ((info.getCurrentPlayers() == info.getMaxPlayers())?"&cThis lobby is currently full! Purchase a rank;&cat store.auroramc.net to bypass this!":"&aClick to join this lobby!"), (short)((info.getCurrentPlayers() == info.getMaxPlayers())?14:0)));
+                this.updateItem(row, column, new GUIItem(Material.STAINED_GLASS, "&3&lLobby Server " + info.getInfo().getName().split("-")[1], info.getCurrentPlayers(), ";&r&fPlayers: **" + info.getCurrentPlayers() + "**&f/**" + info.getMaxPlayers() + ";;" + ((info.getCurrentPlayers() == info.getMaxPlayers())?"&cThis lobby is currently full! Purchase a rank;&cat store.auroramc.net to bypass this!":"&aClick to join this lobby!"), (short)((info.getCurrentPlayers() == info.getMaxPlayers())?14:0)));
             }
             column++;
             if (column == 8) {

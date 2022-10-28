@@ -10,25 +10,29 @@ import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.core.api.backend.ServerInfo;
 import net.auroramc.core.api.cosmetics.Crate;
 import net.auroramc.core.api.utils.gui.GUIItem;
+import net.auroramc.core.api.utils.holograms.Hologram;
 import net.auroramc.lobby.AuroraMCLobby;
 import net.auroramc.lobby.api.backend.GameServerInfo;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
+import net.auroramc.lobby.api.parkour.Parkour;
+import net.auroramc.lobby.api.parkour.Reward;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.api.util.Changelog;
 import net.auroramc.lobby.api.util.CommunityPoll;
+import net.auroramc.lobby.api.util.ServerState;
 import net.minecraft.server.v1_8_R3.EntityPlayer;
 import net.minecraft.server.v1_8_R3.PlayerInteractManager;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.craftbukkit.v1_8_R3.CraftServer;
 import org.bukkit.craftbukkit.v1_8_R3.CraftWorld;
 import org.bukkit.entity.ArmorStand;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.lang.reflect.Array;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class LobbyAPI {
 
@@ -55,12 +59,18 @@ public class LobbyAPI {
     private static final GUIItem gamesItem;
     private static final GUIItem lobbyItem;
 
+    private static final GUIItem checkpointItem;
+    private static final GUIItem restartItem;
+    private static final GUIItem cancelItem;
+
     private static Map<String, String> versionNumbers;
     private static Map<String, List<Changelog>> changelogs;
     private static Changelog latestChangelog;
     private static CommunityPoll poll;
 
     private static final Map<String, GameServerInfo> gameServers;
+    private static final Map<String, Integer> gameTotals;
+    private static final Map<String, Hologram> gameHolos;
 
     private static EntityPlayer monkeyEntity;
     private static EntityPlayer arcadeEntity;
@@ -69,19 +79,28 @@ public class LobbyAPI {
     private static EntityPlayer duelsEntity;
 
     private static Block chestBlock;
-    private static ArmorStand chestStand;
 
     private static Crate currentCrate;
     private static AuroraMCLobbyPlayer cratePlayer;
     private static boolean crateAnimationFinished;
 
+    private static Parkour easy;
+    private static Parkour medium;
+    private static Parkour hard;
+
 
     static {
         lobbyItem = new GUIItem(Material.NETHER_STAR, "&a&lSwitch Lobbies");
-        gamesItem = new GUIItem(Material.COMPASS, "&a&lBrowse Games");
+        gamesItem = new GUIItem(Material.COMPASS, "&a&lServer Navigation");
         prefsItem = new GUIItem(Material.REDSTONE_COMPARATOR, "&a&lView Preferences");
         cosmeticsItem = new GUIItem(Material.EMERALD, "&a&lView Cosmetics");
+
+        checkpointItem = new GUIItem(Material.GOLD_PLATE, "&a&lTeleport to Last Checkpoint");
+        restartItem = new GUIItem(Material.WOOD_DOOR, "&c&lRestart");
+        cancelItem = new GUIItem(Material.BED, "&c&lCancel");
         gameServers = new HashMap<>();
+        gameTotals = new HashMap<>();
+        gameHolos = new HashMap<>();
 
         currentCrate = null;
         cratePlayer = null;
@@ -131,12 +150,16 @@ public class LobbyAPI {
         monkeyEntity.setLocation(7.5, 71.0, 13.5, 145.0f, 0f);
         AuroraMCAPI.registerFakePlayer(monkeyEntity);
 
-
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Arcade Mode§r "));
         profile.getProperties().put("textures", new Property("textures", ARCADE_SKIN, ARCADE_SIGNATURE));
         arcadeEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
         arcadeEntity.setLocation(-12.5, 70.0, 42.5, -145f, 0f);
         AuroraMCAPI.registerFakePlayer(arcadeEntity);
+
+        Hologram hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), -12.5, 72.3f, 42.5), null);
+        hologram.addLine(1, "&b" + gameTotals.getOrDefault("ARCADE_MODE", 0) + " &fPlayers Online");
+        hologram.spawn();
+        gameHolos.put("ARCADE_MODE", hologram);
 
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Paintball§r "));
         profile.getProperties().put("textures", new Property("textures", PAINTBALL_SKIN, PAINTBALL_SIGNATURE));
@@ -144,17 +167,32 @@ public class LobbyAPI {
         paintballEntity.setLocation(-14.5, 70.0, 39.5, -145f, 0f);
         AuroraMCAPI.registerFakePlayer(paintballEntity);
 
+        hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), -14.5, 72.3f, 39.5), null);
+        hologram.addLine(1, "&b" + gameTotals.getOrDefault("PAINTBALL", 0) + " &fPlayers Online");
+        hologram.spawn();
+        gameHolos.put("PAINTBALL", hologram);
+
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Crystal Quest "));
         profile.getProperties().put("textures", new Property("textures", CQ_SKIN, CQ_SIGNATURE));
         cqEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
         cqEntity.setLocation(-17.5, 70.0, 33.5, -145f, 0f);
         AuroraMCAPI.registerFakePlayer(cqEntity);
 
+        hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), -17.5f, 72.3f, 33.5f), null);
+        hologram.addLine(1, "&b" + gameTotals.getOrDefault("CRYSTAL_QUEST", 0) + " &fPlayers Online");
+        hologram.spawn();
+        gameHolos.put("CRYSTAL_QUEST", hologram);
+
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Duels§r "));
         profile.getProperties().put("textures", new Property("textures", DUELS_SKIN, DUELS_SIGNATURE));
         duelsEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
         duelsEntity.setLocation(-16.5, 70.0, 36.5, -145f, 0f);
         AuroraMCAPI.registerFakePlayer(duelsEntity);
+
+        hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), -16.5f, 72.3f, 36.5f), null);
+        hologram.addLine(1, "&b" + gameTotals.getOrDefault("DUELS", 0) + " &fPlayers Online");
+        hologram.spawn();
+        gameHolos.put("DUELS", hologram);
     }
 
      public static void addGameServer(String serverName) {
@@ -258,14 +296,6 @@ public class LobbyAPI {
         LobbyAPI.chestBlock = chestBlock;
     }
 
-    public static ArmorStand getChestStand() {
-        return chestStand;
-    }
-
-    public static void setChestStand(ArmorStand chestStand) {
-        LobbyAPI.chestStand = chestStand;
-    }
-
     public synchronized static boolean startOpen(Crate crate, AuroraMCLobbyPlayer player) {
         if (currentCrate != null || cratePlayer != null) {
             return false;
@@ -296,4 +326,63 @@ public class LobbyAPI {
     public static boolean isCrateAnimationFinished() {
         return crateAnimationFinished;
     }
+
+    public static void loadParkours() {
+        easy = new Parkour(1, "&a&lEasy Parkour", new Reward("+50 XP\n+50 Crowns\n+50 Tickets", 50, 50, 50, Collections.emptyMap(), Collections.emptyList()), new Reward("+500 XP\n+500 Crowns\n+500 Tickets", 500, 500, 500, Collections.emptyMap(), Collections.emptyList()));
+        medium = new Parkour(2, "&6&lMedium Parkour", new Reward("+50 XP\n+50 Crowns\n+50 Tickets", 50, 50, 50, Collections.emptyMap(), Collections.emptyList()), new Reward("+500 XP\n+500 Crowns\n+500 Tickets", 500, 500, 500, Collections.emptyMap(), Collections.emptyList()));
+        hard = new Parkour(3, "&c&lHard Parkour", new Reward("+50 XP\n+50 Crowns\n+50 Tickets", 50, 50, 50, Collections.emptyMap(), Collections.emptyList()), new Reward("+500 XP\n+500 Crowns\n+500 Tickets", 500, 500, 500, Collections.emptyMap(), Collections.emptyList()));
+    }
+
+    public static Parkour getEasy() {
+        return easy;
+    }
+
+    public static Parkour getHard() {
+        return hard;
+    }
+
+    public static Parkour getMedium() {
+        return medium;
+    }
+
+    public static GUIItem getCancelItem() {
+        return cancelItem;
+    }
+
+    public static GUIItem getCheckpointItem() {
+        return checkpointItem;
+    }
+
+    public static GUIItem getRestartItem() {
+        return restartItem;
+    }
+
+    public static void updateTotals() {
+        AtomicInteger amount = new AtomicInteger();
+        amount.set(0);
+        LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getInfo().getServerType().getString("game").equalsIgnoreCase("CRYSTAL_QUEST")).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).forEach(info -> amount.addAndGet(info.getCurrentPlayers()));
+        gameTotals.put("CRYSTAL_QUEST",amount.get());
+        gameHolos.get("CRYSTAL_QUEST").getLines().get(1).setText("&b" + amount.get() + " &fPlayers Online");
+        gameHolos.get("CRYSTAL_QUEST").update();
+        amount.set(0);
+        LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getInfo().getServerType().getString("game").equalsIgnoreCase("DUELS")).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).forEach(info -> amount.addAndGet(info.getCurrentPlayers()));
+        gameTotals.put("DUELS",amount.get());
+        gameHolos.get("DUELS").getLines().get(1).setText("&b" + amount.get() + " &fPlayers Online");
+        gameHolos.get("DUELS").update();
+        amount.set(0);
+        LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getInfo().getServerType().getString("game").equalsIgnoreCase("PAINTBALL")).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).forEach(info -> amount.addAndGet(info.getCurrentPlayers()));
+        gameTotals.put("PAINTBALL",amount.get());
+        gameHolos.get("PAINTBALL").getLines().get(1).setText("&b" + amount.get() + " &fPlayers Online");
+        gameHolos.get("PAINTBALL").update();
+        amount.set(0);
+        LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getInfo().getServerType().getString("game").equalsIgnoreCase("ARCADE_MODE")).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).forEach(info -> amount.addAndGet(info.getCurrentPlayers()));
+        gameTotals.put("ARCADE_MODE",amount.get());
+        gameHolos.get("ARCADE_MODE").getLines().get(1).setText("&b" + amount.get() + " &fPlayers Online");
+        gameHolos.get("ARCADE_MODE").update();
+    }
+
+    public static Map<String, Integer> getGameTotals() {
+        return gameTotals;
+    }
 }
+

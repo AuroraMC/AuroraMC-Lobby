@@ -5,6 +5,7 @@
 package net.auroramc.lobby;
 
 import net.auroramc.core.api.utils.ZipUtil;
+import net.auroramc.core.api.utils.holograms.Hologram;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.LobbyMap;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
@@ -18,6 +19,7 @@ import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.lobby.commands.admin.*;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -45,6 +47,7 @@ public class AuroraMCLobby extends JavaPlugin {
         AuroraMCAPI.registerCommand(new CommandCrate());
 
         LobbyDatabaseManager.downloadMap();
+        getLogger().info("Map downloaded, deleting world directory...");
         File mapFolder = new File(Bukkit.getWorldContainer(), "world");
         if (mapFolder.exists()) {
             try {
@@ -57,11 +60,12 @@ public class AuroraMCLobby extends JavaPlugin {
         File region = new File(mapFolder, "region");
         region.mkdirs();
         try {
+            getLogger().info("Unzipping map...");
             ZipUtil.unzip(getDataFolder().toPath().toAbsolutePath() + "/zip/54.zip", region.toPath().toAbsolutePath().toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        getLogger().info("Loading map data into memory...");
         File data = new File(region, "map.json");
         JSONParser parser = new JSONParser();
         Object object;
@@ -81,9 +85,12 @@ public class AuroraMCLobby extends JavaPlugin {
         String author = jsonObject.getString("author");
 
         LobbyAPI.setLobbyMap(new LobbyMap(id, name, author, jsonObject));
+
+        getLogger().info("Map loaded, loading other info...");
         LobbyAPI.loadVersionNumbers();
         LobbyAPI.loadGameServers();
 
+        getLogger().info("Registering listeners...");
         Bukkit.getPluginManager().registerEvents(new ShutdownEventListener(), this);
         Bukkit.getPluginManager().registerEvents(new JoinListener(), this);
         Bukkit.getPluginManager().registerEvents(new WorldListener(), this);
@@ -92,10 +99,10 @@ public class AuroraMCLobby extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new LeaveListener(), this);
         Bukkit.getPluginManager().registerEvents(new FakePlayerListener(), this);
 
-
         new UpdateServersRunnable().runTaskTimer(AuroraMCAPI.getCore(), 20, 100);
         new UpdateDataRunnable().runTaskTimer(AuroraMCAPI.getCore(), 0, 20);
         new UpdatePollRunnable().runTaskTimer(AuroraMCAPI.getCore(), 36400, 36400);
         new UpdateScoreboardRunnable().runTaskTimer(AuroraMCAPI.getCore(), 400, 400);
+        getLogger().info("Startup complete.");
     }
 }
