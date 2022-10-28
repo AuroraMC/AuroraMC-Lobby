@@ -13,6 +13,7 @@ import org.bukkit.Material;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import javax.persistence.Lob;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,6 +60,7 @@ public class Parkour {
         this.name = name;
         this.restartPoint = new RestartPoint(new Location(LobbyAPI.getLobby().getServer().getWorld("world"), restartLocation.getJSONObject(0).getInt("x") + 0.5, restartLocation.getJSONObject(0).getInt("y") + 0.5, restartLocation.getJSONObject(0).getInt("z") + 0.5, restartLocation.getJSONObject(0).getFloat("yaw"),  0));
         Location loc = new Location(LobbyAPI.getLobby().getServer().getWorld("world"), restartLocation.getJSONObject(0).getInt("x"), holoLocation.getJSONObject(0).getInt("y"), holoLocation.getJSONObject(0).getInt("z"));
+        LobbyAPI.getLobby().getLogger().info("loc of hologram for parkour " + id + ": x=" + loc.getX() + ",y=" + loc.getY() + ",z=" + loc.getZ());
         loc.getBlock().setType(Material.AIR);
         this.leaderboard = new LeaderboardHologram(loc.clone().add(0.5, 0.5, 0.5), this);
     }
