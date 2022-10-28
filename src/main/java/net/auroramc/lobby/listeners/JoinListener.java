@@ -13,8 +13,10 @@ import net.auroramc.core.api.players.scoreboard.PlayerScoreboard;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
+import net.auroramc.lobby.api.util.ServerState;
 import net.minecraft.server.v1_8_R3.*;
-import org.bukkit.entity.ArmorStand;
+import org.bukkit.scoreboard.DisplaySlot;
+import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -24,17 +26,15 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.Team;
 import org.json.JSONArray;
-import org.json.JSONObject;
 
-import javax.persistence.Lob;
 import java.lang.reflect.Field;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class JoinListener implements Listener {
 
@@ -219,6 +219,14 @@ public class JoinListener implements Listener {
         team.setPrefix("§e§l");
         team.setSuffix("§7v" + LobbyAPI.getVersionNumber("ARCADE_MODE").trim());
         team.addEntry("Arcade Mode§r ");
+
+        Objective objective = scoreboard2.registerNewObjective("players", "dummy");
+        objective.setDisplaySlot(DisplaySlot.BELOW_NAME);
+        objective.setDisplayName(" §7Players Online");
+        objective.getScore("Crystal Quest ").setScore(LobbyAPI.getGameTotals().get("CRYSTAL_QUEST"));
+        objective.getScore("Duels§r ").setScore(LobbyAPI.getGameTotals().get("DUELS"));
+        objective.getScore("Paintball§r ").setScore(LobbyAPI.getGameTotals().get("PAINTBALL"));
+        objective.getScore("Arcade Mode§r ").setScore(LobbyAPI.getGameTotals().get("ARCADE_MODE"));
 
         player.getPlayer().getInventory().setItem(8, LobbyAPI.getLobbyItem().getItem());
         player.getPlayer().getInventory().setItem(7, LobbyAPI.getPrefsItem().getItem());

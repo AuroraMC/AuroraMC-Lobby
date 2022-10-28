@@ -19,6 +19,7 @@ import net.auroramc.lobby.api.parkour.Reward;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.api.util.Changelog;
 import net.auroramc.lobby.api.util.CommunityPoll;
+import net.auroramc.lobby.api.util.ServerState;
 import net.minecraft.server.v1_8_R3.EntityPlayer;
 import net.minecraft.server.v1_8_R3.PlayerInteractManager;
 import org.bukkit.Bukkit;
@@ -30,6 +31,7 @@ import org.bukkit.entity.ArmorStand;
 
 import java.lang.reflect.Array;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class LobbyAPI {
 
@@ -66,6 +68,7 @@ public class LobbyAPI {
     private static CommunityPoll poll;
 
     private static final Map<String, GameServerInfo> gameServers;
+    private static final Map<String, Integer> gameTotals;
 
     private static EntityPlayer monkeyEntity;
     private static EntityPlayer arcadeEntity;
@@ -86,7 +89,7 @@ public class LobbyAPI {
 
     static {
         lobbyItem = new GUIItem(Material.NETHER_STAR, "&a&lSwitch Lobbies");
-        gamesItem = new GUIItem(Material.COMPASS, "&a&lBrowse Games");
+        gamesItem = new GUIItem(Material.COMPASS, "&a&lServer Navigation");
         prefsItem = new GUIItem(Material.REDSTONE_COMPARATOR, "&a&lView Preferences");
         cosmeticsItem = new GUIItem(Material.EMERALD, "&a&lView Cosmetics");
 
@@ -94,6 +97,7 @@ public class LobbyAPI {
         restartItem = new GUIItem(Material.WOOD_DOOR, "&c&lRestart");
         cancelItem = new GUIItem(Material.BED, "&c&lCancel");
         gameServers = new HashMap<>();
+        gameTotals = new HashMap<>();
 
         currentCrate = null;
         cratePlayer = null;
@@ -329,6 +333,25 @@ public class LobbyAPI {
 
     public static GUIItem getRestartItem() {
         return restartItem;
+    }
+
+    public static void updateTotals() {
+        AtomicInteger amount = new AtomicInteger();
+        LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getInfo().getServerType().getString("game").equalsIgnoreCase("CRYSTAL_QUEST")).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).forEach(info -> amount.addAndGet(info.getCurrentPlayers()));
+        gameTotals.put("CRYSTAL_QUEST",amount.get());
+        amount.set(0);
+        LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getInfo().getServerType().getString("game").equalsIgnoreCase("DUELS")).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).forEach(info -> amount.addAndGet(info.getCurrentPlayers()));
+        gameTotals.put("DUELS",amount.get());
+        amount.set(0);
+        LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getInfo().getServerType().getString("game").equalsIgnoreCase("PAINTBALL")).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).forEach(info -> amount.addAndGet(info.getCurrentPlayers()));
+        gameTotals.put("PAINTBALL",amount.get());
+        amount.set(0);
+        LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getInfo().getServerType().getString("game").equalsIgnoreCase("ARCADE_MODE")).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).forEach(info -> amount.addAndGet(info.getCurrentPlayers()));
+        gameTotals.put("ARCADE_MODE",amount.get());
+    }
+
+    public static Map<String, Integer> getGameTotals() {
+        return gameTotals;
     }
 }
 

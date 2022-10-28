@@ -12,6 +12,9 @@ import net.auroramc.lobby.api.backend.GameServerInfo;
 import net.auroramc.lobby.gui.GameServerListing;
 import net.auroramc.lobby.gui.LobbySwitcher;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scoreboard.Objective;
+
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class UpdateServersRunnable extends BukkitRunnable {
 
@@ -20,7 +23,15 @@ public class UpdateServersRunnable extends BukkitRunnable {
         for (GameServerInfo info : LobbyAPI.getGameServers().values()) {
             info.fetchData();
         }
+        LobbyAPI.updateTotals();
         for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
+            Objective objective = player.getScoreboard().getScoreboard().getObjective("players");
+            if (objective != null) {
+                objective.getScore("Crystal Quest ").setScore(LobbyAPI.getGameTotals().get("CRYSTAL_QUEST"));
+                objective.getScore("Duels§r ").setScore(LobbyAPI.getGameTotals().get("DUELS"));
+                objective.getScore("Paintball§r ").setScore(LobbyAPI.getGameTotals().get("PAINTBALL"));
+                objective.getScore("Arcade Mode§r ").setScore(LobbyAPI.getGameTotals().get("ARCADE_MODE"));
+            }
             GUI gui = AuroraMCAPI.getGUI(player);
             if (gui != null) {
                 if (gui instanceof GameServerListing) {

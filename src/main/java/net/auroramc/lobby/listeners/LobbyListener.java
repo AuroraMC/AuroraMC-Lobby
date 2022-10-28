@@ -174,10 +174,10 @@ public class LobbyListener implements Listener {
                     if (event.getDamager() instanceof Player) {
                         AuroraMCPlayer damager = AuroraMCAPI.getPlayer((Player) ((EntityDamageByEntityEvent) e).getDamager());
                         if (damager.hasPermission("elite") && target.hasPermission("moderation") && !target.isDisguised()) {
-                            if (((AuroraMCLobbyPlayer)target).canBePunched() || damager.hasPermission("admin")) {
+                            if (target.canBePunched() || damager.hasPermission("admin")) {
                                 target.getPlayer().setVelocity(new Vector(0, 10, 0));
                                 target.getPlayer().getLocation().getWorld().createExplosion(target.getPlayer().getLocation().getBlockX(), target.getPlayer().getLocation().getBlockY(), target.getPlayer().getLocation().getBlockZ(), 2, false, false);
-                                ((AuroraMCLobbyPlayer)target).punched();
+                                target.punched();
                             } else {
                                 damager.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Lobby", "**" + target.getName() + "** has been punched too recently. You cannot punch them again yet."));
                             }
