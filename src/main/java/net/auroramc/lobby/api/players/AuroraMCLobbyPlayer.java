@@ -5,6 +5,7 @@
 package net.auroramc.lobby.api.players;
 
 import net.auroramc.core.api.AuroraMCAPI;
+import net.auroramc.core.api.cosmetics.Cosmetic;
 import net.auroramc.core.api.cosmetics.Crate;
 import net.auroramc.core.api.cosmetics.Gadget;
 import net.auroramc.core.api.players.AuroraMCPlayer;
@@ -20,6 +21,7 @@ import net.auroramc.lobby.api.parkour.ParkourRun;
 import net.auroramc.lobby.api.util.CheckForcefieldRunnable;
 import net.auroramc.lobby.utils.CrateUtil;
 import org.bukkit.Location;
+import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -408,10 +410,17 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
 
     public void parkourStart(Parkour parkour) {
         this.activeParkourRun = new ParkourRun(this, parkour);
+        getPlayer().getInventory().setItem(3, LobbyAPI.getCheckpointItem().getItem());
+        getPlayer().getInventory().setItem(4, LobbyAPI.getRestartItem().getItem());
+        getPlayer().getInventory().setItem(5, LobbyAPI.getCancelItem().getItem());
     }
 
     public void parkourEnd() {
         this.activeParkourRun = null;
+        getPlayer().getInventory().setItem(4, LobbyAPI.getCosmeticsItem().getItem());
+        if (getActiveCosmetics().containsKey(Cosmetic.CosmeticType.GADGET)) {
+            getActiveCosmetics().get(Cosmetic.CosmeticType.GADGET).onEquip(this);
+        }
     }
 
     public boolean isInParkour() {

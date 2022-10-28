@@ -7,6 +7,7 @@ package net.auroramc.lobby.listeners;
 import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.core.api.events.player.PlayerLeaveEvent;
 import net.auroramc.lobby.api.LobbyAPI;
+import net.auroramc.lobby.api.parkour.ParkourRun;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.api.util.CrateStructures;
 import org.bukkit.Bukkit;
@@ -59,6 +60,9 @@ public class LeaveListener implements Listener {
                 location.setX(location.getX() + 0.5);
                 location.setZ(location.getZ() + 0.5);
                 LobbyAPI.finishOpen();
+            }
+            if (player.isInParkour()) {
+                player.getActiveParkourRun().end(ParkourRun.FailCause.LEAVE);
             }
         }
     }

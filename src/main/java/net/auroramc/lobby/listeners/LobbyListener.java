@@ -15,6 +15,7 @@ import net.auroramc.core.api.players.AuroraMCPlayer;
 import net.auroramc.core.gui.cosmetics.Cosmetics;
 import net.auroramc.core.gui.preferences.Preferences;
 import net.auroramc.core.gui.stats.stats.Stats;
+import net.auroramc.lobby.AuroraMCLobby;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.parkour.Parkour;
 import net.auroramc.lobby.api.parkour.ParkourRun;
@@ -37,6 +38,7 @@ import org.bukkit.entity.*;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockFromToEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
@@ -60,12 +62,18 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.persistence.Lob;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 
 public class LobbyListener implements Listener {
 
+    private final List<Player> cancelNextEvent = new ArrayList<>();
+
     private static int highX = 0, lowX = 0, highY = 0, lowY = 0, highZ = 0, lowZ = 0;
     final double STILL = -0.0784000015258789;
+    private static final List<Player> hasTeleported = new ArrayList<>();
 
     static {
         JSONObject a = LobbyAPI.getLobbyMap().getMapData().getJSONObject("border_a");
@@ -115,6 +123,39 @@ public class LobbyListener implements Listener {
     @EventHandler
     public void onDamage(EntityDamageEvent e) {
             if (e.getEntity() instanceof Player) {
+                AuroraMCLobbyPlayer target = (AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer((Player) e.getEntity());
+                if (target.isInParkour()) {
+                    if (e.getCause() == EntityDamageEvent.DamageCause.FALL) {
+                                e.setCancelled(true);
+                    } else if (e.getCause() == EntityDamageEvent.DamageCause.VOID) {
+                        if (hasTeleported.contains(target.getPlayer())) {
+                            return;
+                        }
+                    }
+
+                    e.setCancelled(true);
+                    target.getPlayer().setFallDistance(0);
+
+                    Location l = target.getActiveParkourRun().getParkour().getRestartPoint().getLocation().clone();
+                    if (target.getActiveParkourRun().getLastReached() != 0) {
+                        l = target.getActiveParkourRun().getParkour().getCheckpoint(target.getActiveParkourRun().getLastReached()).getLocation().clone();
+                    }
+                    l.setX(l.getX() + 0.5);
+                    l.setY(l.getY() + 0.5);
+                    l.setZ(l.getZ() + 0.5);
+                    target.getPlayer().setVelocity(new Vector(0, 0, 0));
+                    target.getPlayer().teleport(l);
+                    target.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have been teleported to your last checkpoint."));
+                    if (e.getCause() == EntityDamageEvent.DamageCause.VOID) {
+                        hasTeleported.add(target.getPlayer());
+                        new BukkitRunnable(){
+                            @Override
+                            public void run() {
+                                hasTeleported.remove(target.getPlayer());
+                            }
+                        }.runTaskLater(LobbyAPI.getLobby(), 5);
+                    }
+                }
                 if (e.getCause() == EntityDamageEvent.DamageCause.VOID) {
                     JSONArray spawnLocations = LobbyAPI.getLobbyMap().getMapData().getJSONObject("spawn").getJSONArray("PLAYERS");
                     int x, y, z;
@@ -131,7 +172,6 @@ public class LobbyListener implements Listener {
                 if (e instanceof EntityDamageByEntityEvent) {
                     EntityDamageByEntityEvent event = (EntityDamageByEntityEvent) e;
                     if (event.getDamager() instanceof Player) {
-                        AuroraMCPlayer target = AuroraMCAPI.getPlayer((Player) e.getEntity());
                         AuroraMCPlayer damager = AuroraMCAPI.getPlayer((Player) ((EntityDamageByEntityEvent) e).getDamager());
                         if (damager.hasPermission("elite") && target.hasPermission("moderation") && !target.isDisguised()) {
                             if (((AuroraMCLobbyPlayer)target).canBePunched() || damager.hasPermission("admin")) {
@@ -202,480 +242,547 @@ public class LobbyListener implements Listener {
         e.setCancelled(true);
     }
 
+
+
     @EventHandler
     public void onItemClick(PlayerInteractEvent e) {
-            if (e.getPlayer().getGameMode() != GameMode.CREATIVE) {
-                e.setCancelled(true);
-            }
-            if (e.getClickedBlock() != null && e.getClickedBlock().getType() == Material.CHEST && e.getClickedBlock().getLocation().equals(LobbyAPI.getChestBlock().getLocation())) {
-                AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer(e.getPlayer());
-                ViewCrates crates = new ViewCrates(player);
-                crates.open(player);
-                AuroraMCAPI.openGUI(player, crates);
-                e.setCancelled(true);
+        if (e.getPlayer().getGameMode() != GameMode.CREATIVE) {
+            e.setCancelled(true);
+        }
+        {
+            AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer(e.getPlayer());
+            if (player.isInParkour()) {
+                if (e.getItem() != null && e.getItem().getType() != Material.AIR) {
+                    /*if (cancelNextEvent.contains(e.getPlayer())) {
+                        cancelNextEvent.remove(e.getPlayer());
+                        return;
+                    }
+                    if (e.getAction() == Action.RIGHT_CLICK_BLOCK || e.getAction() == Action.LEFT_CLICK_BLOCK) {
+                        cancelNextEvent.add(e.getPlayer());
+                    }*/
+                    switch (e.getItem().getType()) {
+                        case BED: {
+                            player.getActiveParkourRun().end(ParkourRun.FailCause.LEAVE);
+                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have left the parkour."));
+                            return;
+                        }
+                        case GOLD_PLATE: {
+                            player.getPlayer().setFallDistance(0);
+                            Location l = player.getActiveParkourRun().getParkour().getRestartPoint().getLocation().clone();
+                            l.setX(l.getX() + 0.5);
+                            l.setY(l.getY() + 0.5);
+                            l.setZ(l.getZ() + 0.5);
+                            player.getPlayer().setVelocity(new Vector(0, 0, 0));
+                            player.getPlayer().teleport(l);
+                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have been teleported to your last checkpoint!"));
+                            hasTeleported.add(player.getPlayer());
+                            new BukkitRunnable() {
+                                @Override
+                                public void run() {
+                                    hasTeleported.remove(player.getPlayer());
+                                }
+                            }.runTaskLater(LobbyAPI.getLobby(), 5);
+                            return;
+                        }
+                        case WOOD_DOOR: {
+                            player.getPlayer().setFallDistance(0);
+                            Location l = player.getActiveParkourRun().getParkour().getRestartPoint().getLocation().clone();
+                            l.setX(l.getX() + 0.5);
+                            l.setY(l.getY() + 0.5);
+                            l.setZ(l.getZ() + 0.5);
+                            player.getPlayer().setVelocity(new Vector(0, 0, 0));
+                            player.getPlayer().teleport(l);
+                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have been teleported to the restart point!"));
+                            hasTeleported.add(player.getPlayer());
+                            new BukkitRunnable() {
+                                @Override
+                                public void run() {
+                                    hasTeleported.remove(player.getPlayer());
+                                }
+                            }.runTaskLater(LobbyAPI.getLobby(), 5);
+                            return;
+                        }
+                    }
+                }
                 return;
-            } else if (e.getClickedBlock() != null && e.getClickedBlock().getType() == Material.CHEST && LobbyAPI.getCratePlayer() != null && LobbyAPI.getCratePlayer().getPlayer().equals(e.getPlayer()) && LobbyAPI.isCrateAnimationFinished()) {
-                CraftBlock block = (CraftBlock) e.getClickedBlock();
-                PacketPlayOutBlockAction packet = new PacketPlayOutBlockAction(new BlockPosition(block.getX(), block.getY(), block.getZ()), Blocks.CHEST, 1, 1);
-                for (Player player : Bukkit.getOnlinePlayers()) {
-                    ((CraftPlayer)player).getHandle().playerConnection.sendPacket(packet);
-                }
-                AuroraMCLobbyPlayer cratePlayer = LobbyAPI.getCratePlayer();
-                Crate.CrateReward reward = LobbyAPI.getCurrentCrate().open(LobbyAPI.getCratePlayer());
-                long amount = cratePlayer.getCrates().stream().filter(crate -> crate.getOpened() > 0).count();
-                if (amount > 0) {
-                    cratePlayer.getHolograms().get("crates").getLines().get(2).setText("&fYou have &b" + amount + " &fcrates to open!");
-                } else {
-                    cratePlayer.getHolograms().get("crates").removeLine(2);
-                }
-                if (reward.getCosmetic() != null) {
-                    Location loc2 = block.getLocation().clone();
-                    loc2.add(0.5, 1.5, 0.5);
-                    Item item = block.getLocation().getWorld().dropItem(loc2, new ItemStack(reward.getCosmetic().getMaterial(), 1, reward.getCosmetic().getData()));
-                    item.setPickupDelay(1000000);
-                    item.setVelocity(new Vector());
-                    Location location = block.getLocation().clone();
-                    location.add(0.5, 1.5, 0.5);
-                    ArmorStand stand = location.getWorld().spawn(location, ArmorStand.class);
-                    stand.setVisible(false);
-                    stand.setCustomName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(reward.getCosmetic().getDisplayName() + "&r (" + reward.getCosmetic().getRarity().getDisplayName() + "&r)")));
-                    stand.setCustomNameVisible(true);
-                    stand.setSmall(true);
-                    stand.setMarker(true);
-                    stand.setGravity(false);
-                    cratePlayer.getUnlockedCosmetics().add(reward.getCosmetic());
-                    new BukkitRunnable(){
-                        @Override
-                        public void run() {
-                            AuroraMCAPI.getDbManager().addCosmetic(cratePlayer.getPlayer().getUniqueId(), reward.getCosmetic());
-                        }
-                    }.runTaskAsynchronously(AuroraMCAPI.getCore());
-                    switch (reward.getCosmetic().getRarity()) {
-                        case COMMON: {
-                            cratePlayer.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "You just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)"));
-                            break;
-                        }
-                        case UNCOMMON: {
-                            cratePlayer.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "You just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)"));
-                            Location loc = block.getLocation().add(0.5, 0, 0.5);
-                            org.bukkit.entity.Firework firework = loc.getWorld().spawn(loc, org.bukkit.entity.Firework.class);
-                            FireworkMeta meta = firework.getFireworkMeta();
-                            meta.setPower(0);
-                            meta.addEffect(FireworkEffect.builder().withColor(Color.fromRGB(85,255,85)).trail(true).flicker(true).with(FireworkEffect.Type.BURST).build());
-                            firework.setFireworkMeta(meta);
-                            new BukkitRunnable(){
-                                @Override
-                                public void run() {
-                                    firework.detonate();
-                                }
-                            }.runTaskLater(AuroraMCAPI.getCore(), 2);
-                            break;
-                        }
-                        case RARE: {
-                            cratePlayer.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "You just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)"));
-                            Location loc = block.getLocation().add(0.5, 0, 0.5);
-                            org.bukkit.entity.Firework firework = loc.getWorld().spawn(loc, org.bukkit.entity.Firework.class);
-                            FireworkMeta meta = firework.getFireworkMeta();
-                            meta.setPower(0);
-                            meta.addEffect(FireworkEffect.builder().withColor(Color.fromRGB(85,85,255)).trail(true).flicker(true).with(FireworkEffect.Type.BURST).build());
-                            firework.setFireworkMeta(meta);
-                            new BukkitRunnable(){
-                                @Override
-                                public void run() {
-                                    firework.detonate();
-                                }
-                            }.runTaskLater(AuroraMCAPI.getCore(), 2);
-                            break;
-                        }
-                        case EPIC: {
-                            for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
-                                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + cratePlayer.getPlayer().getName() + "** just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)"));
-                                player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.PORTAL_TRAVEL, 100, 0);
-                                new BukkitRunnable(){
-                                    int i = 0;
-                                    @Override
-                                    public void run() {
-                                        Location location = block.getLocation().add(0.5, 0, 0.5);;
-                                        org.bukkit.entity.Firework firework = location.getWorld().spawn(location, org.bukkit.entity.Firework.class);
-                                        FireworkMeta meta = firework.getFireworkMeta();
-                                        meta.setPower(0);
-                                        meta.addEffect(FireworkEffect.builder().withColor(Color.fromRGB(255,85,255)).trail(true).flicker(true).with(FireworkEffect.Type.BURST).build());
-                                        firework.setFireworkMeta(meta);
-                                        new BukkitRunnable(){
-                                            @Override
-                                            public void run() {
-                                                firework.detonate();
-                                            }
-                                        }.runTaskLater(AuroraMCAPI.getCore(), 2);
-                                        i++;
-                                        if (i > 5) {
-                                            this.cancel();
-                                        }
-                                    }
-                                }.runTaskTimer(AuroraMCAPI.getCore(), 0, 2);
+            }
+        }
+
+        if (e.getClickedBlock() != null && e.getClickedBlock().getType() == Material.CHEST && e.getClickedBlock().getLocation().equals(LobbyAPI.getChestBlock().getLocation()) && !((AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer(e.getPlayer())).isInParkour()) {
+            AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer(e.getPlayer());
+            ViewCrates crates = new ViewCrates(player);
+            crates.open(player);
+            AuroraMCAPI.openGUI(player, crates);
+            e.setCancelled(true);
+            return;
+        } else if (e.getClickedBlock() != null && e.getClickedBlock().getType() == Material.CHEST && LobbyAPI.getCratePlayer() != null && LobbyAPI.getCratePlayer().getPlayer().equals(e.getPlayer()) && LobbyAPI.isCrateAnimationFinished()) {
+            CraftBlock block = (CraftBlock) e.getClickedBlock();
+            PacketPlayOutBlockAction packet = new PacketPlayOutBlockAction(new BlockPosition(block.getX(), block.getY(), block.getZ()), Blocks.CHEST, 1, 1);
+            for (Player player : Bukkit.getOnlinePlayers()) {
+                ((CraftPlayer) player).getHandle().playerConnection.sendPacket(packet);
+            }
+            AuroraMCLobbyPlayer cratePlayer = LobbyAPI.getCratePlayer();
+            Crate.CrateReward reward = LobbyAPI.getCurrentCrate().open(LobbyAPI.getCratePlayer());
+            long amount = cratePlayer.getCrates().stream().filter(crate -> crate.getOpened() > 0).count();
+            if (amount > 0) {
+                cratePlayer.getHolograms().get("crates").getLines().get(2).setText("&fYou have &b" + amount + " &fcrates to open!");
+            } else {
+                cratePlayer.getHolograms().get("crates").removeLine(2);
+            }
+            if (reward.getCosmetic() != null) {
+                Location loc2 = block.getLocation().clone();
+                loc2.add(0.5, 1.5, 0.5);
+                Item item = block.getLocation().getWorld().dropItem(loc2, new ItemStack(reward.getCosmetic().getMaterial(), 1, reward.getCosmetic().getData()));
+                item.setPickupDelay(1000000);
+                item.setVelocity(new Vector());
+                Location location = block.getLocation().clone();
+                location.add(0.5, 1.5, 0.5);
+                ArmorStand stand = location.getWorld().spawn(location, ArmorStand.class);
+                stand.setVisible(false);
+                stand.setCustomName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(reward.getCosmetic().getDisplayName() + "&r (" + reward.getCosmetic().getRarity().getDisplayName() + "&r)")));
+                stand.setCustomNameVisible(true);
+                stand.setSmall(true);
+                stand.setMarker(true);
+                stand.setGravity(false);
+                cratePlayer.getUnlockedCosmetics().add(reward.getCosmetic());
+                new BukkitRunnable() {
+                    @Override
+                    public void run() {
+                        AuroraMCAPI.getDbManager().addCosmetic(cratePlayer.getPlayer().getUniqueId(), reward.getCosmetic());
+                    }
+                }.runTaskAsynchronously(AuroraMCAPI.getCore());
+                switch (reward.getCosmetic().getRarity()) {
+                    case COMMON: {
+                        cratePlayer.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "You just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)"));
+                        break;
+                    }
+                    case UNCOMMON: {
+                        cratePlayer.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "You just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)"));
+                        Location loc = block.getLocation().add(0.5, 0, 0.5);
+                        org.bukkit.entity.Firework firework = loc.getWorld().spawn(loc, org.bukkit.entity.Firework.class);
+                        FireworkMeta meta = firework.getFireworkMeta();
+                        meta.setPower(0);
+                        meta.addEffect(FireworkEffect.builder().withColor(Color.fromRGB(85, 255, 85)).trail(true).flicker(true).with(FireworkEffect.Type.BURST).build());
+                        firework.setFireworkMeta(meta);
+                        new BukkitRunnable() {
+                            @Override
+                            public void run() {
+                                firework.detonate();
                             }
-                            break;
-                        }
-                        case LEGENDARY: {
-                            for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
-                                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + cratePlayer.getPlayer().getName() + "** just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)"));
-                                player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ENDERDRAGON_GROWL, 100, 0);
+                        }.runTaskLater(AuroraMCAPI.getCore(), 2);
+                        break;
+                    }
+                    case RARE: {
+                        cratePlayer.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "You just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)"));
+                        Location loc = block.getLocation().add(0.5, 0, 0.5);
+                        org.bukkit.entity.Firework firework = loc.getWorld().spawn(loc, org.bukkit.entity.Firework.class);
+                        FireworkMeta meta = firework.getFireworkMeta();
+                        meta.setPower(0);
+                        meta.addEffect(FireworkEffect.builder().withColor(Color.fromRGB(85, 85, 255)).trail(true).flicker(true).with(FireworkEffect.Type.BURST).build());
+                        firework.setFireworkMeta(meta);
+                        new BukkitRunnable() {
+                            @Override
+                            public void run() {
+                                firework.detonate();
                             }
-                            new BukkitRunnable(){
+                        }.runTaskLater(AuroraMCAPI.getCore(), 2);
+                        break;
+                    }
+                    case EPIC: {
+                        for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
+                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + cratePlayer.getPlayer().getName() + "** just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)"));
+                            player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.PORTAL_TRAVEL, 100, 0);
+                            new BukkitRunnable() {
                                 int i = 0;
-                                @Override
-                                public void run() {
-                                    Location loc = block.getLocation().add(0.5, 0, 0.5);
-                                    org.bukkit.entity.Firework firework = loc.getWorld().spawn(loc, org.bukkit.entity.Firework.class);
-                                    FireworkMeta meta = firework.getFireworkMeta();
-                                    meta.setPower(0);
-                                    meta.addEffect(FireworkEffect.builder().withColor(Color.fromRGB(255,170,0)).trail(true).flicker(true).with(FireworkEffect.Type.BURST).build());
-                                    firework.setFireworkMeta(meta);
-                                    new BukkitRunnable(){
-                                        @Override
-                                        public void run() {
-                                            firework.detonate();
-                                        }
-                                    }.runTaskLater(AuroraMCAPI.getCore(), 2);
-                                    i++;
-                                    if (i > 10) {
-                                        this.cancel();
-                                    }
-                                }
-                            }.runTaskTimer(AuroraMCAPI.getCore(), 0, 5);
-                            break;
-                        }
-                        case MYTHICAL: {
-                            for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
-                                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + cratePlayer.getPlayer().getName() + "** just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)"));
-                                player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ENDERDRAGON_DEATH, 100, 0);
-                            }
-                            new BukkitRunnable(){
-                                int i = 0;
+
                                 @Override
                                 public void run() {
                                     Location location = block.getLocation().add(0.5, 0, 0.5);
+                                    ;
                                     org.bukkit.entity.Firework firework = location.getWorld().spawn(location, org.bukkit.entity.Firework.class);
                                     FireworkMeta meta = firework.getFireworkMeta();
                                     meta.setPower(0);
-                                    meta.addEffect(FireworkEffect.builder().withColor(Color.fromRGB(255,85,85)).trail(true).flicker(true).with(FireworkEffect.Type.BURST).build());
+                                    meta.addEffect(FireworkEffect.builder().withColor(Color.fromRGB(255, 85, 255)).trail(true).flicker(true).with(FireworkEffect.Type.BURST).build());
                                     firework.setFireworkMeta(meta);
-                                    new BukkitRunnable(){
+                                    new BukkitRunnable() {
                                         @Override
                                         public void run() {
                                             firework.detonate();
                                         }
                                     }.runTaskLater(AuroraMCAPI.getCore(), 2);
                                     i++;
-                                    if (i > 20) {
+                                    if (i > 5) {
                                         this.cancel();
                                     }
                                 }
-                            }.runTaskTimer(AuroraMCAPI.getCore(), 0, 5);
-                            break;
+                            }.runTaskTimer(AuroraMCAPI.getCore(), 0, 2);
                         }
+                        break;
                     }
+                    case LEGENDARY: {
+                        for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
+                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + cratePlayer.getPlayer().getName() + "** just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)"));
+                            player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ENDERDRAGON_GROWL, 100, 0);
+                        }
+                        new BukkitRunnable() {
+                            int i = 0;
 
-                    new BukkitRunnable() {
-                        @Override
-                        public void run() {
-                            stand.remove();
-                            item.remove();
-                            JSONObject crateLocation = LobbyAPI.getLobbyMap().getMapData().getJSONObject("game").getJSONArray("CRATE").getJSONObject(0);
-                            int x = crateLocation.getInt("x");
-                            int y = crateLocation.getInt("y");
-                            int z = crateLocation.getInt("z");
-                            Location location = new Location(Bukkit.getWorld("world"), x, y, z);
-                            Location loc = new Location(location.getWorld(), location.getX() - 3, location.getY() - 1, location.getZ() - 3);
-                            CrateStructures.getBaseCrate().place(loc);
-                            Block block = location.getBlock();
-                            block.setType(Material.CHEST);
-                            BlockState state = block.getState();
-                            BlockFace direction;
-                            float yaw = crateLocation.getFloat("yaw");
-                            if (yaw <= -135 || yaw >= 135) {
-                                direction = BlockFace.NORTH;
-                            } else if (yaw > -135 && yaw < -45) {
-                                direction = BlockFace.EAST;
-                            } else if (yaw >= -45 && yaw <= 45) {
-                                direction = BlockFace.SOUTH;
-                            } else {
-                                direction = BlockFace.WEST;
-                            }
-                            org.bukkit.material.Chest chest = new Chest(direction);
-                            state.setData(chest);
-                            state.update();
-                            LobbyAPI.setChestBlock(block);
-                            location.setY(location.getY() + 1);
-                            location.setX(location.getX() + 0.5);
-                            location.setZ(location.getZ() + 0.5);
-                            for (AuroraMCPlayer player1 :  AuroraMCAPI.getPlayers()) {
-                                if (player1.getHolograms().containsKey("crates")) {
-                                    player1.getHolograms().get("crates").spawn();
+                            @Override
+                            public void run() {
+                                Location loc = block.getLocation().add(0.5, 0, 0.5);
+                                org.bukkit.entity.Firework firework = loc.getWorld().spawn(loc, org.bukkit.entity.Firework.class);
+                                FireworkMeta meta = firework.getFireworkMeta();
+                                meta.setPower(0);
+                                meta.addEffect(FireworkEffect.builder().withColor(Color.fromRGB(255, 170, 0)).trail(true).flicker(true).with(FireworkEffect.Type.BURST).build());
+                                firework.setFireworkMeta(meta);
+                                new BukkitRunnable() {
+                                    @Override
+                                    public void run() {
+                                        firework.detonate();
+                                    }
+                                }.runTaskLater(AuroraMCAPI.getCore(), 2);
+                                i++;
+                                if (i > 10) {
+                                    this.cancel();
                                 }
                             }
-                        }
-                    }.runTaskLater(AuroraMCAPI.getCore(), 60);
-                } else if (reward.getRank() != null) {
-                    Item item = block.getLocation().getWorld().dropItem(block.getLocation().clone().add(0.5, 1.5, 0.5), new ItemStack(Material.DIAMOND));
-                    item.setPickupDelay(1000000);
-                    item.setVelocity(new Vector());
-                    Location location = block.getLocation().clone();
-                    location.setY(location.getY() + 0.5);
-                    location.setX(location.getX() + 0.5);
-                    location.setZ(location.getZ() + 0.5);
-                    ArmorStand stand = location.getWorld().spawn(location, ArmorStand.class);
-                    stand.setVisible(false);
-                    stand.setCustomName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight("&" + reward.getRank().getPrefixColor() + reward.getRank().getName() + " Rank&r (" + Cosmetic.Rarity.MYTHICAL.getDisplayName() + "&r)")));
-                    stand.setCustomNameVisible(true);
-                    stand.setSmall(true);
-                    stand.setMarker(true);
-                    stand.setGravity(false);
-                    for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
-                        player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + cratePlayer.getPlayer().getName() + "** just found &" + reward.getRank().getPrefixColor() + reward.getRank().getName() + " Rank** (**" + Cosmetic.Rarity.MYTHICAL.getDisplayName() + "**)"));
-                        player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ENDERDRAGON_DEATH, 100, 0);
+                        }.runTaskTimer(AuroraMCAPI.getCore(), 0, 5);
+                        break;
                     }
-                    cratePlayer.setRank(reward.getRank());
-                    new BukkitRunnable() {
-                        @Override
-                        public void run() {
-                            AuroraMCAPI.getDbManager().setRank(cratePlayer, reward.getRank());
+                    case MYTHICAL: {
+                        for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
+                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + cratePlayer.getPlayer().getName() + "** just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)"));
+                            player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ENDERDRAGON_DEATH, 100, 0);
                         }
-                    }.runTaskAsynchronously(AuroraMCAPI.getCore());
-                    new BukkitRunnable(){
-                        int i = 0;
-                        @Override
-                        public void run() {
-                            Location location = block.getLocation().add(0.5, 0, 0.5);
-                            org.bukkit.entity.Firework firework = location.getWorld().spawn(location, org.bukkit.entity.Firework.class);
-                            FireworkMeta meta = firework.getFireworkMeta();
-                            meta.setPower(0);
-                            meta.addEffect(FireworkEffect.builder().withColor(Color.fromRGB(255,85,85)).trail(true).flicker(true).with(FireworkEffect.Type.BURST).build());
-                            firework.setFireworkMeta(meta);
-                            new BukkitRunnable(){
-                                @Override
-                                public void run() {
-                                    firework.detonate();
-                                }
-                            }.runTaskLater(AuroraMCAPI.getCore(), 2);
-                            i++;
-                            if (i > 20) {
-                                this.cancel();
-                            }
-                        }
-                    }.runTaskTimer(AuroraMCAPI.getCore(), 0, 5);
+                        new BukkitRunnable() {
+                            int i = 0;
 
-                    new BukkitRunnable() {
-                        @Override
-                        public void run() {
-                            stand.remove();
-                            item.remove();
-                            JSONObject crateLocation = LobbyAPI.getLobbyMap().getMapData().getJSONObject("game").getJSONArray("CRATE").getJSONObject(0);
-                            int x = crateLocation.getInt("x");
-                            int y = crateLocation.getInt("y");
-                            int z = crateLocation.getInt("z");
-                            Location location = new Location(Bukkit.getWorld("world"), x, y, z);
-                            Location loc = new Location(location.getWorld(), location.getX() - 3, location.getY() - 1, location.getZ() - 3);
-                            CrateStructures.getBaseCrate().place(loc);
-                            Block block = location.getBlock();
-                            block.setType(Material.CHEST);
-                            BlockState state = block.getState();
-                            BlockFace direction;
-                            float yaw = crateLocation.getFloat("yaw");
-                            if (yaw <= -135 || yaw >= 135) {
-                                direction = BlockFace.NORTH;
-                            } else if (yaw > -135 && yaw < -45) {
-                                direction = BlockFace.EAST;
-                            } else if (yaw >= -45 && yaw <= 45) {
-                                direction = BlockFace.SOUTH;
-                            } else {
-                                direction = BlockFace.WEST;
-                            }
-                            org.bukkit.material.Chest chest = new Chest(direction);
-                            state.setData(chest);
-                            state.update();
-                            LobbyAPI.setChestBlock(block);
-                            location.setY(location.getY() + 1);
-                            location.setX(location.getX() + 0.5);
-                            location.setZ(location.getZ() + 0.5);
-                            for (AuroraMCPlayer player1 :  AuroraMCAPI.getPlayers()) {
-                                if (player1.getHolograms().containsKey("crates")) {
-                                    player1.getHolograms().get("crates").spawn();
+                            @Override
+                            public void run() {
+                                Location location = block.getLocation().add(0.5, 0, 0.5);
+                                org.bukkit.entity.Firework firework = location.getWorld().spawn(location, org.bukkit.entity.Firework.class);
+                                FireworkMeta meta = firework.getFireworkMeta();
+                                meta.setPower(0);
+                                meta.addEffect(FireworkEffect.builder().withColor(Color.fromRGB(255, 85, 85)).trail(true).flicker(true).with(FireworkEffect.Type.BURST).build());
+                                firework.setFireworkMeta(meta);
+                                new BukkitRunnable() {
+                                    @Override
+                                    public void run() {
+                                        firework.detonate();
+                                    }
+                                }.runTaskLater(AuroraMCAPI.getCore(), 2);
+                                i++;
+                                if (i > 20) {
+                                    this.cancel();
                                 }
                             }
-
-                        }
-                    }.runTaskLater(AuroraMCAPI.getCore(), 200);
-
-                } else {
-                    Item item = block.getLocation().getWorld().dropItem(block.getLocation().clone().add(0.5, 1.5, 0.5), new ItemStack(Material.NETHER_STAR));
-                    item.setPickupDelay(1000000);
-                    item.setVelocity(new Vector());
-                    Location location = block.getLocation().clone();
-                    location.setY(location.getY() + 0.5);
-                    location.setX(location.getX() + 0.5);
-                    location.setZ(location.getZ() + 0.5);
-                    ArmorStand stand = location.getWorld().spawn(location, ArmorStand.class);
-                    stand.setVisible(false);
-                    stand.setCustomName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight("&b" + reward.getPlusDays() + " Plus Days&r (" + Cosmetic.Rarity.MYTHICAL.getDisplayName() + "&r)")));
-                    stand.setCustomNameVisible(true);
-                    stand.setSmall(true);
-                    stand.setMarker(true);
-                    stand.setGravity(false);
-                    for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
-                        player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + cratePlayer.getPlayer().getName() + "** just found &b" + reward.getPlusDays() + " Plus Days** (**" + Cosmetic.Rarity.MYTHICAL.getDisplayName() + "**)"));
-                        player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ENDERDRAGON_DEATH, 100, 0);
+                        }.runTaskTimer(AuroraMCAPI.getCore(), 0, 5);
+                        break;
                     }
-                    ByteArrayDataOutput out = ByteStreams.newDataOutput();
-                    out.writeUTF("AddPlusDays");
-                    out.writeUTF(cratePlayer.getName());
-                    out.writeInt(reward.getPlusDays());
-                    cratePlayer.getPlayer().sendPluginMessage(AuroraMCAPI.getCore(), "BungeeCord", out.toByteArray());
-                    new BukkitRunnable(){
-                        int i = 0;
-                        @Override
-                        public void run() {
-                            Location location = block.getLocation().add(0.5, 0, 0.5);
-                            org.bukkit.entity.Firework firework = location.getWorld().spawn(location, org.bukkit.entity.Firework.class);
-                            FireworkMeta meta = firework.getFireworkMeta();
-                            meta.setPower(0);
-                            meta.addEffect(FireworkEffect.builder().withColor(Color.fromRGB(255,85,85)).trail(true).flicker(true).with(FireworkEffect.Type.BURST).build());
-                            firework.setFireworkMeta(meta);
-                            new BukkitRunnable(){
-                                @Override
-                                public void run() {
-                                    firework.detonate();
-                                }
-                            }.runTaskLater(AuroraMCAPI.getCore(), 2);
-                            i++;
-                            if (i > 20) {
-                                this.cancel();
-                            }
-                        }
-                    }.runTaskTimer(AuroraMCAPI.getCore(), 0, 5);
-
-                    new BukkitRunnable() {
-                        @Override
-                        public void run() {
-                            stand.remove();
-                            item.remove();
-                            JSONObject crateLocation = LobbyAPI.getLobbyMap().getMapData().getJSONObject("game").getJSONArray("CRATE").getJSONObject(0);
-                            int x = crateLocation.getInt("x");
-                            int y = crateLocation.getInt("y");
-                            int z = crateLocation.getInt("z");
-                            Location location = new Location(Bukkit.getWorld("world"), x, y, z);
-                            Location loc = new Location(location.getWorld(), location.getX() - 3, location.getY() - 1, location.getZ() - 3);
-                            CrateStructures.getBaseCrate().place(loc);
-                            Block block = location.getBlock();
-                            block.setType(Material.CHEST);
-                            BlockState state = block.getState();
-                            BlockFace direction;
-                            float yaw = crateLocation.getFloat("yaw");
-                            if (yaw <= -135 || yaw >= 135) {
-                                direction = BlockFace.NORTH;
-                            } else if (yaw > -135 && yaw < -45) {
-                                direction = BlockFace.EAST;
-                            } else if (yaw >= -45 && yaw <= 45) {
-                                direction = BlockFace.SOUTH;
-                            } else {
-                                direction = BlockFace.WEST;
-                            }
-                            org.bukkit.material.Chest chest = new Chest(direction);
-                            state.setData(chest);
-                            state.update();
-                            LobbyAPI.setChestBlock(block);
-                            location.setY(location.getY() + 1);
-                            location.setX(location.getX() + 0.5);
-                            location.setZ(location.getZ() + 0.5);
-                            for (AuroraMCPlayer player1 :  AuroraMCAPI.getPlayers()) {
-                                if (player1.getHolograms().containsKey("crates")) {
-                                    player1.getHolograms().get("crates").spawn();
-                                }
-                            }
-                            LobbyAPI.finishOpen();
-
-                        }
-                    }.runTaskLater(AuroraMCAPI.getCore(), 200);
                 }
-                LobbyAPI.getCurrentCrate().opened(reward);
-                LobbyAPI.finishOpen();
-                e.setCancelled(true);
+
+                new BukkitRunnable() {
+                    @Override
+                    public void run() {
+                        stand.remove();
+                        item.remove();
+                        JSONObject crateLocation = LobbyAPI.getLobbyMap().getMapData().getJSONObject("game").getJSONArray("CRATE").getJSONObject(0);
+                        int x = crateLocation.getInt("x");
+                        int y = crateLocation.getInt("y");
+                        int z = crateLocation.getInt("z");
+                        Location location = new Location(Bukkit.getWorld("world"), x, y, z);
+                        Location loc = new Location(location.getWorld(), location.getX() - 3, location.getY() - 1, location.getZ() - 3);
+                        CrateStructures.getBaseCrate().place(loc);
+                        Block block = location.getBlock();
+                        block.setType(Material.CHEST);
+                        BlockState state = block.getState();
+                        BlockFace direction;
+                        float yaw = crateLocation.getFloat("yaw");
+                        if (yaw <= -135 || yaw >= 135) {
+                            direction = BlockFace.NORTH;
+                        } else if (yaw > -135 && yaw < -45) {
+                            direction = BlockFace.EAST;
+                        } else if (yaw >= -45 && yaw <= 45) {
+                            direction = BlockFace.SOUTH;
+                        } else {
+                            direction = BlockFace.WEST;
+                        }
+                        org.bukkit.material.Chest chest = new Chest(direction);
+                        state.setData(chest);
+                        state.update();
+                        LobbyAPI.setChestBlock(block);
+                        location.setY(location.getY() + 1);
+                        location.setX(location.getX() + 0.5);
+                        location.setZ(location.getZ() + 0.5);
+                        for (AuroraMCPlayer player1 : AuroraMCAPI.getPlayers()) {
+                            if (player1.getHolograms().containsKey("crates")) {
+                                player1.getHolograms().get("crates").spawn();
+                            }
+                        }
+                    }
+                }.runTaskLater(AuroraMCAPI.getCore(), 60);
+            } else if (reward.getRank() != null) {
+                Item item = block.getLocation().getWorld().dropItem(block.getLocation().clone().add(0.5, 1.5, 0.5), new ItemStack(Material.DIAMOND));
+                item.setPickupDelay(1000000);
+                item.setVelocity(new Vector());
+                Location location = block.getLocation().clone();
+                location.setY(location.getY() + 0.5);
+                location.setX(location.getX() + 0.5);
+                location.setZ(location.getZ() + 0.5);
+                ArmorStand stand = location.getWorld().spawn(location, ArmorStand.class);
+                stand.setVisible(false);
+                stand.setCustomName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight("&" + reward.getRank().getPrefixColor() + reward.getRank().getName() + " Rank&r (" + Cosmetic.Rarity.MYTHICAL.getDisplayName() + "&r)")));
+                stand.setCustomNameVisible(true);
+                stand.setSmall(true);
+                stand.setMarker(true);
+                stand.setGravity(false);
+                for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
+                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + cratePlayer.getPlayer().getName() + "** just found &" + reward.getRank().getPrefixColor() + reward.getRank().getName() + " Rank** (**" + Cosmetic.Rarity.MYTHICAL.getDisplayName() + "**)"));
+                    player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ENDERDRAGON_DEATH, 100, 0);
+                }
+                cratePlayer.setRank(reward.getRank());
+                new BukkitRunnable() {
+                    @Override
+                    public void run() {
+                        AuroraMCAPI.getDbManager().setRank(cratePlayer, reward.getRank());
+                    }
+                }.runTaskAsynchronously(AuroraMCAPI.getCore());
+                new BukkitRunnable() {
+                    int i = 0;
+
+                    @Override
+                    public void run() {
+                        Location location = block.getLocation().add(0.5, 0, 0.5);
+                        org.bukkit.entity.Firework firework = location.getWorld().spawn(location, org.bukkit.entity.Firework.class);
+                        FireworkMeta meta = firework.getFireworkMeta();
+                        meta.setPower(0);
+                        meta.addEffect(FireworkEffect.builder().withColor(Color.fromRGB(255, 85, 85)).trail(true).flicker(true).with(FireworkEffect.Type.BURST).build());
+                        firework.setFireworkMeta(meta);
+                        new BukkitRunnable() {
+                            @Override
+                            public void run() {
+                                firework.detonate();
+                            }
+                        }.runTaskLater(AuroraMCAPI.getCore(), 2);
+                        i++;
+                        if (i > 20) {
+                            this.cancel();
+                        }
+                    }
+                }.runTaskTimer(AuroraMCAPI.getCore(), 0, 5);
+
+                new BukkitRunnable() {
+                    @Override
+                    public void run() {
+                        stand.remove();
+                        item.remove();
+                        JSONObject crateLocation = LobbyAPI.getLobbyMap().getMapData().getJSONObject("game").getJSONArray("CRATE").getJSONObject(0);
+                        int x = crateLocation.getInt("x");
+                        int y = crateLocation.getInt("y");
+                        int z = crateLocation.getInt("z");
+                        Location location = new Location(Bukkit.getWorld("world"), x, y, z);
+                        Location loc = new Location(location.getWorld(), location.getX() - 3, location.getY() - 1, location.getZ() - 3);
+                        CrateStructures.getBaseCrate().place(loc);
+                        Block block = location.getBlock();
+                        block.setType(Material.CHEST);
+                        BlockState state = block.getState();
+                        BlockFace direction;
+                        float yaw = crateLocation.getFloat("yaw");
+                        if (yaw <= -135 || yaw >= 135) {
+                            direction = BlockFace.NORTH;
+                        } else if (yaw > -135 && yaw < -45) {
+                            direction = BlockFace.EAST;
+                        } else if (yaw >= -45 && yaw <= 45) {
+                            direction = BlockFace.SOUTH;
+                        } else {
+                            direction = BlockFace.WEST;
+                        }
+                        org.bukkit.material.Chest chest = new Chest(direction);
+                        state.setData(chest);
+                        state.update();
+                        LobbyAPI.setChestBlock(block);
+                        location.setY(location.getY() + 1);
+                        location.setX(location.getX() + 0.5);
+                        location.setZ(location.getZ() + 0.5);
+                        for (AuroraMCPlayer player1 : AuroraMCAPI.getPlayers()) {
+                            if (player1.getHolograms().containsKey("crates")) {
+                                player1.getHolograms().get("crates").spawn();
+                            }
+                        }
+
+                    }
+                }.runTaskLater(AuroraMCAPI.getCore(), 200);
+
+            } else {
+                Item item = block.getLocation().getWorld().dropItem(block.getLocation().clone().add(0.5, 1.5, 0.5), new ItemStack(Material.NETHER_STAR));
+                item.setPickupDelay(1000000);
+                item.setVelocity(new Vector());
+                Location location = block.getLocation().clone();
+                location.setY(location.getY() + 0.5);
+                location.setX(location.getX() + 0.5);
+                location.setZ(location.getZ() + 0.5);
+                ArmorStand stand = location.getWorld().spawn(location, ArmorStand.class);
+                stand.setVisible(false);
+                stand.setCustomName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight("&b" + reward.getPlusDays() + " Plus Days&r (" + Cosmetic.Rarity.MYTHICAL.getDisplayName() + "&r)")));
+                stand.setCustomNameVisible(true);
+                stand.setSmall(true);
+                stand.setMarker(true);
+                stand.setGravity(false);
+                for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
+                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + cratePlayer.getPlayer().getName() + "** just found &b" + reward.getPlusDays() + " Plus Days** (**" + Cosmetic.Rarity.MYTHICAL.getDisplayName() + "**)"));
+                    player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ENDERDRAGON_DEATH, 100, 0);
+                }
+                ByteArrayDataOutput out = ByteStreams.newDataOutput();
+                out.writeUTF("AddPlusDays");
+                out.writeUTF(cratePlayer.getName());
+                out.writeInt(reward.getPlusDays());
+                cratePlayer.getPlayer().sendPluginMessage(AuroraMCAPI.getCore(), "BungeeCord", out.toByteArray());
+                new BukkitRunnable() {
+                    int i = 0;
+
+                    @Override
+                    public void run() {
+                        Location location = block.getLocation().add(0.5, 0, 0.5);
+                        org.bukkit.entity.Firework firework = location.getWorld().spawn(location, org.bukkit.entity.Firework.class);
+                        FireworkMeta meta = firework.getFireworkMeta();
+                        meta.setPower(0);
+                        meta.addEffect(FireworkEffect.builder().withColor(Color.fromRGB(255, 85, 85)).trail(true).flicker(true).with(FireworkEffect.Type.BURST).build());
+                        firework.setFireworkMeta(meta);
+                        new BukkitRunnable() {
+                            @Override
+                            public void run() {
+                                firework.detonate();
+                            }
+                        }.runTaskLater(AuroraMCAPI.getCore(), 2);
+                        i++;
+                        if (i > 20) {
+                            this.cancel();
+                        }
+                    }
+                }.runTaskTimer(AuroraMCAPI.getCore(), 0, 5);
+
+                new BukkitRunnable() {
+                    @Override
+                    public void run() {
+                        stand.remove();
+                        item.remove();
+                        JSONObject crateLocation = LobbyAPI.getLobbyMap().getMapData().getJSONObject("game").getJSONArray("CRATE").getJSONObject(0);
+                        int x = crateLocation.getInt("x");
+                        int y = crateLocation.getInt("y");
+                        int z = crateLocation.getInt("z");
+                        Location location = new Location(Bukkit.getWorld("world"), x, y, z);
+                        Location loc = new Location(location.getWorld(), location.getX() - 3, location.getY() - 1, location.getZ() - 3);
+                        CrateStructures.getBaseCrate().place(loc);
+                        Block block = location.getBlock();
+                        block.setType(Material.CHEST);
+                        BlockState state = block.getState();
+                        BlockFace direction;
+                        float yaw = crateLocation.getFloat("yaw");
+                        if (yaw <= -135 || yaw >= 135) {
+                            direction = BlockFace.NORTH;
+                        } else if (yaw > -135 && yaw < -45) {
+                            direction = BlockFace.EAST;
+                        } else if (yaw >= -45 && yaw <= 45) {
+                            direction = BlockFace.SOUTH;
+                        } else {
+                            direction = BlockFace.WEST;
+                        }
+                        org.bukkit.material.Chest chest = new Chest(direction);
+                        state.setData(chest);
+                        state.update();
+                        LobbyAPI.setChestBlock(block);
+                        location.setY(location.getY() + 1);
+                        location.setX(location.getX() + 0.5);
+                        location.setZ(location.getZ() + 0.5);
+                        for (AuroraMCPlayer player1 : AuroraMCAPI.getPlayers()) {
+                            if (player1.getHolograms().containsKey("crates")) {
+                                player1.getHolograms().get("crates").spawn();
+                            }
+                        }
+                        LobbyAPI.finishOpen();
+
+                    }
+                }.runTaskLater(AuroraMCAPI.getCore(), 200);
+            }
+            LobbyAPI.getCurrentCrate().opened(reward);
+            LobbyAPI.finishOpen();
+            e.setCancelled(true);
+            return;
+        }
+        if (e.getItem() != null && e.getItem().getType() != Material.AIR) {
+            if (e.getPlayer().getInventory().getHeldItemSlot() == 3 && !((AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer(e.getPlayer())).isInParkour()) {
+                AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer(e.getPlayer());
+                if (player.getActiveCosmetics().containsKey(Cosmetic.CosmeticType.GADGET)) {
+                    Gadget gadget = (Gadget) player.getActiveCosmetics().get(Cosmetic.CosmeticType.GADGET);
+                    if (e.getItem().getType() == Material.FISHING_ROD && e.getClickedBlock() != null) {
+                        return;
+                    }
+                    if (System.currentTimeMillis() - player.getLastUsed().getOrDefault(gadget, 0L) < gadget.getCooldown() * 1000L) {
+                        double amount = ((player.getLastUsed().getOrDefault(gadget, 0L) + (gadget.getCooldown() * 1000L)) - System.currentTimeMillis()) / 100d;
+                        long amount1 = Math.round(amount);
+                        if (amount1 < 0) {
+                            amount1 = 0;
+                        }
+                        player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Gadgets", "You cannot use this gadget for **" + (amount1 / 10f) + " seconds**."));
+                        e.setUseItemInHand(Event.Result.DENY);
+                        e.setUseInteractedBlock(Event.Result.DENY);
+                        return;
+                    }
+                    if (gadget.getId() == 801) {
+                        e.setCancelled(false);
+                    }
+                    if (e.getClickedBlock() != null) {
+                        gadget.onUse(player, e.getClickedBlock().getLocation());
+                    } else {
+                        gadget.onUse(player, player.getPlayer().getLocation());
+                    }
+                    player.getLastUsed().put(gadget, System.currentTimeMillis());
+                }
                 return;
             }
-            if (e.getItem() != null && e.getItem().getType() != Material.AIR) {
-                if (e.getPlayer().getInventory().getHeldItemSlot() == 3) {
-                    AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) AuroraMCAPI.getPlayer(e.getPlayer());
-                    if (player.getActiveCosmetics().containsKey(Cosmetic.CosmeticType.GADGET)) {
-                        Gadget gadget = (Gadget) player.getActiveCosmetics().get(Cosmetic.CosmeticType.GADGET);
-                        if (e.getItem().getType() == Material.FISHING_ROD && e.getClickedBlock() != null) {
-                            return;
-                        }
-                        if (System.currentTimeMillis() - player.getLastUsed().getOrDefault(gadget, 0L) < gadget.getCooldown() * 1000L) {
-                            double amount = ((player.getLastUsed().getOrDefault(gadget, 0L) + (gadget.getCooldown() * 1000L)) - System.currentTimeMillis()) / 100d;
-                            long amount1 = Math.round(amount);
-                            if (amount1 < 0) {
-                                amount1 = 0;
-                            }
-                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Gadgets", "You cannot use this gadget for **" + (amount1 / 10f) + " seconds**."));
-                            e.setUseItemInHand(Event.Result.DENY);
-                            e.setUseInteractedBlock(Event.Result.DENY);
-                            return;
-                        }
-                        if (gadget.getId() == 801) {
-                            e.setCancelled(false);
-                        }
-                        if (e.getClickedBlock() != null) {
-                            gadget.onUse(player, e.getClickedBlock().getLocation());
-                        } else {
-                            gadget.onUse(player, player.getPlayer().getLocation());
-                        }
-                        player.getLastUsed().put(gadget, System.currentTimeMillis());
-                    }
-                    return;
+            switch (e.getItem().getType()) {
+                case EMERALD: {
+                    e.setCancelled(true);
+                    AuroraMCPlayer player = AuroraMCAPI.getPlayer(e.getPlayer());
+                    Cosmetics cosmetics = new Cosmetics(player);
+                    cosmetics.open(player);
+                    AuroraMCAPI.openGUI(player, cosmetics);
+                    break;
                 }
-                switch (e.getItem().getType()) {
-                    case EMERALD: {
-                        e.setCancelled(true);
-                        AuroraMCPlayer player = AuroraMCAPI.getPlayer(e.getPlayer());
-                        Cosmetics cosmetics = new Cosmetics(player);
-                        cosmetics.open(player);
-                        AuroraMCAPI.openGUI(player, cosmetics);
-                        break;
-                    }
-                    case REDSTONE_COMPARATOR: {
-                        e.setCancelled(true);
-                        AuroraMCPlayer player = AuroraMCAPI.getPlayer(e.getPlayer());
-                        Preferences prefs = new Preferences(player);
-                        prefs.open(player);
-                        AuroraMCAPI.openGUI(player, prefs);
-                        break;
-                    }
-                    case SKULL_ITEM: {
-                        e.setCancelled(true);
-                        AuroraMCPlayer player = AuroraMCAPI.getPlayer(e.getPlayer());
-                        Stats stats = new Stats(player, player.getName(), player.getStats(), player.getActiveSubscription(), player.getId());
-                        stats.open(player);
-                        AuroraMCAPI.openGUI(player, stats);
-                        break;
-                    }
-                    case COMPASS: {
-                        e.setCancelled(true);
-                        AuroraMCPlayer player = AuroraMCAPI.getPlayer(e.getPlayer());
-                        GameMenu menu = new GameMenu(player);
-                        menu.open(player);
-                        AuroraMCAPI.openGUI(player, menu);
-                        break;
-                    }
-                    case NETHER_STAR: {
-                        e.setCancelled(true);
-                        AuroraMCPlayer player = AuroraMCAPI.getPlayer(e.getPlayer());
-                        LobbySwitcher menu = new LobbySwitcher(player);
-                        menu.open(player);
-                        AuroraMCAPI.openGUI(player, menu);
-                        break;
-                    }
+                case REDSTONE_COMPARATOR: {
+                    e.setCancelled(true);
+                    AuroraMCPlayer player = AuroraMCAPI.getPlayer(e.getPlayer());
+                    Preferences prefs = new Preferences(player);
+                    prefs.open(player);
+                    AuroraMCAPI.openGUI(player, prefs);
+                    break;
+                }
+                case SKULL_ITEM: {
+                    e.setCancelled(true);
+                    AuroraMCPlayer player = AuroraMCAPI.getPlayer(e.getPlayer());
+                    Stats stats = new Stats(player, player.getName(), player.getStats(), player.getActiveSubscription(), player.getId());
+                    stats.open(player);
+                    AuroraMCAPI.openGUI(player, stats);
+                    break;
+                }
+                case COMPASS: {
+                    e.setCancelled(true);
+                    AuroraMCPlayer player = AuroraMCAPI.getPlayer(e.getPlayer());
+                    GameMenu menu = new GameMenu(player);
+                    menu.open(player);
+                    AuroraMCAPI.openGUI(player, menu);
+                    break;
+                }
+                case NETHER_STAR: {
+                    e.setCancelled(true);
+                    AuroraMCPlayer player = AuroraMCAPI.getPlayer(e.getPlayer());
+                    LobbySwitcher menu = new LobbySwitcher(player);
+                    menu.open(player);
+                    AuroraMCAPI.openGUI(player, menu);
+                    break;
                 }
             }
+        }
     }
 
     @EventHandler
@@ -860,8 +967,8 @@ public class LobbyListener implements Listener {
                                     p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have started the **Easy** parkour!"));
                                 }
                             } else {
+                                player.getPlayer().setFlying(false);
                                 if ((!player.getPreferences().isHubFlightEnabled() || (!player.hasPermission("elite") && !player.hasPermission("plus")))) {
-                                    player.getPlayer().setFlying(false);
                                     player.getPlayer().setAllowFlight(false);
                                 }
                                 p.parkourStart(LobbyAPI.getEasy());
@@ -878,8 +985,8 @@ public class LobbyListener implements Listener {
                                     p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have started the **Medium** parkour!"));
                                 }
                             } else {
+                                player.getPlayer().setFlying(false);
                                 if ((!player.getPreferences().isHubFlightEnabled() || (!player.hasPermission("elite") && !player.hasPermission("plus")))) {
-                                    player.getPlayer().setFlying(false);
                                     player.getPlayer().setAllowFlight(false);
                                 }
                                 p.parkourStart(LobbyAPI.getEasy());
@@ -896,8 +1003,8 @@ public class LobbyListener implements Listener {
                                     p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have started the **Hard** parkour!"));
                                 }
                             } else {
+                                player.getPlayer().setFlying(false);
                                 if ((!player.getPreferences().isHubFlightEnabled() || (!player.hasPermission("elite") && !player.hasPermission("plus")))) {
-                                    player.getPlayer().setFlying(false);
                                     player.getPlayer().setAllowFlight(false);
                                 }
                                 p.parkourStart(LobbyAPI.getHard());
@@ -912,6 +1019,9 @@ public class LobbyListener implements Listener {
                             if (p.isInParkour()) {
                                 if (p.getActiveParkourRun().getParkour().equals(LobbyAPI.getEasy())) {
                                     p.getActiveParkourRun().end(null);
+                                    if ((!player.getPreferences().isHubFlightEnabled() || (!player.hasPermission("elite") && !player.hasPermission("plus")))) {
+                                        player.getPlayer().setAllowFlight(true);
+                                    }
                                 } else {
                                     p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "This end point is for a different parkour!"));
                                 }
@@ -922,6 +1032,9 @@ public class LobbyListener implements Listener {
                             if (p.isInParkour()) {
                                 if (p.getActiveParkourRun().getParkour().equals(LobbyAPI.getMedium())) {
                                     p.getActiveParkourRun().end(null);
+                                    if ((!player.getPreferences().isHubFlightEnabled() || (!player.hasPermission("elite") && !player.hasPermission("plus")))) {
+                                        player.getPlayer().setAllowFlight(true);
+                                    }
                                 } else {
                                     p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "This end point is for a different parkour!"));
                                 }
@@ -932,6 +1045,9 @@ public class LobbyListener implements Listener {
                             if (p.isInParkour()) {
                                 if (p.getActiveParkourRun().getParkour().equals(LobbyAPI.getHard())) {
                                     p.getActiveParkourRun().end(null);
+                                    if ((!player.getPreferences().isHubFlightEnabled() || (!player.hasPermission("elite") && !player.hasPermission("plus")))) {
+                                        player.getPlayer().setAllowFlight(true);
+                                    }
                                 } else {
                                     p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "This end point is for a different parkour!"));
                                 }

@@ -8,6 +8,7 @@ import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.core.api.command.Command;
 import net.auroramc.core.api.permissions.Permission;
 import net.auroramc.core.api.players.AuroraMCPlayer;
+import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -24,6 +25,10 @@ public class CommandFly extends Command {
 
     @Override
     public void execute(AuroraMCPlayer player, String aliasUsed, List<String> args) {
+        if (((AuroraMCLobbyPlayer)player).isInParkour()) {
+            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Lobby", "You cannot toggle flight while in a parkour!"));
+            return;
+        }
         player.getPlayer().setFlying(false);
         player.getPreferences().setHubFlight(!player.getPreferences().isHubFlightEnabled());
         player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Lobby", "Hub Flight: " + ((player.getPreferences().isHubFlightEnabled())?"&aEnabled":"&cDisabled")));

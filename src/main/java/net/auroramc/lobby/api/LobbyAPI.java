@@ -56,6 +56,10 @@ public class LobbyAPI {
     private static final GUIItem gamesItem;
     private static final GUIItem lobbyItem;
 
+    private static final GUIItem checkpointItem;
+    private static final GUIItem restartItem;
+    private static final GUIItem cancelItem;
+
     private static Map<String, String> versionNumbers;
     private static Map<String, List<Changelog>> changelogs;
     private static Changelog latestChangelog;
@@ -85,6 +89,10 @@ public class LobbyAPI {
         gamesItem = new GUIItem(Material.COMPASS, "&a&lBrowse Games");
         prefsItem = new GUIItem(Material.REDSTONE_COMPARATOR, "&a&lView Preferences");
         cosmeticsItem = new GUIItem(Material.EMERALD, "&a&lView Cosmetics");
+
+        checkpointItem = new GUIItem(Material.GOLD_PLATE, "&a&lTeleport to Last Checkpoint");
+        restartItem = new GUIItem(Material.WOOD_DOOR, "&c&lRestart");
+        cancelItem = new GUIItem(Material.BED, "&c&lCancel");
         gameServers = new HashMap<>();
 
         currentCrate = null;
@@ -310,4 +318,17 @@ public class LobbyAPI {
     public static Parkour getMedium() {
         return medium;
     }
+
+    public static GUIItem getCancelItem() {
+        return cancelItem;
+    }
+
+    public static GUIItem getCheckpointItem() {
+        return checkpointItem;
+    }
+
+    public static GUIItem getRestartItem() {
+        return restartItem;
+    }
 }
+
