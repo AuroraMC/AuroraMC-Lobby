@@ -21,6 +21,8 @@ import net.auroramc.lobby.api.parkour.ParkourRun;
 import net.auroramc.lobby.api.util.CheckForcefieldRunnable;
 import net.auroramc.lobby.utils.CrateUtil;
 import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -420,7 +422,10 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
         getPlayer().getInventory().setItem(4, LobbyAPI.getCosmeticsItem().getItem());
         if (getActiveCosmetics().containsKey(Cosmetic.CosmeticType.GADGET)) {
             getActiveCosmetics().get(Cosmetic.CosmeticType.GADGET).onEquip(this);
+        } else {
+            getPlayer().getInventory().setItem(3, new ItemStack(Material.AIR));
         }
+        getPlayer().getInventory().setItem(5, new ItemStack(Material.AIR));
     }
 
     public boolean isInParkour() {
