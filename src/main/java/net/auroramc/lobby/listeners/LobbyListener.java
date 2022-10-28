@@ -133,6 +133,11 @@ public class LobbyListener implements Listener {
                         }
                     }
 
+                    if (target.getPlayer().getFallDistance() < 10) {
+                        e.setCancelled(true);
+                        return;
+                    }
+
                     e.setCancelled(true);
                     target.getPlayer().setFallDistance(0);
 

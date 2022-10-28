@@ -211,7 +211,7 @@ public class ParkourRun {
                         }
                     }.runTaskAsynchronously(AuroraMCAPI.getCore());
                 } else {
-                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You didn't beat your previous record, but you managed to complete the **" + parkour.getName() + " **parkour in **{time} **!"));
+                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You didn't beat your previous record, but you managed to complete the **" + parkour.getName() + " ** in **" + formatTime(finishMili) + "**!"));
                     new BukkitRunnable() {
                         @Override
                         public void run() {
