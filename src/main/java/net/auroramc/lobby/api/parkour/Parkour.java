@@ -9,6 +9,7 @@ import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.parkour.plates.*;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -47,7 +48,9 @@ public class Parkour {
         int i = 1;
         while (locations.has(id + " CHECKPOINT" + i)) {
             JSONArray location = locations.getJSONArray(id + " CHECKPOINT" + i);
-            this.checkpoints.add(new Checkpoint(new Location(LobbyAPI.getLobby().getServer().getWorld("world"), location.getJSONObject(0).getInt("x") + 0.5, location.getJSONObject(0).getInt("y") + 0.5, location.getJSONObject(0).getInt("z") + 0.5, location.getJSONObject(0).getFloat("yaw"),  0), i));
+            Checkpoint cp = new Checkpoint(new Location(LobbyAPI.getLobby().getServer().getWorld("world"), location.getJSONObject(0).getInt("x") + 0.5, location.getJSONObject(0).getInt("y") + 0.5, location.getJSONObject(0).getInt("z") + 0.5, location.getJSONObject(0).getFloat("yaw"),  0), i);
+            cp.setParkour(this);
+            this.checkpoints.add(cp);
             i++;
         }
         this.players = new ArrayList<>();
@@ -55,7 +58,9 @@ public class Parkour {
         this.endCommand = endCommand;
         this.name = name;
         this.restartPoint = new RestartPoint(new Location(LobbyAPI.getLobby().getServer().getWorld("world"), restartLocation.getJSONObject(0).getInt("x") + 0.5, restartLocation.getJSONObject(0).getInt("y") + 0.5, restartLocation.getJSONObject(0).getInt("z") + 0.5, restartLocation.getJSONObject(0).getFloat("yaw"),  0));
-        this.leaderboard = new LeaderboardHologram(new Location(LobbyAPI.getLobby().getServer().getWorld("world"), restartLocation.getJSONObject(0).getInt("x"), holoLocation.getJSONObject(0).getInt("y") + 0.5, holoLocation.getJSONObject(0).getInt("z"), holoLocation.getJSONObject(0).getFloat("yaw"),  0), this);
+        Location loc = new Location(LobbyAPI.getLobby().getServer().getWorld("world"), restartLocation.getJSONObject(0).getInt("x"), holoLocation.getJSONObject(0).getInt("y"), holoLocation.getJSONObject(0).getInt("z"), holoLocation.getJSONObject(0).getFloat("yaw"),  0);
+        loc.getBlock().setType(Material.AIR);
+        this.leaderboard = new LeaderboardHologram(loc.clone().add(0, 0.5, 0), this);
     }
 
     public int getNoCheckpoints() {
