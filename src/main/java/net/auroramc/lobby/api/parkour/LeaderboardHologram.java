@@ -44,7 +44,7 @@ public class LeaderboardHologram {
 
     public void refresh() {
         List<HologramLine> lines = new ArrayList<>();
-        lines.add(new UniversalHologramLine(hologram, "&3&lLeaderboard for " + parkour.getName() + "Parkour:", 1));
+        lines.add(new UniversalHologramLine(hologram, "&3&lLeaderboard for " + parkour.getName() + "&3&l:", 1));
         Map<Integer, List<String>> leaderboard = LobbyDatabaseManager.getLeaderboard(parkour);
         int i = 2;
         for (int place : leaderboard.keySet()) {

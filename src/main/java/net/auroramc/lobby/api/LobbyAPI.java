@@ -156,7 +156,7 @@ public class LobbyAPI {
         arcadeEntity.setLocation(-12.5, 70.0, 42.5, -145f, 0f);
         AuroraMCAPI.registerFakePlayer(arcadeEntity);
 
-        Hologram hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), -12.5, 72.0, 42.5, -145f, 0f), null);
+        Hologram hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), -12.5, 72.5, 42.5, -145f, 0f), null);
         hologram.addLine(1, "&b" + gameTotals.getOrDefault("ARCADE_MODE", 0) + " &fPlayers Online");
         hologram.spawn();
         gameHolos.put("ARCADE_MODE", hologram);
@@ -167,7 +167,7 @@ public class LobbyAPI {
         paintballEntity.setLocation(-14.5, 70.0, 39.5, -145f, 0f);
         AuroraMCAPI.registerFakePlayer(paintballEntity);
 
-        hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), -14.5, 72.0, 39.5, -145f, 0f), null);
+        hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), -14.5, 72.5, 39.5, -145f, 0f), null);
         hologram.addLine(1, "&b" + gameTotals.getOrDefault("PAINTBALL", 0) + " &fPlayers Online");
         hologram.spawn();
         gameHolos.put("PAINTBALL", hologram);
@@ -178,7 +178,7 @@ public class LobbyAPI {
         cqEntity.setLocation(-17.5, 70.0, 33.5, -145f, 0f);
         AuroraMCAPI.registerFakePlayer(cqEntity);
 
-        hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), -17.5, 72.0, 33.5, -145f, 0f), null);
+        hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), -17.5, 72.5, 33.5, -145f, 0f), null);
         hologram.addLine(1, "&b" + gameTotals.getOrDefault("CRYSTAL_QUEST", 0) + " &fPlayers Online");
         hologram.spawn();
         gameHolos.put("CRYSTAL_QUEST", hologram);
@@ -189,7 +189,7 @@ public class LobbyAPI {
         duelsEntity.setLocation(-16.5, 70.0, 36.5, -145f, 0f);
         AuroraMCAPI.registerFakePlayer(duelsEntity);
 
-        hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), -16.5, 70.0, 36.5, -145f, 0f), null);
+        hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), -16.5, 72.5, 36.5, -145f, 0f), null);
         hologram.addLine(1, "&b" + gameTotals.getOrDefault("DUELS", 0) + " &fPlayers Online");
         hologram.spawn();
         gameHolos.put("DUELS", hologram);
@@ -328,9 +328,9 @@ public class LobbyAPI {
     }
 
     public static void loadParkours() {
-        easy = new Parkour(1, "&aEasy Parkour", new Reward("+50 XP\n+50 Crowns\n+50 Tickets", 50, 50, 50, Collections.emptyMap(), Collections.emptyList()), new Reward("+500 XP\n+500 Crowns\n+500 Tickets", 500, 500, 500, Collections.emptyMap(), Collections.emptyList()));
-        medium = new Parkour(2, "&6Medium Parkour", new Reward("+50 XP\n+50 Crowns\n+50 Tickets", 50, 50, 50, Collections.emptyMap(), Collections.emptyList()), new Reward("+500 XP\n+500 Crowns\n+500 Tickets", 500, 500, 500, Collections.emptyMap(), Collections.emptyList()));
-        hard = new Parkour(3, "&cHard Parkour", new Reward("+50 XP\n+50 Crowns\n+50 Tickets", 50, 50, 50, Collections.emptyMap(), Collections.emptyList()), new Reward("+500 XP\n+500 Crowns\n+500 Tickets", 500, 500, 500, Collections.emptyMap(), Collections.emptyList()));
+        easy = new Parkour(1, "&a&lEasy Parkour", new Reward("+50 XP\n+50 Crowns\n+50 Tickets", 50, 50, 50, Collections.emptyMap(), Collections.emptyList()), new Reward("+500 XP\n+500 Crowns\n+500 Tickets", 500, 500, 500, Collections.emptyMap(), Collections.emptyList()));
+        medium = new Parkour(2, "&6&lMedium Parkour", new Reward("+50 XP\n+50 Crowns\n+50 Tickets", 50, 50, 50, Collections.emptyMap(), Collections.emptyList()), new Reward("+500 XP\n+500 Crowns\n+500 Tickets", 500, 500, 500, Collections.emptyMap(), Collections.emptyList()));
+        hard = new Parkour(3, "&c&lHard Parkour", new Reward("+50 XP\n+50 Crowns\n+50 Tickets", 50, 50, 50, Collections.emptyMap(), Collections.emptyList()), new Reward("+500 XP\n+500 Crowns\n+500 Tickets", 500, 500, 500, Collections.emptyMap(), Collections.emptyList()));
     }
 
     public static Parkour getEasy() {

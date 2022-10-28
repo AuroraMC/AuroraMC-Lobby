@@ -55,7 +55,7 @@ public class Parkour {
         this.endCommand = endCommand;
         this.name = name;
         this.restartPoint = new RestartPoint(new Location(LobbyAPI.getLobby().getServer().getWorld("world"), restartLocation.getJSONObject(0).getInt("x") + 0.5, restartLocation.getJSONObject(0).getInt("y") + 0.5, restartLocation.getJSONObject(0).getInt("z") + 0.5, restartLocation.getJSONObject(0).getFloat("yaw"),  0));
-        this.leaderboard = new LeaderboardHologram(new Location(LobbyAPI.getLobby().getServer().getWorld("world"), restartLocation.getJSONObject(0).getInt("x"), holoLocation.getJSONObject(0).getInt("y") + 0.5, holoLocation.getJSONObject(0).getInt("z"), holoLocation.getJSONObject(0).getFloat("yaw"),  0), this);
+        this.leaderboard = new LeaderboardHologram(new Location(LobbyAPI.getLobby().getServer().getWorld("world"), restartLocation.getJSONObject(0).getInt("x"), holoLocation.getJSONObject(0).getInt("y") + 1, holoLocation.getJSONObject(0).getInt("z"), holoLocation.getJSONObject(0).getFloat("yaw"),  0), this);
     }
 
     public int getNoCheckpoints() {
@@ -130,18 +130,18 @@ public class Parkour {
     public void generateHolograms() {
         leaderboard.generate();
         Hologram hologram = new Hologram(null, start.getLocation().clone().add(0, 2, 0), null);
-        hologram.addLine(1, "&3&l" + name);
+        hologram.addLine(1, name);
         hologram.addLine(2, "&bParkour Start");
         hologram.spawn();
         holograms.add(hologram);
         hologram = new Hologram(null, endPoint.getLocation().clone().add(0, 2, 0), null);
-        hologram.addLine(1, "&3&l" + name);
+        hologram.addLine(1, "" + name);
         hologram.addLine(2, "&bParkour End");
         hologram.spawn();
         holograms.add(hologram);
         for (Checkpoint checkpoint : checkpoints) {
             hologram = new Hologram(null, checkpoint.getLocation().clone().add(0, 2, 0), null);
-            hologram.addLine(1, "&3&l" + name);
+            hologram.addLine(1, name);
             hologram.addLine(2, "&bCheckpoint #" + checkpoint.getCheckpointNo());
             hologram.spawn();
             holograms.add(hologram);

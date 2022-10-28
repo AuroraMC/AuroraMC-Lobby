@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix some GUIs, now show playercount in some places">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Update how totals are displayed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/UpdateServersRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/UpdateServersRunnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -432,14 +429,8 @@
       <workItem from="1666972425296" duration="949000" />
       <workItem from="1666973392617" duration="791000" />
       <workItem from="1666975374748" duration="269000" />
-      <workItem from="1666975774566" duration="579000" />
-    </task>
-    <task id="LOCAL-00214" summary="IntelliJ i stg i hate you so much">
-      <created>1657499133020</created>
-      <option name="number" value="00214" />
-      <option name="presentableId" value="LOCAL-00214" />
-      <option name="project" value="LOCAL" />
-      <updated>1657499133020</updated>
+      <workItem from="1666975774566" duration="709000" />
+      <workItem from="1666976532628" duration="21000" />
     </task>
     <task id="LOCAL-00215" summary="Fix lots of issues">
       <created>1657535322445</created>
@@ -777,7 +768,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666974157656</updated>
     </task>
-    <option name="localTasksCounter" value="263" />
+    <task id="LOCAL-00263" summary="Update how totals are displayed">
+      <created>1666976367250</created>
+      <option name="number" value="00263" />
+      <option name="presentableId" value="LOCAL-00263" />
+      <option name="project" value="LOCAL" />
+      <updated>1666976367250</updated>
+    </task>
+    <option name="localTasksCounter" value="264" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -795,7 +793,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Ranks and plus days now apply correctly" />
     <MESSAGE value="Implement monthly bonuses" />
     <MESSAGE value="Disable forcefield when not social or admin" />
     <MESSAGE value="Fix Grappling Hook" />
@@ -820,6 +817,7 @@
     <MESSAGE value="Holograms for parkours will now generate.&#10;Implement checkpoints and endpoints." />
     <MESSAGE value="Implement exploit prevention" />
     <MESSAGE value="Fix some GUIs, now show playercount in some places" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix some GUIs, now show playercount in some places" />
+    <MESSAGE value="Update how totals are displayed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update how totals are displayed" />
   </component>
 </project>
