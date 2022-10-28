@@ -287,8 +287,8 @@ public class ParkourRun {
                     }.runTaskAsynchronously(AuroraMCAPI.getCore());
                     switch (parkour.getId()) {
                         case 1: {
-                            if (finishMili <= 90000) {
-                                if (player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(204))) {
+                            if (finishMili <= 30000) {
+                                if (!player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(204))) {
                                     player.getStats().achievementGained(AuroraMCAPI.getAchievement(204), 1, true);
                                 }
                             }
@@ -296,7 +296,7 @@ public class ParkourRun {
                         }
                         case 2: {
                             if (finishMili <= 150000) {
-                                if (player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(205))) {
+                                if (!player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(205))) {
                                     player.getStats().achievementGained(AuroraMCAPI.getAchievement(205), 1, true);
                                 }
                             }
@@ -304,7 +304,7 @@ public class ParkourRun {
                         }
                         case 3: {
                             if (finishMili <= 240000) {
-                                if (player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(206))) {
+                                if (!player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(206))) {
                                     player.getStats().achievementGained(AuroraMCAPI.getAchievement(206), 1, true);
                                 }
                             }
