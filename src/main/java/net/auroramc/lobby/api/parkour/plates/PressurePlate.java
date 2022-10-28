@@ -61,17 +61,7 @@ public abstract class PressurePlate {
      * Places the pressure plate material on the block the pressure plate is located at.
      */
     public void placeMaterial() {
-        if (material != Material.AIR) {
-            if (location == null) {
-                Bukkit.getLogger().warning("A location that one of your parkour points is in does not exist. Please delete the " + parkour.getName() + " parkour and set it up again.");
-                return;
-            }
-            if (location.getWorld() == null) {
-                Bukkit.getLogger().warning("A location that one of your parkour points is in does not exist. Please delete the " + parkour.getName() + " parkour and set it up again.");
-                return;
-            }
-            location.getBlock().setType(material);
-        }
+        location.getBlock().setType(material);
     }
 
     /**

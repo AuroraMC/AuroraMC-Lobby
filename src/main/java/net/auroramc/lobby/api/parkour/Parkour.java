@@ -55,7 +55,7 @@ public class Parkour {
         this.endCommand = endCommand;
         this.name = name;
         this.restartPoint = new RestartPoint(new Location(LobbyAPI.getLobby().getServer().getWorld("world"), restartLocation.getJSONObject(0).getInt("x") + 0.5, restartLocation.getJSONObject(0).getInt("y") + 0.5, restartLocation.getJSONObject(0).getInt("z") + 0.5, restartLocation.getJSONObject(0).getFloat("yaw"),  0));
-        this.leaderboard = new LeaderboardHologram(new Location(LobbyAPI.getLobby().getServer().getWorld("world"), restartLocation.getJSONObject(0).getInt("x"), holoLocation.getJSONObject(0).getInt("y") + 1, holoLocation.getJSONObject(0).getInt("z"), holoLocation.getJSONObject(0).getFloat("yaw"),  0), this);
+        this.leaderboard = new LeaderboardHologram(new Location(LobbyAPI.getLobby().getServer().getWorld("world"), restartLocation.getJSONObject(0).getInt("x"), holoLocation.getJSONObject(0).getInt("y") + 0.5, holoLocation.getJSONObject(0).getInt("z"), holoLocation.getJSONObject(0).getFloat("yaw"),  0), this);
     }
 
     public int getNoCheckpoints() {

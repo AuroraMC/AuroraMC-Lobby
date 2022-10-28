@@ -381,7 +381,7 @@ public class LobbyDatabaseManager {
                 statement.setInt(4, checkpoint);
             } else {
                 statement = connection.prepareStatement("INSERT INTO pk_splittimes VALUES(?, ?, ?, ?)");
-                statement.setString(1, player.getPlayer().getUniqueId().toString());
+                statement.setInt(1, player.getId());
                 statement.setInt(2, parkour.getId());
                 statement.setInt(3, checkpoint);
                 statement.setLong(4, time);

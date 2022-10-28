@@ -12,6 +12,7 @@ import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class LeaderboardHologram {
     public LeaderboardHologram(Location location, Parkour parkour) {
         this.parkour = parkour;
         this.location = location;
+        location.getBlock().setType(Material.AIR);
     }
 
     public void generate() {
