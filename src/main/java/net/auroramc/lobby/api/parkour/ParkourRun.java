@@ -8,6 +8,7 @@ import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
 import net.auroramc.lobby.api.parkour.plates.Checkpoint;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
+import org.bukkit.Achievement;
 import org.bukkit.ChatColor;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
@@ -133,7 +134,11 @@ public class ParkourRun {
             player.getStats().incrementStatistic(0, "pktime", time, true);
             player.getStats().incrementStatistic(0, "pkcheckpoints", checkpointsHit, true);
             player.getStats().incrementStatistic(0, "pkjumps", jumps, true);
+            player.getStats().addProgress(AuroraMCAPI.getAchievement(203), jumps, player.getStats().getAchievementsGained().getOrDefault(AuroraMCAPI.getAchievement(203),0),true);
             player.getStats().incrementStatistic(0, "pkdistance", Math.round(totalDistanceTravelled * 10), true);
+            if (player.getStats().getStatistic(0, "pktime") > 18000000 && !player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(208))) {
+                player.getStats().achievementGained(AuroraMCAPI.getAchievement(208), 1, true);
+            }
         } else {
             if (checkpoints.size() != parkour.getNoCheckpoints()) {
                 if (actionBarTask != null) {
@@ -145,7 +150,11 @@ public class ParkourRun {
                 player.getStats().incrementStatistic(0, "pktime", time, true);
                 player.getStats().incrementStatistic(0, "pkcheckpoints", checkpointsHit, true);
                 player.getStats().incrementStatistic(0, "pkjumps", jumps, true);
+                player.getStats().addProgress(AuroraMCAPI.getAchievement(203), jumps, player.getStats().getAchievementsGained().getOrDefault(AuroraMCAPI.getAchievement(203),0),true);
                 player.getStats().incrementStatistic(0, "pkdistance", Math.round(totalDistanceTravelled * 10), true);
+                if (player.getStats().getStatistic(0, "pktime") > 18000000 && !player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(208))) {
+                    player.getStats().achievementGained(AuroraMCAPI.getAchievement(208), 1, true);
+                }
 
                 player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You did not reach enough checkpoints, parkour failed!"));
                 parkour.playerEnd(player);
@@ -157,6 +166,16 @@ public class ParkourRun {
             if (actionBarTask != null) {
                 actionBarTask.cancel();
                 actionBarTask = null;
+            }
+
+            long time = System.currentTimeMillis() - startTime;
+            player.getStats().incrementStatistic(0, "pktime", time, true);
+            player.getStats().incrementStatistic(0, "pkcheckpoints", checkpointsHit, true);
+            player.getStats().incrementStatistic(0, "pkjumps", jumps, true);
+            player.getStats().addProgress(AuroraMCAPI.getAchievement(203), jumps, player.getStats().getAchievementsGained().getOrDefault(AuroraMCAPI.getAchievement(203),0),true);
+            player.getStats().incrementStatistic(0, "pkdistance", Math.round(totalDistanceTravelled * 10), true);
+            if (player.getStats().getStatistic(0, "pktime") > 18000000 && !player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(208))) {
+                player.getStats().achievementGained(AuroraMCAPI.getAchievement(208), 1, true);
             }
 
 
@@ -193,7 +212,6 @@ public class ParkourRun {
 
             if (previous > 0) {
                 if (finishMili < previous) {
-
                     player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You beat your previous record and you managed to complete the **" + parkour.getName() + "** in **" + formatTime(finishMili) + "**!"));
                     new BukkitRunnable() {
                         @Override
@@ -210,6 +228,32 @@ public class ParkourRun {
                             }.runTask(AuroraMCAPI.getCore());
                         }
                     }.runTaskAsynchronously(AuroraMCAPI.getCore());
+                    switch (parkour.getId()) {
+                        case 1: {
+                            if (finishMili <= 90000) {
+                                if (!player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(204))) {
+                                    player.getStats().achievementGained(AuroraMCAPI.getAchievement(204), 1, true);
+                                }
+                            }
+                            break;
+                        }
+                        case 2: {
+                            if (finishMili <= 150000) {
+                                if (!player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(205))) {
+                                    player.getStats().achievementGained(AuroraMCAPI.getAchievement(205), 1, true);
+                                }
+                            }
+                            break;
+                        }
+                        case 3: {
+                            if (finishMili <= 240000) {
+                                if (!player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(206))) {
+                                    player.getStats().achievementGained(AuroraMCAPI.getAchievement(206), 1, true);
+                                }
+                            }
+                            break;
+                        }
+                    }
                 } else {
                     player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You didn't beat your previous record, but you managed to complete the **" + parkour.getName() + "** in **" + formatTime(finishMili) + "**!"));
                     new BukkitRunnable() {
@@ -222,6 +266,10 @@ public class ParkourRun {
                 }
             } else {
                 if (previous == -1) {
+                    player.getStats().incrementStatistic(0, "pkpks", 1, true);
+                    if (player.getStats().getStatistic(0, "pkpks") >= 3 && player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(19))) {
+                        player.getStats().achievementGained(AuroraMCAPI.getAchievement(19), 1, true);
+                    }
                     if (parkour.getEndCommand() != null) {
                         parkour.getEndCommand().apply(player);
                     }
@@ -235,6 +283,32 @@ public class ParkourRun {
                             player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You are in **" + position + ((position % 10 == 1) ? "st" : ((position % 10 == 2) ? "nd" : ((position % 10 == 3) ? ((position == 13) ? "th" : "rd") : "th"))) + " place** for the **" + parkour.getName() + "**!"));
                         }
                     }.runTaskAsynchronously(AuroraMCAPI.getCore());
+                    switch (parkour.getId()) {
+                        case 1: {
+                            if (finishMili <= 90000) {
+                                if (player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(204))) {
+                                    player.getStats().achievementGained(AuroraMCAPI.getAchievement(204), 1, true);
+                                }
+                            }
+                            break;
+                        }
+                        case 2: {
+                            if (finishMili <= 150000) {
+                                if (player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(205))) {
+                                    player.getStats().achievementGained(AuroraMCAPI.getAchievement(205), 1, true);
+                                }
+                            }
+                            break;
+                        }
+                        case 3: {
+                            if (finishMili <= 240000) {
+                                if (player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(206))) {
+                                    player.getStats().achievementGained(AuroraMCAPI.getAchievement(206), 1, true);
+                                }
+                            }
+                            break;
+                        }
+                    }
                 } else {
                     player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You completed the parkour too quickly, parkour failed!"));
                 }

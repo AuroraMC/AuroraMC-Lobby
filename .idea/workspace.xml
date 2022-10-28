@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Disable hub speed when player starts a parkour">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add quick teleports to game menu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/Parkour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/Parkour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/GameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/GameMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/ParkourRun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/ParkourRun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -444,14 +444,12 @@
       <workItem from="1666991999744" duration="1751000" />
       <workItem from="1666993862684" duration="746000" />
       <workItem from="1666994991183" duration="298000" />
-      <workItem from="1666995402332" duration="501000" />
-    </task>
-    <task id="LOCAL-00236" summary="Fix grappling hook">
-      <created>1658942944786</created>
-      <option name="number" value="00236" />
-      <option name="presentableId" value="LOCAL-00236" />
-      <option name="project" value="LOCAL" />
-      <updated>1658942944786</updated>
+      <workItem from="1666995402332" duration="666000" />
+      <workItem from="1666996471177" duration="41000" />
+      <workItem from="1666996527805" duration="3000" />
+      <workItem from="1666996595451" duration="4000" />
+      <workItem from="1666996625522" duration="5000" />
+      <workItem from="1666997879123" duration="758000" />
     </task>
     <task id="LOCAL-00237" summary="Fix Grappling Hook">
       <created>1658943175392</created>
@@ -789,7 +787,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666995159196</updated>
     </task>
-    <option name="localTasksCounter" value="285" />
+    <task id="LOCAL-00285" summary="Add quick teleports to game menu">
+      <created>1666995916877</created>
+      <option name="number" value="00285" />
+      <option name="presentableId" value="LOCAL-00285" />
+      <option name="project" value="LOCAL" />
+      <updated>1666995916877</updated>
+    </task>
+    <option name="localTasksCounter" value="286" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -807,7 +812,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Flip lambda expression for crates" />
     <MESSAGE value="Fix lambda expression for crates" />
     <MESSAGE value="Holograms for parkours will now generate.&#10;Implement checkpoints and endpoints." />
     <MESSAGE value="Implement exploit prevention" />
@@ -832,6 +836,7 @@
     <MESSAGE value="add debug message" />
     <MESSAGE value="Fix issue" />
     <MESSAGE value="Disable hub speed when player starts a parkour" />
-    <option name="LAST_COMMIT_MESSAGE" value="Disable hub speed when player starts a parkour" />
+    <MESSAGE value="Add quick teleports to game menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add quick teleports to game menu" />
   </component>
 </project>

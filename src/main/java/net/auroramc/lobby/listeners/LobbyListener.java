@@ -1035,6 +1035,9 @@ public class LobbyListener implements Listener {
                                     }
                                 } else {
                                     p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "This end point is for a different parkour!"));
+                                    if (!player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(207))) {
+                                        player.getStats().achievementGained(AuroraMCAPI.getAchievement(207), 1, true);
+                                    }
                                 }
                             } else {
                                 p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You must start a parkour in order to end one!"));
@@ -1048,6 +1051,9 @@ public class LobbyListener implements Listener {
                                     }
                                 } else {
                                     p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "This end point is for a different parkour!"));
+                                    if (!player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(207))) {
+                                        player.getStats().achievementGained(AuroraMCAPI.getAchievement(207), 1, true);
+                                    }
                                 }
                             } else {
                                 p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You must start a parkour in order to end one!"));
@@ -1061,6 +1067,9 @@ public class LobbyListener implements Listener {
                                     }
                                 } else {
                                     p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "This end point is for a different parkour!"));
+                                    if (!player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(207))) {
+                                        player.getStats().achievementGained(AuroraMCAPI.getAchievement(207), 1, true);
+                                    }
                                 }
                             } else {
                                 p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You must start a parkour in order to end one!"));
@@ -1095,6 +1104,9 @@ public class LobbyListener implements Listener {
                                     p.getActiveParkourRun().checkpoint(where);
                                 } else {
                                     p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "This checkpoint is for a different parkour!"));
+                                    if (!player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(207))) {
+                                        player.getStats().achievementGained(AuroraMCAPI.getAchievement(207), 1, true);
+                                    }
                                 }
                             } else {
                                 p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You must start a parkour in order to reach a checkpoint!"));
