@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix fly issue, fix checkpoints">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix fly issue">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -436,14 +437,8 @@
       <workItem from="1666978175697" duration="190000" />
       <workItem from="1666978852901" duration="2803000" />
       <workItem from="1666982434686" duration="618000" />
-      <workItem from="1666983309940" duration="986000" />
-    </task>
-    <task id="LOCAL-00227" summary="Implement crate command">
-      <created>1657538429960</created>
-      <option name="number" value="00227" />
-      <option name="presentableId" value="LOCAL-00227" />
-      <option name="project" value="LOCAL" />
-      <updated>1657538429960</updated>
+      <workItem from="1666983309940" duration="1052000" />
+      <workItem from="1666984463658" duration="56000" />
     </task>
     <task id="LOCAL-00228" summary="Fix emerald crate">
       <created>1657542675917</created>
@@ -781,7 +776,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666983688642</updated>
     </task>
-    <option name="localTasksCounter" value="276" />
+    <task id="LOCAL-00276" summary="Fix fly issue">
+      <created>1666984353471</created>
+      <option name="number" value="00276" />
+      <option name="presentableId" value="LOCAL-00276" />
+      <option name="project" value="LOCAL" />
+      <updated>1666984353471</updated>
+    </task>
+    <option name="localTasksCounter" value="277" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -799,7 +801,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Lower time it takes for platform to disappear to 3 seconds" />
     <MESSAGE value="Start work on parkour, fix bug in GUI for later versions" />
     <MESSAGE value="Comment out db pulls to allow plugin to build" />
     <MESSAGE value="Start parkour work" />
@@ -824,6 +825,7 @@
     <MESSAGE value="Fix GUI formatting" />
     <MESSAGE value="FIx datapoints for whatever reason not being removed." />
     <MESSAGE value="Fix fly issue, fix checkpoints" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix fly issue, fix checkpoints" />
+    <MESSAGE value="Fix fly issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix fly issue" />
   </component>
 </project>

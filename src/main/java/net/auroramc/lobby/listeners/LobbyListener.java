@@ -269,6 +269,9 @@ public class LobbyListener implements Listener {
                         case GOLD_PLATE: {
                             player.getPlayer().setFallDistance(0);
                             Location l = player.getActiveParkourRun().getParkour().getRestartPoint().getLocation().clone();
+                            if (player.getActiveParkourRun().getLastReached() != 0) {
+                                l = player.getActiveParkourRun().getParkour().getCheckpoint(player.getActiveParkourRun().getLastReached()).getLocation().clone();
+                            }
                             player.getPlayer().setVelocity(new Vector(0, 0, 0));
                             player.getPlayer().teleport(l);
                             player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have been teleported to your last checkpoint!"));
