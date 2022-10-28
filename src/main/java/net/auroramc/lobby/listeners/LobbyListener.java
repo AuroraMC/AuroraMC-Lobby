@@ -989,7 +989,7 @@ public class LobbyListener implements Listener {
                                 if ((!player.getPreferences().isHubFlightEnabled() || (!player.hasPermission("elite") && !player.hasPermission("plus")))) {
                                     player.getPlayer().setAllowFlight(false);
                                 }
-                                p.parkourStart(LobbyAPI.getEasy());
+                                p.parkourStart(LobbyAPI.getMedium());
                                 p.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have started the **Medium** parkour!"));
                             }
                         } else if (e.getTo().getBlock().equals(LobbyAPI.getHard().getStart().getLocation().getBlock())) {
