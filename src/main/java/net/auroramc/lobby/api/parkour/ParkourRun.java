@@ -201,7 +201,7 @@ public class ParkourRun {
                             LobbyDatabaseManager.newTime(player, finishMili, true, parkour);
                             int position = LobbyDatabaseManager.leaderboardPosition(player, parkour);
 
-                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You are in **" + position + ((position % 10 == 1) ? "st" : ((position % 10 == 2) ? "nd" : ((position % 10 == 3) ? ((position == 13) ? "th" : "rd") : "th"))) + " place** for the **" + parkour.getName() + "** parkour!"));
+                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You are in **" + position + ((position % 10 == 1) ? "st" : ((position % 10 == 2) ? "nd" : ((position % 10 == 3) ? ((position == 13) ? "th" : "rd") : "th"))) + " place** for the **" + parkour.getName() + "**!"));
                             new BukkitRunnable() {
                                 @Override
                                 public void run() {
@@ -216,7 +216,7 @@ public class ParkourRun {
                         @Override
                         public void run() {
                             int position = LobbyDatabaseManager.leaderboardPosition(player, parkour);
-                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You are in **" + position + ((position % 10 == 1) ? "st" : ((position % 10 == 2) ? "nd" : ((position % 10 == 3) ? ((position == 13) ? "th" : "rd") : "th"))) + " place** for the **" + parkour.getName() + "** parkour!"));
+                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You are in **" + position + ((position % 10 == 1) ? "st" : ((position % 10 == 2) ? "nd" : ((position % 10 == 3) ? ((position == 13) ? "th" : "rd") : "th"))) + " place** for the **" + parkour.getName() + "**!"));
                         }
                     }.runTaskAsynchronously(AuroraMCAPI.getCore());
                 }
@@ -232,7 +232,7 @@ public class ParkourRun {
                         public void run() {
                             LobbyDatabaseManager.newTime(player, finishMili, false, parkour);
                             int position = LobbyDatabaseManager.leaderboardPosition(player, parkour);
-                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You are in **" + position + ((position % 10 == 1) ? "st" : ((position % 10 == 2) ? "nd" : ((position % 10 == 3) ? ((position == 13) ? "th" : "rd") : "th"))) + " place** for the **" + parkour.getName() + "** parkour!"));
+                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You are in **" + position + ((position % 10 == 1) ? "st" : ((position % 10 == 2) ? "nd" : ((position % 10 == 3) ? ((position == 13) ? "th" : "rd") : "th"))) + " place** for the **" + parkour.getName() + "**!"));
                         }
                     }.runTaskAsynchronously(AuroraMCAPI.getCore());
                 } else {

@@ -60,7 +60,7 @@ public class Parkour {
         this.restartPoint = new RestartPoint(new Location(LobbyAPI.getLobby().getServer().getWorld("world"), restartLocation.getJSONObject(0).getInt("x") + 0.5, restartLocation.getJSONObject(0).getInt("y") + 0.5, restartLocation.getJSONObject(0).getInt("z") + 0.5, restartLocation.getJSONObject(0).getFloat("yaw"),  0));
         Location loc = new Location(LobbyAPI.getLobby().getServer().getWorld("world"), restartLocation.getJSONObject(0).getInt("x"), holoLocation.getJSONObject(0).getInt("y"), holoLocation.getJSONObject(0).getInt("z"));
         loc.getBlock().setType(Material.AIR);
-        this.leaderboard = new LeaderboardHologram(loc.clone().add(0, 0.5, 0), this);
+        this.leaderboard = new LeaderboardHologram(loc.clone().add(0.5, 0.5, 0.5), this);
     }
 
     public int getNoCheckpoints() {
