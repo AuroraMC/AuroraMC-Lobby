@@ -328,9 +328,9 @@ public class LobbyAPI {
     }
 
     public static void loadParkours() {
-        easy = new Parkour(1, "&a&lEasy Parkour", new Reward("+50 XP\n+50 Crowns\n+50 Tickets", 50, 50, 50, Collections.emptyMap(), Collections.emptyList()), new Reward("+500 XP\n+500 Crowns\n+500 Tickets", 500, 500, 500, Collections.emptyMap(), Collections.emptyList()));
-        medium = new Parkour(2, "&6&lMedium Parkour", new Reward("+50 XP\n+50 Crowns\n+50 Tickets", 50, 50, 50, Collections.emptyMap(), Collections.emptyList()), new Reward("+500 XP\n+500 Crowns\n+500 Tickets", 500, 500, 500, Collections.emptyMap(), Collections.emptyList()));
-        hard = new Parkour(3, "&c&lHard Parkour", new Reward("+50 XP\n+50 Crowns\n+50 Tickets", 50, 50, 50, Collections.emptyMap(), Collections.emptyList()), new Reward("+500 XP\n+500 Crowns\n+500 Tickets", 500, 500, 500, Collections.emptyMap(), Collections.emptyList()));
+        easy = new Parkour(1, "&a&lEasy Parkour", new Reward("&a+50 XP\n&6+50 Crowns\n&d+50 Tickets", 50, 50, 50, Collections.emptyMap(), Collections.emptyList()), new Reward("&a+1000 XP\n&6+1000 Crowns\n&d+1000 Tickets", 1000, 1000, 1000, Collections.emptyMap(), Collections.emptyList()));
+        medium = new Parkour(2, "&6&lMedium Parkour", new Reward("&a+50 XP\n&6+50 Crowns\n&d+50 Tickets", 50, 50, 50, Collections.emptyMap(), Collections.emptyList()), new Reward("&a+3000 XP\n&6+15000 Crowns\n&d+15000 Tickets", 3000, 15000, 15000, Collections.emptyMap(), Collections.emptyList()));
+        hard = new Parkour(3, "&c&lHard Parkour", new Reward("&A+50 XP\n&6+50 Crowns\n&d+50 Tickets", 50, 50, 50, Collections.emptyMap(), Collections.emptyList()), new Reward("&a+5000 XP\n&6+50000 Crowns\n&d+50000 Tickets", 5000, 50000, 50000, Collections.emptyMap(), Collections.emptyList()));
     }
 
     public static Parkour getEasy() {
