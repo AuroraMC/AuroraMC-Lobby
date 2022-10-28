@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Implement exploit prevention">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix some GUIs, now show playercount in some places">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/UpdateServersRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/util/UpdateServersRunnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/GameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/GameMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/GameServerListing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/GameServerListing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/LobbySwitcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/LobbySwitcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -434,14 +430,9 @@
       <workItem from="1666967564985" duration="311000" />
       <workItem from="1666967893313" duration="284000" />
       <workItem from="1666972425296" duration="949000" />
-      <workItem from="1666973392617" duration="645000" />
-    </task>
-    <task id="LOCAL-00213" summary="Attempt fix at finishing opening properly">
-      <created>1657498554075</created>
-      <option name="number" value="00213" />
-      <option name="presentableId" value="LOCAL-00213" />
-      <option name="project" value="LOCAL" />
-      <updated>1657498554075</updated>
+      <workItem from="1666973392617" duration="791000" />
+      <workItem from="1666975374748" duration="269000" />
+      <workItem from="1666975774566" duration="579000" />
     </task>
     <task id="LOCAL-00214" summary="IntelliJ i stg i hate you so much">
       <created>1657499133020</created>
@@ -779,7 +770,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666968031100</updated>
     </task>
-    <option name="localTasksCounter" value="262" />
+    <task id="LOCAL-00262" summary="Fix some GUIs, now show playercount in some places">
+      <created>1666974157656</created>
+      <option name="number" value="00262" />
+      <option name="presentableId" value="LOCAL-00262" />
+      <option name="project" value="LOCAL" />
+      <updated>1666974157656</updated>
+    </task>
+    <option name="localTasksCounter" value="263" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -797,7 +795,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Stop players in a crate opening being affected by forcefields, limit /crate to 50 crates at a time" />
     <MESSAGE value="Ranks and plus days now apply correctly" />
     <MESSAGE value="Implement monthly bonuses" />
     <MESSAGE value="Disable forcefield when not social or admin" />
@@ -822,6 +819,7 @@
     <MESSAGE value="Fix lambda expression for crates" />
     <MESSAGE value="Holograms for parkours will now generate.&#10;Implement checkpoints and endpoints." />
     <MESSAGE value="Implement exploit prevention" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement exploit prevention" />
+    <MESSAGE value="Fix some GUIs, now show playercount in some places" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix some GUIs, now show playercount in some places" />
   </component>
 </project>

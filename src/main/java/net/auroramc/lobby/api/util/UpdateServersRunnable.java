@@ -25,13 +25,6 @@ public class UpdateServersRunnable extends BukkitRunnable {
         }
         LobbyAPI.updateTotals();
         for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
-            Objective objective = player.getScoreboard().getScoreboard().getObjective("players");
-            if (objective != null) {
-                objective.getScore("Crystal Quest ").setScore(LobbyAPI.getGameTotals().get("CRYSTAL_QUEST"));
-                objective.getScore("Duels§r ").setScore(LobbyAPI.getGameTotals().get("DUELS"));
-                objective.getScore("Paintball§r ").setScore(LobbyAPI.getGameTotals().get("PAINTBALL"));
-                objective.getScore("Arcade Mode§r ").setScore(LobbyAPI.getGameTotals().get("ARCADE_MODE"));
-            }
             GUI gui = AuroraMCAPI.getGUI(player);
             if (gui != null) {
                 if (gui instanceof GameServerListing) {

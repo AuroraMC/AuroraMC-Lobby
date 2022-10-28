@@ -220,14 +220,6 @@ public class JoinListener implements Listener {
         team.setSuffix("§7v" + LobbyAPI.getVersionNumber("ARCADE_MODE").trim());
         team.addEntry("Arcade Mode§r ");
 
-        Objective objective = scoreboard2.registerNewObjective("players", "dummy");
-        objective.setDisplaySlot(DisplaySlot.BELOW_NAME);
-        objective.setDisplayName(" §7Players Online");
-        objective.getScore("Crystal Quest ").setScore(LobbyAPI.getGameTotals().get("CRYSTAL_QUEST"));
-        objective.getScore("Duels§r ").setScore(LobbyAPI.getGameTotals().get("DUELS"));
-        objective.getScore("Paintball§r ").setScore(LobbyAPI.getGameTotals().get("PAINTBALL"));
-        objective.getScore("Arcade Mode§r ").setScore(LobbyAPI.getGameTotals().get("ARCADE_MODE"));
-
         player.getPlayer().getInventory().setItem(8, LobbyAPI.getLobbyItem().getItem());
         player.getPlayer().getInventory().setItem(7, LobbyAPI.getPrefsItem().getItem());
         player.getPlayer().getInventory().setItem(4, LobbyAPI.getCosmeticsItem().getItem());
