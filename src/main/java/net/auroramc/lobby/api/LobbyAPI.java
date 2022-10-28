@@ -156,7 +156,7 @@ public class LobbyAPI {
         arcadeEntity.setLocation(-12.5, 70.0, 42.5, -145f, 0f);
         AuroraMCAPI.registerFakePlayer(arcadeEntity);
 
-        Hologram hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), -12.5, 73, 42.5), null);
+        Hologram hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), -12.5, 72.5, 42.5), null);
         hologram.addLine(1, "&b" + gameTotals.getOrDefault("ARCADE_MODE", 0) + " &fPlayers Online");
         hologram.spawn();
         gameHolos.put("ARCADE_MODE", hologram);
@@ -167,7 +167,7 @@ public class LobbyAPI {
         paintballEntity.setLocation(-14.5, 70.0, 39.5, -145f, 0f);
         AuroraMCAPI.registerFakePlayer(paintballEntity);
 
-        hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), -14.5, 73, 39.5), null);
+        hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), -14.5, 72.5, 39.5), null);
         hologram.addLine(1, "&b" + gameTotals.getOrDefault("PAINTBALL", 0) + " &fPlayers Online");
         hologram.spawn();
         gameHolos.put("PAINTBALL", hologram);
@@ -178,7 +178,7 @@ public class LobbyAPI {
         cqEntity.setLocation(-17.5, 70.0, 33.5, -145f, 0f);
         AuroraMCAPI.registerFakePlayer(cqEntity);
 
-        hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), -17.5, 73, 33.5), null);
+        hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), -17.5, 72.5, 33.5), null);
         hologram.addLine(1, "&b" + gameTotals.getOrDefault("CRYSTAL_QUEST", 0) + " &fPlayers Online");
         hologram.spawn();
         gameHolos.put("CRYSTAL_QUEST", hologram);
@@ -189,7 +189,7 @@ public class LobbyAPI {
         duelsEntity.setLocation(-16.5, 70.0, 36.5, -145f, 0f);
         AuroraMCAPI.registerFakePlayer(duelsEntity);
 
-        hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), -16.5, 73, 36.5), null);
+        hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), -16.5, 72.5, 36.5), null);
         hologram.addLine(1, "&b" + gameTotals.getOrDefault("DUELS", 0) + " &fPlayers Online");
         hologram.spawn();
         gameHolos.put("DUELS", hologram);
