@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Leaderboard now updates every 20 seconds">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix message, increase blocks needed for teleport on fall">
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/Parkour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/Parkour.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/ParkourRun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/ParkourRun.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -440,14 +440,7 @@
       <workItem from="1666983309940" duration="1052000" />
       <workItem from="1666984463658" duration="56000" />
       <workItem from="1666984532633" duration="104000" />
-      <workItem from="1666991999744" duration="956000" />
-    </task>
-    <task id="LOCAL-00230" summary="Teleport to middle when leaving area">
-      <created>1657543436849</created>
-      <option name="number" value="00230" />
-      <option name="presentableId" value="LOCAL-00230" />
-      <option name="project" value="LOCAL" />
-      <updated>1657543436849</updated>
+      <workItem from="1666991999744" duration="1671000" />
     </task>
     <task id="LOCAL-00231" summary="Fix epic firework location">
       <created>1657543801699</created>
@@ -785,7 +778,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666992641471</updated>
     </task>
-    <option name="localTasksCounter" value="279" />
+    <task id="LOCAL-00279" summary="Fix message, increase blocks needed for teleport on fall">
+      <created>1666992984091</created>
+      <option name="number" value="00279" />
+      <option name="presentableId" value="LOCAL-00279" />
+      <option name="project" value="LOCAL" />
+      <updated>1666992984091</updated>
+    </task>
+    <option name="localTasksCounter" value="280" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -803,7 +803,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Start parkour work" />
     <MESSAGE value="Removed useless import" />
     <MESSAGE value="Add more info on startup" />
     <MESSAGE value="Change where parkours are loaded" />
@@ -828,6 +827,7 @@
     <MESSAGE value="Fix fly issue" />
     <MESSAGE value="Fix issue with teleport to checkpoint" />
     <MESSAGE value="Leaderboard now updates every 20 seconds" />
-    <option name="LAST_COMMIT_MESSAGE" value="Leaderboard now updates every 20 seconds" />
+    <MESSAGE value="Fix message, increase blocks needed for teleport on fall" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix message, increase blocks needed for teleport on fall" />
   </component>
 </project>

@@ -169,7 +169,7 @@ public class ParkourRun {
             if (splitTimes.containsKey(check)) {
                 long oldSplit = splitTimes.get(check);
                 if (oldSplit > splitMs) {
-                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have reached the finish point in **" + formatTime(splitMs) + "** and beat your personal best of **" + formatTime(oldSplit) + "**!"));
+                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have reached the finish point (split-time) in **" + formatTime(splitMs) + "** and beat your personal best of **" + formatTime(oldSplit) + "**!"));
                     int finalCheck = check;
                     new BukkitRunnable() {
                         @Override
@@ -178,10 +178,10 @@ public class ParkourRun {
                         }
                     }.runTaskAsynchronously(AuroraMCAPI.getCore());
                 } else {
-                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have reached the finish point in **" + formatTime(splitMs) + "** (personal best: **" + formatTime(oldSplit) + "**)!"));
+                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have reached the finish point (split-time) in **" + formatTime(splitMs) + "** (personal best: **" + formatTime(oldSplit) + "**)!"));
                 }
             } else {
-                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have reached the finish point in **" + formatTime(splitMs) + "**!"));
+                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have reached the finish point (split-time) in **" + formatTime(splitMs) + "**!"));
                 int finalCheck = check;
                 new BukkitRunnable() {
                     @Override
@@ -194,7 +194,7 @@ public class ParkourRun {
             if (previous > 0) {
                 if (finishMili < previous) {
 
-                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You beat your previous record and you managed to complete the **" + parkour.getName() + " **parkour in **" + formatTime(finishMili) + "**!"));
+                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You beat your previous record and you managed to complete the **" + parkour.getName() + "** in **" + formatTime(finishMili) + "**!"));
                     new BukkitRunnable() {
                         @Override
                         public void run() {
@@ -211,7 +211,7 @@ public class ParkourRun {
                         }
                     }.runTaskAsynchronously(AuroraMCAPI.getCore());
                 } else {
-                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You didn't beat your previous record, but you managed to complete the **" + parkour.getName() + " ** in **" + formatTime(finishMili) + "**!"));
+                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You didn't beat your previous record, but you managed to complete the **" + parkour.getName() + "** in **" + formatTime(finishMili) + "**!"));
                     new BukkitRunnable() {
                         @Override
                         public void run() {
@@ -226,7 +226,7 @@ public class ParkourRun {
                         parkour.getEndCommand().apply(player);
                     }
 
-                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "Well done! You completed the **" + parkour.getName() + " **parkour in **" + formatTime(finishMili) + "**! Your reward will be applied shortly!"));
+                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "Well done! You completed the **" + parkour.getName() + "** in **" + formatTime(finishMili) + "**! Your reward will be applied shortly!"));
                     new BukkitRunnable() {
                         @Override
                         public void run() {
