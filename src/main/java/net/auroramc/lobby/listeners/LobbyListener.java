@@ -922,7 +922,7 @@ public class LobbyListener implements Listener {
             if (LobbyAPI.getLobbyMap().getMapData().getInt("time") > 12000) {
                 e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 1000000, 0, true, false), false);
             }
-        } else if (!e.getPlayer().getAllowFlight() && (new Location(e.getTo().getWorld(), e.getTo().getX(), e.getTo().getY() - 1, e.getTo().getZ())).getBlock().getType() != Material.AIR && (player instanceof AuroraMCLobbyPlayer && ((AuroraMCLobbyPlayer) player).isInParkour())) {
+        } else if (!e.getPlayer().getAllowFlight() && (new Location(e.getTo().getWorld(), e.getTo().getX(), e.getTo().getY() - 1, e.getTo().getZ())).getBlock().getType() != Material.AIR && (player instanceof AuroraMCLobbyPlayer && !((AuroraMCLobbyPlayer) player).isInParkour())) {
             e.getPlayer().setAllowFlight(true);
         } else if (LobbyAPI.getCratePlayer() != null && e.getPlayer().equals(LobbyAPI.getCratePlayer().getPlayer())) {
             JSONObject crateLocation = LobbyAPI.getLobbyMap().getMapData().getJSONObject("game").getJSONArray("CRATE").getJSONObject(0);

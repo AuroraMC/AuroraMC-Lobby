@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="FIx datapoints for whatever reason not being removed.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/Parkour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/Parkour.java" afterDir="false" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix fly issue, fix checkpoints">
       <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -438,14 +436,7 @@
       <workItem from="1666978175697" duration="190000" />
       <workItem from="1666978852901" duration="2803000" />
       <workItem from="1666982434686" duration="618000" />
-      <workItem from="1666983309940" duration="361000" />
-    </task>
-    <task id="LOCAL-00226" summary="More handling of player disconnecting">
-      <created>1657537660200</created>
-      <option name="number" value="00226" />
-      <option name="presentableId" value="LOCAL-00226" />
-      <option name="project" value="LOCAL" />
-      <updated>1657537660200</updated>
+      <workItem from="1666983309940" duration="986000" />
     </task>
     <task id="LOCAL-00227" summary="Implement crate command">
       <created>1657538429960</created>
@@ -783,7 +774,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666982508625</updated>
     </task>
-    <option name="localTasksCounter" value="275" />
+    <task id="LOCAL-00275" summary="Fix fly issue, fix checkpoints">
+      <created>1666983688642</created>
+      <option name="number" value="00275" />
+      <option name="presentableId" value="LOCAL-00275" />
+      <option name="project" value="LOCAL" />
+      <updated>1666983688642</updated>
+    </task>
+    <option name="localTasksCounter" value="276" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -801,7 +799,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Prevent error on kick" />
     <MESSAGE value="Lower time it takes for platform to disappear to 3 seconds" />
     <MESSAGE value="Start work on parkour, fix bug in GUI for later versions" />
     <MESSAGE value="Comment out db pulls to allow plugin to build" />
@@ -826,6 +823,7 @@
     <MESSAGE value="Show amount of crates in view crates menu" />
     <MESSAGE value="Fix GUI formatting" />
     <MESSAGE value="FIx datapoints for whatever reason not being removed." />
-    <option name="LAST_COMMIT_MESSAGE" value="FIx datapoints for whatever reason not being removed." />
+    <MESSAGE value="Fix fly issue, fix checkpoints" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix fly issue, fix checkpoints" />
   </component>
 </project>
