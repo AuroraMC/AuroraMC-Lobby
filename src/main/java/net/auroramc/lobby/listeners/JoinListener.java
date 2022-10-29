@@ -53,7 +53,7 @@ public class JoinListener implements Listener {
         updateHeaderFooter((CraftPlayer) e.getPlayer());
         e.getPlayer().setFlying(false);
         e.getPlayer().setAllowFlight(false);
-        e.getPlayer().setGameMode(GameMode.SURVIVAL);
+        e.getPlayer().setGameMode(GameMode.ADVENTURE);
         e.getPlayer().setHealth(20);
         e.getPlayer().setFoodLevel(30);
         e.getPlayer().getInventory().clear();

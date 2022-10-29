@@ -26,7 +26,7 @@ public class CommandGameMode extends Command {
         if (args.size() == 0) {
 
             if (player.getPlayer().getGameMode().equals(GameMode.CREATIVE)) {
-                player.getPlayer().setGameMode(GameMode.SURVIVAL);
+                player.getPlayer().setGameMode(GameMode.ADVENTURE);
                 player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("GameMode", "Creative Mode: &cDisabled"));
             } else {
                 player.getPlayer().setGameMode(GameMode.CREATIVE);
@@ -36,7 +36,7 @@ public class CommandGameMode extends Command {
             AuroraMCPlayer pl = AuroraMCAPI.getPlayer(args.get(0));
             if (pl != null) {
                 if (pl.getPlayer().getGameMode().equals(GameMode.CREATIVE)) {
-                    pl.getPlayer().setGameMode(GameMode.SURVIVAL);
+                    pl.getPlayer().setGameMode(GameMode.ADVENTURE);
                     pl.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("GameMode", "Creative Mode: &cDisabled"));
                     player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("GameMode", "Creative mode for player **" + pl.getName() + "**: &cDisabled"));
                 } else {

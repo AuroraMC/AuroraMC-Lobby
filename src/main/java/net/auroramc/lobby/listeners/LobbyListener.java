@@ -325,9 +325,13 @@ public class LobbyListener implements Listener {
             }
             AuroraMCLobbyPlayer cratePlayer = LobbyAPI.getCratePlayer();
             Crate.CrateReward reward = LobbyAPI.getCurrentCrate().open(LobbyAPI.getCratePlayer());
-            long amount = cratePlayer.getCrates().stream().filter(crate -> crate.getOpened() > 0).count();
+            long amount = cratePlayer.getCrates().stream().filter(crate -> crate.getOpened() <= 0 && LobbyAPI.getCurrentCrate() != crate).count();
             if (amount > 0) {
-                cratePlayer.getHolograms().get("crates").getLines().get(2).setText("&fYou have &b" + amount + " &fcrates to open!");
+                if (cratePlayer.getHolograms().get("crates").getLines().size() == 1) {
+                    cratePlayer.getHolograms().get("crates").addLine(2, "&fYou have &b" + amount + " &fcrates to open!");
+                } else {
+                    cratePlayer.getHolograms().get("crates").getLines().get(2).setText("&fYou have &b" + amount + " &fcrates to open!");
+                }
             } else {
                 cratePlayer.getHolograms().get("crates").removeLine(2);
             }

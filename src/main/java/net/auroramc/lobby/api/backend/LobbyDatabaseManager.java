@@ -376,7 +376,7 @@ public class LobbyDatabaseManager {
             if (reachedBefore) {
                 statement = connection.prepareStatement("UPDATE pk_splittimes SET time = ? WHERE amc_id = ? AND parkour_id = ? AND checkpoint = ?");
                 statement.setLong(1, time);
-                statement.setInt(2, parkour.getId());
+                statement.setInt(2, player.getId());
                 statement.setInt(3, parkour.getId());
                 statement.setInt(4, checkpoint);
             } else {
