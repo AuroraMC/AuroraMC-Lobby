@@ -326,7 +326,7 @@ public class ParkourRun {
                             break;
                         }
                         case 3: {
-                            if (finishMili <= 240000) {
+                            if (finishMili <= 330000) {
                                 if (!player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(206))) {
                                     player.getStats().achievementGained(AuroraMCAPI.getAchievement(206), 1, true);
                                 }
