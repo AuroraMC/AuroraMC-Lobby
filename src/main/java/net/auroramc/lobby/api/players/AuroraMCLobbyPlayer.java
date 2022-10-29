@@ -232,6 +232,8 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
                 if (LobbyAPI.isCrateAnimationFinished()) {
                     //Only spawn if there isnt already someone opening a crate.
                     hologram.spawn();
+                } else {
+                    hologram.despawn();
                 }
                 pl.getHolograms().put("crates", hologram);
             }

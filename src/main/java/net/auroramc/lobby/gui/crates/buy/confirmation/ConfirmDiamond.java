@@ -8,6 +8,7 @@ import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.core.api.utils.gui.GUI;
 import net.auroramc.core.api.utils.gui.GUIItem;
 import net.auroramc.core.cosmetics.crates.DiamondCrate;
+import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.gui.crates.buy.BuyDiamondCrate;
 import net.auroramc.lobby.utils.CrateUtil;
@@ -45,6 +46,10 @@ public class ConfirmDiamond extends GUI {
                 for (int i = 0;i < amount;i++) {
                     DiamondCrate crate = CrateUtil.generateDiamondCrate(player.getId());
                     player.getCrates().add(crate);
+                    long amountOfCrates = player.getCrates().stream().filter(crate2 -> crate2.getOpened() <= 0).count();
+                    if (player.getHolograms().get("crates").getLines().size() == 1) {
+                        player.getHolograms().get("crates").addLine(2, "&fYou have &b" + amountOfCrates + " &fcrates to open!");
+                    }
                 }
                 player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "You purchased &b" + amount + " Diamond Crates&r&f and &d" + (amount * CrateUtil.DIAMOND_CRATE_PRICE) + " Tickets&r&f were withdrawn from your account."));
             } else {

@@ -265,12 +265,35 @@ public class ParkourRun {
                         }
                     }.runTaskAsynchronously(AuroraMCAPI.getCore());
                 }
+                switch (parkour.getId()) {
+                    case 1: {
+                        if (finishMili <= 30000) {
+                            if (!player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(204))) {
+                                player.getStats().achievementGained(AuroraMCAPI.getAchievement(204), 1, true);
+                            }
+                        }
+                        break;
+                    }
+                    case 2: {
+                        if (finishMili <= 150000) {
+                            if (!player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(205))) {
+                                player.getStats().achievementGained(AuroraMCAPI.getAchievement(205), 1, true);
+                            }
+                        }
+                        break;
+                    }
+                    case 3: {
+                        if (finishMili <= 240000) {
+                            if (!player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(206))) {
+                                player.getStats().achievementGained(AuroraMCAPI.getAchievement(206), 1, true);
+                            }
+                        }
+                        break;
+                    }
+                }
             } else {
                 if (previous == -1) {
                     player.getStats().incrementStatistic(0, "pkpks", 1, true);
-                    if (player.getStats().getStatistic(0, "pkpks") >= 3 && player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(19))) {
-                        player.getStats().achievementGained(AuroraMCAPI.getAchievement(19), 1, true);
-                    }
                     if (parkour.getEndCommand() != null) {
                         parkour.getEndCommand().apply(player);
                         player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().convert(parkour.getEndCommand().getRewardString()));
@@ -315,6 +338,9 @@ public class ParkourRun {
                     player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You completed the parkour too quickly, parkour failed!"));
                 }
             }
+        }
+        if (player.getStats().getStatistic(0, "pkpks") >= 3 && !player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(19))) {
+            player.getStats().achievementGained(AuroraMCAPI.getAchievement(19), 1, true);
         }
         parkour.playerEnd(player);
         player.parkourEnd();
