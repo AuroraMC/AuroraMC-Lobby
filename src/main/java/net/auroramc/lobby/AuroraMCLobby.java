@@ -100,8 +100,8 @@ public class AuroraMCLobby extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new FakePlayerListener(), this);
 
         new UpdateServersRunnable().runTaskTimer(AuroraMCAPI.getCore(), 20, 100);
-        new UpdateDataRunnable().runTaskTimer(AuroraMCAPI.getCore(), 0, 20);
-        new UpdatePollRunnable().runTaskTimer(AuroraMCAPI.getCore(), 36400, 36400);
+        new UpdateDataRunnable().runTaskTimerAsynchronously(AuroraMCAPI.getCore(), 0, 20);
+        new UpdatePollRunnable().runTaskTimerAsynchronously(AuroraMCAPI.getCore(), 36400, 36400);
         new UpdateScoreboardRunnable().runTaskTimer(AuroraMCAPI.getCore(), 400, 400);
         getLogger().info("Startup complete.");
     }
