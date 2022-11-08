@@ -79,13 +79,5 @@ public class UpdateScoreboardRunnable extends BukkitRunnable {
             scoreboard.setLine(2, "    ");
             scoreboard.setLine(1, "&7auroramc.net");
         }
-        /*new BukkitRunnable(){
-            @Override
-            public void run() {
-                LobbyAPI.getEasy().getLeaderboard().refresh();
-                LobbyAPI.getMedium().getLeaderboard().refresh();
-                LobbyAPI.getHard().getLeaderboard().refresh();
-            }
-        }.runTaskAsynchronously(LobbyAPI.getLobby());*/
     }
 }
