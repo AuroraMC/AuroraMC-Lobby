@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="FIx bunch of bugs" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Disable auto-update of holograms">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -451,20 +453,12 @@
       <workItem from="1667080450967" duration="534000" />
       <workItem from="1667081131076" duration="18000" />
       <workItem from="1667081194795" duration="410000" />
-    </task>
-    <task id="LOCAL-00239" summary="Fix grappling hook">
-      <created>1658943905610</created>
-      <option name="number" value="00239" />
-      <option name="presentableId" value="LOCAL-00239" />
-      <option name="project" value="LOCAL" />
-      <updated>1658943905610</updated>
-    </task>
-    <task id="LOCAL-00240" summary="Fix grappling hook">
-      <created>1658943996819</created>
-      <option name="number" value="00240" />
-      <option name="presentableId" value="LOCAL-00240" />
-      <option name="project" value="LOCAL" />
-      <updated>1658943996819</updated>
+      <workItem from="1667081637625" duration="49000" />
+      <workItem from="1667082899596" duration="537000" />
+      <workItem from="1667468186266" duration="706000" />
+      <workItem from="1667839694844" duration="2000" />
+      <workItem from="1667916325506" duration="683000" />
+      <workItem from="1667921383265" duration="20000" />
     </task>
     <task id="LOCAL-00241" summary="Fix grappling hook">
       <created>1658944072103</created>
@@ -795,7 +789,21 @@
       <option name="project" value="LOCAL" />
       <updated>1667081599505</updated>
     </task>
-    <option name="localTasksCounter" value="288" />
+    <task id="LOCAL-00288" summary="Update length">
+      <created>1667081677277</created>
+      <option name="number" value="00288" />
+      <option name="presentableId" value="LOCAL-00288" />
+      <option name="project" value="LOCAL" />
+      <updated>1667081677277</updated>
+    </task>
+    <task id="LOCAL-00289" summary="Disable auto-update of holograms">
+      <created>1667916357924</created>
+      <option name="number" value="00289" />
+      <option name="presentableId" value="LOCAL-00289" />
+      <option name="project" value="LOCAL" />
+      <updated>1667916357924</updated>
+    </task>
+    <option name="localTasksCounter" value="290" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -813,8 +821,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implement exploit prevention" />
-    <MESSAGE value="Fix some GUIs, now show playercount in some places" />
     <MESSAGE value="Update how totals are displayed" />
     <MESSAGE value="Fix holograms" />
     <MESSAGE value="Move holograms" />
@@ -838,6 +844,8 @@
     <MESSAGE value="Add quick teleports to game menu" />
     <MESSAGE value="Implement all achievements" />
     <MESSAGE value="FIx bunch of bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="FIx bunch of bugs" />
+    <MESSAGE value="Update length" />
+    <MESSAGE value="Disable auto-update of holograms" />
+    <option name="LAST_COMMIT_MESSAGE" value="Disable auto-update of holograms" />
   </component>
 </project>
