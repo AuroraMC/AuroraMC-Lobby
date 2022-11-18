@@ -266,12 +266,12 @@ public class LobbyListener implements Listener {
                         cancelNextEvent.add(e.getPlayer());
                     }*/
                     switch (e.getItem().getType()) {
-                        case BED: {
+                        case BARRIER: {
                             player.getActiveParkourRun().end(ParkourRun.FailCause.LEAVE);
                             player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have left the parkour."));
                             return;
                         }
-                        case GOLD_PLATE: {
+                        case ENDER_PEARL: {
                             player.getPlayer().setFallDistance(0);
                             Location l = player.getActiveParkourRun().getParkour().getRestartPoint().getLocation().clone();
                             if (player.getActiveParkourRun().getLastReached() != 0) {
@@ -289,7 +289,7 @@ public class LobbyListener implements Listener {
                             }.runTaskLater(LobbyAPI.getLobby(), 5);
                             return;
                         }
-                        case WOOD_DOOR: {
+                        case WOOD_PLATE: {
                             player.getPlayer().setFallDistance(0);
                             Location l = player.getActiveParkourRun().getParkour().getRestartPoint().getLocation().clone();
                             player.getPlayer().setVelocity(new Vector(0, 0, 0));
