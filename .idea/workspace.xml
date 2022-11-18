@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix issue with duplicate entry into database with crate command">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/players/AuroraMCLobbyPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/players/AuroraMCLobbyPlayer.java" afterDir="false" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Update items">
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -462,14 +460,7 @@
       <workItem from="1667916325506" duration="683000" />
       <workItem from="1667921383265" duration="20000" />
       <workItem from="1668778702247" duration="131000" />
-      <workItem from="1668779065423" duration="272000" />
-    </task>
-    <task id="LOCAL-00241" summary="Fix grappling hook">
-      <created>1658944072103</created>
-      <option name="number" value="00241" />
-      <option name="presentableId" value="LOCAL-00241" />
-      <option name="project" value="LOCAL" />
-      <updated>1658944072103</updated>
+      <workItem from="1668779065423" duration="661000" />
     </task>
     <task id="LOCAL-00242" summary="Undo last commit">
       <created>1658944096541</created>
@@ -807,7 +798,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667916357924</updated>
     </task>
-    <option name="localTasksCounter" value="290" />
+    <task id="LOCAL-00290" summary="Update items">
+      <created>1668779539817</created>
+      <option name="number" value="00290" />
+      <option name="presentableId" value="LOCAL-00290" />
+      <option name="project" value="LOCAL" />
+      <updated>1668779539818</updated>
+    </task>
+    <option name="localTasksCounter" value="291" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -825,7 +823,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update how totals are displayed" />
     <MESSAGE value="Fix holograms" />
     <MESSAGE value="Move holograms" />
     <MESSAGE value="Move holograms down" />
@@ -850,6 +847,7 @@
     <MESSAGE value="FIx bunch of bugs" />
     <MESSAGE value="Update length" />
     <MESSAGE value="Disable auto-update of holograms" />
-    <option name="LAST_COMMIT_MESSAGE" value="Disable auto-update of holograms" />
+    <MESSAGE value="Update items" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update items" />
   </component>
 </project>

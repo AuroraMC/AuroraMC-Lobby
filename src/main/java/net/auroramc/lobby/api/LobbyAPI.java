@@ -97,7 +97,7 @@ public class LobbyAPI {
 
         checkpointItem = new GUIItem(Material.ENDER_PEARL, "&a&lTeleport to Last Checkpoint");
         restartItem = new GUIItem(Material.WOOD_PLATE, "&c&lRestart");
-        cancelItem = new GUIItem(Material.BARRIER, "&c&lCancel");
+        cancelItem = new GUIItem(Material.BED, "&c&lCancel");
         gameServers = new HashMap<>();
         gameTotals = new HashMap<>();
         gameHolos = new HashMap<>();
