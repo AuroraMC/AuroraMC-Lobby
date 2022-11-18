@@ -360,11 +360,11 @@ public class LobbyListener implements Listener {
                 }.runTaskAsynchronously(AuroraMCAPI.getCore());
                 switch (reward.getCosmetic().getRarity()) {
                     case COMMON: {
-                        cratePlayer.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "You just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)" + ((duplicate)?". This item is a duplicate.":"")));
+                        cratePlayer.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "You just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)" + ((duplicate)?" &c&lDUPLICATE":"")));
                         break;
                     }
                     case UNCOMMON: {
-                        cratePlayer.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "You just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)" + ((duplicate)?". This item is a duplicate.":"")));
+                        cratePlayer.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "You just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)" + ((duplicate)?" &c&lDUPLICATE":"")));
                         Location loc = block.getLocation().add(0.5, 0, 0.5);
                         org.bukkit.entity.Firework firework = loc.getWorld().spawn(loc, org.bukkit.entity.Firework.class);
                         FireworkMeta meta = firework.getFireworkMeta();
@@ -380,7 +380,7 @@ public class LobbyListener implements Listener {
                         break;
                     }
                     case RARE: {
-                        cratePlayer.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "You just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)" + ((duplicate)?". This item is a duplicate.":"")));
+                        cratePlayer.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "You just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)" + ((duplicate)?" &c&lDUPLICATE":"")));
                         Location loc = block.getLocation().add(0.5, 0, 0.5);
                         org.bukkit.entity.Firework firework = loc.getWorld().spawn(loc, org.bukkit.entity.Firework.class);
                         FireworkMeta meta = firework.getFireworkMeta();
@@ -397,7 +397,7 @@ public class LobbyListener implements Listener {
                     }
                     case EPIC: {
                         for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
-                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + cratePlayer.getPlayer().getName() + "** just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)" + ((duplicate)?". This item is a duplicate.":"")));
+                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + cratePlayer.getPlayer().getName() + "** just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)" + ((duplicate)?" &c&lDUPLICATE":"")));
                             player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.PORTAL_TRAVEL, 100, 0);
                             new BukkitRunnable() {
                                 int i = 0;
@@ -428,7 +428,7 @@ public class LobbyListener implements Listener {
                     }
                     case LEGENDARY: {
                         for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
-                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + cratePlayer.getPlayer().getName() + "** just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)" + ((duplicate)?". This item is a duplicate.":"")));
+                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + cratePlayer.getPlayer().getName() + "** just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)" + ((duplicate)?" &c&lDUPLICATE":"")));
                             player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ENDERDRAGON_GROWL, 100, 0);
                         }
                         new BukkitRunnable() {
@@ -458,7 +458,7 @@ public class LobbyListener implements Listener {
                     }
                     case MYTHICAL: {
                         for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
-                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + cratePlayer.getPlayer().getName() + "** just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)" + ((duplicate)?". This item is a duplicate.":"")));
+                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + cratePlayer.getPlayer().getName() + "** just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)" + ((duplicate)?" &c&lDUPLICATE":"")));
                             player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ENDERDRAGON_DEATH, 100, 0);
                         }
                         new BukkitRunnable() {
