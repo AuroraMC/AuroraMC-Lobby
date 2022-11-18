@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Update item, can now see duplicates">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Hologram now updates properly, change format of duplicate text" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -463,13 +461,7 @@
       <workItem from="1668779065423" duration="776000" />
       <workItem from="1668780132997" duration="143000" />
       <workItem from="1668780281568" duration="59000" />
-    </task>
-    <task id="LOCAL-00243" summary="Fix grappling hook">
-      <created>1658944147158</created>
-      <option name="number" value="00243" />
-      <option name="presentableId" value="LOCAL-00243" />
-      <option name="project" value="LOCAL" />
-      <updated>1658944147158</updated>
+      <workItem from="1668781887911" duration="332000" />
     </task>
     <task id="LOCAL-00244" summary="Update NPC Locations">
       <created>1659026900016</created>
@@ -807,7 +799,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668779879186</updated>
     </task>
-    <option name="localTasksCounter" value="292" />
+    <task id="LOCAL-00292" summary="Hologram now updates properly, change format of duplicate text">
+      <created>1668781995203</created>
+      <option name="number" value="00292" />
+      <option name="presentableId" value="LOCAL-00292" />
+      <option name="project" value="LOCAL" />
+      <updated>1668781995203</updated>
+    </task>
+    <option name="localTasksCounter" value="293" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -825,7 +824,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Move holograms" />
     <MESSAGE value="Move holograms down" />
     <MESSAGE value="Fix medium parkour" />
     <MESSAGE value="Fix parkour items" />
@@ -850,6 +848,7 @@
     <MESSAGE value="Disable auto-update of holograms" />
     <MESSAGE value="Update items" />
     <MESSAGE value="Update item, can now see duplicates" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update item, can now see duplicates" />
+    <MESSAGE value="Hologram now updates properly, change format of duplicate text" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hologram now updates properly, change format of duplicate text" />
   </component>
 </project>

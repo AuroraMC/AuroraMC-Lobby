@@ -48,12 +48,12 @@ public class ConfirmGold extends GUI {
                 for (int i = 0;i < amount;i++) {
                     GoldCrate crate = CrateUtil.generateGoldCrate(player.getId());
                     player.getCrates().add(crate);
-                    long amountOfCrates = player.getCrates().stream().filter(crate2 -> crate2.getOpened() <= 0).count();
-                    if (player.getHolograms().get("crates").getLines().size() == 1) {
-                        player.getHolograms().get("crates").addLine(2, "&fYou have &b" + amountOfCrates + " &fcrates to open!");
-                    } else {
-                        player.getHolograms().get("crates").getLines().get(2).setText("&fYou have &b" + amountOfCrates + " &fcrates to open!");
-                    }
+                }
+                long amountOfCrates = player.getCrates().stream().filter(crate2 -> crate2.getOpened() <= 0).count();
+                if (player.getHolograms().get("crates").getLines().size() == 1) {
+                    player.getHolograms().get("crates").addLine(2, "&fYou have &b" + amountOfCrates + " &fcrates to open!");
+                } else {
+                    player.getHolograms().get("crates").getLines().get(2).setText("&fYou have &b" + amountOfCrates + " &fcrates to open!");
                 }
                 player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "You purchased &6" + amount + " Gold Crates&r&f and &d" + (amount * CrateUtil.GOLD_CRATE_PRICE) + " Tickets&r&f were withdrawn from your account."));
             } else {
