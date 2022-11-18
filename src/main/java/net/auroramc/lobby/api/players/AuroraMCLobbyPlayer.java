@@ -336,6 +336,12 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
         lastMonthlyBonus = System.currentTimeMillis();
         this.getBank().addTickets(amount, true, true);
         this.getBank().addCrowns(amount, true, true);
+        long amountOfCrates = getCrates().stream().filter(crate2 -> crate2.getOpened() <= 0).count();
+        if (getHolograms().get("crates").getLines().size() == 1) {
+            getHolograms().get("crates").addLine(2, "&fYou have &b" + amountOfCrates + " &fcrates to open!");
+        } else {
+            getHolograms().get("crates").getLines().get(2).setText("&fYou have &b" + amountOfCrates + " &fcrates to open!");
+        }
         LobbyDatabaseManager.setLastMonthlyBonus(this.getId(), lastMonthlyBonus);
     }
 
@@ -352,6 +358,12 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
         crates.add(crate2);
         this.getBank().addTickets(5000, true, true);
         this.getBank().addCrowns(5000, true, true);
+        long amountOfCrates = getCrates().stream().filter(crate3 -> crate3.getOpened() <= 0).count();
+        if (getHolograms().get("crates").getLines().size() == 1) {
+            getHolograms().get("crates").addLine(2, "&fYou have &b" + amountOfCrates + " &fcrates to open!");
+        } else {
+            getHolograms().get("crates").getLines().get(2).setText("&fYou have &b" + amountOfCrates + " &fcrates to open!");
+        }
         LobbyDatabaseManager.setLastPlusBonus(this.getId(), lastPlusBonus);
     }
 
