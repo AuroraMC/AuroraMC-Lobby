@@ -132,7 +132,7 @@ public class EmeraldCrateMenu extends GUI {
                         if (i < 7) {
                             CrateStructures.getEmeraldCrate().getLevel(i).place(loc);
                             loc.setY(loc.getY() + 1);
-                            location.getWorld().playSound(location, Sound.DIG_STONE, 100, 0);
+                            location.getWorld().playSound(location, Sound.DIG_STONE, 1, 0);
                         }
                         if (i > 0) {
                             Location loc2 = location.clone();

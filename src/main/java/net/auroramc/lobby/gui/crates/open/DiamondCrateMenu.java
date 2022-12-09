@@ -118,7 +118,7 @@ public class DiamondCrateMenu extends GUI {
 
                 Location chest = new Location(location.getWorld(), location.getX(), location.getY() + 3, location.getZ() + 3);
                 chest.getBlock().setType(Material.CHEST);
-                chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
+                chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 1, 1);
                 new BukkitRunnable(){
                     byte i = 2;
                     @Override
@@ -135,7 +135,7 @@ public class DiamondCrateMenu extends GUI {
                             BlockState c = chest.getBlock().getState();
                             c.setData(new Chest(BlockFace.SOUTH));
                             c.update();
-                            chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
+                            chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 1, 1);
                             new BukkitRunnable(){
                                 byte i = 2;
                                 @Override
@@ -153,7 +153,7 @@ public class DiamondCrateMenu extends GUI {
                                         BlockState c = chest.getBlock().getState();
                                         c.setData(new Chest(BlockFace.WEST));
                                         c.update();
-                                        chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
+                                        chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 1, 1);
                                         new BukkitRunnable(){
                                             byte i = 2;
                                             @Override
@@ -170,7 +170,7 @@ public class DiamondCrateMenu extends GUI {
                                                     BlockState c = chest.getBlock().getState();
                                                     c.setData(new Chest(BlockFace.EAST));
                                                     c.update();
-                                                    chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
+                                                    chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 1, 1);
                                                     new BukkitRunnable(){
                                                         byte i = 2;
                                                         @Override
@@ -184,7 +184,7 @@ public class DiamondCrateMenu extends GUI {
                                                                 this.cancel();
                                                                 return;
                                                             }
-                                                            chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
+                                                            chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 1, 1);
                                                             chest.getBlock().setType(Material.AIR);
                                                             chest.setY(chest.getY() - 1);
                                                             chest.getBlock().setType(Material.CHEST);
@@ -197,7 +197,7 @@ public class DiamondCrateMenu extends GUI {
                                                     this.cancel();
                                                     return;
                                                 }
-                                                chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
+                                                chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 1, 1);
                                                 chest.getBlock().setType(Material.AIR);
                                                 chest.setY(chest.getY() - 1);
                                                 chest.getBlock().setType(Material.CHEST);
@@ -210,7 +210,7 @@ public class DiamondCrateMenu extends GUI {
                                         this.cancel();
                                         return;
                                     }
-                                    chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
+                                    chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 1, 1);
                                     chest.getBlock().setType(Material.AIR);
                                     chest.setY(chest.getY() - 1);
                                     chest.getBlock().setType(Material.CHEST);
@@ -223,7 +223,7 @@ public class DiamondCrateMenu extends GUI {
                             this.cancel();
                             return;
                         }
-                        chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 100, 1);
+                        chest.getWorld().playSound(chest, Sound.WOOD_CLICK, 1, 1);
                         chest.getBlock().setType(Material.AIR);
                         chest.setY(chest.getY() - 1);
                         chest.getBlock().setType(Material.CHEST);
