@@ -235,7 +235,7 @@ public class JoinListener implements Listener {
 
     private static void updateHeaderFooter(CraftPlayer player2) {
         try {
-            IChatBaseComponent header = IChatBaseComponent.ChatSerializer.a("{\"text\": \"§3§lTHE AURORAMC NETWORK §b§l» §3§lauroramc.net\",\"color\":\"dark_aqua\",\"bold\":\"false\"}");
+            IChatBaseComponent header = IChatBaseComponent.ChatSerializer.a("{\"text\": \"§3§lTHE AURORAMC NETWORK §b§l» §3§lAURORAMC.NET\",\"color\":\"dark_aqua\",\"bold\":\"false\"}");
             IChatBaseComponent footer = IChatBaseComponent.ChatSerializer.a("{\"text\": \"§bYou are currently connected to §3" + AuroraMCAPI.getServerInfo().getName() + "\n\n§bRanks, Cosmetics and more @ store.auroramc.net!\",\"color\":\"aqua\",\"bold\":\"false\"}");
 
             PacketPlayOutPlayerListHeaderFooter packet = new PacketPlayOutPlayerListHeaderFooter();
