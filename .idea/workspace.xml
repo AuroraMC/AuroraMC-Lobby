@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix jakes fuckup">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Update tab">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -467,13 +466,7 @@
       <workItem from="1668780281568" duration="59000" />
       <workItem from="1668781887911" duration="332000" />
       <workItem from="1670599239328" duration="361000" />
-    </task>
-    <task id="LOCAL-00246" summary="Fix Hub Explorer being given too early">
-      <created>1659546766904</created>
-      <option name="number" value="00246" />
-      <option name="presentableId" value="LOCAL-00246" />
-      <option name="project" value="LOCAL" />
-      <updated>1659546766904</updated>
+      <workItem from="1670705546745" duration="10000" />
     </task>
     <task id="LOCAL-00247" summary="Add branch to bversions">
       <created>1659550513855</created>
@@ -811,7 +804,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670631649243</updated>
     </task>
-    <option name="localTasksCounter" value="295" />
+    <task id="LOCAL-00295" summary="Update tab">
+      <created>1670634679875</created>
+      <option name="number" value="00295" />
+      <option name="presentableId" value="LOCAL-00295" />
+      <option name="project" value="LOCAL" />
+      <updated>1670634679875</updated>
+    </task>
+    <option name="localTasksCounter" value="296" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -832,7 +832,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix parkour items" />
     <MESSAGE value="Fix checkpoints" />
     <MESSAGE value="Show amount of crates in view crates menu" />
     <MESSAGE value="Fix GUI formatting" />
@@ -857,6 +856,7 @@
     <MESSAGE value="Hologram now updates properly, change format of duplicate text" />
     <MESSAGE value="Experimenting with tab" />
     <MESSAGE value="block is bad" />
-    <option name="LAST_COMMIT_MESSAGE" value="block is bad" />
+    <MESSAGE value="Update tab" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update tab" />
   </component>
 </project>
