@@ -95,8 +95,8 @@ public class LobbyAPI {
         prefsItem = new GUIItem(Material.REDSTONE_COMPARATOR, "&a&lView Preferences");
         cosmeticsItem = new GUIItem(Material.EMERALD, "&a&lView Cosmetics");
 
-        checkpointItem = new GUIItem(Material.GOLD_PLATE, "&a&lTeleport to Last Checkpoint");
-        restartItem = new GUIItem(Material.WOOD_DOOR, "&c&lRestart");
+        checkpointItem = new GUIItem(Material.ENDER_PEARL, "&a&lTeleport to Last Checkpoint");
+        restartItem = new GUIItem(Material.WOOD_PLATE, "&c&lRestart");
         cancelItem = new GUIItem(Material.BED, "&c&lCancel");
         gameServers = new HashMap<>();
         gameTotals = new HashMap<>();

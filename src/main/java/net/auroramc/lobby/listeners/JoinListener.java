@@ -235,8 +235,12 @@ public class JoinListener implements Listener {
 
     private static void updateHeaderFooter(CraftPlayer player2) {
         try {
-            IChatBaseComponent header = IChatBaseComponent.ChatSerializer.a("{\"text\": \"LOBBY\",\"color\":\"dark_aqua\",\"bold\":\"true\"}");
-            IChatBaseComponent footer = IChatBaseComponent.ChatSerializer.a("{\"text\": \"Purchase ranks, cosmetics and more at store.auroramc.net!\",\"color\":\"aqua\",\"bold\":\"false\"}");
+            IChatBaseComponent header = IChatBaseComponent.ChatSerializer.a("{\"text\": \"§3§lAURORAMC NETWORK         §b§lAURORAMC.NET\",\"color\":\"dark_aqua\",\"bold\":\"false\"}");
+            IChatBaseComponent footer = IChatBaseComponent.ChatSerializer.a("{\"text\": \"\n§fYou are currently connected to §b" + ((AuroraMCAPI.getPlayer(player2).isDisguised() && AuroraMCAPI.getPlayer(player2).getPreferences().isHideDisguiseNameEnabled())?"§oHidden":AuroraMCAPI.getServerInfo().getName()) + "\n\n" +
+                    "§rForums §3§l» §bauroramc.net\n" +
+                    "§rStore §3§l» §bstore.auroramc.net\n" +
+                    "§rDiscord §3§l» §bdiscord.auroramc.net\n" +
+                    "\",\"color\":\"aqua\",\"bold\":\"false\"}");
 
             PacketPlayOutPlayerListHeaderFooter packet = new PacketPlayOutPlayerListHeaderFooter();
             Field ff = packet.getClass().getDeclaredField("a");

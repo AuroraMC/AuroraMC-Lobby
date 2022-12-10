@@ -129,7 +129,7 @@ public class GoldCrateMenu extends GUI {
                         }
                         if (i < 0) {
                             chest.getBlock().setType(Material.CHEST);
-                            chest.getWorld().playSound(chest, Sound.BLAZE_HIT, 100, 1);
+                            chest.getWorld().playSound(chest, Sound.BLAZE_HIT, 1, 1);
                             chest.setZ(chest.getZ() - 6);
 
                             chest.getBlock().setType(Material.STATIONARY_LAVA);
@@ -147,7 +147,7 @@ public class GoldCrateMenu extends GUI {
                                         BlockState c = chest.getBlock().getState();
                                         c.setData(new Chest(BlockFace.SOUTH));
                                         c.update();
-                                        chest.getWorld().playSound(chest, Sound.BLAZE_HIT, 100, 1);
+                                        chest.getWorld().playSound(chest, Sound.BLAZE_HIT, 1, 1);
                                         chest.setX(chest.getX() + 3);
                                         chest.setZ(chest.getZ() + 3);
 
@@ -166,7 +166,7 @@ public class GoldCrateMenu extends GUI {
                                                     BlockState c = chest.getBlock().getState();
                                                     c.setData(new Chest(BlockFace.WEST));
                                                     c.update();
-                                                    chest.getWorld().playSound(chest, Sound.BLAZE_HIT, 100, 1);
+                                                    chest.getWorld().playSound(chest, Sound.BLAZE_HIT, 1, 1);
                                                     chest.setX(chest.getX() - 6);
 
                                                     chest.getBlock().setType(Material.STATIONARY_LAVA);
@@ -184,7 +184,7 @@ public class GoldCrateMenu extends GUI {
                                                                 BlockState c = chest.getBlock().getState();
                                                                 c.setData(new Chest(BlockFace.EAST));
                                                                 c.update();
-                                                                chest.getWorld().playSound(chest, Sound.BLAZE_HIT, 100, 1);
+                                                                chest.getWorld().playSound(chest, Sound.BLAZE_HIT, 1, 1);
                                                                 LobbyAPI.crateAnimationFinished();
                                                                 this.cancel();
                                                                 return;

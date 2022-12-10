@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Disable auto-update of holograms">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Update tab">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +28,7 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="bugfix" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -65,7 +65,8 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
@@ -459,48 +460,13 @@
       <workItem from="1667839694844" duration="2000" />
       <workItem from="1667916325506" duration="683000" />
       <workItem from="1667921383265" duration="20000" />
-    </task>
-    <task id="LOCAL-00241" summary="Fix grappling hook">
-      <created>1658944072103</created>
-      <option name="number" value="00241" />
-      <option name="presentableId" value="LOCAL-00241" />
-      <option name="project" value="LOCAL" />
-      <updated>1658944072103</updated>
-    </task>
-    <task id="LOCAL-00242" summary="Undo last commit">
-      <created>1658944096541</created>
-      <option name="number" value="00242" />
-      <option name="presentableId" value="LOCAL-00242" />
-      <option name="project" value="LOCAL" />
-      <updated>1658944096541</updated>
-    </task>
-    <task id="LOCAL-00243" summary="Fix grappling hook">
-      <created>1658944147158</created>
-      <option name="number" value="00243" />
-      <option name="presentableId" value="LOCAL-00243" />
-      <option name="project" value="LOCAL" />
-      <updated>1658944147158</updated>
-    </task>
-    <task id="LOCAL-00244" summary="Update NPC Locations">
-      <created>1659026900016</created>
-      <option name="number" value="00244" />
-      <option name="presentableId" value="LOCAL-00244" />
-      <option name="project" value="LOCAL" />
-      <updated>1659026900016</updated>
-    </task>
-    <task id="LOCAL-00245" summary="Fix plus bonus">
-      <created>1659280356174</created>
-      <option name="number" value="00245" />
-      <option name="presentableId" value="LOCAL-00245" />
-      <option name="project" value="LOCAL" />
-      <updated>1659280356174</updated>
-    </task>
-    <task id="LOCAL-00246" summary="Fix Hub Explorer being given too early">
-      <created>1659546766904</created>
-      <option name="number" value="00246" />
-      <option name="presentableId" value="LOCAL-00246" />
-      <option name="project" value="LOCAL" />
-      <updated>1659546766904</updated>
+      <workItem from="1668778702247" duration="131000" />
+      <workItem from="1668779065423" duration="776000" />
+      <workItem from="1668780132997" duration="143000" />
+      <workItem from="1668780281568" duration="59000" />
+      <workItem from="1668781887911" duration="332000" />
+      <workItem from="1670599239328" duration="361000" />
+      <workItem from="1670705546745" duration="10000" />
     </task>
     <task id="LOCAL-00247" summary="Add branch to bversions">
       <created>1659550513855</created>
@@ -803,11 +769,56 @@
       <option name="project" value="LOCAL" />
       <updated>1667916357924</updated>
     </task>
-    <option name="localTasksCounter" value="290" />
+    <task id="LOCAL-00290" summary="Update items">
+      <created>1668779539817</created>
+      <option name="number" value="00290" />
+      <option name="presentableId" value="LOCAL-00290" />
+      <option name="project" value="LOCAL" />
+      <updated>1668779539818</updated>
+    </task>
+    <task id="LOCAL-00291" summary="Update item, can now see duplicates">
+      <created>1668779879186</created>
+      <option name="number" value="00291" />
+      <option name="presentableId" value="LOCAL-00291" />
+      <option name="project" value="LOCAL" />
+      <updated>1668779879186</updated>
+    </task>
+    <task id="LOCAL-00292" summary="Hologram now updates properly, change format of duplicate text">
+      <created>1668781995203</created>
+      <option name="number" value="00292" />
+      <option name="presentableId" value="LOCAL-00292" />
+      <option name="project" value="LOCAL" />
+      <updated>1668781995203</updated>
+    </task>
+    <task id="LOCAL-00293" summary="Experimenting with tab">
+      <created>1670631215332</created>
+      <option name="number" value="00293" />
+      <option name="presentableId" value="LOCAL-00293" />
+      <option name="project" value="LOCAL" />
+      <updated>1670631215332</updated>
+    </task>
+    <task id="LOCAL-00294" summary="block is bad">
+      <created>1670631649242</created>
+      <option name="number" value="00294" />
+      <option name="presentableId" value="LOCAL-00294" />
+      <option name="project" value="LOCAL" />
+      <updated>1670631649243</updated>
+    </task>
+    <task id="LOCAL-00295" summary="Update tab">
+      <created>1670634679875</created>
+      <option name="number" value="00295" />
+      <option name="presentableId" value="LOCAL-00295" />
+      <option name="project" value="LOCAL" />
+      <updated>1670634679875</updated>
+    </task>
+    <option name="localTasksCounter" value="296" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:org.spigotmc:spigot-api" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -821,12 +832,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update how totals are displayed" />
-    <MESSAGE value="Fix holograms" />
-    <MESSAGE value="Move holograms" />
-    <MESSAGE value="Move holograms down" />
-    <MESSAGE value="Fix medium parkour" />
-    <MESSAGE value="Fix parkour items" />
     <MESSAGE value="Fix checkpoints" />
     <MESSAGE value="Show amount of crates in view crates menu" />
     <MESSAGE value="Fix GUI formatting" />
@@ -846,6 +851,12 @@
     <MESSAGE value="FIx bunch of bugs" />
     <MESSAGE value="Update length" />
     <MESSAGE value="Disable auto-update of holograms" />
-    <option name="LAST_COMMIT_MESSAGE" value="Disable auto-update of holograms" />
+    <MESSAGE value="Update items" />
+    <MESSAGE value="Update item, can now see duplicates" />
+    <MESSAGE value="Hologram now updates properly, change format of duplicate text" />
+    <MESSAGE value="Experimenting with tab" />
+    <MESSAGE value="block is bad" />
+    <MESSAGE value="Update tab" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update tab" />
   </component>
 </project>
