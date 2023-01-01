@@ -9,7 +9,7 @@ import net.auroramc.core.api.events.FakePlayerInteractEvent;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.gui.GameServerListing;
-import net.auroramc.lobby.gui.TheMonke;
+import net.auroramc.lobby.gui.CosmonautLuna;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
@@ -21,9 +21,9 @@ public class FakePlayerListener implements Listener {
         if (player.canClick()) {
             player.click();
             if (e.getFakePlayer().equals(LobbyAPI.getLunaEntity())) {
-                TheMonke monke = new TheMonke((AuroraMCLobbyPlayer) e.getPlayer());
-                monke.open(e.getPlayer());
-                AuroraMCAPI.openGUI(e.getPlayer(), monke);
+                CosmonautLuna luna = new CosmonautLuna((AuroraMCLobbyPlayer) e.getPlayer());
+                luna.open(e.getPlayer());
+                AuroraMCAPI.openGUI(e.getPlayer(), luna);
             } else if (e.getFakePlayer().equals(LobbyAPI.getArcadeEntity())) {
                 GameServerListing listing = new GameServerListing(player, "ARCADE_MODE", "Arcade Mode", "Arcade");
                 listing.open(player);

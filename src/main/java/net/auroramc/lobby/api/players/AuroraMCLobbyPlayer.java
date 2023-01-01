@@ -261,7 +261,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
     }
 
     public void claimDaily() {
-        getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("The Monke", "You claimed your daily bonus! You got:\n" +
+        getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Cosmonaut Luna", "You claimed your daily bonus! You got:\n" +
                 "&6+100 Crowns\n" +
                 "&d+100 Tickets\n" +
                 "&a+100 XP"));
@@ -329,7 +329,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
             }
         }
 
-        getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("The Monke", "You claimed your monthly bonus! You got:\n" +
+        getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Cosmonaut Luna", "You claimed your monthly bonus! You got:\n" +
                 crates + "\n" +
                 "&6+" + String.format("%,d", amount) + "  Crowns\n" +
                 "&d+" + String.format("%,d", amount) + " Tickets"));
@@ -346,7 +346,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
     }
 
     public void claimPlus() {
-        getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("The Monke", "You claimed your monthly Plus bonus! You got:\n" +
+        getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Cosmonaut Luna", "You claimed your monthly Plus bonus! You got:\n" +
                 "&a+1 Emerald Crate\n" +
                 "&d+1 Diamond Crate\n" +
                 "&6+5,000 Crowns\n" +

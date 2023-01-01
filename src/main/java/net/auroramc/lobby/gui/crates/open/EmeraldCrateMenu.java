@@ -76,7 +76,7 @@ public class EmeraldCrateMenu extends GUI {
         this.setItem(0, 4, new GUIItem(head));
 
         if (availableCrates.size() == 0) {
-            this.setItem(2, 4, new GUIItem(Material.BARRIER, "&c&lYou do not have any available Emerald Crates.", 1, ";&7Claim a Plus Bonus from The Monke;&7in order to get an Emerald Crate!"));
+            this.setItem(2, 4, new GUIItem(Material.BARRIER, "&c&lYou do not have any available Emerald Crates.", 1, ";&7Claim a Plus Bonus from Cosmonaut Luna;&7in order to get an Emerald Crate!"));
         } else {
             int row = 1;
             int column = 1;
