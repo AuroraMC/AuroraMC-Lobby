@@ -403,7 +403,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
         Calendar last = Calendar.getInstance();
         Calendar today = Calendar.getInstance();
 
-        last.setTimeInMillis(lastDailyBonus);
+        last.setTimeInMillis(lastMonthlyBonus);
         today.setTime(new Date());
 
         return last.get(Calendar.YEAR) < today.get(Calendar.YEAR) || (last.get(Calendar.YEAR) == today.get(Calendar.YEAR) && last.get(Calendar.MONTH) != today.get(Calendar.MONTH));
