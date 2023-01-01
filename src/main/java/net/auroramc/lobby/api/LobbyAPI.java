@@ -144,7 +144,7 @@ public class LobbyAPI {
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("&b&lLuna"));
         profile.getProperties().put("textures", new Property("textures", LUNA_SKIN, LUNA_SIGNATURE));
         lunaEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
-        lunaEntity.setLocation(7.5, 71.0, 13.5, 145.0f, 0f);
+        lunaEntity.setLocation(7.5, 70.0, 12.5, 145.0f, 0f);
         AuroraMCAPI.registerFakePlayer(lunaEntity);
 
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Arcade Mode§r "));
