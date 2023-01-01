@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add QoL hologram">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" afterDir="false" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Move Luna">
       <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/players/AuroraMCLobbyPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/players/AuroraMCLobbyPlayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -474,14 +472,7 @@
       <workItem from="1672601237610" duration="17000" />
       <workItem from="1672602237049" duration="25000" />
       <workItem from="1672602459562" duration="1023000" />
-      <workItem from="1672604249769" duration="1251000" />
-    </task>
-    <task id="LOCAL-00252" summary="Start parkour work">
-      <created>1666740237449</created>
-      <option name="number" value="00252" />
-      <option name="presentableId" value="LOCAL-00252" />
-      <option name="project" value="LOCAL" />
-      <updated>1666740237449</updated>
+      <workItem from="1672604249769" duration="1619000" />
     </task>
     <task id="LOCAL-00253" summary="Removed useless import">
       <created>1666740508890</created>
@@ -819,7 +810,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672604883229</updated>
     </task>
-    <option name="localTasksCounter" value="301" />
+    <task id="LOCAL-00301" summary="Move Luna">
+      <created>1672610788827</created>
+      <option name="number" value="00301" />
+      <option name="presentableId" value="LOCAL-00301" />
+      <option name="project" value="LOCAL" />
+      <updated>1672610788827</updated>
+    </task>
+    <option name="localTasksCounter" value="302" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -840,7 +838,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix fly issue, fix checkpoints" />
     <MESSAGE value="Fix fly issue" />
     <MESSAGE value="Fix issue with teleport to checkpoint" />
     <MESSAGE value="Leaderboard now updates every 20 seconds" />
@@ -865,6 +862,7 @@
     <MESSAGE value="Change the monke to luna" />
     <MESSAGE value="Remove references to The Monke" />
     <MESSAGE value="Add QoL hologram" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add QoL hologram" />
+    <MESSAGE value="Move Luna" />
+    <option name="LAST_COMMIT_MESSAGE" value="Move Luna" />
   </component>
 </project>

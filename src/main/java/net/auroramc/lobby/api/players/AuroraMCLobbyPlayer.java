@@ -238,7 +238,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
                 }
                 pl.getHolograms().put("crates", hologram);
 
-                hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), 7.5, 72.3, 12.5), null);
+                hologram = new Hologram(pl, new Location(Bukkit.getWorld("world"), 7.5, 72.3, 12.5), null);
                 int rewards = 0;
                 if (canClaimDaily()) {
                     rewards++;
