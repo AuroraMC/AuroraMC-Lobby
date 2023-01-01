@@ -20,6 +20,7 @@ import net.auroramc.lobby.api.parkour.Parkour;
 import net.auroramc.lobby.api.parkour.ParkourRun;
 import net.auroramc.lobby.api.util.CheckForcefieldRunnable;
 import net.auroramc.lobby.utils.CrateUtil;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -236,6 +237,24 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
                     hologram.despawn();
                 }
                 pl.getHolograms().put("crates", hologram);
+
+                hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), 7.5, 73.3, 13.5), null);
+                int rewards = 0;
+                if (canClaimDaily()) {
+                    rewards++;
+                }
+                if (canClaimMonthly()) {
+                    rewards++;
+                }
+                if (canClaimPlus()) {
+                    rewards++;
+                }
+
+                if (rewards > 0) {
+                    hologram.addLine(1, "&d" + rewards + " rewards to claim!");
+                    hologram.spawn();
+                }
+                pl.getHolograms().put("rewards", hologram);
             }
         }.runTask(AuroraMCAPI.getCore());
     }
@@ -272,6 +291,28 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
         this.getStats().addXp(100, true);
         LobbyDatabaseManager.setLastDailyBonus(this.getId(), lastDailyBonus);
         LobbyDatabaseManager.setLastDailyBonusTotal(this.getId(), dailyBonusClaimed);
+        updateRewardHologram();
+    }
+
+    public void updateRewardHologram() {
+        Hologram hologram = this.getHolograms().get("rewards");
+        int rewards = 0;
+        if (canClaimDaily()) {
+            rewards++;
+        }
+        if (canClaimMonthly()) {
+            rewards++;
+        }
+        if (canClaimPlus()) {
+            rewards++;
+        }
+
+        if (rewards > 0) {
+            hologram.getLines().get(1).setText("&d" + rewards + " rewards to claim!");
+            hologram.update();
+        } else {
+            hologram.despawn();
+        }
     }
 
     public CheckForcefieldRunnable getRunnable() {
@@ -343,6 +384,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
             getHolograms().get("crates").getLines().get(2).setText("&fYou have &b" + amountOfCrates + " &fcrates to open!");
         }
         LobbyDatabaseManager.setLastMonthlyBonus(this.getId(), lastMonthlyBonus);
+        updateRewardHologram();
     }
 
     public void claimPlus() {
@@ -365,6 +407,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
             getHolograms().get("crates").getLines().get(2).setText("&fYou have &b" + amountOfCrates + " &fcrates to open!");
         }
         LobbyDatabaseManager.setLastPlusBonus(this.getId(), lastPlusBonus);
+        updateRewardHologram();
     }
 
     public int getDailyBonusClaimed() {
