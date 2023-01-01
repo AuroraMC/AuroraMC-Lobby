@@ -19,7 +19,6 @@ import net.auroramc.lobby.api.parkour.Reward;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.api.util.Changelog;
 import net.auroramc.lobby.api.util.CommunityPoll;
-import net.auroramc.lobby.api.util.ServerState;
 import net.minecraft.server.v1_8_R3.EntityPlayer;
 import net.minecraft.server.v1_8_R3.PlayerInteractManager;
 import org.bukkit.Bukkit;
@@ -28,16 +27,14 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.craftbukkit.v1_8_R3.CraftServer;
 import org.bukkit.craftbukkit.v1_8_R3.CraftWorld;
-import org.bukkit.entity.ArmorStand;
 
-import java.lang.reflect.Array;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class LobbyAPI {
 
-    private static final String MONKEY_SKIN = "ewogICJ0aW1lc3RhbXAiIDogMTY0ODY2OTgxMzA0NSwKICAicHJvZmlsZUlkIiA6ICIyZjZlMTAxNTUyZmM0Zjg1OTEwODJjNWY0ZmRlMWFjNCIsCiAgInByb2ZpbGVOYW1lIiA6ICJMb29maWkiLAogICJzaWduYXR1cmVSZXF1aXJlZCIgOiB0cnVlLAogICJ0ZXh0dXJlcyIgOiB7CiAgICAiU0tJTiIgOiB7CiAgICAgICJ1cmwiIDogImh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjliZjMyMzAxNDAyMjFkYjVkYjcyNjgwMjcyOTVhZDE3ZTkxMWE4NzFhMDVhN2QwMWIwYTVhMzdmNDY5MmQwOCIsCiAgICAgICJtZXRhZGF0YSIgOiB7CiAgICAgICAgIm1vZGVsIiA6ICJzbGltIgogICAgICB9CiAgICB9CiAgfQp9";
-    private static final String MONKEY_SIGNATURE = "r59qGCO6MS9xU2fMYK7TZoN8Lli1yj5Lf+ag+i5QlNg8/1htjeokhJUOZzNCgdxAuHfwihnbBaAKMfGgZmzn0QVM5kxY5/sYWWZ23mcATY2kbu1t+wuEFAlvmIRB+Ea3CcECKIr4Z/0XOM1qEHY3fKQFYvIM+06TUYz5yKCxSApaIQ1zPFZCgpdgaGbj8PBjlNI+fIShETN7cDS4LkT8xbLxkdOwKuM2rQGRE1ojGBpfc9ekh+r2tJP5EvrTVma9LpVKZHCvsxUjtcnf8FgCaorljjpPGHcxuFajT805YOp3IIuHgVNlZS23zzaPDqG7qhnwjPcHdkFtHXC+Xh57wYOFBcd/B65Xn8j0rA9kcA1eSr0Q67Hp9LH8niioD3TXnlmNWbQ/yCBlL5OYHfx6kbfxp3kNrYDmuCOzINXxICV0ytaQUzSyOTQqEApdevu32pIMyR3doXFSdkK44kpGd00ZidHME7F1Y4LLK2UYuZ/Pod4+lzqlyV6xGd/GTeLIfZcryubiJmTU6t0U8vwJ8ZZWdYCFz8m2PKUQLPAQkeVC/qGP1t/BltAMwhqHdDIDBFPcA5cVFulwF6LcoBMjwqcggy3mUuELubl5lkfy02lzVu+zZJ/KZOTbeM7HOESoSiqxk2Ewmt/qstovT3UZrMnd4+XhnHKY/VO5sKEYLXI=";
+    private static final String LUNA_SKIN = "ewogICJ0aW1lc3RhbXAiIDogMTY3MjYwMjQ0NTAzOCwKICAicHJvZmlsZUlkIiA6ICI0ZDE2OTg3NzUyOWY0ODc3YWQxOWE1MDA2ZjM5NDBiMCIsCiAgInByb2ZpbGVOYW1lIiA6ICJBdXJvcmFNQyIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS84NDYyMDkzMWViMDg5ZWRkY2UyNzkzNmNlMTIyYTQ2ODM3ZTFmYmU2NjA4YTYzMmQ5Njk2NGI3NzQyMGUzYWIiCiAgICB9CiAgfQp9";
+    private static final String LUNA_SIGNATURE = "k0+/l28ge5BpqrSURb9BZ/WGTie+hIqezCptb2cUXdU9/72VS5UF3Y1q1q2E0xqhMah++SvScyXIfjmneg9j5Dzivbc2ksTJ6llmNLgi+E/0WjpXH4mjuXSH1n3C9sMsKByJZ0z+c/tZeGdLWFdCEEwVLKQCBGNyVskTp4wDNVS3iLOuMVbX0hDkXkRxCACVXmflG5qCKHN5pzjgfToJKBZGrv9bkK9ypzjocHBEb0jZYBaGnddENb4msaOA2iSVSaxD0IYjTggjo079p9SyrWZISW070+gImHXCJHi4BO6S6mzUQik5ySp3wY14Dc4jP+FZDB83LwGSF20Eyl+ib3pP3Zx5VyQdsZjxdoWhmicauV3Uxr30HHrmcKhBCFywrIQcw/tyNvlN9Zoq7KU2JVA8E2Y49fMhg3heDjr5XCyMu1Mjnn5BzVk7McbK1DFjCBH5meWiM+xAKPlNRgAY1/kkjtHME8I4gn3QQMapxsctRXMMdMCUBtDtnMuNun8NIk9mnnEpnWYvjCIiFmAT4ndHSx9X7+EHpH/bCZJlgfdTGm18rn489UpauJqPk0rr52rpeSSdqLVEcqwIXssFirIPzSaXwUynseSk4s3pB1hxnrT98KH1rt+rihBqHQI+m6K0uZQzDfz+Xy502ZQTBFdEYBLNPeQmFVXgYhfpL4Q=";
 
     private static final String CQ_SKIN = "ewogICJ0aW1lc3RhbXAiIDogMTY1MDA0OTk1NTY3MiwKICAicHJvZmlsZUlkIiA6ICI0ZDE2OTg3NzUyOWY0ODc3YWQxOWE1MDA2ZjM5NDBiMCIsCiAgInByb2ZpbGVOYW1lIiA6ICJBdXJvcmFNQyIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS81YTY1YTEzMGRiYTJmMmVhZWI0MzM0NWQ3ZGNkMWUzNGI5YjAwZGQzNGY2ZWMwNThkYzNjZWZkMDNiNzAxMjFlIgogICAgfQogIH0KfQ==";
     private static final String CQ_SIGNATURE = "mt5PsPucovhZRN8+k8mcu2jHtrSTOSY736B0A3Z6JJvj2760mXTmXLR0V14TN+aWicXftaokslG/iOCLNbWukSfNYbrKS+DR55f3SHOUmast4eQ6lz9JP4yrLv7ceVyG/r9SQkXzrpkG+vSsotvG8krqN/Eh1VgXU8O3xPa4PsDs3EUj/dexsfHumlQrgMEkjE4K6xcBnYCm5AhOo293bJTq3/B33/5IGepz6EwRHhRiVghcacE5XL/Cx3EEShyTIMRYG++ixfuhF+iCPadP4LjaSWpK2oFJ2u57ZotsjqeDo9nKqg76frdFwP4psv8s+sHjw7BFwBX7dl8a9yOTHYPlcSw1Ocr8P54mfCo7FFyEQhjxmcH66/elu3LVdmqed5dg9vA6wWgMxlfIutvb3pkPQZGwdTeuG5uYUPBT93adgs7xi9i48YqizcUyO9/5FcPP7B0RFEPQ5FLh06Jnb3xsU7VHumL4UaXshwH73uRW4wYykMhH/xXHz84UMlz3iQL342bwjPCsi9w7MqxnAhE/Us0uZFFUh2kgXDPPItl9CKZo57NDmh9m79nXQNX/ETdxxm2YfQ2NryYuqs5K9TsdTPfGQVW+M08Akb+zZaHCmo0MBS4B9Kdr4f7n+1UigMrUJu6jUmSEd1qayAv5o26VU6mjLhMg/JLuQRWNFNE=";
@@ -72,7 +69,7 @@ public class LobbyAPI {
     private static final Map<String, Integer> gameTotals;
     private static final Map<String, Hologram> gameHolos;
 
-    private static EntityPlayer monkeyEntity;
+    private static EntityPlayer lunaEntity;
     private static EntityPlayer arcadeEntity;
     private static EntityPlayer cqEntity;
     private static EntityPlayer paintballEntity;
@@ -144,11 +141,11 @@ public class LobbyAPI {
 
     public static void spawnEntities() {
         GameProfile profile;
-        profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("&3&lThe Monke"));
-        profile.getProperties().put("textures", new Property("textures", MONKEY_SKIN, MONKEY_SIGNATURE));
-        monkeyEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
-        monkeyEntity.setLocation(7.5, 71.0, 13.5, 145.0f, 0f);
-        AuroraMCAPI.registerFakePlayer(monkeyEntity);
+        profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("&b&lLuna"));
+        profile.getProperties().put("textures", new Property("textures", LUNA_SKIN, LUNA_SIGNATURE));
+        lunaEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
+        lunaEntity.setLocation(7.5, 71.0, 13.5, 145.0f, 0f);
+        AuroraMCAPI.registerFakePlayer(lunaEntity);
 
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Arcade Mode§r "));
         profile.getProperties().put("textures", new Property("textures", ARCADE_SKIN, ARCADE_SIGNATURE));
@@ -231,8 +228,8 @@ public class LobbyAPI {
         return new GUIItem(Material.SKULL_ITEM, "&a&lView Statistics", 1, null, (short)3, false, playerName);
     }
 
-    public static EntityPlayer getMonkeyEntity() {
-        return monkeyEntity;
+    public static EntityPlayer getLunaEntity() {
+        return lunaEntity;
     }
 
     public static GameServerInfo getGameServer(String server) {

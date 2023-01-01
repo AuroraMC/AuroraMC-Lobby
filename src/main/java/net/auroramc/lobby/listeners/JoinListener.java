@@ -220,6 +220,10 @@ public class JoinListener implements Listener {
         team.setSuffix("§7v" + LobbyAPI.getVersionNumber("ARCADE_MODE").trim());
         team.addEntry("Arcade Mode§r ");
 
+        team = scoreboard2.registerNewTeam("ln");
+        team.setPrefix("§3§lCosmonaut§r ");
+        team.addEntry("§b§lLuna");
+
         player.getPlayer().getInventory().setItem(8, LobbyAPI.getLobbyItem().getItem());
         player.getPlayer().getInventory().setItem(7, LobbyAPI.getPrefsItem().getItem());
         player.getPlayer().getInventory().setItem(4, LobbyAPI.getCosmeticsItem().getItem());

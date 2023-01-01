@@ -20,7 +20,7 @@ public class FakePlayerListener implements Listener {
         AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) e.getPlayer();
         if (player.canClick()) {
             player.click();
-            if (e.getFakePlayer().equals(LobbyAPI.getMonkeyEntity())) {
+            if (e.getFakePlayer().equals(LobbyAPI.getLunaEntity())) {
                 TheMonke monke = new TheMonke((AuroraMCLobbyPlayer) e.getPlayer());
                 monke.open(e.getPlayer());
                 AuroraMCAPI.openGUI(e.getPlayer(), monke);
