@@ -221,8 +221,20 @@ public class JoinListener implements Listener {
         team.addEntry("Arcade Mode§r ");
 
         team = scoreboard2.registerNewTeam("ln");
-        team.setPrefix("§3§lCosmonaut§r ");
-        team.addEntry("§b§lLuna");
+        team.setPrefix("§6§lLieutenant§r");
+        team.addEntry(" §e§lLuna");
+
+        team = scoreboard2.registerNewTeam("skye");
+        team.setPrefix("§3§lSergeant§r ");
+        team.addEntry("§b§lSkye");
+
+        team = scoreboard2.registerNewTeam("cmt");
+        team.setPrefix("§5§lColonel§r ");
+        team.addEntry("§d§lComet");
+
+        team = scoreboard2.registerNewTeam("cly");
+        team.setPrefix("§4§lCaptain§r ");
+        team.addEntry("§c§lCalypso");
 
         player.getPlayer().getInventory().setItem(8, LobbyAPI.getLobbyItem().getItem());
         player.getPlayer().getInventory().setItem(7, LobbyAPI.getPrefsItem().getItem());

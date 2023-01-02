@@ -70,6 +70,9 @@ public class LobbyAPI {
     private static final Map<String, Hologram> gameHolos;
 
     private static EntityPlayer lunaEntity;
+    private static EntityPlayer cometEntity;
+    private static EntityPlayer calypsoEntity;
+    private static EntityPlayer skyeEntity;
     private static EntityPlayer arcadeEntity;
     private static EntityPlayer cqEntity;
     private static EntityPlayer paintballEntity;
@@ -141,11 +144,38 @@ public class LobbyAPI {
 
     public static void spawnEntities() {
         GameProfile profile;
-        profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("&b&lLuna"));
+        profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert(" &e&lLuna"));
         profile.getProperties().put("textures", new Property("textures", LUNA_SKIN, LUNA_SIGNATURE));
         lunaEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
         lunaEntity.setLocation(7.5, 70.0, 12.5, 145.0f, 0f);
         AuroraMCAPI.registerFakePlayer(lunaEntity);
+
+
+        profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("&d&lComet"));
+        profile.getProperties().put("textures", new Property("textures", LUNA_SKIN, LUNA_SIGNATURE));
+        cometEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
+        cometEntity.setLocation(-33.5, 71.0, 13.5,-45f, 0f);
+        AuroraMCAPI.registerFakePlayer(cometEntity);
+
+        profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("&c&lCalypso"));
+        profile.getProperties().put("textures", new Property("textures", LUNA_SKIN, LUNA_SIGNATURE));
+        calypsoEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
+        calypsoEntity.setLocation(-41.5, 71.0, 134.5, -145.0f, 0f);
+        AuroraMCAPI.registerFakePlayer(calypsoEntity);
+
+        profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("&b&lSkye"));
+        profile.getProperties().put("textures", new Property("textures", LUNA_SKIN, LUNA_SIGNATURE));
+        skyeEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
+        skyeEntity.setLocation(60.5, 70.0, 70.5, 145.0f, 0f);
+        AuroraMCAPI.registerFakePlayer(skyeEntity);
+
+        /*
+            ==================================================================================
+                                             GAME NPC'S
+            ==================================================================================
+         */
+
+
 
         profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Arcade Mode§r "));
         profile.getProperties().put("textures", new Property("textures", ARCADE_SKIN, ARCADE_SIGNATURE));
