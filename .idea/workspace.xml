@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Move Luna">
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/players/AuroraMCLobbyPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/players/AuroraMCLobbyPlayer.java" afterDir="false" />
-    </list>
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix hologram issue" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -472,14 +470,7 @@
       <workItem from="1672601237610" duration="17000" />
       <workItem from="1672602237049" duration="25000" />
       <workItem from="1672602459562" duration="1023000" />
-      <workItem from="1672604249769" duration="1619000" />
-    </task>
-    <task id="LOCAL-00253" summary="Removed useless import">
-      <created>1666740508890</created>
-      <option name="number" value="00253" />
-      <option name="presentableId" value="LOCAL-00253" />
-      <option name="project" value="LOCAL" />
-      <updated>1666740508890</updated>
+      <workItem from="1672604249769" duration="1966000" />
     </task>
     <task id="LOCAL-00254" summary="Add more info on startup">
       <created>1666887305776</created>
@@ -817,7 +808,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672610788827</updated>
     </task>
-    <option name="localTasksCounter" value="302" />
+    <task id="LOCAL-00302" summary="Fix hologram issue">
+      <created>1672611215792</created>
+      <option name="number" value="00302" />
+      <option name="presentableId" value="LOCAL-00302" />
+      <option name="project" value="LOCAL" />
+      <updated>1672611215792</updated>
+    </task>
+    <option name="localTasksCounter" value="303" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -838,7 +836,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix fly issue" />
     <MESSAGE value="Fix issue with teleport to checkpoint" />
     <MESSAGE value="Leaderboard now updates every 20 seconds" />
     <MESSAGE value="Fix message, increase blocks needed for teleport on fall" />
@@ -863,6 +860,7 @@
     <MESSAGE value="Remove references to The Monke" />
     <MESSAGE value="Add QoL hologram" />
     <MESSAGE value="Move Luna" />
-    <option name="LAST_COMMIT_MESSAGE" value="Move Luna" />
+    <MESSAGE value="Fix hologram issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix hologram issue" />
   </component>
 </project>
