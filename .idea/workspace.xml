@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix spelling">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix achievement given too early">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -477,13 +477,8 @@
       <workItem from="1672661188344" duration="3000" />
       <workItem from="1672764180931" duration="67000" />
       <workItem from="1672764253312" duration="935000" />
-    </task>
-    <task id="LOCAL-00258" summary="Flip lambda expression for crates">
-      <created>1666891182740</created>
-      <option name="number" value="00258" />
-      <option name="presentableId" value="LOCAL-00258" />
-      <option name="project" value="LOCAL" />
-      <updated>1666891182740</updated>
+      <workItem from="1672777667643" duration="165000" />
+      <workItem from="1672777858785" duration="13000" />
     </task>
     <task id="LOCAL-00259" summary="Fix lambda expression for crates">
       <created>1666891774542</created>
@@ -821,7 +816,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672765180786</updated>
     </task>
-    <option name="localTasksCounter" value="307" />
+    <task id="LOCAL-00307" summary="Fix achievement given too early">
+      <created>1672777791636</created>
+      <option name="number" value="00307" />
+      <option name="presentableId" value="LOCAL-00307" />
+      <option name="project" value="LOCAL" />
+      <updated>1672777791636</updated>
+    </task>
+    <option name="localTasksCounter" value="308" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -842,7 +844,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Change loc of leaderboard holograms" />
     <MESSAGE value="add debug message" />
     <MESSAGE value="Fix issue" />
     <MESSAGE value="Disable hub speed when player starts a parkour" />
@@ -867,6 +868,7 @@
     <MESSAGE value="Change to eye of ender" />
     <MESSAGE value="Add phrases to entities" />
     <MESSAGE value="Fix spelling" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix spelling" />
+    <MESSAGE value="Fix achievement given too early" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix achievement given too early" />
   </component>
 </project>
