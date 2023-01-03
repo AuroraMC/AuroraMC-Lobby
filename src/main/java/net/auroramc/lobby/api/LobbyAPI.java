@@ -411,5 +411,18 @@ public class LobbyAPI {
     public static Map<String, Integer> getGameTotals() {
         return gameTotals;
     }
+
+    public static EntityPlayer getCalypsoEntity() {
+        return calypsoEntity;
+    }
+
+    public static EntityPlayer getCometEntity() {
+        return cometEntity;
+    }
+
+    public static EntityPlayer getSkyeEntity() {
+        return skyeEntity;
+    }
+
 }
 
