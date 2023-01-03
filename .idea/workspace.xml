@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Change to eye of ender">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix spelling">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/FakePlayerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/FakePlayerListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -478,21 +476,7 @@
       <workItem from="1672619962050" duration="1580000" />
       <workItem from="1672661188344" duration="3000" />
       <workItem from="1672764180931" duration="67000" />
-      <workItem from="1672764253312" duration="413000" />
-    </task>
-    <task id="LOCAL-00256" summary="Fix issue with loading parkours">
-      <created>1666887846391</created>
-      <option name="number" value="00256" />
-      <option name="presentableId" value="LOCAL-00256" />
-      <option name="project" value="LOCAL" />
-      <updated>1666887846391</updated>
-    </task>
-    <task id="LOCAL-00257" summary="Update SQL statements">
-      <created>1666889279827</created>
-      <option name="number" value="00257" />
-      <option name="presentableId" value="LOCAL-00257" />
-      <option name="project" value="LOCAL" />
-      <updated>1666889279827</updated>
+      <workItem from="1672764253312" duration="935000" />
     </task>
     <task id="LOCAL-00258" summary="Flip lambda expression for crates">
       <created>1666891182740</created>
@@ -823,7 +807,21 @@
       <option name="project" value="LOCAL" />
       <updated>1672764242349</updated>
     </task>
-    <option name="localTasksCounter" value="305" />
+    <task id="LOCAL-00305" summary="Add phrases to entities">
+      <created>1672764674900</created>
+      <option name="number" value="00305" />
+      <option name="presentableId" value="LOCAL-00305" />
+      <option name="project" value="LOCAL" />
+      <updated>1672764674900</updated>
+    </task>
+    <task id="LOCAL-00306" summary="Fix spelling">
+      <created>1672765180786</created>
+      <option name="number" value="00306" />
+      <option name="presentableId" value="LOCAL-00306" />
+      <option name="project" value="LOCAL" />
+      <updated>1672765180786</updated>
+    </task>
+    <option name="localTasksCounter" value="307" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -844,8 +842,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix message, increase blocks needed for teleport on fall" />
-    <MESSAGE value="FIx messages" />
     <MESSAGE value="Change loc of leaderboard holograms" />
     <MESSAGE value="add debug message" />
     <MESSAGE value="Fix issue" />
@@ -869,6 +865,8 @@
     <MESSAGE value="Fix hologram issue" />
     <MESSAGE value="Update NPC Locations" />
     <MESSAGE value="Change to eye of ender" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change to eye of ender" />
+    <MESSAGE value="Add phrases to entities" />
+    <MESSAGE value="Fix spelling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix spelling" />
   </component>
 </project>
