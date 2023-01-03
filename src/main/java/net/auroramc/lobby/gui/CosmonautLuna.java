@@ -30,7 +30,7 @@ import java.lang.reflect.Field;
 import java.util.Base64;
 import java.util.UUID;
 
-public class TheMonke extends GUI {
+public class CosmonautLuna extends GUI {
 
     private final static ItemStack head;
 
@@ -57,9 +57,9 @@ public class TheMonke extends GUI {
 
     private final AuroraMCLobbyPlayer player;
 
-    public TheMonke(AuroraMCLobbyPlayer player) {
-        super("&3&lThe Monke", 5, true);
-        this.border("&3&lThe Monke", null);
+    public CosmonautLuna(AuroraMCLobbyPlayer player) {
+        super("&3&lCosmonaut &b&lLuna", 5, true);
+        this.border("&3&lCosmonaut &b&lLuna", null);
         this.player = player;
 
         this.setItem(0, 4, new GUIItem(Material.EMPTY_MAP, "&3&lChangelogs", 1, ";&r&fLatest Update:;&b" + ((LobbyAPI.getLatestChangelog() != null)?LobbyAPI.getLatestChangelog().getUpdateTitle():"None") + ";;&aClick to view more changelogs!"));

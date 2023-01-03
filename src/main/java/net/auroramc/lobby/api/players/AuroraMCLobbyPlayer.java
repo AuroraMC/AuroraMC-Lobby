@@ -20,6 +20,7 @@ import net.auroramc.lobby.api.parkour.Parkour;
 import net.auroramc.lobby.api.parkour.ParkourRun;
 import net.auroramc.lobby.api.util.CheckForcefieldRunnable;
 import net.auroramc.lobby.utils.CrateUtil;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -236,6 +237,24 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
                     hologram.despawn();
                 }
                 pl.getHolograms().put("crates", hologram);
+
+                hologram = new Hologram(pl, new Location(Bukkit.getWorld("world"), 7.5, 72.3, 12.5), null);
+                int rewards = 0;
+                if (canClaimDaily()) {
+                    rewards++;
+                }
+                if (canClaimMonthly()) {
+                    rewards++;
+                }
+                if (canClaimPlus()) {
+                    rewards++;
+                }
+
+                if (rewards > 0) {
+                    hologram.addLine(1, "&d" + rewards + " rewards to claim!");
+                    hologram.spawn();
+                }
+                pl.getHolograms().put("rewards", hologram);
             }
         }.runTask(AuroraMCAPI.getCore());
     }
@@ -261,7 +280,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
     }
 
     public void claimDaily() {
-        getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("The Monke", "You claimed your daily bonus! You got:\n" +
+        getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Cosmonaut Luna", "You claimed your daily bonus! You got:\n" +
                 "&6+100 Crowns\n" +
                 "&d+100 Tickets\n" +
                 "&a+100 XP"));
@@ -272,6 +291,28 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
         this.getStats().addXp(100, true);
         LobbyDatabaseManager.setLastDailyBonus(this.getId(), lastDailyBonus);
         LobbyDatabaseManager.setLastDailyBonusTotal(this.getId(), dailyBonusClaimed);
+        updateRewardHologram();
+    }
+
+    public void updateRewardHologram() {
+        Hologram hologram = this.getHolograms().get("rewards");
+        int rewards = 0;
+        if (canClaimDaily()) {
+            rewards++;
+        }
+        if (canClaimMonthly()) {
+            rewards++;
+        }
+        if (canClaimPlus()) {
+            rewards++;
+        }
+
+        if (rewards > 0) {
+            hologram.getLines().get(1).setText("&d" + rewards + " rewards to claim!");
+            hologram.update();
+        } else {
+            hologram.despawn();
+        }
     }
 
     public CheckForcefieldRunnable getRunnable() {
@@ -329,7 +370,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
             }
         }
 
-        getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("The Monke", "You claimed your monthly bonus! You got:\n" +
+        getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Cosmonaut Luna", "You claimed your monthly bonus! You got:\n" +
                 crates + "\n" +
                 "&6+" + String.format("%,d", amount) + "  Crowns\n" +
                 "&d+" + String.format("%,d", amount) + " Tickets"));
@@ -343,10 +384,11 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
             getHolograms().get("crates").getLines().get(2).setText("&fYou have &b" + amountOfCrates + " &fcrates to open!");
         }
         LobbyDatabaseManager.setLastMonthlyBonus(this.getId(), lastMonthlyBonus);
+        updateRewardHologram();
     }
 
     public void claimPlus() {
-        getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("The Monke", "You claimed your monthly Plus bonus! You got:\n" +
+        getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Cosmonaut Luna", "You claimed your monthly Plus bonus! You got:\n" +
                 "&a+1 Emerald Crate\n" +
                 "&d+1 Diamond Crate\n" +
                 "&6+5,000 Crowns\n" +
@@ -365,6 +407,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
             getHolograms().get("crates").getLines().get(2).setText("&fYou have &b" + amountOfCrates + " &fcrates to open!");
         }
         LobbyDatabaseManager.setLastPlusBonus(this.getId(), lastPlusBonus);
+        updateRewardHologram();
     }
 
     public int getDailyBonusClaimed() {
@@ -403,7 +446,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
         Calendar last = Calendar.getInstance();
         Calendar today = Calendar.getInstance();
 
-        last.setTimeInMillis(lastDailyBonus);
+        last.setTimeInMillis(lastMonthlyBonus);
         today.setTime(new Date());
 
         return last.get(Calendar.YEAR) < today.get(Calendar.YEAR) || (last.get(Calendar.YEAR) == today.get(Calendar.YEAR) && last.get(Calendar.MONTH) != today.get(Calendar.MONTH));

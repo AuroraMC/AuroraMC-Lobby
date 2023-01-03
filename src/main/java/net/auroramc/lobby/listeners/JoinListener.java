@@ -13,10 +13,7 @@ import net.auroramc.core.api.players.scoreboard.PlayerScoreboard;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
-import net.auroramc.lobby.api.util.ServerState;
 import net.minecraft.server.v1_8_R3.*;
-import org.bukkit.scoreboard.DisplaySlot;
-import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -220,6 +217,22 @@ public class JoinListener implements Listener {
         team.setSuffix("§7v" + LobbyAPI.getVersionNumber("ARCADE_MODE").trim());
         team.addEntry("Arcade Mode§r ");
 
+        team = scoreboard2.registerNewTeam("ln");
+        team.setPrefix("§6§lLieutenant§r");
+        team.addEntry(" §e§lLuna");
+
+        team = scoreboard2.registerNewTeam("skye");
+        team.setPrefix("§3§lSergeant§r ");
+        team.addEntry("§b§lSkye");
+
+        team = scoreboard2.registerNewTeam("cmt");
+        team.setPrefix("§5§lColonel§r ");
+        team.addEntry("§d§lComet");
+
+        team = scoreboard2.registerNewTeam("cly");
+        team.setPrefix("§4§lCaptain§r ");
+        team.addEntry("§c§lCalypso");
+
         player.getPlayer().getInventory().setItem(8, LobbyAPI.getLobbyItem().getItem());
         player.getPlayer().getInventory().setItem(7, LobbyAPI.getPrefsItem().getItem());
         player.getPlayer().getInventory().setItem(4, LobbyAPI.getCosmeticsItem().getItem());
@@ -228,7 +241,7 @@ public class JoinListener implements Listener {
 
         if (LobbyAPI.getPoll() != null) {
             if (!LobbyDatabaseManager.hasVoted(LobbyAPI.getPoll().getId(), player.getId())) {
-                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Community Polls", "There is currently a poll active that you haven't voted in! Visit **The Monke** to vote! Every vote counts!"));
+                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Community Polls", "There is currently a poll active that you haven't voted in! Visit **Cosmonaut Luna** to vote! Every vote counts!"));
             }
         }
     }

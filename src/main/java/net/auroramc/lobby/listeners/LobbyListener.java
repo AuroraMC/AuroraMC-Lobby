@@ -271,7 +271,7 @@ public class LobbyListener implements Listener {
                             player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have left the parkour."));
                             return;
                         }
-                        case ENDER_PEARL: {
+                        case EYE_OF_ENDER: {
                             player.getPlayer().setFallDistance(0);
                             Location l = player.getActiveParkourRun().getParkour().getRestartPoint().getLocation().clone();
                             if (player.getActiveParkourRun().getLastReached() != 0) {
