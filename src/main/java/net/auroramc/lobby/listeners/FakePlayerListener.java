@@ -30,7 +30,7 @@ public class FakePlayerListener implements Listener {
         calypsoPhrases = new ArrayList<>();
         skyePhrases = new ArrayList<>();
 
-        lunaPhrases.add("I got the call telling me that my crew had crashed.. I had to bring resupples immediately to make sure they can get back to the mission A.S.A.P!");
+        lunaPhrases.add("I got the call telling me that my crew had crashed.. I had to bring resupplies immediately to make sure they can get back to the mission A.S.A.P!");
 
         cometPhrases.add("What happened? Where are we? Are the rest of the crew okay????");
 
