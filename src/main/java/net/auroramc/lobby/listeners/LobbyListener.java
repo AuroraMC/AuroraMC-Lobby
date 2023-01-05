@@ -333,7 +333,9 @@ public class LobbyListener implements Listener {
                     cratePlayer.getHolograms().get("crates").getLines().get(2).setText("&fYou have &b" + amount + " &fcrates to open!");
                 }
             } else {
-                cratePlayer.getHolograms().get("crates").removeLine(2);
+                if (cratePlayer.getHolograms().get("crates").getLines().containsKey(2)) {
+                    cratePlayer.getHolograms().get("crates").removeLine(2);
+                }
             }
             if (reward.getCosmetic() != null) {
                 boolean duplicate = reward.getCosmetic().hasUnlocked(cratePlayer);

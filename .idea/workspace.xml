@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix achievement given too early">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix achievement given too early" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -479,13 +477,7 @@
       <workItem from="1672764253312" duration="935000" />
       <workItem from="1672777667643" duration="165000" />
       <workItem from="1672777858785" duration="13000" />
-    </task>
-    <task id="LOCAL-00259" summary="Fix lambda expression for crates">
-      <created>1666891774542</created>
-      <option name="number" value="00259" />
-      <option name="presentableId" value="LOCAL-00259" />
-      <option name="project" value="LOCAL" />
-      <updated>1666891774542</updated>
+      <workItem from="1672777893814" duration="83000" />
     </task>
     <task id="LOCAL-00260" summary="Holograms for parkours will now generate.&#10;Implement checkpoints and endpoints.">
       <created>1666965898371</created>
@@ -823,7 +815,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672777791636</updated>
     </task>
-    <option name="localTasksCounter" value="308" />
+    <task id="LOCAL-00308" summary="Fix achievement given too early">
+      <created>1672777905197</created>
+      <option name="number" value="00308" />
+      <option name="presentableId" value="LOCAL-00308" />
+      <option name="project" value="LOCAL" />
+      <updated>1672777905197</updated>
+    </task>
+    <option name="localTasksCounter" value="309" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
