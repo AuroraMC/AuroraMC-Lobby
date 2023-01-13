@@ -493,6 +493,11 @@ public class LobbyListener implements Listener {
                 new BukkitRunnable() {
                     @Override
                     public void run() {
+                        //Close chest
+                        PacketPlayOutBlockAction packet = new PacketPlayOutBlockAction(new BlockPosition(block.getX(), block.getY(), block.getZ()), Blocks.CHEST, 1, 0);
+                        for (Player player : Bukkit.getOnlinePlayers()) {
+                            ((CraftPlayer) player).getHandle().playerConnection.sendPacket(packet);
+                        }
                         stand.remove();
                         item.remove();
                         JSONObject crateLocation = LobbyAPI.getLobbyMap().getMapData().getJSONObject("game").getJSONArray("CRATE").getJSONObject(0);
@@ -583,6 +588,10 @@ public class LobbyListener implements Listener {
                 new BukkitRunnable() {
                     @Override
                     public void run() {
+                        PacketPlayOutBlockAction packet = new PacketPlayOutBlockAction(new BlockPosition(block.getX(), block.getY(), block.getZ()), Blocks.CHEST, 1, 0);
+                        for (Player player : Bukkit.getOnlinePlayers()) {
+                            ((CraftPlayer) player).getHandle().playerConnection.sendPacket(packet);
+                        }
                         stand.remove();
                         item.remove();
                         JSONObject crateLocation = LobbyAPI.getLobbyMap().getMapData().getJSONObject("game").getJSONArray("CRATE").getJSONObject(0);

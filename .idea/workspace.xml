@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix achievement given too early" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix bug with hologram">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/LobbyListener.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -478,13 +481,9 @@
       <workItem from="1672777667643" duration="165000" />
       <workItem from="1672777858785" duration="13000" />
       <workItem from="1672777893814" duration="83000" />
-    </task>
-    <task id="LOCAL-00260" summary="Holograms for parkours will now generate.&#10;Implement checkpoints and endpoints.">
-      <created>1666965898371</created>
-      <option name="number" value="00260" />
-      <option name="presentableId" value="LOCAL-00260" />
-      <option name="project" value="LOCAL" />
-      <updated>1666965898371</updated>
+      <workItem from="1672942028327" duration="669000" />
+      <workItem from="1673625850266" duration="128000" />
+      <workItem from="1673626858374" duration="331000" />
     </task>
     <task id="LOCAL-00261" summary="Implement exploit prevention">
       <created>1666968031100</created>
@@ -822,7 +821,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672777905197</updated>
     </task>
-    <option name="localTasksCounter" value="309" />
+    <task id="LOCAL-00309" summary="Fix bug with hologram">
+      <created>1672942094446</created>
+      <option name="number" value="00309" />
+      <option name="presentableId" value="LOCAL-00309" />
+      <option name="project" value="LOCAL" />
+      <updated>1672942094447</updated>
+    </task>
+    <option name="localTasksCounter" value="310" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -843,7 +849,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add debug message" />
     <MESSAGE value="Fix issue" />
     <MESSAGE value="Disable hub speed when player starts a parkour" />
     <MESSAGE value="Add quick teleports to game menu" />
@@ -868,6 +873,7 @@
     <MESSAGE value="Add phrases to entities" />
     <MESSAGE value="Fix spelling" />
     <MESSAGE value="Fix achievement given too early" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix achievement given too early" />
+    <MESSAGE value="Fix bug with hologram" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix bug with hologram" />
   </component>
 </project>
