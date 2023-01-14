@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix achievement given too early">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add ability to view inprogress servers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,11 +82,11 @@
       <recent name="net.auroramc.lobby.commands" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="net.auroramc.lobby.gui" />
       <recent name="net.auroramc.lobby.api.util.structure.block" />
       <recent name="net.auroramc.lobby.gui.crates.buy" />
       <recent name="net.auroramc.lobby.gui.crates.buy.confirmation" />
       <recent name="net.auroramc.lobby.gui.creates" />
-      <recent name="net.auroramc.lobby.gui.changelog" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -479,34 +479,14 @@
       <workItem from="1672764253312" duration="935000" />
       <workItem from="1672777667643" duration="165000" />
       <workItem from="1672777858785" duration="13000" />
-    </task>
-    <task id="LOCAL-00259" summary="Fix lambda expression for crates">
-      <created>1666891774542</created>
-      <option name="number" value="00259" />
-      <option name="presentableId" value="LOCAL-00259" />
-      <option name="project" value="LOCAL" />
-      <updated>1666891774542</updated>
-    </task>
-    <task id="LOCAL-00260" summary="Holograms for parkours will now generate.&#10;Implement checkpoints and endpoints.">
-      <created>1666965898371</created>
-      <option name="number" value="00260" />
-      <option name="presentableId" value="LOCAL-00260" />
-      <option name="project" value="LOCAL" />
-      <updated>1666965898371</updated>
-    </task>
-    <task id="LOCAL-00261" summary="Implement exploit prevention">
-      <created>1666968031100</created>
-      <option name="number" value="00261" />
-      <option name="presentableId" value="LOCAL-00261" />
-      <option name="project" value="LOCAL" />
-      <updated>1666968031100</updated>
-    </task>
-    <task id="LOCAL-00262" summary="Fix some GUIs, now show playercount in some places">
-      <created>1666974157656</created>
-      <option name="number" value="00262" />
-      <option name="presentableId" value="LOCAL-00262" />
-      <option name="project" value="LOCAL" />
-      <updated>1666974157656</updated>
+      <workItem from="1672777893814" duration="83000" />
+      <workItem from="1672942028327" duration="669000" />
+      <workItem from="1673625850266" duration="128000" />
+      <workItem from="1673626858374" duration="429000" />
+      <workItem from="1673627379038" duration="5000" />
+      <workItem from="1673656326782" duration="75000" />
+      <workItem from="1673656544598" duration="629000" />
+      <workItem from="1673695597198" duration="377000" />
     </task>
     <task id="LOCAL-00263" summary="Update how totals are displayed">
       <created>1666976367250</created>
@@ -823,7 +803,35 @@
       <option name="project" value="LOCAL" />
       <updated>1672777791636</updated>
     </task>
-    <option name="localTasksCounter" value="308" />
+    <task id="LOCAL-00308" summary="Fix achievement given too early">
+      <created>1672777905197</created>
+      <option name="number" value="00308" />
+      <option name="presentableId" value="LOCAL-00308" />
+      <option name="project" value="LOCAL" />
+      <updated>1672777905197</updated>
+    </task>
+    <task id="LOCAL-00309" summary="Fix bug with hologram">
+      <created>1672942094446</created>
+      <option name="number" value="00309" />
+      <option name="presentableId" value="LOCAL-00309" />
+      <option name="project" value="LOCAL" />
+      <updated>1672942094447</updated>
+    </task>
+    <task id="LOCAL-00310" summary="Fix chests remaining open when opening a different chest">
+      <created>1673627279357</created>
+      <option name="number" value="00310" />
+      <option name="presentableId" value="LOCAL-00310" />
+      <option name="project" value="LOCAL" />
+      <updated>1673627279357</updated>
+    </task>
+    <task id="LOCAL-00311" summary="Add ability to view inprogress servers">
+      <created>1673656927638</created>
+      <option name="number" value="00311" />
+      <option name="presentableId" value="LOCAL-00311" />
+      <option name="project" value="LOCAL" />
+      <updated>1673656927638</updated>
+    </task>
+    <option name="localTasksCounter" value="312" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -844,9 +852,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add debug message" />
-    <MESSAGE value="Fix issue" />
-    <MESSAGE value="Disable hub speed when player starts a parkour" />
     <MESSAGE value="Add quick teleports to game menu" />
     <MESSAGE value="Implement all achievements" />
     <MESSAGE value="FIx bunch of bugs" />
@@ -869,6 +874,9 @@
     <MESSAGE value="Add phrases to entities" />
     <MESSAGE value="Fix spelling" />
     <MESSAGE value="Fix achievement given too early" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix achievement given too early" />
+    <MESSAGE value="Fix bug with hologram" />
+    <MESSAGE value="Fix chests remaining open when opening a different chest" />
+    <MESSAGE value="Add ability to view inprogress servers" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add ability to view inprogress servers" />
   </component>
 </project>

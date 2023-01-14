@@ -37,6 +37,8 @@ public class GameServerListing extends GUI {
         this.serverCode = serverCode;
         this.border("&3&lSelect a server!", null);
 
+        this.setItem(5, 4, new GUIItem(Material.WOOL, "&7&lSpectate In-Progress Games", 1, ";&r&aClick here to view games in progress!"));
+
         List<GameServerInfo> infos = LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getInfo().getServerType().getString("game").equalsIgnoreCase(gameCode) && (gameServerInfo.getServerState() == ServerState.STARTING || gameServerInfo.getServerState() == ServerState.WAITING_FOR_PLAYERS || gameServerInfo.getServerState() == ServerState.ACTIVE)).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).collect(Collectors.toList());
         int row = 2;
         int column = 2;
@@ -56,6 +58,12 @@ public class GameServerListing extends GUI {
     @Override
     public void onClick(int row, int column, ItemStack item, ClickType clickType) {
         if (item.getType() != Material.STAINED_GLASS) {
+            if (item.getType() == Material.WOOL) {
+                GameInProgressServerListing sl = new GameInProgressServerListing(player, gameCode, gameName, serverCode);
+                sl.open(player);
+                AuroraMCAPI.openGUI(player, sl);
+                return;
+            }
             player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ITEM_BREAK, 100, 0);
             return;
         }
