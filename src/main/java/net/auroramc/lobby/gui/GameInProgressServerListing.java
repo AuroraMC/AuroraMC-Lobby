@@ -79,7 +79,7 @@ public class GameInProgressServerListing extends GUI {
     }
 
     public void update() {
-        List<GameServerInfo> infos = LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getInfo().getServerType().getString("game").equalsIgnoreCase(gameCode) && (gameServerInfo.getServerState() == ServerState.STARTING || gameServerInfo.getServerState() == ServerState.WAITING_FOR_PLAYERS || gameServerInfo.getServerState() == ServerState.ACTIVE)).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).collect(Collectors.toList());
+        List<GameServerInfo> infos = LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getInfo().getServerType().getString("game").equalsIgnoreCase(gameCode) && (gameServerInfo.getServerState() == ServerState.IN_GAME || gameServerInfo.getServerState() == ServerState.ENDING)).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).collect(Collectors.toList());
         int row = 2;
         int column = 2;
         for (int i = 0;i < 10;i++) {
@@ -87,7 +87,7 @@ public class GameInProgressServerListing extends GUI {
                 this.updateItem(row, column, null);
             } else {
                 GameServerInfo info = infos.get(i);
-                this.updateItem(row, column, new GUIItem(Material.STAINED_GLASS, "&3&l" + gameName + " Server " + info.getInfo().getName().split("-")[1], info.getCurrentPlayers(), ";&r&fPlayers: **" + info.getCurrentPlayers() + "**&f/**" + info.getMaxPlayers() + "**;&r&fGame: **" + info.getActiveGame() + "**" + ((!info.getActiveMap().equalsIgnoreCase("n/a"))?";&r&fMap: **" + info.getActiveMap() + "**":"") + ";&r&fStatus: **" + info.getServerState().getName() + "**;;" + ((info.getCurrentPlayers() == info.getMaxPlayers())?"&cThis server is currently full!":"&aClick to join the server!"), (short)((info.getCurrentPlayers() == info.getMaxPlayers() || info.getServerState() == ServerState.INACTIVE)?14:((info.getServerState() == ServerState.STARTING)?4:0))));
+                this.updateItem(row, column, new GUIItem(Material.STAINED_GLASS, "&3&l" + gameName + " Server " + info.getInfo().getName().split("-")[1], info.getCurrentPlayers(), ";&r&fPlayers: **" + info.getCurrentPlayers() + "**&f/**" + info.getMaxPlayers() + "**;&r&fGame: **" + info.getActiveGame() + "**" + ((!info.getActiveMap().equalsIgnoreCase("n/a"))?";&r&fMap: **" + info.getActiveMap() + "**":"") + ";&r&fStatus: **" + info.getServerState().getName() + "**;;" + ((info.getCurrentPlayers() == info.getMaxPlayers())?"&cThis server is currently full!":"&aClick to join the server!"), (short)((info.getServerState() == ServerState.IN_GAME)?5:4)));
             }
             column++;
             if (column == 7) {
