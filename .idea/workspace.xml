@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add ability to view inprogress servers">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix updating in-progess games GUI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -487,13 +487,9 @@
       <workItem from="1673656326782" duration="75000" />
       <workItem from="1673656544598" duration="629000" />
       <workItem from="1673695597198" duration="377000" />
-    </task>
-    <task id="LOCAL-00263" summary="Update how totals are displayed">
-      <created>1666976367250</created>
-      <option name="number" value="00263" />
-      <option name="presentableId" value="LOCAL-00263" />
-      <option name="project" value="LOCAL" />
-      <updated>1666976367250</updated>
+      <workItem from="1673696005813" duration="85000" />
+      <workItem from="1674668054194" duration="59000" />
+      <workItem from="1678308691728" duration="6000" />
     </task>
     <task id="LOCAL-00264" summary="Fix holograms">
       <created>1666977522544</created>
@@ -831,7 +827,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673656927638</updated>
     </task>
-    <option name="localTasksCounter" value="312" />
+    <task id="LOCAL-00312" summary="Fix updating in-progess games GUI">
+      <created>1673696071485</created>
+      <option name="number" value="00312" />
+      <option name="presentableId" value="LOCAL-00312" />
+      <option name="project" value="LOCAL" />
+      <updated>1673696071485</updated>
+    </task>
+    <option name="localTasksCounter" value="313" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -852,7 +855,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add quick teleports to game menu" />
     <MESSAGE value="Implement all achievements" />
     <MESSAGE value="FIx bunch of bugs" />
     <MESSAGE value="Update length" />
@@ -877,6 +879,7 @@
     <MESSAGE value="Fix bug with hologram" />
     <MESSAGE value="Fix chests remaining open when opening a different chest" />
     <MESSAGE value="Add ability to view inprogress servers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add ability to view inprogress servers" />
+    <MESSAGE value="Fix updating in-progess games GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix updating in-progess games GUI" />
   </component>
 </project>
