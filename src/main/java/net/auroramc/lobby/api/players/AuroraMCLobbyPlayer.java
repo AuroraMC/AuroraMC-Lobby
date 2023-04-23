@@ -4,16 +4,18 @@
 
 package net.auroramc.lobby.api.players;
 
-import net.auroramc.core.api.AuroraMCAPI;
-import net.auroramc.core.api.cosmetics.Cosmetic;
-import net.auroramc.core.api.cosmetics.Crate;
-import net.auroramc.core.api.cosmetics.Gadget;
-import net.auroramc.core.api.players.AuroraMCPlayer;
+import net.auroramc.api.AuroraMCAPI;
+import net.auroramc.api.cosmetics.Cosmetic;
+import net.auroramc.api.cosmetics.Crate;
+import net.auroramc.api.cosmetics.Gadget;
+import net.auroramc.api.utils.TextFormatter;
+import net.auroramc.common.cosmetics.crates.DiamondCrate;
+import net.auroramc.common.cosmetics.crates.EmeraldCrate;
+import net.auroramc.common.cosmetics.crates.GoldCrate;
+import net.auroramc.common.cosmetics.crates.IronCrate;
+import net.auroramc.core.api.ServerAPI;
+import net.auroramc.core.api.player.AuroraMCServerPlayer;
 import net.auroramc.core.api.utils.holograms.Hologram;
-import net.auroramc.core.cosmetics.crates.DiamondCrate;
-import net.auroramc.core.cosmetics.crates.EmeraldCrate;
-import net.auroramc.core.cosmetics.crates.GoldCrate;
-import net.auroramc.core.cosmetics.crates.IronCrate;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
 import net.auroramc.lobby.api.parkour.Parkour;
@@ -31,7 +33,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.*;
 
-public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
+public class AuroraMCLobbyPlayer extends AuroraMCServerPlayer {
 
     private final long joinTimestamp;
     private long lastPunchTimestamp;
@@ -49,7 +51,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
 
     private List<Crate> crates;
 
-    public AuroraMCLobbyPlayer(AuroraMCPlayer oldPlayer) {
+    public AuroraMCLobbyPlayer(AuroraMCServerPlayer oldPlayer) {
         super(oldPlayer);
         this.joinTimestamp = System.currentTimeMillis();
         lastUsed = new HashMap<>();
@@ -60,7 +62,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
 
         if (oldPlayer.getPreferences().isHubForcefieldEnabled() && (oldPlayer.hasPermission("social") || oldPlayer.hasPermission("admin"))) {
             this.runnable = new CheckForcefieldRunnable(this);
-            this.runnable.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
+            this.runnable.runTaskTimer(ServerAPI.getCore(), 10, 10);
         } else {
             this.runnable = null;
         }
@@ -102,7 +104,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
         }
 
         //Achievement stuff
-        for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
+        for (AuroraMCServerPlayer player : ServerAPI.getPlayers()) {
             if (player.isLoaded()) {
                 if (player.hasPermission("social")) {
                     if (!player.isDisguised() && !player.isVanished() && !player.hasPermission("admin")) {
@@ -164,7 +166,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
                     }
                 }
                 if (!player.isDisguised() && !player.isVanished()) {
-                    if (oldPlayer.getFriendsList().getFriends().containsKey(player.getPlayer().getUniqueId())) {
+                    if (oldPlayer.getFriendsList().getFriends().containsKey(player.getUniqueId())) {
                         if (!player.getStats().getAchievementsGained().containsKey(AuroraMCAPI.getAchievement(34))) {
                             player.getStats().achievementGained(AuroraMCAPI.getAchievement(34), 1, true);
                         }
@@ -218,9 +220,9 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
             @Override
             public void run() {
                 if (getPreferences().isHubSpeedEnabled()) {
-                    getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 10000000, 1, true, false));
+                    addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 10000000, 1, true, false));
                 } else {
-                    getPlayer().removePotionEffect(PotionEffectType.SPEED);
+                    removePotionEffect(PotionEffectType.SPEED);
                 }
                 Location location = LobbyAPI.getChestBlock().getLocation().clone();
                 location.setY(location.getY() + 1);
@@ -256,7 +258,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
                 }
                 pl.getHolograms().put("rewards", hologram);
             }
-        }.runTask(AuroraMCAPI.getCore());
+        }.runTask(ServerAPI.getCore());
     }
 
     public long getJoinTimestamp() {
@@ -280,7 +282,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
     }
 
     public void claimDaily() {
-        getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Cosmonaut Luna", "You claimed your daily bonus! You got:\n" +
+        sendMessage(TextFormatter.pluginMessage("Cosmonaut Luna", "You claimed your daily bonus! You got:\n" +
                 "&6+100 Crowns\n" +
                 "&d+100 Tickets\n" +
                 "&a+100 XP"));
@@ -324,7 +326,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
             return;
         }
         this.runnable = new CheckForcefieldRunnable(this);
-        this.runnable.runTaskTimer(AuroraMCAPI.getCore(), 10, 10);
+        this.runnable.runTaskTimer(ServerAPI.getCore(), 10, 10);
     }
 
     public void deactivateForcefield() {
@@ -370,7 +372,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
             }
         }
 
-        getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Cosmonaut Luna", "You claimed your monthly bonus! You got:\n" +
+        sendMessage(TextFormatter.pluginMessage("Cosmonaut Luna", "You claimed your monthly bonus! You got:\n" +
                 crates + "\n" +
                 "&6+" + String.format("%,d", amount) + "  Crowns\n" +
                 "&d+" + String.format("%,d", amount) + " Tickets"));
@@ -388,7 +390,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
     }
 
     public void claimPlus() {
-        getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Cosmonaut Luna", "You claimed your monthly Plus bonus! You got:\n" +
+        sendMessage(TextFormatter.pluginMessage("Cosmonaut Luna", "You claimed your monthly Plus bonus! You got:\n" +
                 "&a+1 Emerald Crate\n" +
                 "&d+1 Diamond Crate\n" +
                 "&6+5,000 Crowns\n" +
@@ -469,22 +471,22 @@ public class AuroraMCLobbyPlayer extends AuroraMCPlayer {
 
     public void parkourStart(Parkour parkour) {
         this.activeParkourRun = new ParkourRun(this, parkour);
-        getPlayer().getInventory().setItem(3, LobbyAPI.getCheckpointItem().getItem());
-        getPlayer().getInventory().setItem(4, LobbyAPI.getRestartItem().getItem());
-        getPlayer().getInventory().setItem(5, LobbyAPI.getCancelItem().getItem());
+        getInventory().setItem(3, LobbyAPI.getCheckpointItem().getItemStack());
+        getInventory().setItem(4, LobbyAPI.getRestartItem().getItemStack());
+        getInventory().setItem(5, LobbyAPI.getCancelItem().getItemStack());
     }
 
     public void parkourEnd() {
         this.activeParkourRun = null;
-        getPlayer().getInventory().setItem(4, LobbyAPI.getCosmeticsItem().getItem());
+        getInventory().setItem(4, LobbyAPI.getCosmeticsItem().getItemStack());
         if (getActiveCosmetics().containsKey(Cosmetic.CosmeticType.GADGET)) {
             getActiveCosmetics().get(Cosmetic.CosmeticType.GADGET).onEquip(this);
         } else {
-            getPlayer().getInventory().setItem(3, new ItemStack(Material.AIR));
+            getInventory().setItem(3, new ItemStack(Material.AIR));
         }
-        getPlayer().getInventory().setItem(5, new ItemStack(Material.AIR));
+        getInventory().setItem(5, new ItemStack(Material.AIR));
         if (getPreferences().isHubSpeedEnabled()) {
-            getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 10000000, 1, true, false));
+            addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 10000000, 1, true, false));
         }
     }
 

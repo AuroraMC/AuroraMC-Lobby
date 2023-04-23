@@ -6,12 +6,13 @@ package net.auroramc.lobby.gui.crates.open;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
-import net.auroramc.core.api.AuroraMCAPI;
-import net.auroramc.core.api.cosmetics.Crate;
-import net.auroramc.core.api.players.AuroraMCPlayer;
+import net.auroramc.api.cosmetics.Crate;
+import net.auroramc.api.utils.TextFormatter;
+import net.auroramc.common.cosmetics.crates.EmeraldCrate;
+import net.auroramc.core.api.ServerAPI;
+import net.auroramc.core.api.player.AuroraMCServerPlayer;
 import net.auroramc.core.api.utils.gui.GUI;
 import net.auroramc.core.api.utils.gui.GUIItem;
-import net.auroramc.core.cosmetics.crates.EmeraldCrate;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.api.util.CrateStructures;
@@ -57,8 +58,8 @@ public class EmeraldCrateMenu extends GUI {
         ItemStack head = new ItemStack(Material.SKULL_ITEM, 1);
         head.setDurability((short)3);
         ItemMeta meta = (SkullMeta) head.getItemMeta();
-        meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&a&lEmerald Crate")));
-        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&7Emerald Crates are legendary crates that not;&7only give you a very high chance to find;&7legendary loot, but also contains no duplicates!")).split(";")));
+        meta.setDisplayName((TextFormatter.convert("&a&lEmerald Crate")));
+        meta.setLore(Arrays.asList(TextFormatter.convert(TextFormatter.highlightRaw(";&7Emerald Crates are legendary crates that not;&7only give you a very high chance to find;&7legendary loot, but also contains no duplicates!")).split(";")));
         Field field;
         try {
             field = meta.getClass().getDeclaredField("profile");
@@ -98,26 +99,26 @@ public class EmeraldCrateMenu extends GUI {
     @Override
     public void onClick(int row, int column, ItemStack item, ClickType clickType) {
         if (item.getType() != Material.ENDER_CHEST) {
-            player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ITEM_BREAK, 100, 0);
+            player.playSound(player.getLocation(), Sound.ITEM_BREAK, 100, 0);
         } else {
             Crate crate = availableCrates.get(((row - 1) * 7) + (column - 1));
-            player.getPlayer().closeInventory();
+            player.closeInventory();
 
             if (crate.open(player) == null) {
-                player.getPlayer().closeInventory();
-                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "You already have all of the rewards for this crate."));
+                player.closeInventory();
+                player.sendMessage(TextFormatter.pluginMessage("Crates", "You already have all of the rewards for this crate."));
                 return;
             }
 
             if (LobbyAPI.startOpen(crate, player)) {
                 Location location = LobbyAPI.getChestBlock().getLocation();
-                for (AuroraMCPlayer player1 :  AuroraMCAPI.getPlayers()) {
+                for (AuroraMCServerPlayer player1 :  ServerAPI.getPlayers()) {
                     if (player1.getHolograms().containsKey("crates")) {
                         player1.getHolograms().get("crates").despawn();
                     }
                 }
                 location.getBlock().setType(Material.AIR);
-                player.getPlayer().teleport(location.add(0.5, 0, 0.5));
+                player.teleport(location.add(0.5, 0, 0.5));
                 Location loc = new Location(location.getWorld(), location.getX() - 3, location.getY() - 1, location.getZ() - 3);
 
                 new BukkitRunnable(){
@@ -125,7 +126,7 @@ public class EmeraldCrateMenu extends GUI {
                     byte w = 7;
                     @Override
                     public void run() {
-                        if (!player.getPlayer().isOnline()) {
+                        if (!player.isOnline()) {
                             this.cancel();
                             return;
                         }
@@ -174,9 +175,9 @@ public class EmeraldCrateMenu extends GUI {
                             this.cancel();
                         }
                     }
-                }.runTaskTimer(AuroraMCAPI.getCore(), 0, 8);
+                }.runTaskTimer(ServerAPI.getCore(), 0, 8);
             } else {
-                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "Someone is already opening a crate! Please wait until they are finished to open one!"));
+                player.sendMessage(TextFormatter.pluginMessage("Crates", "Someone is already opening a crate! Please wait until they are finished to open one!"));
             }
         }
     }

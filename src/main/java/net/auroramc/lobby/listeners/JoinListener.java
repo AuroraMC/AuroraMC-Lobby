@@ -4,15 +4,18 @@
 
 package net.auroramc.lobby.listeners;
 
-import net.auroramc.core.api.AuroraMCAPI;
+import net.auroramc.api.AuroraMCAPI;
+import net.auroramc.api.permissions.Permission;
+import net.auroramc.api.permissions.Rank;
+import net.auroramc.api.utils.TextFormatter;
+import net.auroramc.core.api.ServerAPI;
 import net.auroramc.core.api.events.player.PlayerObjectCreationEvent;
-import net.auroramc.core.api.permissions.Permission;
-import net.auroramc.core.api.permissions.Rank;
-import net.auroramc.core.api.players.AuroraMCPlayer;
-import net.auroramc.core.api.players.scoreboard.PlayerScoreboard;
+import net.auroramc.core.api.player.AuroraMCServerPlayer;
+import net.auroramc.core.api.player.scoreboard.PlayerScoreboard;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
+import net.md_5.bungee.api.chat.TextComponent;
 import net.minecraft.server.v1_8_R3.*;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.Bukkit;
@@ -39,7 +42,7 @@ public class JoinListener implements Listener {
     public void onJoin(AsyncPlayerPreLoginEvent e) {
         Rank rank = AuroraMCAPI.getDbManager().getRank(e.getUniqueId());
         if (!rank.hasPermission("elite")) {
-            if (AuroraMCAPI.getPlayers().size() >= 80) {
+            if (ServerAPI.getPlayers().size() >= 80) {
                 e.disallow(AsyncPlayerPreLoginEvent.Result.KICK_FULL, "This lobby is currently full. In order to bypass this, you need to purchase a rank!");
             }
         }
@@ -85,27 +88,27 @@ public class JoinListener implements Listener {
         new BukkitRunnable(){
             @Override
             public void run() {
-                player.getPlayer().setAllowFlight(true);
+                player.setAllowFlight(true);
             }
-        }.runTask(AuroraMCAPI.getCore());
-        for (AuroraMCPlayer player1 : AuroraMCAPI.getPlayers()) {
+        }.runTask(ServerAPI.getCore());
+        for (AuroraMCServerPlayer player1 : ServerAPI.getPlayers()) {
             if (!player1.equals(player) && player1.isLoaded()) {
                 if (!player.getPreferences().isHubVisibilityEnabled() || (player1.getPreferences().isHubInvisibilityEnabled() && !player.hasPermission("moderation"))) {
                     new BukkitRunnable(){
                         @Override
                         public void run() {
-                            player.getPlayer().hidePlayer(player1.getPlayer());
+                            player.hidePlayer(player1);
                         }
-                    }.runTask(AuroraMCAPI.getCore());
+                    }.runTask(ServerAPI.getCore());
                 }
                 if (player1.isLoaded()) {
                     if (!player1.getPreferences().isHubVisibilityEnabled() || (player.getPreferences().isHubInvisibilityEnabled() && !player1.hasPermission("moderation"))) {
                         new BukkitRunnable(){
                             @Override
                             public void run() {
-                                player1.getPlayer().hidePlayer(player.getPlayer());
+                                player1.hidePlayer(player);
                             }
-                        }.runTask(AuroraMCAPI.getCore());
+                        }.runTask(ServerAPI.getCore());
                     }
                 }
             }
@@ -117,19 +120,19 @@ public class JoinListener implements Listener {
             if (player.hasPermission(Permission.MASTER.getId()) && !player.getPreferences().isHubInvisibilityEnabled()) {
                 if (player.isDisguised()) {
                     if (player.getActiveDisguise().getRank().hasPermission(Permission.MASTER.getId())) {
-                        for (AuroraMCPlayer player1 : AuroraMCAPI.getPlayers()) {
+                        for (AuroraMCServerPlayer player1 : ServerAPI.getPlayers()) {
                             if (player1.equals(player)) {
                                 if (player.getPreferences().isHideDisguiseNameEnabled()) {
-                                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().convert("&" + player.getRank().getPrefixColor() + "&l" + player.getRank().getPrefixAppearance() + " " + player.getName() + " has joined the lobby!"));
+                                    player.sendMessage(TextComponent.fromLegacyText(TextFormatter.convert("&" + player.getRank().getPrefixColor() + "&l" + player.getRank().getPrefixAppearance() + " " + player.getName() + " has joined the lobby!"))[0]);
                                     continue;
                                 }
                             }
-                            player1.getPlayer().sendMessage(AuroraMCAPI.getFormatter().convert("&" + player.getActiveDisguise().getRank().getPrefixColor() + "&l" + player.getActiveDisguise().getRank().getPrefixAppearance() + " " + player.getActiveDisguise().getName() + " has joined the lobby!"));
+                            player1.sendMessage(TextComponent.fromLegacyText(TextFormatter.convert("&" + player.getActiveDisguise().getRank().getPrefixColor() + "&l" + player.getActiveDisguise().getRank().getPrefixAppearance() + " " + player.getActiveDisguise().getName() + " has joined the lobby!"))[0]);
                         }
                     }
                 } else {
-                    for (AuroraMCPlayer player1 : AuroraMCAPI.getPlayers()) {
-                        player1.getPlayer().sendMessage(AuroraMCAPI.getFormatter().convert("&" + player.getRank().getPrefixColor() + "&l" + player.getRank().getPrefixAppearance() + " " + player.getPlayer().getName() + " has joined the lobby!"));
+                    for (AuroraMCServerPlayer player1 : ServerAPI.getPlayers()) {
+                        player1.sendMessage(TextComponent.fromLegacyText(TextFormatter.convert("&" + player.getRank().getPrefixColor() + "&l" + player.getRank().getPrefixAppearance() + " " + player.getName() + " has joined the lobby!"))[0]);
                     }
                 }
             }
@@ -191,7 +194,7 @@ public class JoinListener implements Listener {
         if (player.getPreferences().isHideDisguiseNameEnabled() && player.isDisguised()) {
             scoreboard.setLine(3, "&oHidden");
         } else {
-            scoreboard.setLine(3, AuroraMCAPI.getServerInfo().getName());
+            scoreboard.setLine(3, AuroraMCAPI.getInfo().getName());
         }
         scoreboard.setLine(2, "    ");
         scoreboard.setLine(1, "&7auroramc.net");
@@ -233,15 +236,15 @@ public class JoinListener implements Listener {
         team.setPrefix("§4§lCaptain§r ");
         team.addEntry("§c§lCalypso");
 
-        player.getPlayer().getInventory().setItem(8, LobbyAPI.getLobbyItem().getItem());
-        player.getPlayer().getInventory().setItem(7, LobbyAPI.getPrefsItem().getItem());
-        player.getPlayer().getInventory().setItem(4, LobbyAPI.getCosmeticsItem().getItem());
-        player.getPlayer().getInventory().setItem(0, LobbyAPI.getGamesItem().getItem());
-        player.getPlayer().getInventory().setItem(1, LobbyAPI.getStatsItem(player.getName()).getItem());
+        player.getInventory().setItem(8, LobbyAPI.getLobbyItem().getItemStack());
+        player.getInventory().setItem(7, LobbyAPI.getPrefsItem().getItemStack());
+        player.getInventory().setItem(4, LobbyAPI.getCosmeticsItem().getItemStack());
+        player.getInventory().setItem(0, LobbyAPI.getGamesItem().getItemStack());
+        player.getInventory().setItem(1, LobbyAPI.getStatsItem(player.getName()).getItemStack());
 
         if (LobbyAPI.getPoll() != null) {
             if (!LobbyDatabaseManager.hasVoted(LobbyAPI.getPoll().getId(), player.getId())) {
-                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Community Polls", "There is currently a poll active that you haven't voted in! Visit **Cosmonaut Luna** to vote! Every vote counts!"));
+                player.sendMessage(TextFormatter.pluginMessage("Community Polls", "There is currently a poll active that you haven't voted in! Visit **Cosmonaut Luna** to vote! Every vote counts!"));
             }
         }
     }
@@ -249,7 +252,7 @@ public class JoinListener implements Listener {
     private static void updateHeaderFooter(CraftPlayer player2) {
         try {
             IChatBaseComponent header = IChatBaseComponent.ChatSerializer.a("{\"text\": \"§3§lAURORAMC NETWORK         §b§lAURORAMC.NET\",\"color\":\"dark_aqua\",\"bold\":\"false\"}");
-            IChatBaseComponent footer = IChatBaseComponent.ChatSerializer.a("{\"text\": \"\n§fYou are currently connected to §b" + ((AuroraMCAPI.getPlayer(player2).isDisguised() && AuroraMCAPI.getPlayer(player2).getPreferences().isHideDisguiseNameEnabled())?"§oHidden":AuroraMCAPI.getServerInfo().getName()) + "\n\n" +
+            IChatBaseComponent footer = IChatBaseComponent.ChatSerializer.a("{\"text\": \"\n§fYou are currently connected to §b" + ((ServerAPI.getPlayer(player2).isDisguised() && ServerAPI.getPlayer(player2).getPreferences().isHideDisguiseNameEnabled())?"§oHidden":AuroraMCAPI.getInfo().getName()) + "\n\n" +
                     "§rForums §3§l» §bauroramc.net\n" +
                     "§rStore §3§l» §bstore.auroramc.net\n" +
                     "§rDiscord §3§l» §bdiscord.auroramc.net\n" +

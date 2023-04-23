@@ -4,10 +4,14 @@
 
 package net.auroramc.lobby.api.parkour;
 
-import net.auroramc.core.api.AuroraMCAPI;
+import net.auroramc.api.AuroraMCAPI;
+import net.auroramc.api.utils.TextFormatter;
+import net.auroramc.core.api.ServerAPI;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
 import net.auroramc.lobby.api.parkour.plates.Checkpoint;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
+import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Achievement;
 import org.bukkit.ChatColor;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -51,14 +55,14 @@ public class ParkourRun {
                 previous = LobbyDatabaseManager.getTime(player, parkour);
                 splitTimes = LobbyDatabaseManager.getSplitTimes(player, parkour);
             }
-        }.runTaskAsynchronously(AuroraMCAPI.getCore());
+        }.runTaskAsynchronously(ServerAPI.getCore());
         actionBarTask = new BukkitRunnable(){
             @Override
             public void run() {
-                String message = AuroraMCAPI.getFormatter().pluginMessage(null, "&b&lCurrent Time: &r" + formatTime(System.currentTimeMillis() - startTime) + " - &b&lParkour: &r" + parkour.getName() + "&r - &b&lCurrent Checkpoint: &r#" + lastReached);
-                player.sendHotBar(message, ChatColor.WHITE, false);
+                BaseComponent message = TextFormatter.pluginMessage(null, "&b&lCurrent Time: &r" + formatTime(System.currentTimeMillis() - startTime) + " - &b&lParkour: &r" + parkour.getName() + "&r - &b&lCurrent Checkpoint: &r#" + lastReached);
+                player.sendHotBar(message);
             }
-        }.runTaskTimerAsynchronously(AuroraMCAPI.getCore(), 0, 2);
+        }.runTaskTimerAsynchronously(ServerAPI.getCore(), 0, 2);
     }
 
     public void checkpoint(Checkpoint checkpoint) {
@@ -72,25 +76,25 @@ public class ParkourRun {
             long ms = System.currentTimeMillis() - currentSplit;
             if (splitTimes.containsKey(checkpoint.getCheckpointNo())) {
                 if (splitTimes.get(checkpoint.getCheckpointNo()) > ms) {
-                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have reached checkpoint **#" + checkpoint.getCheckpointNo() + "** in **" + formatTime(ms) + "** and beat your personal best of **" + formatTime(splitTimes.get(checkpoint.getCheckpointNo())) + "**!"));
+                    player.sendMessage(TextFormatter.pluginMessage("Parkour", "You have reached checkpoint **#" + checkpoint.getCheckpointNo() + "** in **" + formatTime(ms) + "** and beat your personal best of **" + formatTime(splitTimes.get(checkpoint.getCheckpointNo())) + "**!"));
                     new BukkitRunnable() {
                         @Override
                         public void run() {
                             LobbyDatabaseManager.setSplitTime(player, parkour, checkpoint.getCheckpointNo(), ms, true);
                         }
-                    }.runTaskAsynchronously(AuroraMCAPI.getCore());
+                    }.runTaskAsynchronously(ServerAPI.getCore());
                     splitTimes.put(checkpoint.getCheckpointNo(), ms);
                 } else {
-                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have reached checkpoint **#" + checkpoint.getCheckpointNo() + "** in **" + formatTime(ms) + "** (personal best: **" + formatTime(splitTimes.get(checkpoint.getCheckpointNo())) + "**)!"));
+                    player.sendMessage(TextFormatter.pluginMessage("Parkour", "You have reached checkpoint **#" + checkpoint.getCheckpointNo() + "** in **" + formatTime(ms) + "** (personal best: **" + formatTime(splitTimes.get(checkpoint.getCheckpointNo())) + "**)!"));
                 }
             } else {
-                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have reached checkpoint **#" + checkpoint.getCheckpointNo() + "** in **" + formatTime(ms) + "**!"));
+                player.sendMessage(TextFormatter.pluginMessage("Parkour", "You have reached checkpoint **#" + checkpoint.getCheckpointNo() + "** in **" + formatTime(ms) + "**!"));
                 new BukkitRunnable() {
                     @Override
                     public void run() {
                         LobbyDatabaseManager.setSplitTime(player, parkour, checkpoint.getCheckpointNo(), ms, false);
                     }
-                }.runTaskAsynchronously(AuroraMCAPI.getCore());
+                }.runTaskAsynchronously(ServerAPI.getCore());
                 splitTimes.put(checkpoint.getCheckpointNo(), ms);
             }
             checkpoints.add(checkpoint);
@@ -99,7 +103,7 @@ public class ParkourRun {
             if (!previouslyReachedCheckpoints.contains(checkpoint)) {
                 if (parkour.getCheckpointCommand() != null) {
                     parkour.getCheckpointCommand().apply(player);
-                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().convert(parkour.getCheckpointCommand().getRewardString()));
+                    player.sendMessage(TextComponent.fromLegacyText(TextFormatter.convert(parkour.getCheckpointCommand().getRewardString()))[0]);
                 }
             }
             previouslyReachedCheckpoints.add(checkpoint);
@@ -109,7 +113,7 @@ public class ParkourRun {
                 public void run() {
                    LobbyDatabaseManager.reachedCheckpoint(player, parkour, checkpoint);
                 }
-            }.runTaskAsynchronously(AuroraMCAPI.getCore());
+            }.runTaskAsynchronously(ServerAPI.getCore());
 
         }
     }
@@ -122,13 +126,13 @@ public class ParkourRun {
             }
             switch (cause) {
                 case FLY:
-                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You are not allowed to fly while doing the parkour. Parkour failed!"));
+                    player.sendMessage(TextFormatter.pluginMessage("Parkour", "You are not allowed to fly while doing the parkour. Parkour failed!"));
                     break;
                 case TELEPORTATION:
-                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You are not allowed to teleport while doing the parkour. Parkour failed!"));
+                    player.sendMessage(TextFormatter.pluginMessage("Parkour", "You are not allowed to teleport while doing the parkour. Parkour failed!"));
                     break;
                 case NEW_PARKOUR:
-                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have started another parkour, parkour failed!"));
+                    player.sendMessage(TextFormatter.pluginMessage("Parkour", "You have started another parkour, parkour failed!"));
                     break;
             }
             long time = System.currentTimeMillis() - startTime;
@@ -157,7 +161,7 @@ public class ParkourRun {
                     player.getStats().achievementGained(AuroraMCAPI.getAchievement(208), 1, true);
                 }
 
-                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You did not reach enough checkpoints, parkour failed!"));
+                player.sendMessage(TextFormatter.pluginMessage("Parkour", "You did not reach enough checkpoints, parkour failed!"));
                 parkour.playerEnd(player);
                 player.parkourEnd();
                 return;
@@ -189,46 +193,46 @@ public class ParkourRun {
             if (splitTimes.containsKey(check)) {
                 long oldSplit = splitTimes.get(check);
                 if (oldSplit > splitMs) {
-                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have reached the finish point (split-time) in **" + formatTime(splitMs) + "** and beat your personal best of **" + formatTime(oldSplit) + "**!"));
+                    player.sendMessage(TextFormatter.pluginMessage("Parkour", "You have reached the finish point (split-time) in **" + formatTime(splitMs) + "** and beat your personal best of **" + formatTime(oldSplit) + "**!"));
                     int finalCheck = check;
                     new BukkitRunnable() {
                         @Override
                         public void run() {
                             LobbyDatabaseManager.setSplitTime(player, parkour, finalCheck, splitMs, true);
                         }
-                    }.runTaskAsynchronously(AuroraMCAPI.getCore());
+                    }.runTaskAsynchronously(ServerAPI.getCore());
                 } else {
-                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have reached the finish point (split-time) in **" + formatTime(splitMs) + "** (personal best: **" + formatTime(oldSplit) + "**)!"));
+                    player.sendMessage(TextFormatter.pluginMessage("Parkour", "You have reached the finish point (split-time) in **" + formatTime(splitMs) + "** (personal best: **" + formatTime(oldSplit) + "**)!"));
                 }
             } else {
-                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have reached the finish point (split-time) in **" + formatTime(splitMs) + "**!"));
+                player.sendMessage(TextFormatter.pluginMessage("Parkour", "You have reached the finish point (split-time) in **" + formatTime(splitMs) + "**!"));
                 int finalCheck = check;
                 new BukkitRunnable() {
                     @Override
                     public void run() {
                         LobbyDatabaseManager.setSplitTime(player, parkour, finalCheck, splitMs, false);
                     }
-                }.runTaskAsynchronously(AuroraMCAPI.getCore());
+                }.runTaskAsynchronously(ServerAPI.getCore());
             }
 
             if (previous > 0) {
                 if (finishMili < previous) {
-                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You beat your previous record and you managed to complete the **" + parkour.getName() + "** in **" + formatTime(finishMili) + "**!"));
+                    player.sendMessage(TextFormatter.pluginMessage("Parkour", "You beat your previous record and you managed to complete the **" + parkour.getName() + "** in **" + formatTime(finishMili) + "**!"));
                     new BukkitRunnable() {
                         @Override
                         public void run() {
                             LobbyDatabaseManager.newTime(player, finishMili, true, parkour);
                             int position = LobbyDatabaseManager.leaderboardPosition(player, parkour);
 
-                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You are in **" + position + ((position % 10 == 1) ? "st" : ((position % 10 == 2) ? "nd" : ((position % 10 == 3) ? ((position == 13) ? "th" : "rd") : "th"))) + " place** for the **" + parkour.getName() + "**!"));
+                            player.sendMessage(TextFormatter.pluginMessage("Parkour", "You are in **" + position + ((position % 10 == 1) ? "st" : ((position % 10 == 2) ? "nd" : ((position % 10 == 3) ? ((position == 13) ? "th" : "rd") : "th"))) + " place** for the **" + parkour.getName() + "**!"));
                             new BukkitRunnable() {
                                 @Override
                                 public void run() {
                                     parkour.getLeaderboard().refresh();
                                 }
-                            }.runTask(AuroraMCAPI.getCore());
+                            }.runTask(ServerAPI.getCore());
                         }
-                    }.runTaskAsynchronously(AuroraMCAPI.getCore());
+                    }.runTaskAsynchronously(ServerAPI.getCore());
                     switch (parkour.getId()) {
                         case 1: {
                             if (finishMili <= 30000) {
@@ -256,14 +260,14 @@ public class ParkourRun {
                         }
                     }
                 } else {
-                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You didn't beat your previous record, but you managed to complete the **" + parkour.getName() + "** in **" + formatTime(finishMili) + "**!"));
+                    player.sendMessage(TextFormatter.pluginMessage("Parkour", "You didn't beat your previous record, but you managed to complete the **" + parkour.getName() + "** in **" + formatTime(finishMili) + "**!"));
                     new BukkitRunnable() {
                         @Override
                         public void run() {
                             int position = LobbyDatabaseManager.leaderboardPosition(player, parkour);
-                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You are in **" + position + ((position % 10 == 1) ? "st" : ((position % 10 == 2) ? "nd" : ((position % 10 == 3) ? ((position == 13) ? "th" : "rd") : "th"))) + " place** for the **" + parkour.getName() + "**!"));
+                            player.sendMessage(TextFormatter.pluginMessage("Parkour", "You are in **" + position + ((position % 10 == 1) ? "st" : ((position % 10 == 2) ? "nd" : ((position % 10 == 3) ? ((position == 13) ? "th" : "rd") : "th"))) + " place** for the **" + parkour.getName() + "**!"));
                         }
-                    }.runTaskAsynchronously(AuroraMCAPI.getCore());
+                    }.runTaskAsynchronously(ServerAPI.getCore());
                 }
                 switch (parkour.getId()) {
                     case 1: {
@@ -296,18 +300,18 @@ public class ParkourRun {
                     player.getStats().incrementStatistic(0, "pkpks", 1, true);
                     if (parkour.getEndCommand() != null) {
                         parkour.getEndCommand().apply(player);
-                        player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().convert(parkour.getEndCommand().getRewardString()));
+                        player.sendMessage(TextComponent.fromLegacyText(TextFormatter.convert(parkour.getEndCommand().getRewardString()))[0]);
                     }
 
-                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "Well done! You completed the **" + parkour.getName() + "** in **" + formatTime(finishMili) + "**! Your reward will be applied shortly!"));
+                    player.sendMessage(TextFormatter.pluginMessage("Parkour", "Well done! You completed the **" + parkour.getName() + "** in **" + formatTime(finishMili) + "**! Your reward will be applied shortly!"));
                     new BukkitRunnable() {
                         @Override
                         public void run() {
                             LobbyDatabaseManager.newTime(player, finishMili, false, parkour);
                             int position = LobbyDatabaseManager.leaderboardPosition(player, parkour);
-                            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You are in **" + position + ((position % 10 == 1) ? "st" : ((position % 10 == 2) ? "nd" : ((position % 10 == 3) ? ((position == 13) ? "th" : "rd") : "th"))) + " place** for the **" + parkour.getName() + "**!"));
+                            player.sendMessage(TextFormatter.pluginMessage("Parkour", "You are in **" + position + ((position % 10 == 1) ? "st" : ((position % 10 == 2) ? "nd" : ((position % 10 == 3) ? ((position == 13) ? "th" : "rd") : "th"))) + " place** for the **" + parkour.getName() + "**!"));
                         }
-                    }.runTaskAsynchronously(AuroraMCAPI.getCore());
+                    }.runTaskAsynchronously(ServerAPI.getCore());
                     switch (parkour.getId()) {
                         case 1: {
                             if (finishMili <= 30000) {
@@ -335,7 +339,7 @@ public class ParkourRun {
                         }
                     }
                 } else {
-                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You completed the parkour too quickly, parkour failed!"));
+                    player.sendMessage(TextFormatter.pluginMessage("Parkour", "You completed the parkour too quickly, parkour failed!"));
                 }
             }
         }

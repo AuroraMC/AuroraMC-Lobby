@@ -6,8 +6,8 @@ package net.auroramc.lobby.gui;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
-import net.auroramc.core.api.AuroraMCAPI;
-import net.auroramc.core.api.permissions.Rank;
+import net.auroramc.api.permissions.Rank;
+import net.auroramc.api.utils.TextFormatter;
 import net.auroramc.core.api.utils.gui.GUI;
 import net.auroramc.core.api.utils.gui.GUIItem;
 import net.auroramc.lobby.api.LobbyAPI;
@@ -38,7 +38,7 @@ public class CosmonautLuna extends GUI {
         GameProfile profile = new GameProfile(UUID.randomUUID(), null);
         profile.getProperties().put("textures", new Property("textures", Base64.getEncoder().encodeToString("{textures:{SKIN:{url:\"http://textures.minecraft.net/texture/f60e33fb112437571888d217227c3b3b6dbc7d58558f4b1f0e5af70db3afc309\"}}}".getBytes())));
 
-        head = new GUIItem(Material.SKULL_ITEM, "&3&lDiscord", 1, ";&r&fThe AuroraMC Discord is the main;&r&fcommunication platform that is used by;&r&fAuroraMC. If you want to interact with;&r&fmembers of the community, don't hesitate;&r&fto join the discord!;;&aClick to get the link!", (short)3).getItem();
+        head = new GUIItem(Material.SKULL_ITEM, "&3&lDiscord", 1, ";&r&fThe AuroraMC Discord is the main;&r&fcommunication platform that is used by;&r&fAuroraMC. If you want to interact with;&r&fmembers of the community, don't hesitate;&r&fto join the discord!;;&aClick to get the link!", (short)3).getItemStack();
         SkullMeta meta = (SkullMeta) head.getItemMeta();
         Field field;
         try {
@@ -115,7 +115,7 @@ public class CosmonautLuna extends GUI {
                 if (player.canClaimDaily()) {
                     player.claimDaily();
                     this.updateItem(2, 2, new GUIItem(Material.REDSTONE_BLOCK, "&3&lLoyalty Bonus", 1, ";&cYou have already claimed;&ctoday's bonus!;;&r&fDaily bonuses claimed: **" + player.getDailyBonusClaimed() + "**;;&r&fCome back tomorrow to claim again!"));
-                    player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.NOTE_PLING, 100, 1);
+                    player.playSound(player.getLocation(), Sound.NOTE_PLING, 100, 1);
                 }
                 break;
             }
@@ -123,7 +123,7 @@ public class CosmonautLuna extends GUI {
                 if (player.canClaimMonthly()) {
                     player.claimMonthly();
                     this.updateItem(2, 4, new GUIItem(Material.REDSTONE_BLOCK, "&3&lMonthly Bonus", 1, ";&cYou have already claimed;&cthis months bonus!;;&r&fCome back next month to claim again!"));
-                    player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.NOTE_PLING, 100, 1);
+                    player.playSound(player.getLocation(), Sound.NOTE_PLING, 100, 1);
                 }
                 break;
             }
@@ -131,7 +131,7 @@ public class CosmonautLuna extends GUI {
                 if (player.canClaimPlus()) {
                     player.claimPlus();
                     this.updateItem(2, 6, new GUIItem(Material.REDSTONE_BLOCK, "&3&lMonthly Bonus", 1, ";&cYou have already claimed;&cthis months Plus bonus!;;&r&fCome back in 30 days to claim again!"));
-                    player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.NOTE_PLING, 100, 1);
+                    player.playSound(player.getLocation(), Sound.NOTE_PLING, 100, 1);
                 }
                 break;
             }
@@ -139,43 +139,39 @@ public class CosmonautLuna extends GUI {
                 if (LobbyAPI.getPoll() != null) {
                     if (!LobbyDatabaseManager.hasVoted(LobbyAPI.getPoll().getId(), player.getId())) {
                         Poll poll = new Poll(player);
-                        AuroraMCAPI.closeGUI(player);
                         poll.open(player);
-                        AuroraMCAPI.openGUI(player, poll);
                     } else {
-                        player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ITEM_BREAK, 100, 0);
+                        player.playSound(player.getLocation(), Sound.ITEM_BREAK, 100, 0);
                         return;
                     }
                 } else {
-                    player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ITEM_BREAK, 100, 0);
+                    player.playSound(player.getLocation(), Sound.ITEM_BREAK, 100, 0);
                     return;
                 }
                 break;
             }
             case SKULL_ITEM: {
-                player.getPlayer().closeInventory();
+                player.closeInventory();
                 TextComponent component = new TextComponent("Click here to join the AuroraMC Discord!");
                 component.setColor(ChatColor.GREEN);
                 component.setBold(true);
                 component.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://discord.auroramc.net/"));
-                ComponentBuilder componentHover = new ComponentBuilder(AuroraMCAPI.getFormatter().convert("&3&lAuroraMC Discord\n"
+                ComponentBuilder componentHover = new ComponentBuilder(TextFormatter.convert("&3&lAuroraMC Discord\n"
                         + "\n"
                         + WordUtils.wrap("The AuroraMC Discord is the main communication platform that is used by," +
                         " AuroraMC. If you want to interact with members of the community, don't hesitate to join the discord!", 40, "\n&r&f", false)
                         + "\n\n&aClick here to join our discord."));
                 component.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, componentHover.create()));
-                player.getPlayer().spigot().sendMessage(component);
+                player.sendMessage(component);
                 break;
             }
             case EMPTY_MAP: {
                 Changelogs logs = new Changelogs(player);
-                AuroraMCAPI.closeGUI(player);
                 logs.open(player);
-                AuroraMCAPI.openGUI(player, logs);
                 break;
             }
             default: {
-                player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ITEM_BREAK, 100, 0);
+                player.playSound(player.getLocation(), Sound.ITEM_BREAK, 100, 0);
             }
         }
     }

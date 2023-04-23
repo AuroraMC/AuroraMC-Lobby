@@ -4,7 +4,6 @@
 
 package net.auroramc.lobby.listeners;
 
-import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.core.api.events.player.PlayerLeaveEvent;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.parkour.ParkourRun;
@@ -30,7 +29,7 @@ public class LeaveListener implements Listener {
             AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) e.getPlayer();
             player.deactivateForcefield();
             player.getStats().addLobbyTime(System.currentTimeMillis() - player.getJoinTimestamp(), true);
-            if (LobbyAPI.getCratePlayer() != null && LobbyAPI.getCratePlayer().getPlayer().equals(e.getPlayer().getPlayer())) {
+            if (LobbyAPI.getCratePlayer() != null && LobbyAPI.getCratePlayer().equals(e.getPlayer())) {
                 JSONObject crateLocation = LobbyAPI.getLobbyMap().getMapData().getJSONObject("game").getJSONArray("CRATE").getJSONObject(0);
                 int x = crateLocation.getInt("x");
                 int y = crateLocation.getInt("y");

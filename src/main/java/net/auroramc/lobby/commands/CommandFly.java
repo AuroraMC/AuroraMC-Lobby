@@ -4,10 +4,10 @@
 
 package net.auroramc.lobby.commands;
 
-import net.auroramc.core.api.AuroraMCAPI;
-import net.auroramc.core.api.command.Command;
-import net.auroramc.core.api.permissions.Permission;
-import net.auroramc.core.api.players.AuroraMCPlayer;
+import net.auroramc.api.permissions.Permission;
+import net.auroramc.api.utils.TextFormatter;
+import net.auroramc.core.api.ServerCommand;
+import net.auroramc.core.api.player.AuroraMCServerPlayer;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
 import org.jetbrains.annotations.NotNull;
 
@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class CommandFly extends Command {
+public class CommandFly extends ServerCommand {
 
 
     public CommandFly() {
@@ -24,18 +24,18 @@ public class CommandFly extends Command {
     }
 
     @Override
-    public void execute(AuroraMCPlayer player, String aliasUsed, List<String> args) {
+    public void execute(AuroraMCServerPlayer player, String aliasUsed, List<String> args) {
         if (((AuroraMCLobbyPlayer)player).isInParkour()) {
-            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Lobby", "You cannot toggle flight while in a parkour!"));
+            player.sendMessage(TextFormatter.pluginMessage("Lobby", "You cannot toggle flight while in a parkour!"));
             return;
         }
-        player.getPlayer().setFlying(false);
-        player.getPreferences().setHubFlight(!player.getPreferences().isHubFlightEnabled());
-        player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Lobby", "Hub Flight: " + ((player.getPreferences().isHubFlightEnabled())?"&aEnabled":"&cDisabled")));
+        player.setFlying(false);
+        player.getPreferences().setHubFlight(!player.getPreferences().isHubFlightEnabled(), true);
+        player.sendMessage(TextFormatter.pluginMessage("Lobby", "Hub Flight: " + ((player.getPreferences().isHubFlightEnabled())?"&aEnabled":"&cDisabled")));
     }
 
     @Override
-    public @NotNull List<String> onTabComplete(AuroraMCPlayer auroraMCPlayer, String s, List<String> list, String s1, int i) {
+    public @NotNull List<String> onTabComplete(AuroraMCServerPlayer auroraMCPlayer, String s, List<String> list, String s1, int i) {
         return new ArrayList<>();
     }
 }

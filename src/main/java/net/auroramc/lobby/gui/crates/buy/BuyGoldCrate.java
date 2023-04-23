@@ -6,7 +6,7 @@ package net.auroramc.lobby.gui.crates.buy;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
-import net.auroramc.core.api.AuroraMCAPI;
+import net.auroramc.api.utils.TextFormatter;
 import net.auroramc.core.api.utils.gui.GUI;
 import net.auroramc.core.api.utils.gui.GUIItem;
 import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
@@ -40,8 +40,8 @@ public class BuyGoldCrate extends GUI {
         ItemStack head = new ItemStack(Material.SKULL_ITEM, 1);
         head.setDurability((short)3);
         ItemMeta meta = (SkullMeta) head.getItemMeta();
-        meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&6&lGold Crate")));
-        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&7Gold Crates are rare crates that;&7contain more legendary loot!")).split(";")));
+        meta.setDisplayName(TextFormatter.convert("&6&lGold Crate"));
+        meta.setLore(Arrays.asList(TextFormatter.convert(TextFormatter.highlightRaw(";&7Gold Crates are rare crates that;&7contain more legendary loot!")).split(";")));
         Field field;
         try {
             field = meta.getClass().getDeclaredField("profile");
@@ -60,24 +60,24 @@ public class BuyGoldCrate extends GUI {
 
         ItemStack one = head.clone();
         meta = one.getItemMeta();
-        meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&6&l1 Gold Crate")));
-        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&r&fCost: &d" + String.format("%,d",CrateUtil.GOLD_CRATE_PRICE) + " Tickets;;&aClick here to purchase 1 Gold Crate!")).split(";")));
+        meta.setDisplayName(TextFormatter.convert("&6&l1 Gold Crate"));
+        meta.setLore(Arrays.asList(TextFormatter.convert(TextFormatter.highlightRaw(";&r&fCost: &d" + String.format("%,d",CrateUtil.GOLD_CRATE_PRICE) + " Tickets;;&aClick here to purchase 1 Gold Crate!")).split(";")));
         one.setItemMeta(meta);
         this.setItem(2, 2, new GUIItem(one));
 
         ItemStack five = head.clone();
         five.setAmount(5);
         meta = five.getItemMeta();
-        meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&6&l5 Gold Crates")));
-        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&r&fCost: &d" + String.format("%,d",CrateUtil.GOLD_CRATE_PRICE * 5) + " Tickets;;&aClick here to purchase 5 Gold Crates!")).split(";")));
+        meta.setDisplayName(TextFormatter.convert("&6&l5 Gold Crates"));
+        meta.setLore(Arrays.asList(TextFormatter.convert(TextFormatter.highlightRaw(";&r&fCost: &d" + String.format("%,d",CrateUtil.GOLD_CRATE_PRICE * 5) + " Tickets;;&aClick here to purchase 5 Gold Crates!")).split(";")));
         five.setItemMeta(meta);
         this.setItem(2, 4, new GUIItem(five));
 
         ItemStack ten = head.clone();
         ten.setAmount(10);
         meta = ten.getItemMeta();
-        meta.setDisplayName(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().convert("&6&l10 Gold Crates")));
-        meta.setLore(Arrays.asList(AuroraMCAPI.getFormatter().convert(AuroraMCAPI.getFormatter().highlight(";&r&fCost: &d" + String.format("%,d",CrateUtil.GOLD_CRATE_PRICE * 10) + " Tickets;;&aClick here to purchase 10 Gold Crates!")).split(";")));
+        meta.setDisplayName(TextFormatter.convert("&6&l10 Gold Crates"));
+        meta.setLore(Arrays.asList(TextFormatter.convert(TextFormatter.highlightRaw(";&r&fCost: &d" + String.format("%,d",CrateUtil.GOLD_CRATE_PRICE * 10) + " Tickets;;&aClick here to purchase 10 Gold Crates!")).split(";")));
         ten.setItemMeta(meta);
         this.setItem(2, 6, new GUIItem(ten));
     }
@@ -89,9 +89,8 @@ public class BuyGoldCrate extends GUI {
                 if (player.getBank().getTickets() >= CrateUtil.GOLD_CRATE_PRICE) {
                     ConfirmGold diamond = new ConfirmGold(player, 1);
                     diamond.open(player);
-                    AuroraMCAPI.openGUI(player, diamond);
                 } else {
-                    player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ITEM_BREAK, 100, 0);
+                    player.playSound(player.getLocation(), Sound.ITEM_BREAK, 100, 0);
                 }
                 break;
             }
@@ -99,22 +98,20 @@ public class BuyGoldCrate extends GUI {
                 if (player.getBank().getTickets() >= CrateUtil.GOLD_CRATE_PRICE * 5) {
                     ConfirmGold diamond = new ConfirmGold(player, 1);
                     diamond.open(player);
-                    AuroraMCAPI.openGUI(player, diamond);
                 } else {
-                    player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ITEM_BREAK, 100, 0);
+                    player.playSound(player.getLocation(), Sound.ITEM_BREAK, 100, 0);
                 }
             }
             case 6: {
                 if (player.getBank().getTickets() >= CrateUtil.GOLD_CRATE_PRICE * 10) {
                     ConfirmGold diamond = new ConfirmGold(player, 1);
                     diamond.open(player);
-                    AuroraMCAPI.openGUI(player, diamond);
                 } else {
-                    player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ITEM_BREAK, 100, 0);
+                    player.playSound(player.getLocation(), Sound.ITEM_BREAK, 100, 0);
                 }
             }
             default: {
-                player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ITEM_BREAK, 100, 0);
+                player.playSound(player.getLocation(), Sound.ITEM_BREAK, 100, 0);
             }
         }
     }

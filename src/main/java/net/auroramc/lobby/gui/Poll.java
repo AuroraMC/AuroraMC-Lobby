@@ -4,8 +4,8 @@
 
 package net.auroramc.lobby.gui;
 
-import net.auroramc.core.api.AuroraMCAPI;
-import net.auroramc.core.api.players.AuroraMCPlayer;
+import net.auroramc.api.utils.TextFormatter;
+import net.auroramc.core.api.player.AuroraMCServerPlayer;
 import net.auroramc.core.api.utils.gui.GUI;
 import net.auroramc.core.api.utils.gui.GUIItem;
 import net.auroramc.lobby.api.LobbyAPI;
@@ -21,9 +21,9 @@ import java.util.Map;
 
 public class Poll extends GUI {
 
-    private AuroraMCPlayer player;
+    private AuroraMCServerPlayer player;
 
-    public Poll(AuroraMCPlayer player) {
+    public Poll(AuroraMCServerPlayer player) {
         super("&3&lCommunity Poll", 2, true);
         this.border("&3&lCommunity Poll", "");
         this.player = player;
@@ -63,10 +63,10 @@ public class Poll extends GUI {
         if (item.getType() == Material.PAPER) {
             int response = Integer.parseInt(ChatColor.stripColor(item.getItemMeta().getDisplayName()).split("[)]")[0]);
             LobbyDatabaseManager.setVote(LobbyAPI.getPoll().getId(), player.getId(), response);
-            player.getPlayer().closeInventory();
-            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Polls", "Thank you for voting in this community poll! Your response was recorded!"));
+            player.closeInventory();
+            player.sendMessage(TextFormatter.pluginMessage("Polls", "Thank you for voting in this community poll! Your response was recorded!"));
         } else {
-            player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ITEM_BREAK, 100, 0);
+            player.playSound(player.getLocation(), Sound.ITEM_BREAK, 100, 0);
         }
     }
 }

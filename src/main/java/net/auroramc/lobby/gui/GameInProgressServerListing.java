@@ -6,13 +6,12 @@ package net.auroramc.lobby.gui;
 
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
-import net.auroramc.core.api.AuroraMCAPI;
-import net.auroramc.core.api.players.AuroraMCPlayer;
+import net.auroramc.api.backend.info.ServerInfo;
+import net.auroramc.api.backend.info.ServerState;
+import net.auroramc.core.api.player.AuroraMCServerPlayer;
 import net.auroramc.core.api.utils.gui.GUI;
 import net.auroramc.core.api.utils.gui.GUIItem;
 import net.auroramc.lobby.api.LobbyAPI;
-import net.auroramc.lobby.api.backend.GameServerInfo;
-import net.auroramc.lobby.api.util.ServerState;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.event.inventory.ClickType;
@@ -23,12 +22,12 @@ import java.util.stream.Collectors;
 
 public class GameInProgressServerListing extends GUI {
 
-    private final AuroraMCPlayer player;
+    private final AuroraMCServerPlayer player;
     private final String gameCode;
     private final String gameName;
     private final String serverCode;
 
-    public GameInProgressServerListing(AuroraMCPlayer player, String gameCode, String gameName, String serverCode) {
+    public GameInProgressServerListing(AuroraMCServerPlayer player, String gameCode, String gameName, String serverCode) {
         super("&3&lSelect a server!", 5, true);
         this.player = player;
         this.gameCode = gameCode;
@@ -38,11 +37,11 @@ public class GameInProgressServerListing extends GUI {
 
         this.setItem(0, 0, new GUIItem(Material.ARROW, "&c&lBack"));
 
-        List<GameServerInfo> infos = LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getInfo().getServerType().getString("game").equalsIgnoreCase(gameCode) && (gameServerInfo.getServerState() == ServerState.IN_GAME || gameServerInfo.getServerState() == ServerState.ENDING)).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).collect(Collectors.toList());
+        List<ServerInfo> infos = LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getServerType().getString("game").equalsIgnoreCase(gameCode) && (gameServerInfo.getServerState() == ServerState.IN_GAME || gameServerInfo.getServerState() == ServerState.ENDING)).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).collect(Collectors.toList());
         int row = 2;
         int column = 2;
-        for (GameServerInfo info : infos) {
-            this.setItem(row, column, new GUIItem(Material.STAINED_GLASS, "&3&l" + gameName + " Server " + info.getInfo().getName().split("-")[1], info.getCurrentPlayers(), ";&r&fPlayers: **" + info.getCurrentPlayers() + "**&f/**" + info.getMaxPlayers() + "**;&r&fGame: **" + info.getActiveGame() + "**" + ((!info.getActiveMap().equalsIgnoreCase("n/a"))?";&r&fMap: **" + info.getActiveMap() + "**":"") + ";&r&fStatus: **" + info.getServerState().getName() + "**;;" + ((info.getCurrentPlayers() == info.getMaxPlayers())?"&cThis server is currently full!":"&aClick to join the server!"), (short)((info.getServerState() == ServerState.IN_GAME)?5:4)));
+        for (ServerInfo info : infos) {
+            this.setItem(row, column, new GUIItem(Material.STAINED_GLASS, "&3&l" + gameName + " Server " + info.getName().split("-")[1], info.getCurrentPlayers(), ";&r&fPlayers: **" + info.getCurrentPlayers() + "**&f/**" + info.getMaxPlayers() + "**;&r&fGame: **" + info.getActiveGame() + "**" + ((!info.getActiveMap().equalsIgnoreCase("n/a"))?";&r&fMap: **" + info.getActiveMap() + "**":"") + ";&r&fStatus: **" + info.getServerState().getName() + "**;;" + ((info.getCurrentPlayers() == info.getMaxPlayers())?"&cThis server is currently full!":"&aClick to join the server!"), (short)((info.getServerState() == ServerState.IN_GAME)?5:4)));
             column++;
             if (column == 7) {
                 row++;
@@ -60,10 +59,9 @@ public class GameInProgressServerListing extends GUI {
             if (item.getType() == Material.ARROW) {
                 GameServerListing sl = new GameServerListing(player, gameCode, gameName, serverCode);
                 sl.open(player);
-                AuroraMCAPI.openGUI(player, sl);
                 return;
             }
-            player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ITEM_BREAK, 100, 0);
+            player.playSound(player.getLocation(), Sound.ITEM_BREAK, 100, 0);
             return;
         }
         String[] name = item.getItemMeta().getDisplayName().split(" ");
@@ -74,20 +72,20 @@ public class GameInProgressServerListing extends GUI {
         out.writeUTF("JoinGame");
         out.writeUTF(player.getName());
         out.writeUTF(serverCode + "-" + server);
-        player.getPlayer().sendPluginMessage(AuroraMCAPI.getCore(), "BungeeCord", out.toByteArray());
-        player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.NOTE_PLING, 100, 0);
+        player.sendPluginMessage(out.toByteArray());
+        player.playSound(player.getLocation(), Sound.NOTE_PLING, 100, 0);
     }
 
     public void update() {
-        List<GameServerInfo> infos = LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getInfo().getServerType().getString("game").equalsIgnoreCase(gameCode) && (gameServerInfo.getServerState() == ServerState.IN_GAME || gameServerInfo.getServerState() == ServerState.ENDING)).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).collect(Collectors.toList());
+        List<ServerInfo> infos = LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getServerType().getString("game").equalsIgnoreCase(gameCode) && (gameServerInfo.getServerState() == ServerState.IN_GAME || gameServerInfo.getServerState() == ServerState.ENDING)).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).collect(Collectors.toList());
         int row = 2;
         int column = 2;
         for (int i = 0;i < 10;i++) {
             if (infos.size() <= i) {
                 this.updateItem(row, column, null);
             } else {
-                GameServerInfo info = infos.get(i);
-                this.updateItem(row, column, new GUIItem(Material.STAINED_GLASS, "&3&l" + gameName + " Server " + info.getInfo().getName().split("-")[1], info.getCurrentPlayers(), ";&r&fPlayers: **" + info.getCurrentPlayers() + "**&f/**" + info.getMaxPlayers() + "**;&r&fGame: **" + info.getActiveGame() + "**" + ((!info.getActiveMap().equalsIgnoreCase("n/a"))?";&r&fMap: **" + info.getActiveMap() + "**":"") + ";&r&fStatus: **" + info.getServerState().getName() + "**;;" + ((info.getCurrentPlayers() == info.getMaxPlayers())?"&cThis server is currently full!":"&aClick to join the server!"), (short)((info.getServerState() == ServerState.IN_GAME)?5:4)));
+                ServerInfo info = infos.get(i);
+                this.updateItem(row, column, new GUIItem(Material.STAINED_GLASS, "&3&l" + gameName + " Server " + info.getName().split("-")[1], info.getCurrentPlayers(), ";&r&fPlayers: **" + info.getCurrentPlayers() + "**&f/**" + info.getMaxPlayers() + "**;&r&fGame: **" + info.getActiveGame() + "**" + ((!info.getActiveMap().equalsIgnoreCase("n/a"))?";&r&fMap: **" + info.getActiveMap() + "**":"") + ";&r&fStatus: **" + info.getServerState().getName() + "**;;" + ((info.getCurrentPlayers() == info.getMaxPlayers())?"&cThis server is currently full!":"&aClick to join the server!"), (short)((info.getServerState() == ServerState.IN_GAME)?5:4)));
             }
             column++;
             if (column == 7) {

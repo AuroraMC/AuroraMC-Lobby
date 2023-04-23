@@ -4,7 +4,6 @@
 
 package net.auroramc.lobby.api.parkour;
 
-import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.core.api.utils.holograms.Hologram;
 import net.auroramc.core.api.utils.holograms.HologramLine;
 import net.auroramc.core.api.utils.holograms.universal.UniversalHologramLine;

@@ -4,7 +4,6 @@
 
 package net.auroramc.lobby.listeners;
 
-import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.parkour.plates.PressurePlate;
 import net.auroramc.lobby.utils.VoidGenerator;
@@ -15,7 +14,6 @@ import org.bukkit.block.BlockFace;
 import org.bukkit.block.BlockState;
 import org.bukkit.material.Chest;
 import org.bukkit.craftbukkit.v1_8_R3.CraftWorld;
-import org.bukkit.entity.ArmorStand;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.world.WorldInitEvent;

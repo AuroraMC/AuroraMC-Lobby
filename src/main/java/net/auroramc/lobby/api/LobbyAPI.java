@@ -6,13 +6,14 @@ package net.auroramc.lobby.api;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
-import net.auroramc.core.api.AuroraMCAPI;
-import net.auroramc.core.api.backend.ServerInfo;
-import net.auroramc.core.api.cosmetics.Crate;
+import net.auroramc.api.AuroraMCAPI;
+import net.auroramc.api.backend.info.ServerInfo;
+import net.auroramc.api.cosmetics.Crate;
+import net.auroramc.api.utils.TextFormatter;
+import net.auroramc.core.api.ServerAPI;
 import net.auroramc.core.api.utils.gui.GUIItem;
 import net.auroramc.core.api.utils.holograms.Hologram;
 import net.auroramc.lobby.AuroraMCLobby;
-import net.auroramc.lobby.api.backend.GameServerInfo;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
 import net.auroramc.lobby.api.parkour.Parkour;
 import net.auroramc.lobby.api.parkour.Reward;
@@ -65,7 +66,7 @@ public class LobbyAPI {
     private static Changelog latestChangelog;
     private static CommunityPoll poll;
 
-    private static final Map<String, GameServerInfo> gameServers;
+    private static final Map<String, ServerInfo> gameServers;
     private static final Map<String, Integer> gameTotals;
     private static final Map<String, Hologram> gameHolos;
 
@@ -138,36 +139,36 @@ public class LobbyAPI {
         List<ServerInfo> infos = LobbyDatabaseManager.getServers();
         assert infos != null;
         for (ServerInfo info : infos) {
-            gameServers.put(info.getName(), new GameServerInfo(info));
+            gameServers.put(info.getName(), info);
         }
     }
 
     public static void spawnEntities() {
         GameProfile profile;
-        profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert(" &e&lLuna"));
+        profile = new GameProfile(UUID.randomUUID(), TextFormatter.convert(" &e&lLuna"));
         profile.getProperties().put("textures", new Property("textures", LUNA_SKIN, LUNA_SIGNATURE));
         lunaEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
         lunaEntity.setLocation(7.5, 70.0, 12.5, 145.0f, 0f);
-        AuroraMCAPI.registerFakePlayer(lunaEntity);
+        ServerAPI.registerFakePlayer(lunaEntity);
 
 
-        profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("&d&lComet"));
+        profile = new GameProfile(UUID.randomUUID(), TextFormatter.convert("&d&lComet"));
         profile.getProperties().put("textures", new Property("textures", LUNA_SKIN, LUNA_SIGNATURE));
         cometEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
         cometEntity.setLocation(-33.5, 71.0, 13.5,-45f, 0f);
-        AuroraMCAPI.registerFakePlayer(cometEntity);
+        ServerAPI.registerFakePlayer(cometEntity);
 
-        profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("&c&lCalypso"));
+        profile = new GameProfile(UUID.randomUUID(), TextFormatter.convert("&c&lCalypso"));
         profile.getProperties().put("textures", new Property("textures", LUNA_SKIN, LUNA_SIGNATURE));
         calypsoEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
         calypsoEntity.setLocation(-41.5, 71.0, 134.5, -145.0f, 0f);
-        AuroraMCAPI.registerFakePlayer(calypsoEntity);
+        ServerAPI.registerFakePlayer(calypsoEntity);
 
-        profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("&b&lSkye"));
+        profile = new GameProfile(UUID.randomUUID(), TextFormatter.convert("&b&lSkye"));
         profile.getProperties().put("textures", new Property("textures", LUNA_SKIN, LUNA_SIGNATURE));
         skyeEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
         skyeEntity.setLocation(60.5, 70.0, 70.5, 145.0f, 0f);
-        AuroraMCAPI.registerFakePlayer(skyeEntity);
+        ServerAPI.registerFakePlayer(skyeEntity);
 
         /*
             ==================================================================================
@@ -177,44 +178,44 @@ public class LobbyAPI {
 
 
 
-        profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Arcade Mode§r "));
+        profile = new GameProfile(UUID.randomUUID(), TextFormatter.convert("Arcade Mode§r "));
         profile.getProperties().put("textures", new Property("textures", ARCADE_SKIN, ARCADE_SIGNATURE));
         arcadeEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
         arcadeEntity.setLocation(-17.5, 70.0, 48.5, -180f, 0f);
-        AuroraMCAPI.registerFakePlayer(arcadeEntity);
+        ServerAPI.registerFakePlayer(arcadeEntity);
 
         Hologram hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), -17.5, 72.3f, 48.5), null);
         hologram.addLine(1, "&b" + gameTotals.getOrDefault("ARCADE_MODE", 0) + " &fPlayers Online");
         hologram.spawn();
         gameHolos.put("ARCADE_MODE", hologram);
 
-        profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Paintball§r "));
+        profile = new GameProfile(UUID.randomUUID(), TextFormatter.convert("Paintball§r "));
         profile.getProperties().put("textures", new Property("textures", PAINTBALL_SKIN, PAINTBALL_SIGNATURE));
         paintballEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
         paintballEntity.setLocation(-2.5, 70.0, 41.5, -180f, 0f);
-        AuroraMCAPI.registerFakePlayer(paintballEntity);
+        ServerAPI.registerFakePlayer(paintballEntity);
 
         hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), -2.5, 72.3f, 41.5), null);
         hologram.addLine(1, "&b" + gameTotals.getOrDefault("PAINTBALL", 0) + " &fPlayers Online");
         hologram.spawn();
         gameHolos.put("PAINTBALL", hologram);
 
-        profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Crystal Quest "));
+        profile = new GameProfile(UUID.randomUUID(), TextFormatter.convert("Crystal Quest "));
         profile.getProperties().put("textures", new Property("textures", CQ_SKIN, CQ_SIGNATURE));
         cqEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
         cqEntity.setLocation(-10.5, 70.0, 28.5, -180f, 0f);
-        AuroraMCAPI.registerFakePlayer(cqEntity);
+        ServerAPI.registerFakePlayer(cqEntity);
 
         hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), -10.5f, 72.3f, 28.5f), null);
         hologram.addLine(1, "&b" + gameTotals.getOrDefault("CRYSTAL_QUEST", 0) + " &fPlayers Online");
         hologram.spawn();
         gameHolos.put("CRYSTAL_QUEST", hologram);
 
-        profile = new GameProfile(UUID.randomUUID(), AuroraMCAPI.getFormatter().convert("Duels§r "));
+        profile = new GameProfile(UUID.randomUUID(), TextFormatter.convert("Duels§r "));
         profile.getProperties().put("textures", new Property("textures", DUELS_SKIN, DUELS_SIGNATURE));
         duelsEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
         duelsEntity.setLocation(3.5, 70.0, 41.5, -180f, 0f);
-        AuroraMCAPI.registerFakePlayer(duelsEntity);
+        ServerAPI.registerFakePlayer(duelsEntity);
 
         hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), 3.5f, 72.3f, 41.5f), null);
         hologram.addLine(1, "&b" + gameTotals.getOrDefault("DUELS", 0) + " &fPlayers Online");
@@ -223,7 +224,7 @@ public class LobbyAPI {
     }
 
      public static void addGameServer(String serverName) {
-        gameServers.put(serverName, new GameServerInfo(AuroraMCAPI.getDbManager().getServerDetailsByName(serverName, AuroraMCAPI.getServerInfo().getNetwork().name())));
+        gameServers.put(serverName, AuroraMCAPI.getDbManager().getServerDetailsByName(serverName, AuroraMCAPI.getInfo().getNetwork().name()));
      }
 
      public static void removeGameServer(String serverName) {
@@ -262,11 +263,11 @@ public class LobbyAPI {
         return lunaEntity;
     }
 
-    public static GameServerInfo getGameServer(String server) {
+    public static ServerInfo getGameServer(String server) {
         return gameServers.get(server);
     }
 
-    public static Map<String, GameServerInfo> getGameServers() {
+    public static Map<String, ServerInfo> getGameServers() {
         return gameServers;
     }
 
@@ -387,22 +388,22 @@ public class LobbyAPI {
     public static void updateTotals() {
         AtomicInteger amount = new AtomicInteger();
         amount.set(0);
-        LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getInfo().getServerType().getString("game").equalsIgnoreCase("CRYSTAL_QUEST")).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).forEach(info -> amount.addAndGet(info.getCurrentPlayers()));
+        LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getServerType().getString("game").equalsIgnoreCase("CRYSTAL_QUEST")).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).forEach(info -> amount.addAndGet(info.getCurrentPlayers()));
         gameTotals.put("CRYSTAL_QUEST",amount.get());
         gameHolos.get("CRYSTAL_QUEST").getLines().get(1).setText("&b" + amount.get() + " &fPlayers Online");
         gameHolos.get("CRYSTAL_QUEST").update();
         amount.set(0);
-        LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getInfo().getServerType().getString("game").equalsIgnoreCase("DUELS")).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).forEach(info -> amount.addAndGet(info.getCurrentPlayers()));
+        LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getServerType().getString("game").equalsIgnoreCase("DUELS")).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).forEach(info -> amount.addAndGet(info.getCurrentPlayers()));
         gameTotals.put("DUELS",amount.get());
         gameHolos.get("DUELS").getLines().get(1).setText("&b" + amount.get() + " &fPlayers Online");
         gameHolos.get("DUELS").update();
         amount.set(0);
-        LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getInfo().getServerType().getString("game").equalsIgnoreCase("PAINTBALL")).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).forEach(info -> amount.addAndGet(info.getCurrentPlayers()));
+        LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getServerType().getString("game").equalsIgnoreCase("PAINTBALL")).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).forEach(info -> amount.addAndGet(info.getCurrentPlayers()));
         gameTotals.put("PAINTBALL",amount.get());
         gameHolos.get("PAINTBALL").getLines().get(1).setText("&b" + amount.get() + " &fPlayers Online");
         gameHolos.get("PAINTBALL").update();
         amount.set(0);
-        LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getInfo().getServerType().getString("game").equalsIgnoreCase("ARCADE_MODE")).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).forEach(info -> amount.addAndGet(info.getCurrentPlayers()));
+        LobbyAPI.getGameServers().values().stream().filter(gameServerInfo -> gameServerInfo.getServerType().getString("game").equalsIgnoreCase("ARCADE_MODE")).sorted((game1, game2) -> Integer.compare(game2.getCurrentPlayers(), game1.getCurrentPlayers())).forEach(info -> amount.addAndGet(info.getCurrentPlayers()));
         gameTotals.put("ARCADE_MODE",amount.get());
         gameHolos.get("ARCADE_MODE").getLines().get(1).setText("&b" + amount.get() + " &fPlayers Online");
         gameHolos.get("ARCADE_MODE").update();
