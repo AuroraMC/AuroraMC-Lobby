@@ -5,7 +5,9 @@
 package net.auroramc.lobby;
 
 import net.auroramc.api.AuroraMCAPI;
+import net.auroramc.api.utils.TextFormatter;
 import net.auroramc.core.api.ServerAPI;
+import net.auroramc.core.api.player.AuroraMCServerPlayer;
 import net.auroramc.core.api.utils.ZipUtil;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.LobbyMap;
@@ -17,8 +19,13 @@ import net.auroramc.lobby.api.util.UpdateServersRunnable;
 import net.auroramc.lobby.commands.CommandFly;
 import net.auroramc.lobby.listeners.*;
 import net.auroramc.lobby.commands.admin.*;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.ComponentBuilder;
+import net.md_5.bungee.api.chat.HoverEvent;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.json.JSONObject;
@@ -28,6 +35,7 @@ import org.json.simple.parser.ParseException;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Random;
 
 public class AuroraMCLobby extends JavaPlugin {
 
@@ -110,7 +118,49 @@ public class AuroraMCLobby extends JavaPlugin {
                 LobbyAPI.getMedium().getLeaderboard().refresh();
                 LobbyAPI.getHard().getLeaderboard().refresh();
             }
-        }.runTaskTimerAsynchronously(LobbyAPI.getLobby(), 144000, 144000);
+        }.runTaskTimerAsynchronously(LobbyAPI.getLobby(), 200, 200);
+
+        new BukkitRunnable(){
+            @Override
+            public void run() {
+                TextComponent textComponent = new TextComponent("");
+
+                TextComponent lines = new TextComponent("-----------------------------------------------------");
+                lines.setStrikethrough(true);
+                lines.setColor(net.md_5.bungee.api.ChatColor.DARK_AQUA);
+                textComponent.addExtra(lines);
+
+                textComponent.addExtra("\n");
+
+                TextComponent enjoy = new TextComponent("Join our Discord to be a part of the AuroraMC Community!");
+                enjoy.setBold(true);
+                enjoy.setColor(net.md_5.bungee.api.ChatColor.AQUA);
+                textComponent.addExtra(enjoy);
+
+                textComponent.addExtra("\n \n");
+
+                TextComponent purchase = new TextComponent("Our Discord is the one-stop-shop for everything in the AuroraMC community! Talk with other players, play games, and much more! If you have a rank, you even get cool Discord-exclusive perks! Join now at ");
+                textComponent.addExtra(purchase);
+
+                TextComponent store = new TextComponent("discord.auroramc.net");
+                store.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Click to join our Discord community!").color(net.md_5.bungee.api.ChatColor.GREEN).create()));
+                store.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://discord.auroramc.net"));
+                store.setColor(net.md_5.bungee.api.ChatColor.AQUA);
+                textComponent.addExtra(store);
+
+                TextComponent link = new TextComponent("!\n" +
+                        " \n" +
+                        "Link your Discord account to remove this message.\n");
+                textComponent.addExtra(link);
+                textComponent.addExtra("\n");
+                textComponent.addExtra(lines);
+                for (AuroraMCServerPlayer player : ServerAPI.getPlayers()) {
+                    if (player.getLinkedDiscord() == null) {
+                        player.sendMessage(textComponent);
+                    }
+                }
+            }
+        }.runTaskTimerAsynchronously(LobbyAPI.getLobby(), 36000, 36000);
         getLogger().info("Startup complete.");
     }
 }

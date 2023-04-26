@@ -15,6 +15,9 @@ import net.auroramc.core.api.player.scoreboard.PlayerScoreboard;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
 import net.auroramc.lobby.api.player.AuroraMCLobbyPlayer;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.ComponentBuilder;
+import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.minecraft.server.v1_8_R3.*;
 import org.bukkit.scoreboard.Scoreboard;
@@ -84,6 +87,41 @@ public class JoinListener implements Listener {
     public void onObjectCreate(PlayerObjectCreationEvent e) {
         updateHeaderFooter(e.getPlayer());
         AuroraMCLobbyPlayer player = new AuroraMCLobbyPlayer(e.getPlayer());
+
+        if (player.getLinkedDiscord() == null) {
+            TextComponent textComponent = new TextComponent("");
+
+            TextComponent lines = new TextComponent("-----------------------------------------------------");
+            lines.setStrikethrough(true);
+            lines.setColor(net.md_5.bungee.api.ChatColor.DARK_AQUA);
+            textComponent.addExtra(lines);
+
+            textComponent.addExtra("\n");
+
+            TextComponent enjoy = new TextComponent("Join our Discord to be a part of the AuroraMC Community!");
+            enjoy.setBold(true);
+            enjoy.setColor(net.md_5.bungee.api.ChatColor.AQUA);
+            textComponent.addExtra(enjoy);
+
+            textComponent.addExtra("\n \n");
+
+            TextComponent purchase = new TextComponent("Our Discord is the one-stop-shop for everything in the AuroraMC community! Talk with other players, play games, and much more! If you have a rank, you even get cool Discord-exclusive perks! Join now at ");
+            textComponent.addExtra(purchase);
+
+            TextComponent store = new TextComponent("discord.auroramc.net");
+            store.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Click to join our Discord community!").color(net.md_5.bungee.api.ChatColor.GREEN).create()));
+            store.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://discord.auroramc.net"));
+            store.setColor(net.md_5.bungee.api.ChatColor.AQUA);
+            textComponent.addExtra(store);
+
+            TextComponent link = new TextComponent("!\n" +
+                    " \n" +
+                    "Link your Discord account to remove this message.\n");
+            textComponent.addExtra(link);
+            textComponent.addExtra("\n");
+            textComponent.addExtra(lines);
+            player.sendMessage(textComponent);
+        }
         new BukkitRunnable(){
             @Override
             public void run() {

@@ -6,7 +6,6 @@ package net.auroramc.lobby.listeners;
 
 import net.auroramc.api.AuroraMCAPI;
 import net.auroramc.api.utils.TextFormatter;
-import net.auroramc.core.api.events.FakePlayerInteractEvent;
 import net.auroramc.core.api.events.player.PlayerFakePlayerInteractEvent;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.player.AuroraMCLobbyPlayer;

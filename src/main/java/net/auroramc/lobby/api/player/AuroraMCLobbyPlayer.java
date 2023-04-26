@@ -282,9 +282,9 @@ public class AuroraMCLobbyPlayer extends AuroraMCServerPlayer {
 
     public void claimDaily() {
         sendMessage(TextFormatter.pluginMessage("Cosmonaut Luna", "You claimed your daily bonus! You got:\n" +
-                "&6+100 Crowns\n" +
-                "&d+100 Tickets\n" +
-                "&a+100 XP"));
+                "§6+100 Crowns\n" +
+                "§d+100 Tickets\n" +
+                "§a+100 XP"));
         lastDailyBonus = System.currentTimeMillis();
         dailyBonusClaimed++;
         this.getBank().addTickets(100, true, true);
@@ -342,15 +342,15 @@ public class AuroraMCLobbyPlayer extends AuroraMCServerPlayer {
         switch (getRank()) {
             case PLAYER: {
                 amount = 1000;
-                crates = "&7+1 Iron Crate";
+                crates = "§7+1 Iron Crate";
                 IronCrate crate = CrateUtil.generateIronCrate(getId());
                 this.crates.add(crate);
                 break;
             }
             case ELITE: {
                 amount = 2500;
-                crates = "&7+2 Iron Crates\n" +
-                        "&6+1 Gold Crate";
+                crates = "§7+2 Iron Crates\n" +
+                        "§6+1 Gold Crate";
                 IronCrate crate = CrateUtil.generateIronCrate(getId());
                 GoldCrate crate2 = CrateUtil.generateGoldCrate(getId());
                 this.crates.add(crate);
@@ -359,8 +359,8 @@ public class AuroraMCLobbyPlayer extends AuroraMCServerPlayer {
             }
             default: {
                 amount = 5000;
-                crates = "&6+1 Gold Crate\n" +
-                        "&b+2 Diamond Crate";
+                crates = "§6+1 Gold Crate\n" +
+                        "§b+2 Diamond Crate";
                 DiamondCrate crate = CrateUtil.generateDiamondCrate(getId());
                 this.crates.add(crate);
                 crate = CrateUtil.generateDiamondCrate(getId());
@@ -373,8 +373,8 @@ public class AuroraMCLobbyPlayer extends AuroraMCServerPlayer {
 
         sendMessage(TextFormatter.pluginMessage("Cosmonaut Luna", "You claimed your monthly bonus! You got:\n" +
                 crates + "\n" +
-                "&6+" + String.format("%,d", amount) + "  Crowns\n" +
-                "&d+" + String.format("%,d", amount) + " Tickets"));
+                "§6+" + String.format("%,d", amount) + "  Crowns\n" +
+                "§d+" + String.format("%,d", amount) + " Tickets"));
         lastMonthlyBonus = System.currentTimeMillis();
         this.getBank().addTickets(amount, true, true);
         this.getBank().addCrowns(amount, true, true);
@@ -390,10 +390,10 @@ public class AuroraMCLobbyPlayer extends AuroraMCServerPlayer {
 
     public void claimPlus() {
         sendMessage(TextFormatter.pluginMessage("Cosmonaut Luna", "You claimed your monthly Plus bonus! You got:\n" +
-                "&a+1 Emerald Crate\n" +
-                "&d+1 Diamond Crate\n" +
-                "&6+5,000 Crowns\n" +
-                "&d+5,000 Tickets"));
+                "§a+1 Emerald Crate\n" +
+                "§d+1 Diamond Crate\n" +
+                "§6+5,000 Crowns\n" +
+                "§d+5,000 Tickets"));
         lastPlusBonus = System.currentTimeMillis();
         EmeraldCrate crate = CrateUtil.generateEmeraldCrate(getId());
         DiamondCrate crate2 = CrateUtil.generateDiamondCrate(getId());
