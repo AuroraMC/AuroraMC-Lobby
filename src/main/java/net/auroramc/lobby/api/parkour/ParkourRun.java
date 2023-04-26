@@ -9,16 +9,13 @@ import net.auroramc.api.utils.TextFormatter;
 import net.auroramc.core.api.ServerAPI;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
 import net.auroramc.lobby.api.parkour.plates.Checkpoint;
-import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
+import net.auroramc.lobby.api.player.AuroraMCLobbyPlayer;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.TextComponent;
-import org.bukkit.Achievement;
-import org.bukkit.ChatColor;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
@@ -59,7 +56,7 @@ public class ParkourRun {
         actionBarTask = new BukkitRunnable(){
             @Override
             public void run() {
-                BaseComponent message = TextFormatter.pluginMessage(null, "&b&lCurrent Time: &r" + formatTime(System.currentTimeMillis() - startTime) + " - &b&lParkour: &r" + parkour.getName() + "&r - &b&lCurrent Checkpoint: &r#" + lastReached);
+                BaseComponent message = new TextComponent(TextFormatter.convert("&b&lCurrent Time: &r" + formatTime(System.currentTimeMillis() - startTime) + " - &b&lParkour: &r" + parkour.getName() + "&r - &b&lCurrent Checkpoint: &r#" + lastReached));
                 player.sendHotBar(message);
             }
         }.runTaskTimerAsynchronously(ServerAPI.getCore(), 0, 2);
@@ -103,7 +100,7 @@ public class ParkourRun {
             if (!previouslyReachedCheckpoints.contains(checkpoint)) {
                 if (parkour.getCheckpointCommand() != null) {
                     parkour.getCheckpointCommand().apply(player);
-                    player.sendMessage(TextComponent.fromLegacyText(TextFormatter.convert(parkour.getCheckpointCommand().getRewardString()))[0]);
+                    player.sendMessage(new TextComponent(TextFormatter.convert(parkour.getCheckpointCommand().getRewardString())));
                 }
             }
             previouslyReachedCheckpoints.add(checkpoint);
@@ -300,7 +297,7 @@ public class ParkourRun {
                     player.getStats().incrementStatistic(0, "pkpks", 1, true);
                     if (parkour.getEndCommand() != null) {
                         parkour.getEndCommand().apply(player);
-                        player.sendMessage(TextComponent.fromLegacyText(TextFormatter.convert(parkour.getEndCommand().getRewardString()))[0]);
+                        player.sendMessage(new TextComponent(TextFormatter.convert(parkour.getEndCommand().getRewardString())));
                     }
 
                     player.sendMessage(TextFormatter.pluginMessage("Parkour", "Well done! You completed the **" + parkour.getName() + "** in **" + formatTime(finishMili) + "**! Your reward will be applied shortly!"));

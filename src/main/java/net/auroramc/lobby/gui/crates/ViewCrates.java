@@ -13,7 +13,7 @@ import net.auroramc.common.cosmetics.crates.GoldCrate;
 import net.auroramc.common.cosmetics.crates.IronCrate;
 import net.auroramc.core.api.utils.gui.GUI;
 import net.auroramc.core.api.utils.gui.GUIItem;
-import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
+import net.auroramc.lobby.api.player.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.gui.crates.buy.BuyDiamondCrate;
 import net.auroramc.lobby.gui.crates.buy.BuyGoldCrate;
 import net.auroramc.lobby.gui.crates.buy.BuyIronCrate;
@@ -32,7 +32,6 @@ import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 public class ViewCrates extends GUI {
 

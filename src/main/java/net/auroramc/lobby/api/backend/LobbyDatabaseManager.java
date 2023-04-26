@@ -11,11 +11,10 @@ import net.auroramc.core.api.ServerAPI;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.parkour.Parkour;
 import net.auroramc.lobby.api.parkour.plates.Checkpoint;
-import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
+import net.auroramc.lobby.api.player.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.api.util.Changelog;
 import net.auroramc.lobby.api.util.CommunityPoll;
 import org.apache.commons.io.FileUtils;
-import org.bukkit.Bukkit;
 import org.json.JSONObject;
 import redis.clients.jedis.Jedis;
 
@@ -31,7 +30,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
 
 public class LobbyDatabaseManager {
 

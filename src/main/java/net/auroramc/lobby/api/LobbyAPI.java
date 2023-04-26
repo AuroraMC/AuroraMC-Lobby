@@ -17,7 +17,7 @@ import net.auroramc.lobby.AuroraMCLobby;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
 import net.auroramc.lobby.api.parkour.Parkour;
 import net.auroramc.lobby.api.parkour.Reward;
-import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
+import net.auroramc.lobby.api.player.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.api.util.Changelog;
 import net.auroramc.lobby.api.util.CommunityPoll;
 import net.minecraft.server.v1_8_R3.EntityPlayer;

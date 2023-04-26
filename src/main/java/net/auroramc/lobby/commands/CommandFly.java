@@ -8,7 +8,7 @@ import net.auroramc.api.permissions.Permission;
 import net.auroramc.api.utils.TextFormatter;
 import net.auroramc.core.api.ServerCommand;
 import net.auroramc.core.api.player.AuroraMCServerPlayer;
-import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
+import net.auroramc.lobby.api.player.AuroraMCLobbyPlayer;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ public class CommandFly extends ServerCommand {
         }
         player.setFlying(false);
         player.getPreferences().setHubFlight(!player.getPreferences().isHubFlightEnabled(), true);
-        player.sendMessage(TextFormatter.pluginMessage("Lobby", "Hub Flight: " + ((player.getPreferences().isHubFlightEnabled())?"&aEnabled":"&cDisabled")));
+        player.sendMessage(TextFormatter.pluginMessage("Lobby", "Hub Flight: " + ((player.getPreferences().isHubFlightEnabled())?"§aEnabled":"§cDisabled")));
     }
 
     @Override

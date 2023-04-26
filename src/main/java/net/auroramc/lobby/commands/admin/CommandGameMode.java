@@ -28,22 +28,22 @@ public class CommandGameMode extends ServerCommand {
 
             if (player.getGameMode().equals(GameMode.CREATIVE)) {
                 player.setGameMode(GameMode.ADVENTURE);
-                player.sendMessage(TextFormatter.pluginMessage("GameMode", "Creative Mode: &cDisabled"));
+                player.sendMessage(TextFormatter.pluginMessage("GameMode", "Creative Mode: §cDisabled"));
             } else {
                 player.setGameMode(GameMode.CREATIVE);
-                player.sendMessage(TextFormatter.pluginMessage("GameMode", "Creative Mode: &aEnabled"));
+                player.sendMessage(TextFormatter.pluginMessage("GameMode", "Creative Mode: §aEnabled"));
             }
         } else {
             AuroraMCServerPlayer pl = ServerAPI.getPlayer(args.get(0));
             if (pl != null) {
                 if (pl.getGameMode().equals(GameMode.CREATIVE)) {
                     pl.setGameMode(GameMode.ADVENTURE);
-                    pl.sendMessage(TextFormatter.pluginMessage("GameMode", "Creative Mode: &cDisabled"));
-                    player.sendMessage(TextFormatter.pluginMessage("GameMode", "Creative mode for player **" + pl.getName() + "**: &cDisabled"));
+                    pl.sendMessage(TextFormatter.pluginMessage("GameMode", "Creative Mode: §cDisabled"));
+                    player.sendMessage(TextFormatter.pluginMessage("GameMode", "Creative mode for player **" + pl.getName() + "**: §cDisabled"));
                 } else {
                     pl.setGameMode(GameMode.CREATIVE);
-                    pl.sendMessage(TextFormatter.pluginMessage("GameMode", "Creative Mode: &aEnabled"));
-                    player.sendMessage(TextFormatter.pluginMessage("GameMode", "Creative mode for player **" + pl.getName() + "**: &aEnabled"));
+                    pl.sendMessage(TextFormatter.pluginMessage("GameMode", "Creative Mode: §aEnabled"));
+                    player.sendMessage(TextFormatter.pluginMessage("GameMode", "Creative mode for player **" + pl.getName() + "**: §aEnabled"));
                 }
             } else {
                 player.sendMessage(TextFormatter.pluginMessage("GameMode", "Player **" + args.get(0) + "** was not found."));

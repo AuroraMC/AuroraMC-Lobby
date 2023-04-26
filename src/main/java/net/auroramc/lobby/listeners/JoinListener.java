@@ -14,7 +14,7 @@ import net.auroramc.core.api.player.AuroraMCServerPlayer;
 import net.auroramc.core.api.player.scoreboard.PlayerScoreboard;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
-import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
+import net.auroramc.lobby.api.player.AuroraMCLobbyPlayer;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.minecraft.server.v1_8_R3.*;
 import org.bukkit.scoreboard.Scoreboard;
@@ -34,7 +34,6 @@ import org.bukkit.scoreboard.Team;
 import org.json.JSONArray;
 
 import java.lang.reflect.Field;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class JoinListener implements Listener {
 
@@ -50,7 +49,6 @@ public class JoinListener implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
-        updateHeaderFooter((CraftPlayer) e.getPlayer());
         e.getPlayer().setFlying(false);
         e.getPlayer().setAllowFlight(false);
         e.getPlayer().setGameMode(GameMode.ADVENTURE);
@@ -84,6 +82,7 @@ public class JoinListener implements Listener {
 
     @EventHandler
     public void onObjectCreate(PlayerObjectCreationEvent e) {
+        updateHeaderFooter(e.getPlayer());
         AuroraMCLobbyPlayer player = new AuroraMCLobbyPlayer(e.getPlayer());
         new BukkitRunnable(){
             @Override
@@ -123,17 +122,23 @@ public class JoinListener implements Listener {
                         for (AuroraMCServerPlayer player1 : ServerAPI.getPlayers()) {
                             if (player1.equals(player)) {
                                 if (player.getPreferences().isHideDisguiseNameEnabled()) {
-                                    player.sendMessage(TextComponent.fromLegacyText(TextFormatter.convert("&" + player.getRank().getPrefixColor() + "&l" + player.getRank().getPrefixAppearance() + " " + player.getName() + " has joined the lobby!"))[0]);
+                                    player.sendMessage(new TextComponent(TextFormatter.convert(player.getRank().getPrefixColor() + "&l" + player.getRank().getPrefixAppearance() + " " + player.getName() + " has joined the lobby!")));
                                     continue;
                                 }
                             }
-                            player1.sendMessage(TextComponent.fromLegacyText(TextFormatter.convert("&" + player.getActiveDisguise().getRank().getPrefixColor() + "&l" + player.getActiveDisguise().getRank().getPrefixAppearance() + " " + player.getActiveDisguise().getName() + " has joined the lobby!"))[0]);
+                            player1.sendMessage(new TextComponent(TextFormatter.convert(player.getActiveDisguise().getRank().getPrefixColor() + "&l" + player.getActiveDisguise().getRank().getPrefixAppearance() + " " + player.getActiveDisguise().getName() + " has joined the lobby!")));
+                        }
+                        if (player.getPreferences().isHideDisguiseNameEnabled()) {
+                            player.sendMessage(new TextComponent(TextFormatter.convert(player.getRank().getPrefixColor() + "&l" + player.getRank().getPrefixAppearance() + " " + player.getName() + " has joined the lobby!")));
+                        } else {
+                            player.sendMessage(new TextComponent(TextFormatter.convert(player.getActiveDisguise().getRank().getPrefixColor() + "&l" + player.getActiveDisguise().getRank().getPrefixAppearance() + " " + player.getActiveDisguise().getName() + " has joined the lobby!")));
                         }
                     }
                 } else {
                     for (AuroraMCServerPlayer player1 : ServerAPI.getPlayers()) {
-                        player1.sendMessage(TextComponent.fromLegacyText(TextFormatter.convert("&" + player.getRank().getPrefixColor() + "&l" + player.getRank().getPrefixAppearance() + " " + player.getName() + " has joined the lobby!"))[0]);
+                        player1.sendMessage(new TextComponent(TextFormatter.convert(player.getRank().getPrefixColor() + "&l" + player.getRank().getPrefixAppearance() + " " + player.getName() + " has joined the lobby!")));
                     }
+                    player.sendMessage(new TextComponent(TextFormatter.convert(player.getRank().getPrefixColor() + "&l" + player.getRank().getPrefixAppearance() + " " + player.getName() + " has joined the lobby!")));
                 }
             }
         }
@@ -249,10 +254,11 @@ public class JoinListener implements Listener {
         }
     }
 
-    private static void updateHeaderFooter(CraftPlayer player2) {
+    private static void updateHeaderFooter(AuroraMCServerPlayer player) {
         try {
+            CraftPlayer player2 = player.getCraft();
             IChatBaseComponent header = IChatBaseComponent.ChatSerializer.a("{\"text\": \"§3§lAURORAMC NETWORK         §b§lAURORAMC.NET\",\"color\":\"dark_aqua\",\"bold\":\"false\"}");
-            IChatBaseComponent footer = IChatBaseComponent.ChatSerializer.a("{\"text\": \"\n§fYou are currently connected to §b" + ((ServerAPI.getPlayer(player2).isDisguised() && ServerAPI.getPlayer(player2).getPreferences().isHideDisguiseNameEnabled())?"§oHidden":AuroraMCAPI.getInfo().getName()) + "\n\n" +
+            IChatBaseComponent footer = IChatBaseComponent.ChatSerializer.a("{\"text\": \"\n§fYou are currently connected to §b" + ((player.isDisguised() && player.getPreferences().isHideDisguiseNameEnabled())?"§oHidden":AuroraMCAPI.getInfo().getName()) + "\n\n" +
                     "§rForums §3§l» §bauroramc.net\n" +
                     "§rStore §3§l» §bstore.auroramc.net\n" +
                     "§rDiscord §3§l» §bdiscord.auroramc.net\n" +

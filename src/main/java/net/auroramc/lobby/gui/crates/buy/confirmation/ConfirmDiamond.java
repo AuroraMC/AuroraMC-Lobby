@@ -8,7 +8,7 @@ import net.auroramc.api.utils.TextFormatter;
 import net.auroramc.common.cosmetics.crates.DiamondCrate;
 import net.auroramc.core.api.utils.gui.GUI;
 import net.auroramc.core.api.utils.gui.GUIItem;
-import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
+import net.auroramc.lobby.api.player.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.gui.crates.buy.BuyDiamondCrate;
 import net.auroramc.lobby.utils.CrateUtil;
 import org.bukkit.Material;
@@ -51,9 +51,9 @@ public class ConfirmDiamond extends GUI {
                 } else {
                     player.getHolograms().get("crates").getLines().get(2).setText("&fYou have &b" + amountOfCrates + " &fcrates to open!");
                 }
-                player.sendMessage(TextFormatter.pluginMessage("Crates", "You purchased &b" + amount + " Diamond Crates&r&f and &d" + (amount * CrateUtil.DIAMOND_CRATE_PRICE) + " Tickets&r&f were withdrawn from your account."));
+                player.sendMessage(TextFormatter.pluginMessage("Crates", "You purchased §b" + amount + " Diamond Crates§r§f and §d" + (amount * CrateUtil.DIAMOND_CRATE_PRICE) + " Tickets§r§f were withdrawn from your account."));
             } else {
-                player.sendMessage(TextFormatter.pluginMessage("Crates", "You have insufficient funds to purchase that crate. You need &d" + ((amount * CrateUtil.DIAMOND_CRATE_PRICE) - player.getBank().getTickets()) + "&r&f additional Tickets."));
+                player.sendMessage(TextFormatter.pluginMessage("Crates", "You have insufficient funds to purchase that crate. You need §d" + ((amount * CrateUtil.DIAMOND_CRATE_PRICE) - player.getBank().getTickets()) + "§r§f additional Tickets."));
             }
         } else {
             player.playSound(player.getLocation(), Sound.ITEM_BREAK, 100, 0);

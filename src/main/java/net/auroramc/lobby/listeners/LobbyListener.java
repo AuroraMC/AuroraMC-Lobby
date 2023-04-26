@@ -23,12 +23,10 @@ import net.auroramc.core.api.player.AuroraMCServerPlayer;
 import net.auroramc.core.gui.cosmetics.Cosmetics;
 import net.auroramc.core.gui.preferences.Preferences;
 import net.auroramc.core.gui.stats.stats.Stats;
-import net.auroramc.lobby.AuroraMCLobby;
 import net.auroramc.lobby.api.LobbyAPI;
-import net.auroramc.lobby.api.parkour.Parkour;
 import net.auroramc.lobby.api.parkour.ParkourRun;
 import net.auroramc.lobby.api.parkour.plates.Checkpoint;
-import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
+import net.auroramc.lobby.api.player.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.api.util.CrateStructures;
 import net.auroramc.lobby.gui.GameMenu;
 import net.auroramc.lobby.gui.LobbySwitcher;
@@ -46,7 +44,6 @@ import org.bukkit.entity.*;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockFromToEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
@@ -64,9 +61,7 @@ import org.bukkit.util.Vector;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import javax.persistence.Lob;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 
@@ -173,6 +168,7 @@ public class LobbyListener implements Listener {
             e.getPlayer().teleport(new Location(Bukkit.getWorld("world"), x, y, z, yaw, 0));
             e.getPlayer().setFallDistance(0);
             e.getPlayer().setVelocity(new Vector());
+            AuroraMCAPI.getLogger().info("test");
         } else if (e.getCause() == PlayerDamageEvent.DamageCause.FIRE || e.getCause() == PlayerDamageEvent.DamageCause.FIRE_TICK || e.getCause() == PlayerDamageEvent.DamageCause.LAVA) {
             e.getPlayer().setFireTicks(0);
         }
@@ -351,7 +347,7 @@ public class LobbyListener implements Listener {
                 location.add(0.5, 1.5, 0.5);
                 ArmorStand stand = location.getWorld().spawn(location, ArmorStand.class);
                 stand.setVisible(false);
-                stand.setCustomName(TextFormatter.convert(TextFormatter.highlightRaw(reward.getCosmetic().getDisplayName() + "&r (" + reward.getCosmetic().getRarity().getDisplayName() + "&r)")));
+                stand.setCustomName(TextFormatter.convert(TextFormatter.highlightRaw(TextFormatter.convert(reward.getCosmetic().getDisplayName()) + "§r (" + reward.getCosmetic().getRarity().getDisplayName() + "§r)")));
                 stand.setCustomNameVisible(true);
                 stand.setSmall(true);
                 stand.setMarker(true);
@@ -365,11 +361,11 @@ public class LobbyListener implements Listener {
                 }.runTaskAsynchronously(ServerAPI.getCore());
                 switch (reward.getCosmetic().getRarity()) {
                     case COMMON: {
-                        cratePlayer.sendMessage(TextFormatter.pluginMessage("Crate", "You just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)" + ((duplicate)?" &c&lDUPLICATE":"")));
+                        cratePlayer.sendMessage(TextFormatter.pluginMessage("Crate", "You just found a " + TextFormatter.convert(reward.getCosmetic().getRarity().getDisplayName()) + " **" + TextFormatter.convert(reward.getCosmetic().getDisplayName()) + "** (**" + reward.getCosmetic().getType().getName() + "**)" + ((duplicate)?" §c§lDUPLICATE":"")));
                         break;
                     }
                     case UNCOMMON: {
-                        cratePlayer.sendMessage(TextFormatter.pluginMessage("Crate", "You just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)" + ((duplicate)?" &c&lDUPLICATE":"")));
+                        cratePlayer.sendMessage(TextFormatter.pluginMessage("Crate", "You just found a " + TextFormatter.convert(reward.getCosmetic().getRarity().getDisplayName()) + " **" + TextFormatter.convert(reward.getCosmetic().getDisplayName()) + "** (**" + reward.getCosmetic().getType().getName() + "**)" + ((duplicate)?" §c§lDUPLICATE":"")));
                         Location loc = block.getLocation().add(0.5, 0, 0.5);
                         org.bukkit.entity.Firework firework = loc.getWorld().spawn(loc, org.bukkit.entity.Firework.class);
                         FireworkMeta meta = firework.getFireworkMeta();
@@ -385,7 +381,7 @@ public class LobbyListener implements Listener {
                         break;
                     }
                     case RARE: {
-                        cratePlayer.sendMessage(TextFormatter.pluginMessage("Crate", "You just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)" + ((duplicate)?" &c&lDUPLICATE":"")));
+                        cratePlayer.sendMessage(TextFormatter.pluginMessage("Crate", "You just found a " + TextFormatter.convert(reward.getCosmetic().getRarity().getDisplayName()) + " **" + TextFormatter.convert(reward.getCosmetic().getDisplayName()) + "** (**" + reward.getCosmetic().getType().getName() + "**)" + ((duplicate)?" §c§lDUPLICATE":"")));
                         Location loc = block.getLocation().add(0.5, 0, 0.5);
                         org.bukkit.entity.Firework firework = loc.getWorld().spawn(loc, org.bukkit.entity.Firework.class);
                         FireworkMeta meta = firework.getFireworkMeta();
@@ -402,7 +398,7 @@ public class LobbyListener implements Listener {
                     }
                     case EPIC: {
                         for (AuroraMCServerPlayer player : ServerAPI.getPlayers()) {
-                            player.sendMessage(TextFormatter.pluginMessage("Crate", "**" + cratePlayer.getName() + "** just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)" + ((duplicate)?" &c&lDUPLICATE":"")));
+                            player.sendMessage(TextFormatter.pluginMessage("Crate", "**" + cratePlayer.getName() + "** just found a " + TextFormatter.convert(reward.getCosmetic().getRarity().getDisplayName()) + " **" + TextFormatter.convert(reward.getCosmetic().getDisplayName()) + "** (**" + reward.getCosmetic().getType().getName() + "**)" + ((duplicate)?" §c§lDUPLICATE":"")));
                             player.playSound(player.getLocation(), Sound.PORTAL_TRAVEL, 100, 0);
                             new BukkitRunnable() {
                                 int i = 0;
@@ -433,7 +429,7 @@ public class LobbyListener implements Listener {
                     }
                     case LEGENDARY: {
                         for (AuroraMCServerPlayer player : ServerAPI.getPlayers()) {
-                            player.sendMessage(TextFormatter.pluginMessage("Crate", "**" + cratePlayer.getName() + "** just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)" + ((duplicate)?" &c&lDUPLICATE":"")));
+                            player.sendMessage(TextFormatter.pluginMessage("Crate", "**" + cratePlayer.getName() + "** just found a " + TextFormatter.convert(reward.getCosmetic().getRarity().getDisplayName()) + " **" + TextFormatter.convert(reward.getCosmetic().getDisplayName()) + "** (**" + reward.getCosmetic().getType().getName() + "**)" + ((duplicate)?" §c§lDUPLICATE":"")));
                             player.playSound(player.getLocation(), Sound.ENDERDRAGON_GROWL, 100, 0);
                         }
                         new BukkitRunnable() {
@@ -463,7 +459,7 @@ public class LobbyListener implements Listener {
                     }
                     case MYTHICAL: {
                         for (AuroraMCServerPlayer player : ServerAPI.getPlayers()) {
-                            player.sendMessage(TextFormatter.pluginMessage("Crate", "**" + cratePlayer.getName() + "** just found a " + reward.getCosmetic().getRarity().getDisplayName() + " **" + reward.getCosmetic().getDisplayName() + "** (**" + reward.getCosmetic().getType().getName() + "**)" + ((duplicate)?" &c&lDUPLICATE":"")));
+                            player.sendMessage(TextFormatter.pluginMessage("Crate", "**" + cratePlayer.getName() + "** just found a " + TextFormatter.convert(reward.getCosmetic().getRarity().getDisplayName()) + " **" + TextFormatter.convert(reward.getCosmetic().getDisplayName()) + "** (**" + reward.getCosmetic().getType().getName() + "**)" + ((duplicate)?" §c§lDUPLICATE":"")));
                             player.playSound(player.getLocation(), Sound.ENDERDRAGON_DEATH, 100, 0);
                         }
                         new BukkitRunnable() {
@@ -940,6 +936,7 @@ public class LobbyListener implements Listener {
                 z = spawnLocations.getJSONObject(0).getInt("z");
                 float yaw = spawnLocations.getJSONObject(0).getFloat("yaw");
                 e.getPlayer().teleport(new Location(Bukkit.getWorld("world"), x, y, z, yaw, 0));
+                AuroraMCAPI.getLogger().info("tp2");
             }
             if (LobbyAPI.getLobbyMap().getMapData().getInt("time") > 12000) {
                 e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 1000000, 0, true, false), false);

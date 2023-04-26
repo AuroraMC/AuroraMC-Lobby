@@ -67,17 +67,17 @@ public class GameMenu extends GUI {
                 switch (column) {
                     case 3: {
                         l = LobbyAPI.getEasy().getRestartPoint().getLocation().clone();
-                        player.sendMessage(TextFormatter.pluginMessage("Parkour", "You have been teleported to the &aEasy&r parkour."));
+                        player.sendMessage(TextFormatter.pluginMessage("Parkour", "You have been teleported to the §aEasy§r parkour."));
                         break;
                     }
                     case 4: {
                         l = LobbyAPI.getMedium().getRestartPoint().getLocation().clone();
-                        player.sendMessage(TextFormatter.pluginMessage("Parkour", "You have been teleported to the &6Medium&r parkour."));
+                        player.sendMessage(TextFormatter.pluginMessage("Parkour", "You have been teleported to the §6Medium§r parkour."));
                         break;
                     }
                     case 5: {
                         l = LobbyAPI.getHard().getRestartPoint().getLocation().clone();
-                        player.sendMessage(TextFormatter.pluginMessage("Parkour", "You have been teleported to the &cHard&r parkour."));
+                        player.sendMessage(TextFormatter.pluginMessage("Parkour", "You have been teleported to the §cHard§r parkour."));
                         break;
                     }
                 }

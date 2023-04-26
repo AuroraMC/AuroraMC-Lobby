@@ -9,8 +9,7 @@ import com.mojang.authlib.properties.Property;
 import net.auroramc.api.utils.TextFormatter;
 import net.auroramc.core.api.utils.gui.GUI;
 import net.auroramc.core.api.utils.gui.GUIItem;
-import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
-import net.auroramc.lobby.gui.crates.buy.confirmation.ConfirmDiamond;
+import net.auroramc.lobby.api.player.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.gui.crates.buy.confirmation.ConfirmIron;
 import net.auroramc.lobby.utils.CrateUtil;
 import org.bukkit.Material;
@@ -18,7 +17,6 @@ import org.bukkit.Sound;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.meta.SkullMeta;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;

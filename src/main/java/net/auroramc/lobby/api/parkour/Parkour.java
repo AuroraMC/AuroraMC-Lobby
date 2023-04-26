@@ -7,13 +7,12 @@ package net.auroramc.lobby.api.parkour;
 import net.auroramc.core.api.utils.holograms.Hologram;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.parkour.plates.*;
-import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
+import net.auroramc.lobby.api.player.AuroraMCLobbyPlayer;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import javax.persistence.Lob;
 import java.util.ArrayList;
 import java.util.List;
 

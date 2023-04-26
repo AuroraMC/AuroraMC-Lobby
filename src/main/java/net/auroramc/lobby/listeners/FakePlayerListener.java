@@ -4,10 +4,12 @@
 
 package net.auroramc.lobby.listeners;
 
+import net.auroramc.api.AuroraMCAPI;
 import net.auroramc.api.utils.TextFormatter;
 import net.auroramc.core.api.events.FakePlayerInteractEvent;
+import net.auroramc.core.api.events.player.PlayerFakePlayerInteractEvent;
 import net.auroramc.lobby.api.LobbyAPI;
-import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
+import net.auroramc.lobby.api.player.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.gui.GameServerListing;
 import net.auroramc.lobby.gui.CosmonautLuna;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -42,14 +44,14 @@ public class FakePlayerListener implements Listener {
     }
 
     @EventHandler
-    public void onFakePlayerInteract(FakePlayerInteractEvent e) {
+    public void onFakePlayerInteract(PlayerFakePlayerInteractEvent e) {
         AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) e.getPlayer();
         if (player.canClick()) {
             player.click();
             if (e.getFakePlayer().equals(LobbyAPI.getLunaEntity())) {
                 CosmonautLuna luna = new CosmonautLuna((AuroraMCLobbyPlayer) e.getPlayer());
                 luna.open(e.getPlayer());
-                player.sendMessage(TextComponent.fromLegacyText(TextFormatter.convert("&6&lLieutenant &e&lLuna&r &6&l»&r " + lunaPhrases.get(new Random().nextInt(lunaPhrases.size()))))[0]);
+                player.sendMessage(new TextComponent(TextFormatter.convert("&6&lLieutenant &e&lLuna&r &6&l»&r " + lunaPhrases.get(new Random().nextInt(lunaPhrases.size())))));
             } else if (e.getFakePlayer().equals(LobbyAPI.getArcadeEntity())) {
                 GameServerListing listing = new GameServerListing(player, "ARCADE_MODE", "Arcade Mode", "Arcade");
                 listing.open(player);
@@ -63,11 +65,11 @@ public class FakePlayerListener implements Listener {
                 GameServerListing listing = new GameServerListing(player, "PAINTBALL", "Paintball", "PB");
                 listing.open(player);
             } else if (e.getFakePlayer().equals(LobbyAPI.getCometEntity())) {
-                player.sendMessage(TextComponent.fromLegacyText(TextFormatter.convert("&5&lColonel &d&lComet&r &5&l»&r " + cometPhrases.get(new Random().nextInt(cometPhrases.size()))))[0]);
+                player.sendMessage(new TextComponent(TextFormatter.convert("&5&lColonel &d&lComet&r &5&l»&r " + cometPhrases.get(new Random().nextInt(cometPhrases.size())))));
             } else if (e.getFakePlayer().equals(LobbyAPI.getCalypsoEntity())) {
-                player.sendMessage(TextComponent.fromLegacyText(TextFormatter.convert("&4&lCaptain &c&lCalypso&r &4&l»&r " + calypsoPhrases.get(new Random().nextInt(calypsoPhrases.size()))))[0]);
+                player.sendMessage(new TextComponent(TextFormatter.convert("&4&lCaptain &c&lCalypso&r &4&l»&r " + calypsoPhrases.get(new Random().nextInt(calypsoPhrases.size())))));
             } else if (e.getFakePlayer().equals(LobbyAPI.getSkyeEntity())) {
-                player.sendMessage(TextComponent.fromLegacyText(TextFormatter.convert("&3&lSergeant &b&lSkye&r &3&l»&r " + skyePhrases.get(new Random().nextInt(skyePhrases.size()))))[0]);
+                player.sendMessage(new TextComponent(TextFormatter.convert("&3&lSergeant &b&lSkye&r &3&l»&r " + skyePhrases.get(new Random().nextInt(skyePhrases.size())))));
             }
         }
     }

@@ -6,8 +6,7 @@ package net.auroramc.lobby.api.util;
 
 import net.auroramc.core.api.ServerAPI;
 import net.auroramc.lobby.api.LobbyAPI;
-import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
-import org.bukkit.Server;
+import net.auroramc.lobby.api.player.AuroraMCLobbyPlayer;
 import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
