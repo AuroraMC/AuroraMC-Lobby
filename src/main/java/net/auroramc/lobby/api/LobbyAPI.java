@@ -72,7 +72,6 @@ public class LobbyAPI {
 
     private static EntityPlayer lunaEntity;
     private static EntityPlayer cometEntity;
-    private static EntityPlayer calypsoEntity;
     private static EntityPlayer skyeEntity;
     private static EntityPlayer arcadeEntity;
     private static EntityPlayer cqEntity;
@@ -157,12 +156,6 @@ public class LobbyAPI {
         cometEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
         cometEntity.setLocation(-33.5, 71.0, 13.5,-45f, 0f);
         ServerAPI.registerFakePlayer(cometEntity);
-
-        profile = new GameProfile(UUID.randomUUID(), TextFormatter.convert("&c&lCalypso"));
-        profile.getProperties().put("textures", new Property("textures", LUNA_SKIN, LUNA_SIGNATURE));
-        calypsoEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
-        calypsoEntity.setLocation(-41.5, 71.0, 134.5, -145.0f, 0f);
-        ServerAPI.registerFakePlayer(calypsoEntity);
 
         profile = new GameProfile(UUID.randomUUID(), TextFormatter.convert("&b&lSkye"));
         profile.getProperties().put("textures", new Property("textures", LUNA_SKIN, LUNA_SIGNATURE));
@@ -411,10 +404,6 @@ public class LobbyAPI {
 
     public static Map<String, Integer> getGameTotals() {
         return gameTotals;
-    }
-
-    public static EntityPlayer getCalypsoEntity() {
-        return calypsoEntity;
     }
 
     public static EntityPlayer getCometEntity() {

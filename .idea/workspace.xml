@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Loads of fixes">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Bugfixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/AuroraMCLobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/AuroraMCLobby.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/player/AuroraMCLobbyPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/player/AuroraMCLobbyPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/FakePlayerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/FakePlayerListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -569,13 +565,13 @@
       <workItem from="1682537130931" duration="45000" />
       <workItem from="1682537180312" duration="5000" />
       <workItem from="1682537234909" duration="12000" />
-    </task>
-    <task id="LOCAL-00267" summary="Move holograms">
-      <created>1666978348579</created>
-      <option name="number" value="00267" />
-      <option name="presentableId" value="LOCAL-00267" />
-      <option name="project" value="LOCAL" />
-      <updated>1666978348579</updated>
+      <workItem from="1682542152044" duration="16000" />
+      <workItem from="1682619157830" duration="42000" />
+      <workItem from="1682619217251" duration="7000" />
+      <workItem from="1682619246590" duration="40000" />
+      <workItem from="1682619309946" duration="29000" />
+      <workItem from="1682619371089" duration="12000" />
+      <workItem from="1682619399453" duration="10000" />
     </task>
     <task id="LOCAL-00268" summary="Move holograms down">
       <created>1666978879540</created>
@@ -913,7 +909,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682467704182</updated>
     </task>
-    <option name="localTasksCounter" value="316" />
+    <task id="LOCAL-00316" summary="Bugfixes">
+      <created>1682542159536</created>
+      <option name="number" value="00316" />
+      <option name="presentableId" value="LOCAL-00316" />
+      <option name="project" value="LOCAL" />
+      <updated>1682542159536</updated>
+    </task>
+    <option name="localTasksCounter" value="317" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -934,7 +937,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Disable auto-update of holograms" />
     <MESSAGE value="Update items" />
     <MESSAGE value="Update item, can now see duplicates" />
     <MESSAGE value="Hologram now updates properly, change format of duplicate text" />
@@ -959,6 +961,7 @@
     <MESSAGE value="Fix lobby" />
     <MESSAGE value="Upgrade infrastructure" />
     <MESSAGE value="Loads of fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Loads of fixes" />
+    <MESSAGE value="Bugfixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bugfixes" />
   </component>
 </project>
