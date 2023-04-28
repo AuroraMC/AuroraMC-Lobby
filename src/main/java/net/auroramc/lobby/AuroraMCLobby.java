@@ -118,7 +118,7 @@ public class AuroraMCLobby extends JavaPlugin {
                 LobbyAPI.getMedium().getLeaderboard().refresh();
                 LobbyAPI.getHard().getLeaderboard().refresh();
             }
-        }.runTaskTimerAsynchronously(LobbyAPI.getLobby(), 200, 200);
+        }.runTaskTimerAsynchronously(LobbyAPI.getLobby(), 1200, 1200);
 
         new BukkitRunnable(){
             @Override
