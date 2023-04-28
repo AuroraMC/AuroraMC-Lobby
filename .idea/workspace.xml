@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Bugfixes">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Remove Calypso from the lobby">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/backend/LobbyDatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/backend/LobbyDatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/ParkourRun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/parkour/ParkourRun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/player/AuroraMCLobbyPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/player/AuroraMCLobbyPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/CosmonautLuna.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/gui/LieutenantLuna.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/FakePlayerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/FakePlayerListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -572,13 +577,19 @@
       <workItem from="1682619309946" duration="29000" />
       <workItem from="1682619371089" duration="12000" />
       <workItem from="1682619399453" duration="10000" />
-    </task>
-    <task id="LOCAL-00268" summary="Move holograms down">
-      <created>1666978879540</created>
-      <option name="number" value="00268" />
-      <option name="presentableId" value="LOCAL-00268" />
-      <option name="project" value="LOCAL" />
-      <updated>1666978879540</updated>
+      <workItem from="1682619526250" duration="45000" />
+      <workItem from="1682624091105" duration="17000" />
+      <workItem from="1682624558916" duration="114000" />
+      <workItem from="1682625081126" duration="201000" />
+      <workItem from="1682625335136" duration="2000" />
+      <workItem from="1682625424443" duration="2000" />
+      <workItem from="1682625946445" duration="481000" />
+      <workItem from="1682626547300" duration="7000" />
+      <workItem from="1682626569204" duration="10000" />
+      <workItem from="1682627225362" duration="699000" />
+      <workItem from="1682627945478" duration="941000" />
+      <workItem from="1682629041559" duration="1074000" />
+      <workItem from="1682632612875" duration="91000" />
     </task>
     <task id="LOCAL-00269" summary="Fix medium parkour">
       <created>1666979227828</created>
@@ -916,7 +927,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682542159536</updated>
     </task>
-    <option name="localTasksCounter" value="317" />
+    <task id="LOCAL-00317" summary="Remove Calypso from the lobby">
+      <created>1682619551383</created>
+      <option name="number" value="00317" />
+      <option name="presentableId" value="LOCAL-00317" />
+      <option name="project" value="LOCAL" />
+      <updated>1682619551383</updated>
+    </task>
+    <option name="localTasksCounter" value="318" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -937,7 +955,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update items" />
     <MESSAGE value="Update item, can now see duplicates" />
     <MESSAGE value="Hologram now updates properly, change format of duplicate text" />
     <MESSAGE value="Experimenting with tab" />
@@ -962,6 +979,7 @@
     <MESSAGE value="Upgrade infrastructure" />
     <MESSAGE value="Loads of fixes" />
     <MESSAGE value="Bugfixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bugfixes" />
+    <MESSAGE value="Remove Calypso from the lobby" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove Calypso from the lobby" />
   </component>
 </project>

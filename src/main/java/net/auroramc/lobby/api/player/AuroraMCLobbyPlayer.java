@@ -44,6 +44,8 @@ public class AuroraMCLobbyPlayer extends AuroraMCServerPlayer {
     private long lastPlusBonus;
     private ParkourRun activeParkourRun;
 
+    private int dailyStreak;
+
     private Map<Gadget, Long> lastUsed;
 
     private CheckForcefieldRunnable runnable;
@@ -214,6 +216,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCServerPlayer {
         dailyBonusClaimed = LobbyDatabaseManager.getLastDailyBonusTotal(this.getId());
         lastMonthlyBonus = LobbyDatabaseManager.getLastMonthlyBonus(this.getId());
         lastPlusBonus = LobbyDatabaseManager.getLastPlusBonus(this.getId());
+        dailyStreak = LobbyDatabaseManager.getRewardStreak(this.getId());
 
         new BukkitRunnable(){
             @Override
@@ -276,6 +279,13 @@ public class AuroraMCLobbyPlayer extends AuroraMCServerPlayer {
         lastClick = System.currentTimeMillis();
     }
 
+    public int getDailyStreak() {
+        if (System.currentTimeMillis() - lastDailyBonus > 129600000L) {
+            dailyStreak = 0;
+        }
+        return dailyStreak;
+    }
+
     public boolean canClick() {
         return System.currentTimeMillis() - lastClick >= 500;
     }
@@ -291,6 +301,11 @@ public class AuroraMCLobbyPlayer extends AuroraMCServerPlayer {
         this.getBank().addCrowns(100, true, true);
         this.getStats().addXp(100, true);
         LobbyDatabaseManager.setLastDailyBonus(this.getId(), lastDailyBonus);
+        dailyStreak = LobbyDatabaseManager.claimReward(this.getId());
+        long old = this.getStats().getStatistic(0, "streak");
+        if (old < dailyStreak) {
+            this.getStats().incrementStatistic(0, "streak", dailyStreak - old, true);
+        }
         LobbyDatabaseManager.setLastDailyBonusTotal(this.getId(), dailyBonusClaimed);
         updateRewardHologram();
     }

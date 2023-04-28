@@ -7,6 +7,7 @@ package net.auroramc.lobby.gui;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import net.auroramc.api.permissions.Rank;
+import net.auroramc.api.punishments.PunishmentLength;
 import net.auroramc.api.utils.TextFormatter;
 import net.auroramc.core.api.utils.gui.GUI;
 import net.auroramc.core.api.utils.gui.GUIItem;
@@ -30,7 +31,7 @@ import java.lang.reflect.Field;
 import java.util.Base64;
 import java.util.UUID;
 
-public class CosmonautLuna extends GUI {
+public class LieutenantLuna extends GUI {
 
     private final static ItemStack head;
 
@@ -57,9 +58,9 @@ public class CosmonautLuna extends GUI {
 
     private final AuroraMCLobbyPlayer player;
 
-    public CosmonautLuna(AuroraMCLobbyPlayer player) {
-        super("&3&lCosmonaut &b&lLuna", 5, true);
-        this.border("&3&lCosmonaut &b&lLuna", null);
+    public LieutenantLuna(AuroraMCLobbyPlayer player) {
+        super("&6&lLieutenant &e&lLuna", 5, true);
+        this.border("&6&lLieutenant &e&lLuna", null);
         this.player = player;
 
         this.setItem(0, 4, new GUIItem(Material.EMPTY_MAP, "&3&lChangelogs", 1, ";&r&fLatest Update:;&b" + ((LobbyAPI.getLatestChangelog() != null)?LobbyAPI.getLatestChangelog().getUpdateTitle():"None") + ";;&aClick to view more changelogs!"));
@@ -69,9 +70,9 @@ public class CosmonautLuna extends GUI {
         boolean claimPlus = player.canClaimPlus();
 
         if (claimDaily) {
-            this.setItem(2, 2, new GUIItem(Material.IRON_BLOCK, "&3&lLoyalty Bonus", 1, ";&r&fClaim your daily bonus for:;&6+100 Crowns;&d+100 Tickets;&a+100 XP;;&r&fDaily bonuses claimed: **" + player.getDailyBonusClaimed() + "**;&aClick to claim!"));
+            this.setItem(2, 2, new GUIItem(Material.IRON_BLOCK, "&3&lLoyalty Bonus", 1, ";&r&fClaim your daily bonus for:;&6+100 Crowns;&d+100 Tickets;&a+100 XP;;&r&fDaily bonuses claimed: **" + player.getDailyBonusClaimed() + "**;&r&fCurrent Streak: **" + player.getDailyStreak() + "**" + ((player.getDailyStreak() > 0)?";&r&fStreak Expires: **" + (new PunishmentLength((129600000 - (System.currentTimeMillis() - player.getLastDailyBonus()))/3600000d)) + "**":"") + ";&r&fHighest Streak: **" + player.getStats().getStatistic(0, "streak") + "**;;&aClick to claim!"));
         } else {
-            this.setItem(2, 2, new GUIItem(Material.REDSTONE_BLOCK, "&3&lLoyalty Bonus", 1, ";&cYou have already claimed;&ctoday's bonus!;;&r&fDaily bonuses claimed: **" + player.getDailyBonusClaimed() + "**;;&r&fCome back tomorrow to claim again!"));
+            this.setItem(2, 2, new GUIItem(Material.REDSTONE_BLOCK, "&3&lLoyalty Bonus", 1, ";&cYou have already claimed;&ctoday's bonus!;;&r&fDaily bonuses claimed: **" + player.getDailyBonusClaimed() + "**;&r&fCurrent Streak: **" + player.getDailyStreak() + "**" + ((player.getDailyStreak() > 0)?";&r&fStreak Expires: **" + (new PunishmentLength((129600000 - (System.currentTimeMillis() - player.getLastDailyBonus()))/3600000d)) + "**":"") + ";&r&fHighest Streak: **" + player.getStats().getStatistic(0, "streak") + "**;;&r&fCome back tomorrow to claim again!"));
         }
         if (claimMonthly) {
             String reward;
@@ -114,7 +115,7 @@ public class CosmonautLuna extends GUI {
             case IRON_BLOCK: {
                 if (player.canClaimDaily()) {
                     player.claimDaily();
-                    this.updateItem(2, 2, new GUIItem(Material.REDSTONE_BLOCK, "&3&lLoyalty Bonus", 1, ";&cYou have already claimed;&ctoday's bonus!;;&r&fDaily bonuses claimed: **" + player.getDailyBonusClaimed() + "**;;&r&fCome back tomorrow to claim again!"));
+                    this.updateItem(2, 2, new GUIItem(Material.REDSTONE_BLOCK, "&3&lLoyalty Bonus", 1, ";&cYou have already claimed;&ctoday's bonus!;;&r&fDaily bonuses claimed: **" + player.getDailyBonusClaimed() + "**;&r&fCurrent Streak: **" + player.getDailyStreak() + "**" + ((player.getDailyStreak() > 0)?";&r&fStreak Expires: **" + (new PunishmentLength((129600000 - (System.currentTimeMillis() - player.getLastDailyBonus()))/3600000d)) + "**":"") + ";&r&fHighest Streak: **" + player.getStats().getStatistic(0, "streak") + "**;;&r&fCome back tomorrow to claim again!"));
                     player.playSound(player.getLocation(), Sound.NOTE_PLING, 100, 1);
                 }
                 break;
