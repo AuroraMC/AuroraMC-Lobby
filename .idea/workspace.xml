@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="..." />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix issue with updates">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/ShutdownEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/ShutdownEventListener.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -582,14 +585,11 @@
       <workItem from="1682627945478" duration="941000" />
       <workItem from="1682629041559" duration="1074000" />
       <workItem from="1682632612875" duration="91000" />
-      <workItem from="1682721965324" duration="311000" />
-    </task>
-    <task id="LOCAL-00270" summary="Fix parkour items">
-      <created>1666979340790</created>
-      <option name="number" value="00270" />
-      <option name="presentableId" value="LOCAL-00270" />
-      <option name="project" value="LOCAL" />
-      <updated>1666979340790</updated>
+      <workItem from="1682721965324" duration="746000" />
+      <workItem from="1682723185213" duration="168000" />
+      <workItem from="1682723585460" duration="68000" />
+      <workItem from="1682723675021" duration="11000" />
+      <workItem from="1682723711993" duration="10000" />
     </task>
     <task id="LOCAL-00271" summary="Fix checkpoints">
       <created>1666979654113</created>
@@ -927,7 +927,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682721978816</updated>
     </task>
-    <option name="localTasksCounter" value="319" />
+    <task id="LOCAL-00319" summary="Decrease frequency of scoreboard updates">
+      <created>1682722407769</created>
+      <option name="number" value="00319" />
+      <option name="presentableId" value="LOCAL-00319" />
+      <option name="project" value="LOCAL" />
+      <updated>1682722407769</updated>
+    </task>
+    <option name="localTasksCounter" value="320" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -948,7 +955,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Hologram now updates properly, change format of duplicate text" />
     <MESSAGE value="Experimenting with tab" />
     <MESSAGE value="block is bad" />
     <MESSAGE value="Update tab" />
@@ -973,6 +979,7 @@
     <MESSAGE value="Bugfixes" />
     <MESSAGE value="Remove Calypso from the lobby" />
     <MESSAGE value="..." />
-    <option name="LAST_COMMIT_MESSAGE" value="..." />
+    <MESSAGE value="Decrease frequency of scoreboard updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="Decrease frequency of scoreboard updates" />
   </component>
 </project>

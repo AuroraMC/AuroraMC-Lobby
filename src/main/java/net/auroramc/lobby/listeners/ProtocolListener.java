@@ -5,7 +5,7 @@
 package net.auroramc.lobby.listeners;
 
 import net.auroramc.core.api.backend.communication.Protocol;
-import net.auroramc.core.api.events.ProtocolMessageEvent;
+import net.auroramc.core.api.events.server.ProtocolMessageEvent;
 import net.auroramc.lobby.api.LobbyAPI;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
