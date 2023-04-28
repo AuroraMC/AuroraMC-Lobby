@@ -4,11 +4,10 @@
 
 package net.auroramc.lobby.listeners;
 
-import net.auroramc.core.api.AuroraMCAPI;
 import net.auroramc.core.api.events.player.PlayerLeaveEvent;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.parkour.ParkourRun;
-import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
+import net.auroramc.lobby.api.player.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.api.util.CrateStructures;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -16,7 +15,6 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.BlockState;
-import org.bukkit.entity.ArmorStand;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.material.Chest;
@@ -30,7 +28,7 @@ public class LeaveListener implements Listener {
             AuroraMCLobbyPlayer player = (AuroraMCLobbyPlayer) e.getPlayer();
             player.deactivateForcefield();
             player.getStats().addLobbyTime(System.currentTimeMillis() - player.getJoinTimestamp(), true);
-            if (LobbyAPI.getCratePlayer() != null && LobbyAPI.getCratePlayer().getPlayer().equals(e.getPlayer().getPlayer())) {
+            if (LobbyAPI.getCratePlayer() != null && LobbyAPI.getCratePlayer().equals(e.getPlayer())) {
                 JSONObject crateLocation = LobbyAPI.getLobbyMap().getMapData().getJSONObject("game").getJSONArray("CRATE").getJSONObject(0);
                 int x = crateLocation.getInt("x");
                 int y = crateLocation.getInt("y");

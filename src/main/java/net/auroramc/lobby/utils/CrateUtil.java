@@ -4,11 +4,11 @@
 
 package net.auroramc.lobby.utils;
 
-import net.auroramc.core.api.AuroraMCAPI;
-import net.auroramc.core.cosmetics.crates.DiamondCrate;
-import net.auroramc.core.cosmetics.crates.EmeraldCrate;
-import net.auroramc.core.cosmetics.crates.GoldCrate;
-import net.auroramc.core.cosmetics.crates.IronCrate;
+import net.auroramc.common.cosmetics.crates.DiamondCrate;
+import net.auroramc.common.cosmetics.crates.EmeraldCrate;
+import net.auroramc.common.cosmetics.crates.GoldCrate;
+import net.auroramc.common.cosmetics.crates.IronCrate;
+import net.auroramc.core.api.ServerAPI;
 import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -29,7 +29,7 @@ public class CrateUtil {
             public void run() {
                 LobbyDatabaseManager.newCrate(crate);
             }
-        }.runTaskAsynchronously(AuroraMCAPI.getCore());
+        }.runTaskAsynchronously(ServerAPI.getCore());
         return crate;
     }
     public static GoldCrate generateGoldCrate(int owner) {
@@ -40,7 +40,7 @@ public class CrateUtil {
             public void run() {
                 LobbyDatabaseManager.newCrate(crate);
             }
-        }.runTaskAsynchronously(AuroraMCAPI.getCore());
+        }.runTaskAsynchronously(ServerAPI.getCore());
         return crate;
     }
 
@@ -52,7 +52,7 @@ public class CrateUtil {
             public void run() {
                 LobbyDatabaseManager.newCrate(crate);
             }
-        }.runTaskAsynchronously(AuroraMCAPI.getCore());
+        }.runTaskAsynchronously(ServerAPI.getCore());
         return crate;
     }
 
@@ -64,7 +64,7 @@ public class CrateUtil {
             public void run() {
                 LobbyDatabaseManager.newCrate(crate);
             }
-        }.runTaskAsynchronously(AuroraMCAPI.getCore());
+        }.runTaskAsynchronously(ServerAPI.getCore());
         return crate;
     }
 

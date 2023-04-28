@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix updating in-progess games GUI">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Bugfixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +61,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;bugfix&quot;,
     &quot;last_opened_file_path&quot;: &quot;E:/AuroraMC/Codebase/Java/AuroraMC-Lobby/src/main/java/net/auroramc/lobby/api/parkour/plates&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -490,34 +492,86 @@
       <workItem from="1673696005813" duration="85000" />
       <workItem from="1674668054194" duration="59000" />
       <workItem from="1678308691728" duration="6000" />
-    </task>
-    <task id="LOCAL-00264" summary="Fix holograms">
-      <created>1666977522544</created>
-      <option name="number" value="00264" />
-      <option name="presentableId" value="LOCAL-00264" />
-      <option name="project" value="LOCAL" />
-      <updated>1666977522544</updated>
-    </task>
-    <task id="LOCAL-00265" summary="Move holograms">
-      <created>1666977988101</created>
-      <option name="number" value="00265" />
-      <option name="presentableId" value="LOCAL-00265" />
-      <option name="project" value="LOCAL" />
-      <updated>1666977988101</updated>
-    </task>
-    <task id="LOCAL-00266" summary="Move holograms">
-      <created>1666978179640</created>
-      <option name="number" value="00266" />
-      <option name="presentableId" value="LOCAL-00266" />
-      <option name="project" value="LOCAL" />
-      <updated>1666978179640</updated>
-    </task>
-    <task id="LOCAL-00267" summary="Move holograms">
-      <created>1666978348579</created>
-      <option name="number" value="00267" />
-      <option name="presentableId" value="LOCAL-00267" />
-      <option name="project" value="LOCAL" />
-      <updated>1666978348579</updated>
+      <workItem from="1678311768703" duration="521000" />
+      <workItem from="1679494534238" duration="113000" />
+      <workItem from="1679494717559" duration="3000" />
+      <workItem from="1679494856895" duration="32000" />
+      <workItem from="1679496468217" duration="39000" />
+      <workItem from="1679510717790" duration="114000" />
+      <workItem from="1679516470775" duration="15000" />
+      <workItem from="1679516557147" duration="34000" />
+      <workItem from="1679516626542" duration="6000" />
+      <workItem from="1679517378466" duration="52000" />
+      <workItem from="1679585403118" duration="39000" />
+      <workItem from="1679587315559" duration="10000" />
+      <workItem from="1679587370448" duration="1000" />
+      <workItem from="1679587792387" duration="37000" />
+      <workItem from="1679587860278" duration="8000" />
+      <workItem from="1679588180187" duration="11000" />
+      <workItem from="1679588207471" duration="108000" />
+      <workItem from="1680365387056" duration="39000" />
+      <workItem from="1680365450107" duration="15000" />
+      <workItem from="1680365493159" duration="15000" />
+      <workItem from="1680366987576" duration="39000" />
+      <workItem from="1681488685020" duration="47000" />
+      <workItem from="1681489640175" duration="4000" />
+      <workItem from="1681489692397" duration="14000" />
+      <workItem from="1681489998801" duration="8000" />
+      <workItem from="1681491104849" duration="81000" />
+      <workItem from="1681493696325" duration="15000" />
+      <workItem from="1682274764159" duration="4221000" />
+      <workItem from="1682281528417" duration="571000" />
+      <workItem from="1682282259231" duration="432000" />
+      <workItem from="1682284741777" duration="200000" />
+      <workItem from="1682285218384" duration="242000" />
+      <workItem from="1682285532070" duration="27000" />
+      <workItem from="1682285702713" duration="86000" />
+      <workItem from="1682285798099" duration="30000" />
+      <workItem from="1682285852326" duration="35000" />
+      <workItem from="1682285912542" duration="1000" />
+      <workItem from="1682287706923" duration="59000" />
+      <workItem from="1682287780103" duration="125000" />
+      <workItem from="1682288213911" duration="363000" />
+      <workItem from="1682288674644" duration="123000" />
+      <workItem from="1682288801818" duration="1000" />
+      <workItem from="1682288923932" duration="95000" />
+      <workItem from="1682290777958" duration="38000" />
+      <workItem from="1682293847435" duration="551000" />
+      <workItem from="1682462959070" duration="32000" />
+      <workItem from="1682463107356" duration="58000" />
+      <workItem from="1682464885904" duration="304000" />
+      <workItem from="1682465209075" duration="18000" />
+      <workItem from="1682465263833" duration="40000" />
+      <workItem from="1682465595091" duration="34000" />
+      <workItem from="1682465855908" duration="125000" />
+      <workItem from="1682466098918" duration="48000" />
+      <workItem from="1682466204776" duration="54000" />
+      <workItem from="1682466372776" duration="301000" />
+      <workItem from="1682466841578" duration="138000" />
+      <workItem from="1682467136949" duration="582000" />
+      <workItem from="1682467891430" duration="99000" />
+      <workItem from="1682471728905" duration="95000" />
+      <workItem from="1682472431876" duration="22000" />
+      <workItem from="1682513531929" duration="13000" />
+      <workItem from="1682513552528" duration="19000" />
+      <workItem from="1682529477966" duration="60000" />
+      <workItem from="1682529543395" duration="155000" />
+      <workItem from="1682529707263" duration="1000" />
+      <workItem from="1682533689196" duration="13000" />
+      <workItem from="1682533829617" duration="138000" />
+      <workItem from="1682533992204" duration="208000" />
+      <workItem from="1682534234213" duration="315000" />
+      <workItem from="1682536057578" duration="673000" />
+      <workItem from="1682537130931" duration="45000" />
+      <workItem from="1682537180312" duration="5000" />
+      <workItem from="1682537234909" duration="12000" />
+      <workItem from="1682542152044" duration="16000" />
+      <workItem from="1682619157830" duration="42000" />
+      <workItem from="1682619217251" duration="7000" />
+      <workItem from="1682619246590" duration="40000" />
+      <workItem from="1682619309946" duration="29000" />
+      <workItem from="1682619371089" duration="12000" />
+      <workItem from="1682619399453" duration="10000" />
     </task>
     <task id="LOCAL-00268" summary="Move holograms down">
       <created>1666978879540</created>
@@ -834,7 +888,35 @@
       <option name="project" value="LOCAL" />
       <updated>1673696071485</updated>
     </task>
-    <option name="localTasksCounter" value="313" />
+    <task id="LOCAL-00313" summary="Fix lobby">
+      <created>1678311846432</created>
+      <option name="number" value="00313" />
+      <option name="presentableId" value="LOCAL-00313" />
+      <option name="project" value="LOCAL" />
+      <updated>1678311846432</updated>
+    </task>
+    <task id="LOCAL-00314" summary="Upgrade infrastructure">
+      <created>1682282407409</created>
+      <option name="number" value="00314" />
+      <option name="presentableId" value="LOCAL-00314" />
+      <option name="project" value="LOCAL" />
+      <updated>1682282407409</updated>
+    </task>
+    <task id="LOCAL-00315" summary="Loads of fixes">
+      <created>1682467704182</created>
+      <option name="number" value="00315" />
+      <option name="presentableId" value="LOCAL-00315" />
+      <option name="project" value="LOCAL" />
+      <updated>1682467704182</updated>
+    </task>
+    <task id="LOCAL-00316" summary="Bugfixes">
+      <created>1682542159536</created>
+      <option name="number" value="00316" />
+      <option name="presentableId" value="LOCAL-00316" />
+      <option name="project" value="LOCAL" />
+      <updated>1682542159536</updated>
+    </task>
+    <option name="localTasksCounter" value="317" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -855,10 +937,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implement all achievements" />
-    <MESSAGE value="FIx bunch of bugs" />
-    <MESSAGE value="Update length" />
-    <MESSAGE value="Disable auto-update of holograms" />
     <MESSAGE value="Update items" />
     <MESSAGE value="Update item, can now see duplicates" />
     <MESSAGE value="Hologram now updates properly, change format of duplicate text" />
@@ -880,6 +958,10 @@
     <MESSAGE value="Fix chests remaining open when opening a different chest" />
     <MESSAGE value="Add ability to view inprogress servers" />
     <MESSAGE value="Fix updating in-progess games GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix updating in-progess games GUI" />
+    <MESSAGE value="Fix lobby" />
+    <MESSAGE value="Upgrade infrastructure" />
+    <MESSAGE value="Loads of fixes" />
+    <MESSAGE value="Bugfixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bugfixes" />
   </component>
 </project>

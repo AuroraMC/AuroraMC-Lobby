@@ -4,11 +4,10 @@
 
 package net.auroramc.lobby.api.util;
 
-import net.auroramc.core.api.AuroraMCAPI;
-import net.auroramc.core.api.players.AuroraMCPlayer;
-import net.auroramc.core.api.players.scoreboard.PlayerScoreboard;
-import net.auroramc.lobby.AuroraMCLobby;
-import net.auroramc.lobby.api.LobbyAPI;
+import net.auroramc.api.AuroraMCAPI;
+import net.auroramc.core.api.ServerAPI;
+import net.auroramc.core.api.player.AuroraMCServerPlayer;
+import net.auroramc.core.api.player.scoreboard.PlayerScoreboard;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class UpdateScoreboardRunnable extends BukkitRunnable {
@@ -16,7 +15,7 @@ public class UpdateScoreboardRunnable extends BukkitRunnable {
 
     @Override
     public void run() {
-        for (AuroraMCPlayer player : AuroraMCAPI.getPlayers()) {
+        for (AuroraMCServerPlayer player : ServerAPI.getPlayers()) {
             PlayerScoreboard scoreboard = player.getScoreboard();
             scoreboard.setTitle("&3-= &b&lAURORAMC&r &3=-");
             scoreboard.setLine(14, " ");
@@ -74,7 +73,7 @@ public class UpdateScoreboardRunnable extends BukkitRunnable {
             if (player.getPreferences().isHideDisguiseNameEnabled() && player.isDisguised()) {
                 scoreboard.setLine(3, "&oHidden");
             } else {
-                scoreboard.setLine(3, AuroraMCAPI.getServerInfo().getName());
+                scoreboard.setLine(3, AuroraMCAPI.getInfo().getName());
             }
             scoreboard.setLine(2, "    ");
             scoreboard.setLine(1, "&7auroramc.net");

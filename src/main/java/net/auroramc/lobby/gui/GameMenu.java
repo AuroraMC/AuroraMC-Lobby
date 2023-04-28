@@ -4,8 +4,8 @@
 
 package net.auroramc.lobby.gui;
 
-import net.auroramc.core.api.AuroraMCAPI;
-import net.auroramc.core.api.players.AuroraMCPlayer;
+import net.auroramc.api.utils.TextFormatter;
+import net.auroramc.core.api.player.AuroraMCServerPlayer;
 import net.auroramc.core.api.utils.gui.GUI;
 import net.auroramc.core.api.utils.gui.GUIItem;
 import net.auroramc.lobby.api.LobbyAPI;
@@ -18,9 +18,9 @@ import org.bukkit.util.Vector;
 
 public class GameMenu extends GUI {
 
-    private final AuroraMCPlayer player;
+    private final AuroraMCServerPlayer player;
 
-    public GameMenu(AuroraMCPlayer player) {
+    public GameMenu(AuroraMCServerPlayer player) {
         super("&3&lServer Navigation", 5, true);
         this.player = player;
         border("&3&lServer Navigation", null);
@@ -38,32 +38,28 @@ public class GameMenu extends GUI {
     @Override
     public void onClick(int row, int column, ItemStack item, ClickType clickType) {
         if (item.getType() == Material.STAINED_GLASS_PANE) {
-            player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ITEM_BREAK, 100, 0);
+            player.playSound(player.getLocation(), Sound.ITEM_BREAK, 100, 0);
             return;
         }
         switch (item.getType()) {
             case NETHER_STAR: {
                 GameServerListing listing = new GameServerListing(player, "CRYSTAL_QUEST", "Crystal Quest", "CQ");
                 listing.open(player);
-                AuroraMCAPI.openGUI(player, listing);
                 break;
             }
             case FIREWORK: {
                 GameServerListing listing = new GameServerListing(player, "ARCADE_MODE", "Arcade Mode", "Arcade");
                 listing.open(player);
-                AuroraMCAPI.openGUI(player, listing);
                 break;
             }
             case SNOW_BALL: {
                 GameServerListing listing = new GameServerListing(player, "PAINTBALL", "Paintball", "PB");
                 listing.open(player);
-                AuroraMCAPI.openGUI(player, listing);
                 break;
             }
             case IRON_SWORD: {
                 GameServerListing listing = new GameServerListing(player, "DUELS", "Duels", "Duels");
                 listing.open(player);
-                AuroraMCAPI.openGUI(player, listing);
                 break;
             }
             case WOOL: {
@@ -71,23 +67,23 @@ public class GameMenu extends GUI {
                 switch (column) {
                     case 3: {
                         l = LobbyAPI.getEasy().getRestartPoint().getLocation().clone();
-                        player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have been teleported to the &aEasy&r parkour."));
+                        player.sendMessage(TextFormatter.pluginMessage("Parkour", "You have been teleported to the §aEasy§r parkour."));
                         break;
                     }
                     case 4: {
                         l = LobbyAPI.getMedium().getRestartPoint().getLocation().clone();
-                        player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have been teleported to the &6Medium&r parkour."));
+                        player.sendMessage(TextFormatter.pluginMessage("Parkour", "You have been teleported to the §6Medium§r parkour."));
                         break;
                     }
                     case 5: {
                         l = LobbyAPI.getHard().getRestartPoint().getLocation().clone();
-                        player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Parkour", "You have been teleported to the &cHard&r parkour."));
+                        player.sendMessage(TextFormatter.pluginMessage("Parkour", "You have been teleported to the §cHard§r parkour."));
                         break;
                     }
                 }
-                player.getPlayer().setVelocity(new Vector(0, 0, 0));
-                player.getPlayer().teleport(l);
-                player.getPlayer().closeInventory();
+                player.setVelocity(new Vector(0, 0, 0));
+                player.teleport(l);
+                player.closeInventory();
             }
         }
     }

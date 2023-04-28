@@ -4,18 +4,17 @@
 
 package net.auroramc.lobby.api.backend;
 
-import net.auroramc.core.api.AuroraMCAPI;
-import net.auroramc.core.api.backend.ServerInfo;
-import net.auroramc.core.api.cosmetics.Crate;
-import net.auroramc.lobby.AuroraMCLobby;
+import net.auroramc.api.AuroraMCAPI;
+import net.auroramc.api.backend.info.ServerInfo;
+import net.auroramc.api.cosmetics.Crate;
+import net.auroramc.core.api.ServerAPI;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.parkour.Parkour;
 import net.auroramc.lobby.api.parkour.plates.Checkpoint;
-import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
+import net.auroramc.lobby.api.player.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.api.util.Changelog;
 import net.auroramc.lobby.api.util.CommunityPoll;
 import org.apache.commons.io.FileUtils;
-import org.bukkit.Bukkit;
 import org.json.JSONObject;
 import redis.clients.jedis.Jedis;
 
@@ -31,7 +30,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
 
 public class LobbyDatabaseManager {
 
@@ -127,7 +125,7 @@ public class LobbyDatabaseManager {
     public static List<ServerInfo> getServers() {
         try (Connection connection = AuroraMCAPI.getDbManager().getMySQLConnection()) {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM servers WHERE network = ?");
-            statement.setString(1, AuroraMCAPI.getServerInfo().getNetwork().name());
+            statement.setString(1, AuroraMCAPI.getInfo().getNetwork().name());
             ResultSet set = statement.executeQuery();
 
             ArrayList<ServerInfo> servers = new ArrayList<>();
@@ -144,8 +142,8 @@ public class LobbyDatabaseManager {
 
     public static void updateServerData() {
         try (Jedis connection = AuroraMCAPI.getDbManager().getRedisConnection()) {
-            connection.set("serverdata." + AuroraMCAPI.getServerInfo().getNetwork().name() + "." + AuroraMCAPI.getServerInfo().getName(), "IDLE;" + AuroraMCAPI.getPlayers().stream().filter(player -> !player.isVanished()).count() + "/" + AuroraMCAPI.getServerInfo().getServerType().getInt("max_players") + ";Lobby;Lobby");
-            connection.expire("serverdata." + AuroraMCAPI.getServerInfo().getNetwork().name() + "." + AuroraMCAPI.getServerInfo().getName(), 15);
+            connection.set("serverdata." + AuroraMCAPI.getInfo().getNetwork().name() + "." + AuroraMCAPI.getInfo().getName(), "IDLE;" + ServerAPI.getPlayers().stream().filter(player -> !player.isVanished()).count() + "/" + ((ServerInfo)AuroraMCAPI.getInfo()).getServerType().getInt("max_players") + ";Lobby;Lobby");
+            connection.expire("serverdata." + AuroraMCAPI.getInfo().getNetwork().name() + "." + AuroraMCAPI.getInfo().getName(), 15);
         }
     }
 

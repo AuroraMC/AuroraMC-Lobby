@@ -4,13 +4,11 @@
 
 package net.auroramc.lobby.gui.crates.buy.confirmation;
 
-import net.auroramc.core.api.AuroraMCAPI;
+import net.auroramc.api.utils.TextFormatter;
+import net.auroramc.common.cosmetics.crates.IronCrate;
 import net.auroramc.core.api.utils.gui.GUI;
 import net.auroramc.core.api.utils.gui.GUIItem;
-import net.auroramc.core.cosmetics.crates.DiamondCrate;
-import net.auroramc.core.cosmetics.crates.IronCrate;
-import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
-import net.auroramc.lobby.gui.crates.buy.BuyDiamondCrate;
+import net.auroramc.lobby.api.player.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.gui.crates.buy.BuyIronCrate;
 import net.auroramc.lobby.utils.CrateUtil;
 import org.bukkit.Material;
@@ -40,9 +38,8 @@ public class ConfirmIron extends GUI {
         if (column == 2) {
             BuyIronCrate crate = new BuyIronCrate(player);
             crate.open(player);
-            AuroraMCAPI.openGUI(player, crate);
         } else if (column == 6) {
-            player.getPlayer().closeInventory();
+            player.closeInventory();
             if (player.getBank().getTickets() >= (amount * CrateUtil.IRON_CRATE_PRICE)) {
                 player.getBank().withdrawTickets((amount * CrateUtil.IRON_CRATE_PRICE), false, true);
                 for (int i = 0;i < amount;i++) {
@@ -55,12 +52,12 @@ public class ConfirmIron extends GUI {
                 } else {
                     player.getHolograms().get("crates").getLines().get(2).setText("&fYou have &b" + amountOfCrates + " &fcrates to open!");
                 }
-                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "You purchased &7" + amount + " Iron Crates&r&f and &d" + (amount * CrateUtil.IRON_CRATE_PRICE) + " Tickets&r&f were withdrawn from your account."));
+                player.sendMessage(TextFormatter.pluginMessage("Crates", "You purchased §7" + amount + " Iron Crates§r§f and §d" + (amount * CrateUtil.IRON_CRATE_PRICE) + " Tickets§r§f were withdrawn from your account."));
             } else {
-                player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "You have insufficient funds to purchase that crate. You need &d" + ((amount * CrateUtil.IRON_CRATE_PRICE) - player.getBank().getTickets()) + "&r&f additional Tickets."));
+                player.sendMessage(TextFormatter.pluginMessage("Crates", "You have insufficient funds to purchase that crate. You need §d" + ((amount * CrateUtil.IRON_CRATE_PRICE) - player.getBank().getTickets()) + "§r§f additional Tickets."));
             }
         } else {
-            player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ITEM_BREAK, 100, 0);
+            player.playSound(player.getLocation(), Sound.ITEM_BREAK, 100, 0);
         }
     }
 }

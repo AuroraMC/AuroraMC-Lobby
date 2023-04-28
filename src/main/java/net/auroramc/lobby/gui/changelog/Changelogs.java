@@ -4,11 +4,9 @@
 
 package net.auroramc.lobby.gui.changelog;
 
-import net.auroramc.core.api.AuroraMCAPI;
-import net.auroramc.core.api.players.AuroraMCPlayer;
+import net.auroramc.core.api.player.AuroraMCServerPlayer;
 import net.auroramc.core.api.utils.gui.GUI;
 import net.auroramc.core.api.utils.gui.GUIItem;
-import net.auroramc.core.gui.stats.achievements.game.GameAchievementListing;
 import net.auroramc.lobby.api.LobbyAPI;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -20,9 +18,9 @@ import java.util.Date;
 
 public class Changelogs extends GUI {
 
-    private final AuroraMCPlayer player;
+    private final AuroraMCServerPlayer player;
 
-    public Changelogs(AuroraMCPlayer player) {
+    public Changelogs(AuroraMCServerPlayer player) {
         super("&3&lChangelogs", 5, true);
 
         SimpleDateFormat format = new SimpleDateFormat("dd MMMMMMMMM yyyy");
@@ -46,77 +44,57 @@ public class Changelogs extends GUI {
     public void onClick(int row, int column, ItemStack item, ClickType clickType) {
         switch (item.getType()) {
             case EXP_BOTTLE: {
-                AuroraMCAPI.closeGUI(player);
                 ChangelogListing stats = new ChangelogListing(player, "GENERAL", "General", item);
                 stats.open(player);
-                AuroraMCAPI.openGUI(player, stats);
                 break;
             }
             case BEACON: {
-                AuroraMCAPI.closeGUI(player);
                 ChangelogListing stats = new ChangelogListing(player, "LOBBY", "Lobby", item);
                 stats.open(player);
-                AuroraMCAPI.openGUI(player, stats);
                 break;
             }
             case NETHER_STAR: {
-                AuroraMCAPI.closeGUI(player);
                 ChangelogListing stats = new ChangelogListing(player, "CRYSTAL_QUEST", "Crystal Quest", item);
                 stats.open(player);
-                AuroraMCAPI.openGUI(player, stats);
                 break;
             }
             case IRON_SWORD: {
-                AuroraMCAPI.closeGUI(player);
                 ChangelogListing stats = new ChangelogListing(player, "DUELS", "Duels", item);
                 stats.open(player);
-                AuroraMCAPI.openGUI(player, stats);
                 break;
             }
             case SNOW_BALL: {
-                AuroraMCAPI.closeGUI(player);
                 ChangelogListing stats = new ChangelogListing(player, "PAINTBALL", "Paintball", item);
                 stats.open(player);
-                AuroraMCAPI.openGUI(player, stats);
                 break;
             }
             case IRON_SPADE: {
-                AuroraMCAPI.closeGUI(player);
                 ChangelogListing stats = new ChangelogListing(player, "SPLEEF", "Spleef", item);
                 stats.open(player);
-                AuroraMCAPI.openGUI(player, stats);
                 break;
             }
             case BAKED_POTATO: {
-                AuroraMCAPI.closeGUI(player);
                 ChangelogListing stats = new ChangelogListing(player, "HOT_POTATO", "Hot Potato", item);
                 stats.open(player);
-                AuroraMCAPI.openGUI(player, stats);
                 break;
             }
             case IRON_AXE: {
-                AuroraMCAPI.closeGUI(player);
                 ChangelogListing stats = new ChangelogListing(player, "FFA", "FFA", item);
                 stats.open(player);
-                AuroraMCAPI.openGUI(player, stats);
                 break;
             }
             case STAINED_CLAY: {
-                AuroraMCAPI.closeGUI(player);
                 ChangelogListing stats = new ChangelogListing(player, "RUN", "Run", item);
                 stats.open(player);
-                AuroraMCAPI.openGUI(player, stats);
                 break;
             }
             case LEASH: {
-                AuroraMCAPI.closeGUI(player);
                 ChangelogListing stats = new ChangelogListing(player, "TAG", "Tag", item);
                 stats.open(player);
-                AuroraMCAPI.openGUI(player, stats);
                 break;
             }
             default: {
-                player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ITEM_BREAK, 100, 0);
+                player.playSound(player.getLocation(), Sound.ITEM_BREAK, 100, 0);
             }
         }
     }

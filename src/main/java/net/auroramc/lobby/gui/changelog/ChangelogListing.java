@@ -4,8 +4,8 @@
 
 package net.auroramc.lobby.gui.changelog;
 
-import net.auroramc.core.api.AuroraMCAPI;
-import net.auroramc.core.api.players.AuroraMCPlayer;
+import net.auroramc.api.utils.TextFormatter;
+import net.auroramc.core.api.player.AuroraMCServerPlayer;
 import net.auroramc.core.api.utils.gui.GUI;
 import net.auroramc.core.api.utils.gui.GUIItem;
 import net.auroramc.lobby.api.LobbyAPI;
@@ -14,7 +14,6 @@ import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
-import org.apache.commons.lang.WordUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -26,11 +25,11 @@ import java.util.Date;
 
 public class ChangelogListing extends GUI {
 
-    private final AuroraMCPlayer player;
+    private final AuroraMCServerPlayer player;
     private final String game;
 
 
-    public ChangelogListing(AuroraMCPlayer player, String game, String gameName, ItemStack item) {
+    public ChangelogListing(AuroraMCServerPlayer player, String game, String gameName, ItemStack item) {
         super("&3&lChangelogs for " + gameName, 5, true);
 
         this.player = player;
@@ -66,24 +65,22 @@ public class ChangelogListing extends GUI {
             String version = ChatColor.stripColor(item.getItemMeta().getLore().get(2));
             for (Changelog changelog : LobbyAPI.getChangelogs().get(game)) {
                 if (changelog.getVersion().equals(version)) {
-                    player.getPlayer().closeInventory();
+                    player.closeInventory();
                     TextComponent component = new TextComponent("Click here to view the changelog!");
                     component.setColor(net.md_5.bungee.api.ChatColor.GREEN);
                     component.setBold(true);
                     component.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, changelog.getUrl()));
-                    ComponentBuilder componentHover = new ComponentBuilder(AuroraMCAPI.getFormatter().convert("&3Click here to open the changelog!"));
+                    ComponentBuilder componentHover = new ComponentBuilder(TextFormatter.convert("&3Click here to open the changelog!"));
                     component.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, componentHover.create()));
-                    player.getPlayer().spigot().sendMessage(component);
+                    player.sendMessage(component);
                     return;
                 }
             }
         } else if (item.getType() == Material.ARROW) {
             Changelogs logs = new Changelogs(player);
-            AuroraMCAPI.closeGUI(player);
             logs.open(player);
-            AuroraMCAPI.openGUI(player, logs);
         } else {
-            player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.ITEM_BREAK, 100, 0);
+            player.playSound(player.getLocation(), Sound.ITEM_BREAK, 100, 0);
         }
     }
 }

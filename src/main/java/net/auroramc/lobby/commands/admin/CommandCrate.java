@@ -4,23 +4,21 @@
 
 package net.auroramc.lobby.commands.admin;
 
-import net.auroramc.core.api.AuroraMCAPI;
-import net.auroramc.core.api.backend.store.Payment;
-import net.auroramc.core.api.command.Command;
-import net.auroramc.core.api.cosmetics.Crate;
-import net.auroramc.core.api.permissions.Permission;
-import net.auroramc.core.api.players.AuroraMCPlayer;
-import net.auroramc.core.gui.support.PaymentHistory;
-import net.auroramc.lobby.api.LobbyAPI;
-import net.auroramc.lobby.api.backend.LobbyDatabaseManager;
-import net.auroramc.lobby.api.players.AuroraMCLobbyPlayer;
+import net.auroramc.api.AuroraMCAPI;
+import net.auroramc.api.cosmetics.Crate;
+import net.auroramc.api.permissions.Permission;
+import net.auroramc.api.utils.TextFormatter;
+import net.auroramc.core.api.ServerAPI;
+import net.auroramc.core.api.ServerCommand;
+import net.auroramc.core.api.player.AuroraMCServerPlayer;
+import net.auroramc.lobby.api.player.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.utils.CrateUtil;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
-public class CommandCrate extends Command {
+public class CommandCrate extends ServerCommand {
 
 
     public CommandCrate() {
@@ -28,14 +26,14 @@ public class CommandCrate extends Command {
     }
 
     @Override
-    public void execute(AuroraMCPlayer player, String aliasUsed, List<String> args) {
+    public void execute(AuroraMCServerPlayer player, String aliasUsed, List<String> args) {
         if (args.size() == 3) {
             new BukkitRunnable() {
                 @Override
                 public void run() {
                     UUID uuid = AuroraMCAPI.getDbManager().getUUID(args.get(0));
                     if (uuid == null) {
-                        player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", String.format("No player found named **%s**.", args.get(0))));
+                        player.sendMessage(TextFormatter.pluginMessage("Crates", String.format("No player found named **%s**.", args.get(0))));
                         return;
                     }
 
@@ -46,12 +44,12 @@ public class CommandCrate extends Command {
                     try {
                         amount = Integer.parseInt(args.get(2));
                     } catch (NumberFormatException e) {
-                        player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "That is not a valid amount. You must choose a number between 1 and 50."));
+                        player.sendMessage(TextFormatter.pluginMessage("Crate", "That is not a valid amount. You must choose a number between 1 and 50."));
                         return;
                     }
 
                     if (amount < 1 || amount > 50) {
-                        player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "That is not a valid amount. You must choose a number between 1 and 50."));
+                        player.sendMessage(TextFormatter.pluginMessage("Crate", "That is not a valid amount. You must choose a number between 1 and 50."));
                         return;
                     }
 
@@ -59,8 +57,8 @@ public class CommandCrate extends Command {
                         case "iron": {
                             for (int i = 0;i < amount;i++) {
                                 Crate crate = CrateUtil.generateIronCrate(id);
-                                if (AuroraMCAPI.getPlayer(args.get(0)) != null) {
-                                    ((AuroraMCLobbyPlayer)AuroraMCAPI.getPlayer(args.get(0))).getCrates().add(crate);
+                                if (ServerAPI.getPlayer(args.get(0)) != null) {
+                                    ((AuroraMCLobbyPlayer)ServerAPI.getPlayer(args.get(0))).getCrates().add(crate);
                                 }
                             }
                             break;
@@ -68,8 +66,8 @@ public class CommandCrate extends Command {
                         case "gold": {
                             for (int i = 0;i < amount;i++) {
                                 Crate crate = CrateUtil.generateGoldCrate(id);
-                                if (AuroraMCAPI.getPlayer(args.get(0)) != null) {
-                                    ((AuroraMCLobbyPlayer)AuroraMCAPI.getPlayer(args.get(0))).getCrates().add(crate);
+                                if (ServerAPI.getPlayer(args.get(0)) != null) {
+                                    ((AuroraMCLobbyPlayer)ServerAPI.getPlayer(args.get(0))).getCrates().add(crate);
                                 }
                             }
                             break;
@@ -77,8 +75,8 @@ public class CommandCrate extends Command {
                         case "diamond": {
                             for (int i = 0;i < amount;i++) {
                                 Crate crate = CrateUtil.generateDiamondCrate(id);
-                                if (AuroraMCAPI.getPlayer(args.get(0)) != null) {
-                                    ((AuroraMCLobbyPlayer)AuroraMCAPI.getPlayer(args.get(0))).getCrates().add(crate);
+                                if (ServerAPI.getPlayer(args.get(0)) != null) {
+                                    ((AuroraMCLobbyPlayer)ServerAPI.getPlayer(args.get(0))).getCrates().add(crate);
                                 }
                             }
                             break;
@@ -86,24 +84,24 @@ public class CommandCrate extends Command {
                         case "emerald": {
                             for (int i = 0;i < amount;i++) {
                                 Crate crate = CrateUtil.generateEmeraldCrate(id);
-                                if (AuroraMCAPI.getPlayer(args.get(0)) != null) {
-                                    ((AuroraMCLobbyPlayer)AuroraMCAPI.getPlayer(args.get(0))).getCrates().add(crate);
+                                if (ServerAPI.getPlayer(args.get(0)) != null) {
+                                    ((AuroraMCLobbyPlayer)ServerAPI.getPlayer(args.get(0))).getCrates().add(crate);
                                 }
                             }
                             break;
                         }
                     }
-                    player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crate", "**" + args.get(0) + "** has been given **" + amount + " " + args.get(1).toUpperCase() + " Crates**"));
+                    player.sendMessage(TextFormatter.pluginMessage("Crate", "**" + args.get(0) + "** has been given **" + amount + " " + args.get(1).toUpperCase() + " Crates**"));
                 }
-            }.runTaskAsynchronously(AuroraMCAPI.getCore());
+            }.runTaskAsynchronously(ServerAPI.getCore());
 
         } else {
-            player.getPlayer().sendMessage(AuroraMCAPI.getFormatter().pluginMessage("Crates", "Invalid syntax. Correct syntax: **/crate [player] [type] [amount]**"));
+            player.sendMessage(TextFormatter.pluginMessage("Crates", "Invalid syntax. Correct syntax: **/crate [player] [type] [amount]**"));
         }
     }
 
     @Override
-    public @NotNull List<String> onTabComplete(AuroraMCPlayer auroraMCPlayer, String s, List<String> list, String s1, int i) {
+    public @NotNull List<String> onTabComplete(AuroraMCServerPlayer auroraMCPlayer, String s, List<String> list, String s1, int i) {
         return new ArrayList<>();
     }
 }
