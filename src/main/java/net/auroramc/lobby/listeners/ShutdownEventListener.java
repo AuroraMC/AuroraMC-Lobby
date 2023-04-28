@@ -12,13 +12,12 @@ import net.auroramc.core.api.ServerAPI;
 import net.auroramc.core.api.backend.communication.CommunicationUtils;
 import net.auroramc.core.api.backend.communication.Protocol;
 import net.auroramc.core.api.backend.communication.ProtocolMessage;
-import net.auroramc.core.api.events.ServerCloseRequestEvent;
+import net.auroramc.core.api.events.server.ServerCloseRequestEvent;
 import net.auroramc.core.api.player.AuroraMCServerPlayer;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
 public class ShutdownEventListener implements Listener {
-
 
     @EventHandler
     public void onShutdown(ServerCloseRequestEvent e) {
