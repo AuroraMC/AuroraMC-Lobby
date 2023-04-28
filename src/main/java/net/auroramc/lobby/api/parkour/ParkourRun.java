@@ -214,14 +214,14 @@ public class ParkourRun {
 
             if (previous > 0) {
                 if (finishMili < previous) {
-                    player.sendMessage(TextFormatter.pluginMessage("Parkour", "You beat your previous record and you managed to complete the **" + parkour.getName() + "** in **" + formatTime(finishMili) + "**!"));
+                    player.sendMessage(TextFormatter.pluginMessage("Parkour", "You beat your previous record and you managed to complete the **" + TextFormatter.convert(parkour.getName()) + "** in **" + formatTime(finishMili) + "**!"));
                     new BukkitRunnable() {
                         @Override
                         public void run() {
                             LobbyDatabaseManager.newTime(player, finishMili, true, parkour);
                             int position = LobbyDatabaseManager.leaderboardPosition(player, parkour);
 
-                            player.sendMessage(TextFormatter.pluginMessage("Parkour", "You are in **" + position + ((position % 10 == 1) ? "st" : ((position % 10 == 2) ? "nd" : ((position % 10 == 3) ? ((position == 13) ? "th" : "rd") : "th"))) + " place** for the **" + parkour.getName() + "**!"));
+                            player.sendMessage(TextFormatter.pluginMessage("Parkour", "You are in **" + position + ((position % 10 == 1) ? "st" : ((position % 10 == 2) ? "nd" : ((position % 10 == 3) ? ((position == 13) ? "th" : "rd") : "th"))) + " place** for the **" + TextFormatter.convert(parkour.getName()) + "**!"));
                             new BukkitRunnable() {
                                 @Override
                                 public void run() {
@@ -257,12 +257,12 @@ public class ParkourRun {
                         }
                     }
                 } else {
-                    player.sendMessage(TextFormatter.pluginMessage("Parkour", "You didn't beat your previous record, but you managed to complete the **" + parkour.getName() + "** in **" + formatTime(finishMili) + "**!"));
+                    player.sendMessage(TextFormatter.pluginMessage("Parkour", "You didn't beat your previous record, but you managed to complete the **" + TextFormatter.convert(parkour.getName()) + "** in **" + formatTime(finishMili) + "**!"));
                     new BukkitRunnable() {
                         @Override
                         public void run() {
                             int position = LobbyDatabaseManager.leaderboardPosition(player, parkour);
-                            player.sendMessage(TextFormatter.pluginMessage("Parkour", "You are in **" + position + ((position % 10 == 1) ? "st" : ((position % 10 == 2) ? "nd" : ((position % 10 == 3) ? ((position == 13) ? "th" : "rd") : "th"))) + " place** for the **" + parkour.getName() + "**!"));
+                            player.sendMessage(TextFormatter.pluginMessage("Parkour", "You are in **" + position + ((position % 10 == 1) ? "st" : ((position % 10 == 2) ? "nd" : ((position % 10 == 3) ? ((position == 13) ? "th" : "rd") : "th"))) + " place** for the **" + TextFormatter.convert(parkour.getName()) + "**!"));
                         }
                     }.runTaskAsynchronously(ServerAPI.getCore());
                 }
@@ -300,13 +300,13 @@ public class ParkourRun {
                         player.sendMessage(new TextComponent(TextFormatter.convert(parkour.getEndCommand().getRewardString())));
                     }
 
-                    player.sendMessage(TextFormatter.pluginMessage("Parkour", "Well done! You completed the **" + parkour.getName() + "** in **" + formatTime(finishMili) + "**! Your reward will be applied shortly!"));
+                    player.sendMessage(TextFormatter.pluginMessage("Parkour", "Well done! You completed the **" + TextFormatter.convert(parkour.getName()) + "** in **" + formatTime(finishMili) + "**! Your reward will be applied shortly!"));
                     new BukkitRunnable() {
                         @Override
                         public void run() {
                             LobbyDatabaseManager.newTime(player, finishMili, false, parkour);
                             int position = LobbyDatabaseManager.leaderboardPosition(player, parkour);
-                            player.sendMessage(TextFormatter.pluginMessage("Parkour", "You are in **" + position + ((position % 10 == 1) ? "st" : ((position % 10 == 2) ? "nd" : ((position % 10 == 3) ? ((position == 13) ? "th" : "rd") : "th"))) + " place** for the **" + parkour.getName() + "**!"));
+                            player.sendMessage(TextFormatter.pluginMessage("Parkour", "You are in **" + position + ((position % 10 == 1) ? "st" : ((position % 10 == 2) ? "nd" : ((position % 10 == 3) ? ((position == 13) ? "th" : "rd") : "th"))) + " place** for the **" + TextFormatter.convert(parkour.getName()) + "**!"));
                         }
                     }.runTaskAsynchronously(ServerAPI.getCore());
                     switch (parkour.getId()) {

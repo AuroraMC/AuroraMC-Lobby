@@ -4,13 +4,12 @@
 
 package net.auroramc.lobby.listeners;
 
-import net.auroramc.api.AuroraMCAPI;
 import net.auroramc.api.utils.TextFormatter;
 import net.auroramc.core.api.events.player.PlayerFakePlayerInteractEvent;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.player.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.gui.GameServerListing;
-import net.auroramc.lobby.gui.CosmonautLuna;
+import net.auroramc.lobby.gui.LieutenantLuna;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -44,7 +43,7 @@ public class FakePlayerListener implements Listener {
         if (player.canClick()) {
             player.click();
             if (e.getFakePlayer().equals(LobbyAPI.getLunaEntity())) {
-                CosmonautLuna luna = new CosmonautLuna((AuroraMCLobbyPlayer) e.getPlayer());
+                LieutenantLuna luna = new LieutenantLuna((AuroraMCLobbyPlayer) e.getPlayer());
                 luna.open(e.getPlayer());
                 player.sendMessage(new TextComponent(TextFormatter.convert("&6&lLieutenant &e&lLuna&r &6&l»&r " + lunaPhrases.get(new Random().nextInt(lunaPhrases.size())))));
             } else if (e.getFakePlayer().equals(LobbyAPI.getArcadeEntity())) {

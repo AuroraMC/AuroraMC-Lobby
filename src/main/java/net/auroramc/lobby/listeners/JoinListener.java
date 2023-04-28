@@ -275,10 +275,6 @@ public class JoinListener implements Listener {
         team.setPrefix("§5§lColonel§r ");
         team.addEntry("§d§lComet");
 
-        team = scoreboard2.registerNewTeam("cly");
-        team.setPrefix("§4§lCaptain§r ");
-        team.addEntry("§c§lCalypso");
-
         player.getInventory().setItem(8, LobbyAPI.getLobbyItem().getItemStack());
         player.getInventory().setItem(7, LobbyAPI.getPrefsItem().getItemStack());
         player.getInventory().setItem(4, LobbyAPI.getCosmeticsItem().getItemStack());

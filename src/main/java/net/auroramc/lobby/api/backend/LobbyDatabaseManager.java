@@ -26,10 +26,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class LobbyDatabaseManager {
 
@@ -433,6 +430,23 @@ public class LobbyDatabaseManager {
             e.printStackTrace();
         }
         return leaderboard;
+    }
+
+    public static int getRewardStreak(int id) {
+        try (Jedis connection = AuroraMCAPI.getDbManager().getRedisConnection()) {
+            if (connection.exists("rewardstreak." + id)) {
+                return Integer.parseInt(connection.get("rewardstreak." + id));
+            }
+            return 0;
+        }
+    }
+
+    public static int claimReward(int id) {
+        try (Jedis connection = AuroraMCAPI.getDbManager().getRedisConnection()) {
+            connection.incr("rewardstreak." + id);
+            connection.expire("rewardstreak." + id, 129600);
+            return Integer.parseInt(connection.get("rewardstreak." + id));
+        }
     }
 
 }
