@@ -54,7 +54,7 @@ public class FakePlayerListener implements Listener {
                 GameServerListing listing = new GameServerListing(player, "DUELS", "Duels", "Duels");
                 listing.open(player);
             } else if (e.getFakePlayer().equals(LobbyAPI.getSmpEntity())) {
-                player.sendMessage(TextFormatter.pluginMessage("SMP", "§5§lNuttersSMP§r is currently locked and unavailable, Keep an eye on discord to find out when it gets unlocked and when you can start playing!"));
+                player.sendMessage(TextFormatter.pluginMessage("NuttersSMP", "§5NuttersSMP§r is currently locked and unavailable, Keep an eye on discord to find out when it gets unlocked and when you can start playing!"));
             } else if (e.getFakePlayer().equals(LobbyAPI.getCqEntity())) {
                 GameServerListing listing = new GameServerListing(player, "CRYSTAL_QUEST", "Crystal Quest", "CQ");
                 listing.open(player);

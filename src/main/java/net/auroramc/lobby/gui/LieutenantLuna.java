@@ -90,7 +90,7 @@ public class LieutenantLuna extends GUI {
                     break;
                 }
             }
-            this.setItem(2, 4, new GUIItem(Material.DIAMOND_BLOCK, "&3&lMonthly Bonus", 1, "&r&fRank: &" + ((player.getRank() == Rank.PLAYER)?'7':player.getRank().getPrefixColor()) + player.getRank().getName() + ";;&r&fBonus:;" + reward + ";;&aClick to claim!"));
+            this.setItem(2, 4, new GUIItem(Material.DIAMOND_BLOCK, "&3&lMonthly Bonus", 1, "&r&fRank: " + ((player.getRank() == Rank.PLAYER)?"§7":player.getRank().getPrefixColor()) + player.getRank().getName() + ";;&r&fBonus:;" + reward + ";;&aClick to claim!"));
         } else {
             this.setItem(2, 4, new GUIItem(Material.REDSTONE_BLOCK, "&3&lMonthly Bonus", 1, ";&cYou have already claimed;&cthis months bonus!;;&r&fCome back next month to claim again!"));
         }
