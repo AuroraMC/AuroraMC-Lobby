@@ -49,6 +49,9 @@ public class LobbyAPI {
     private static final String DUELS_SKIN = "ewogICJ0aW1lc3RhbXAiIDogMTY1MDA1MDgwMTU5NCwKICAicHJvZmlsZUlkIiA6ICI0ZDE2OTg3NzUyOWY0ODc3YWQxOWE1MDA2ZjM5NDBiMCIsCiAgInByb2ZpbGVOYW1lIiA6ICJBdXJvcmFNQyIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9lOWQ0YTZhNDIzMGE5MDkxZDQwNTM5ZDhiOWVjNzZiMjhkMjMwMTZkYmM1MGRiMTk3OTgyZDg5NDY1YzQ3NDEiCiAgICB9CiAgfQp9";
     private static final String DUELS_SIGNATURE = "cmYL17h7mXEQkI/lb/YIktvLUu2+fWIJIf56cC56R7Gh6l8gbLq75B9Aokq9K6DCfYAUtalkyODW4FTdRXSh05Fh3oUFQYz6InPP7LJvl1IprhGX9vPlZJfRfTKo6D6ZT/jPOtLebCu7F6TQlT++5LmFa0X4wFiG9DZMBGSy6BMfzxubAEVVO12CMPCT2FTtLFidRwUewGqtmB2ticOfFJ/DWT2udeomSMjO48+nwfq5aaXYH+cNeswUuPLXrNdmYTTKSyhHPSX0Ws9ScmpVIYFY7QOC+q6sRIEisuE7oHSDBS1fmoXFohFcIMRuOyhX0LHWewhVymS9OjlsrQwhKF6yGKmESl78y1YoO4H2XxLKvdOnKSd2iaUC5KXlNBV5+Lg04c/gJBi2ZLA77vyZaQnOU+AO9ldMvY+PFN4L85XioRv1lY8kC2vxzfjy5FAWAnmSXa/SIw4fdREaUopiGCqYUJug5JAUhKStP79rlVrrGRqM7Xq/f1aysQZJrloB0iBrC6E72Eb7uEMnroTB1ejE3Kl1mF6mTlrtMSeS0DNR7VRX5IjeIwP1mvNQOZoFEODw17IqwWuhyg1qZvDF13PaW1Ik6k8Wfx7i+YOPot+ILQy0/JObixZnON6V7zb+HMqp3KzAyr0zIroPyHBrpSmhHFejxGxUiLJUOQCiFeQ=";
 
+    private static final String SMP_SKIN = "ewogICJ0aW1lc3RhbXAiIDogMTY4Mjk4NTM2MTMyMSwKICAicHJvZmlsZUlkIiA6ICIwN2RkYjYxZmU0NmI0MDEyYjUyMWQ1ZjVmZWFhZWQ5ZSIsCiAgInByb2ZpbGVOYW1lIiA6ICJIZWxpb2xvZ3kiLAogICJzaWduYXR1cmVSZXF1aXJlZCIgOiB0cnVlLAogICJ0ZXh0dXJlcyIgOiB7CiAgICAiU0tJTiIgOiB7CiAgICAgICJ1cmwiIDogImh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2FmNzkxODA2Mjk1YWYyYTI3YTJlMDg5Mjk0NzBmNjg4NGMyNWFkZGMzZTk2MTZiYjI4MzJlYzFjY2U1N2VkNSIsCiAgICAgICJtZXRhZGF0YSIgOiB7CiAgICAgICAgIm1vZGVsIiA6ICJzbGltIgogICAgICB9CiAgICB9LAogICAgIkNBUEUiIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzIzNDBjMGUwM2RkMjRhMTFiMTVhOGIzM2MyYTdlOWUzMmFiYjIwNTFiMjQ4MWQwYmE3ZGVmZDYzNWNhN2E5MzMiCiAgICB9CiAgfQp9";
+    private static final String SMP_SIGNATURE = "W6BDEoujmYCKUwBX4P8XKI9SqGPGhJbUp6jR0jQb3EbeMZvLQ0Sq1nz+mjQ+IGdHMViPBhEtPZWICySy2iysDZFNX1ewcgtRj2+rVUX7kJ7H85fmdHrwpGrbNgkogNBr4pDxlub3bK6taW/Ub247umStYZkg029rxdNllVIg1F9GFeszfP0D/x5oO4xMi7zxqqsK9E/G2NuwA5yTKE/fiVKpltoQ26JHBEHotnMcT13ivlybVdrbGQch6EPphxp/yEozW7/v42uGC0jCgsihpZ8F/brug/QK8z2u1ECXsiQZHOGxUO1afYyQfJ3LPMnC/z49wV9Q1z/Ka1lJD3WCIqYSkRCmjpMPbxPQqAVCdOpNhilBc4wgVDkBZ+Gbnai+pXJJPT4W6JcT9eiaESuKaMnCNryYUi6tFfvtYWmBISc/bIRzck6w04SdLA+pRCGzQ6BCG+zzJmH7+LcLinhV7h03Z+9LdBZAHmarm6fF2qPp13/sRDYHoC1iZaYI3ksw4QGIYy53vnjb+/ONo0QQttmK86rsQd8cV+xiHAbrA16ukNbOjB1YzQUX/42v1inO1lvmfpVtZdSn0PUb8UNryFWIC3rAR7zbAiSXxIjtSkKR5614hzNaEQPDrC3bapEDNjGf6UuQTU6kK0Wh3eK6CSzQoAuWPb1RjBgd2UniOtk=";
+
     private static LobbyMap map;
     private static AuroraMCLobby lobby;
 
@@ -77,6 +80,7 @@ public class LobbyAPI {
     private static EntityPlayer cqEntity;
     private static EntityPlayer paintballEntity;
     private static EntityPlayer duelsEntity;
+    private static EntityPlayer smpEntity;
 
     private static Block chestBlock;
 
@@ -209,6 +213,13 @@ public class LobbyAPI {
         duelsEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
         duelsEntity.setLocation(3.5, 70.0, 41.5, -180f, 0f);
         ServerAPI.registerFakePlayer(duelsEntity);
+
+
+        profile = new GameProfile(UUID.randomUUID(), TextFormatter.convert("NuttersSMP§r "));
+        profile.getProperties().put("textures", new Property("textures", SMP_SKIN, SMP_SIGNATURE));
+        smpEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
+        smpEntity.setLocation(-5.5, 70.0, 5.5, -145f, 0f);
+        ServerAPI.registerFakePlayer(smpEntity);
 
         hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), 3.5f, 72.3f, 41.5f), null);
         hologram.addLine(1, "&b" + gameTotals.getOrDefault("DUELS", 0) + " &fPlayers Online");
@@ -414,5 +425,8 @@ public class LobbyAPI {
         return skyeEntity;
     }
 
+    public static EntityPlayer getSmpEntity() {
+        return smpEntity;
+    }
 }
 
