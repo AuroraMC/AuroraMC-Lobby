@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix issue with updates">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="FIx some issues with events not being fired properly">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/ShutdownEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/ShutdownEventListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/LobbyAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/listeners/JoinListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -590,13 +591,8 @@
       <workItem from="1682723585460" duration="68000" />
       <workItem from="1682723675021" duration="11000" />
       <workItem from="1682723711993" duration="10000" />
-    </task>
-    <task id="LOCAL-00271" summary="Fix checkpoints">
-      <created>1666979654113</created>
-      <option name="number" value="00271" />
-      <option name="presentableId" value="LOCAL-00271" />
-      <option name="project" value="LOCAL" />
-      <updated>1666979654113</updated>
+      <workItem from="1682723814495" duration="70000" />
+      <workItem from="1682985002713" duration="242000" />
     </task>
     <task id="LOCAL-00272" summary="Show amount of crates in view crates menu">
       <created>1666980291950</created>
@@ -934,7 +930,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682722407769</updated>
     </task>
-    <option name="localTasksCounter" value="320" />
+    <task id="LOCAL-00320" summary="FIx some issues with events not being fired properly">
+      <created>1682723859351</created>
+      <option name="number" value="00320" />
+      <option name="presentableId" value="LOCAL-00320" />
+      <option name="project" value="LOCAL" />
+      <updated>1682723859351</updated>
+    </task>
+    <option name="localTasksCounter" value="321" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -955,7 +958,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Experimenting with tab" />
     <MESSAGE value="block is bad" />
     <MESSAGE value="Update tab" />
     <MESSAGE value="Fix issue with claiming monthly bonuses" />
@@ -980,6 +982,7 @@
     <MESSAGE value="Remove Calypso from the lobby" />
     <MESSAGE value="..." />
     <MESSAGE value="Decrease frequency of scoreboard updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="Decrease frequency of scoreboard updates" />
+    <MESSAGE value="FIx some issues with events not being fired properly" />
+    <option name="LAST_COMMIT_MESSAGE" value="FIx some issues with events not being fired properly" />
   </component>
 </project>

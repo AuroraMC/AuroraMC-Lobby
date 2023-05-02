@@ -4,6 +4,7 @@
 
 package net.auroramc.lobby.listeners;
 
+import net.auroramc.api.AuroraMCAPI;
 import net.auroramc.api.utils.TextFormatter;
 import net.auroramc.core.api.events.player.PlayerFakePlayerInteractEvent;
 import net.auroramc.lobby.api.LobbyAPI;
@@ -52,6 +53,8 @@ public class FakePlayerListener implements Listener {
              } else if (e.getFakePlayer().equals(LobbyAPI.getDuelsEntity())) {
                 GameServerListing listing = new GameServerListing(player, "DUELS", "Duels", "Duels");
                 listing.open(player);
+            } else if (e.getFakePlayer().equals(LobbyAPI.getSmpEntity())) {
+                player.sendMessage(TextFormatter.pluginMessage("SMP", "NuttersSMP is currently locked and unavailable, Keep an eye on discord to find out when it gets unlocked and when you can start playing!"));
             } else if (e.getFakePlayer().equals(LobbyAPI.getCqEntity())) {
                 GameServerListing listing = new GameServerListing(player, "CRYSTAL_QUEST", "Crystal Quest", "CQ");
                 listing.open(player);
