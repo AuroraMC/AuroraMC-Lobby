@@ -218,7 +218,7 @@ public class LobbyAPI {
         profile = new GameProfile(UUID.randomUUID(), TextFormatter.convert("NuttersSMP§r "));
         profile.getProperties().put("textures", new Property("textures", SMP_SKIN, SMP_SIGNATURE));
         smpEntity = new EntityPlayer(((CraftServer) Bukkit.getServer()).getServer(), ((CraftWorld) Bukkit.getWorld("world")).getHandle(), profile, new PlayerInteractManager(((CraftWorld) Bukkit.getWorld("world")).getHandle()));
-        smpEntity.setLocation(-5.5, 70.0, 5.5, -145f, 0f);
+        smpEntity.setLocation(-5.5, 70.0, -1.5, -145f, 0f);
         ServerAPI.registerFakePlayer(smpEntity);
 
         hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), 3.5f, 72.3f, 41.5f), null);
