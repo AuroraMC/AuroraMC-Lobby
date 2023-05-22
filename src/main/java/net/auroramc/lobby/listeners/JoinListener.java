@@ -288,7 +288,7 @@ public class JoinListener implements Listener {
 
         if (LobbyAPI.getPoll() != null) {
             if (!LobbyDatabaseManager.hasVoted(LobbyAPI.getPoll().getId(), player.getId())) {
-                player.sendMessage(TextFormatter.pluginMessage("Community Polls", "There is currently a poll active that you haven't voted in! Visit **Cosmonaut Luna** to vote! Every vote counts!"));
+                player.sendMessage(TextFormatter.pluginMessage("Community Polls", "There is currently a poll active that you haven't voted in! Visit **Lieutenant Luna** to vote! Every vote counts!"));
             }
         }
     }
