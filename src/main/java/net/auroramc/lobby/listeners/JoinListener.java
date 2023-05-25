@@ -265,7 +265,7 @@ public class JoinListener implements Listener {
 
         team = scoreboard2.registerNewTeam("smp");
         team.setPrefix("§5§l");
-        team.setSuffix("§7COMING SOON");
+        team.setSuffix("§d§lNOW OPEN");
         team.addEntry("NuttersSMP§r ");
 
         team = scoreboard2.registerNewTeam("ln");

@@ -4,6 +4,8 @@
 
 package net.auroramc.lobby.listeners;
 
+import com.google.common.io.ByteArrayDataOutput;
+import com.google.common.io.ByteStreams;
 import net.auroramc.api.AuroraMCAPI;
 import net.auroramc.api.utils.TextFormatter;
 import net.auroramc.core.api.events.player.PlayerFakePlayerInteractEvent;
@@ -12,6 +14,7 @@ import net.auroramc.lobby.api.player.AuroraMCLobbyPlayer;
 import net.auroramc.lobby.gui.GameServerListing;
 import net.auroramc.lobby.gui.LieutenantLuna;
 import net.md_5.bungee.api.chat.TextComponent;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
@@ -54,7 +57,10 @@ public class FakePlayerListener implements Listener {
                 GameServerListing listing = new GameServerListing(player, "DUELS", "Duels", "Duels");
                 listing.open(player);
             } else if (e.getFakePlayer().equals(LobbyAPI.getSmpEntity())) {
-                player.sendMessage(TextFormatter.pluginMessage("NuttersSMP", "§5NuttersSMP§r is currently locked and unavailable, Keep an eye on discord to find out when it gets unlocked and when you can start playing!"));
+                ByteArrayDataOutput out = ByteStreams.newDataOutput();
+                out.writeUTF("SMP");
+                out.writeUTF(e.getPlayer().getUniqueId().toString());
+                e.getPlayer().sendPluginMessage(out.toByteArray());
             } else if (e.getFakePlayer().equals(LobbyAPI.getCqEntity())) {
                 GameServerListing listing = new GameServerListing(player, "CRYSTAL_QUEST", "Crystal Quest", "CQ");
                 listing.open(player);
