@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add hologram to specify 1.19.4 for NuttersSMP" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add delay to discord message" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -607,13 +607,7 @@
       <workItem from="1685046804993" duration="14000" />
       <workItem from="1685046828142" duration="233000" />
       <workItem from="1685107260302" duration="224000" />
-    </task>
-    <task id="LOCAL-00281" summary="Change loc of leaderboard holograms">
-      <created>1666994006050</created>
-      <option name="number" value="00281" />
-      <option name="presentableId" value="LOCAL-00281" />
-      <option name="project" value="LOCAL" />
-      <updated>1666994006050</updated>
+      <workItem from="1685211041286" duration="88000" />
     </task>
     <task id="LOCAL-00282" summary="add debug message">
       <created>1666994213371</created>
@@ -951,7 +945,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685107465469</updated>
     </task>
-    <option name="localTasksCounter" value="330" />
+    <task id="LOCAL-00330" summary="Add delay to discord message">
+      <created>1685211116522</created>
+      <option name="number" value="00330" />
+      <option name="presentableId" value="LOCAL-00330" />
+      <option name="project" value="LOCAL" />
+      <updated>1685211116522</updated>
+    </task>
+    <option name="localTasksCounter" value="331" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -972,7 +973,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Change to eye of ender" />
     <MESSAGE value="Add phrases to entities" />
     <MESSAGE value="Fix spelling" />
     <MESSAGE value="Fix achievement given too early" />
@@ -997,6 +997,7 @@
     <MESSAGE value="Fix issue with Lieutenant Luna" />
     <MESSAGE value="Change NuttersSMP NPC to take you to SMP" />
     <MESSAGE value="Add hologram to specify 1.19.4 for NuttersSMP" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add hologram to specify 1.19.4 for NuttersSMP" />
+    <MESSAGE value="Add delay to discord message" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add delay to discord message" />
   </component>
 </project>
