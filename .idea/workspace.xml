@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add delay to discord message" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add version to menu">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,27 +54,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;bugfix&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/AuroraMC/Codebase/Java/AuroraMC-Lobby/src/main/java/net/auroramc/lobby/api/parkour/plates&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "extract.method.default.visibility": "private",
+    "git-widget-placeholder": "bugfix",
+    "last_opened_file_path": "E:/AuroraMC/Codebase/Java/AuroraMC-Lobby/src/main/java/net/auroramc/lobby/api/parkour/plates",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "copyright.profiles",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\AuroraMC\Codebase\Java\AuroraMC-Lobby\src\main\java\net\auroramc\lobby\api\parkour\plates" />
@@ -608,20 +611,9 @@
       <workItem from="1685046828142" duration="233000" />
       <workItem from="1685107260302" duration="224000" />
       <workItem from="1685211041286" duration="88000" />
-    </task>
-    <task id="LOCAL-00282" summary="add debug message">
-      <created>1666994213371</created>
-      <option name="number" value="00282" />
-      <option name="presentableId" value="LOCAL-00282" />
-      <option name="project" value="LOCAL" />
-      <updated>1666994213371</updated>
-    </task>
-    <task id="LOCAL-00283" summary="Fix issue">
-      <created>1666994361815</created>
-      <option name="number" value="00283" />
-      <option name="presentableId" value="LOCAL-00283" />
-      <option name="project" value="LOCAL" />
-      <updated>1666994361815</updated>
+      <workItem from="1685212141747" duration="301000" />
+      <workItem from="1685311542395" duration="17000" />
+      <workItem from="1685410168290" duration="23000" />
     </task>
     <task id="LOCAL-00284" summary="Disable hub speed when player starts a parkour">
       <created>1666995159196</created>
@@ -952,7 +944,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685211116522</updated>
     </task>
-    <option name="localTasksCounter" value="331" />
+    <task id="LOCAL-00331" summary="Add nuttersSMP to game menu">
+      <created>1685212381381</created>
+      <option name="number" value="00331" />
+      <option name="presentableId" value="LOCAL-00331" />
+      <option name="project" value="LOCAL" />
+      <updated>1685212381381</updated>
+    </task>
+    <task id="LOCAL-00332" summary="Add version to menu">
+      <created>1685212429597</created>
+      <option name="number" value="00332" />
+      <option name="presentableId" value="LOCAL-00332" />
+      <option name="project" value="LOCAL" />
+      <updated>1685212429597</updated>
+    </task>
+    <option name="localTasksCounter" value="333" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -973,8 +979,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add phrases to entities" />
-    <MESSAGE value="Fix spelling" />
     <MESSAGE value="Fix achievement given too early" />
     <MESSAGE value="Fix bug with hologram" />
     <MESSAGE value="Fix chests remaining open when opening a different chest" />
@@ -998,6 +1002,8 @@
     <MESSAGE value="Change NuttersSMP NPC to take you to SMP" />
     <MESSAGE value="Add hologram to specify 1.19.4 for NuttersSMP" />
     <MESSAGE value="Add delay to discord message" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add delay to discord message" />
+    <MESSAGE value="Add nuttersSMP to game menu" />
+    <MESSAGE value="Add version to menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add version to menu" />
   </component>
 </project>
