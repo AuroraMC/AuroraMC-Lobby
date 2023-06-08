@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add version to menu">
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Update copyright notice">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/player/AuroraMCLobbyPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/api/player/AuroraMCLobbyPlayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,28 +55,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "bugfix",
-    "last_opened_file_path": "E:/AuroraMC/Codebase/Java/AuroraMC-Lobby/src/main/java/net/auroramc/lobby/api/parkour/plates",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "copyright.profiles",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;bugfix&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/AuroraMC/Codebase/Java/AuroraMC-Lobby/src/main/java/net/auroramc/lobby/api/parkour/plates&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;copyright.profiles&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\AuroraMC\Codebase\Java\AuroraMC-Lobby\src\main\java\net\auroramc\lobby\api\parkour\plates" />
@@ -613,14 +614,11 @@
       <workItem from="1685211041286" duration="88000" />
       <workItem from="1685212141747" duration="301000" />
       <workItem from="1685311542395" duration="17000" />
-      <workItem from="1685410168290" duration="23000" />
-    </task>
-    <task id="LOCAL-00284" summary="Disable hub speed when player starts a parkour">
-      <created>1666995159196</created>
-      <option name="number" value="00284" />
-      <option name="presentableId" value="LOCAL-00284" />
-      <option name="project" value="LOCAL" />
-      <updated>1666995159196</updated>
+      <workItem from="1685410168290" duration="69000" />
+      <workItem from="1685484384760" duration="792000" />
+      <workItem from="1685538735209" duration="600000" />
+      <workItem from="1686254728156" duration="3000" />
+      <workItem from="1686254734451" duration="313000" />
     </task>
     <task id="LOCAL-00285" summary="Add quick teleports to game menu">
       <created>1666995916877</created>
@@ -958,7 +956,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685212429597</updated>
     </task>
-    <option name="localTasksCounter" value="333" />
+    <task id="LOCAL-00333" summary="Update copyright notice">
+      <created>1685410207638</created>
+      <option name="number" value="00333" />
+      <option name="presentableId" value="LOCAL-00333" />
+      <option name="project" value="LOCAL" />
+      <updated>1685410207638</updated>
+    </task>
+    <option name="localTasksCounter" value="334" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -979,7 +984,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix achievement given too early" />
     <MESSAGE value="Fix bug with hologram" />
     <MESSAGE value="Fix chests remaining open when opening a different chest" />
     <MESSAGE value="Add ability to view inprogress servers" />
@@ -1004,6 +1008,7 @@
     <MESSAGE value="Add delay to discord message" />
     <MESSAGE value="Add nuttersSMP to game menu" />
     <MESSAGE value="Add version to menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add version to menu" />
+    <MESSAGE value="Update copyright notice" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update copyright notice" />
   </component>
 </project>
