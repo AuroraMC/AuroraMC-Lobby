@@ -1,9 +1,13 @@
 /*
- * Copyright (c) 2022 AuroraMC Ltd. All Rights Reserved.
+ * Copyright (c) 2022-2023 AuroraMC Ltd. All Rights Reserved.
+ *
+ * PRIVATE AND CONFIDENTIAL - Distribution and usage outside the scope of your job description is explicitly forbidden except in circumstances where a company director has expressly given written permission to do so.
  */
 
 package net.auroramc.lobby.gui;
 
+import com.google.common.io.ByteArrayDataOutput;
+import com.google.common.io.ByteStreams;
 import net.auroramc.api.utils.TextFormatter;
 import net.auroramc.core.api.player.AuroraMCServerPlayer;
 import net.auroramc.core.api.utils.gui.GUI;
@@ -25,7 +29,8 @@ public class GameMenu extends GUI {
         this.player = player;
         border("&3&lServer Navigation", null);
 
-        this.setItem(1, 4, new GUIItem(Material.NETHER_STAR, "&bCrystal Quest &3&lFEATURED GAME!", 1, "&8v" + LobbyAPI.getVersionNumber("CRYSTAL_QUEST") + ";;&7Collect Resources, Upgrade Gear and;&7protect your crystals at all costs!;;&fJoin **" + LobbyAPI.getGameTotals().get("CRYSTAL_QUEST") + "**&f other players!;;&aClick to view servers!"));
+        this.setItem(1, 3, new GUIItem(Material.NETHER_STAR, "&bCrystal Quest &3&lFEATURED GAME!", 1, "&8v" + LobbyAPI.getVersionNumber("CRYSTAL_QUEST") + ";;&7Collect Resources, Upgrade Gear and;&7protect your crystals at all costs!;;&fJoin **" + LobbyAPI.getGameTotals().get("CRYSTAL_QUEST") + "**&f other players!;;&aClick to view servers!"));
+        this.setItem(1, 5, new GUIItem(Material.GRASS, "&dNuttersSMP", 1, ";&7We've partnered with JellyPeanut to host his SMP!;&7Play a classic SMP with the Nutters community!;;&r&fMinecraft Version &b1.20.1&r.;;&aClick to join!"));
         this.setItem(3, 2, new GUIItem(Material.IRON_SWORD, "&cDuels", 1, "&8v" + LobbyAPI.getVersionNumber("DUELS") + ";;&7Battle your opponent and be the last player standing!;;&fJoin **" + LobbyAPI.getGameTotals().get("DUELS") + "**&f other players!;;&aClick to view servers!"));
         this.setItem(3, 4, new GUIItem(Material.FIREWORK, "&eArcade Mode", 1, "&8v" + LobbyAPI.getVersionNumber("ARCADE_MODE") + ";;&7Play a selection of different arcade;&7games with or without your friends.;;&fJoin **" + LobbyAPI.getGameTotals().get("ARCADE_MODE") + "**&f other players!;;&aClick to view servers!"));
         this.setItem(3, 6, new GUIItem(Material.SNOW_BALL, "&aPaintball", 1, "&8v" + LobbyAPI.getVersionNumber("PAINTBALL") + ";;&7Throw snowballs at each other to get as;&7many kills as possible before time runs out!;;&fJoin **" + LobbyAPI.getGameTotals().get("PAINTBALL") + "**&f other players!;;&aClick to view servers!"));
@@ -84,6 +89,15 @@ public class GameMenu extends GUI {
                 player.setVelocity(new Vector(0, 0, 0));
                 player.teleport(l);
                 player.closeInventory();
+                break;
+            }
+            case GRASS: {
+                player.closeInventory();
+                ByteArrayDataOutput out = ByteStreams.newDataOutput();
+                out.writeUTF("SMP");
+                out.writeUTF(player.getUniqueId().toString());
+                player.sendPluginMessage(out.toByteArray());
+                break;
             }
         }
     }

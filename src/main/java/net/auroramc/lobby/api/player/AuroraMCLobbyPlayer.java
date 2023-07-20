@@ -1,5 +1,7 @@
 /*
- * Copyright (c) 2022 AuroraMC Ltd. All Rights Reserved.
+ * Copyright (c) 2022-2023 AuroraMC Ltd. All Rights Reserved.
+ *
+ * PRIVATE AND CONFIDENTIAL - Distribution and usage outside the scope of your job description is explicitly forbidden except in circumstances where a company director has expressly given written permission to do so.
  */
 
 package net.auroramc.lobby.api.player;
@@ -291,7 +293,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCServerPlayer {
     }
 
     public void claimDaily() {
-        sendMessage(TextFormatter.pluginMessage("Cosmonaut Luna", "You claimed your daily bonus! You got:\n" +
+        sendMessage(TextFormatter.pluginMessage("Lieutenant Luna", "You claimed your daily bonus! You got:\n" +
                 "§6+100 Crowns\n" +
                 "§d+100 Tickets\n" +
                 "§a+100 XP"));
@@ -386,7 +388,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCServerPlayer {
             }
         }
 
-        sendMessage(TextFormatter.pluginMessage("Cosmonaut Luna", "You claimed your monthly bonus! You got:\n" +
+        sendMessage(TextFormatter.pluginMessage("Lieutenant Luna", "You claimed your monthly bonus! You got:\n" +
                 crates + "\n" +
                 "§6+" + String.format("%,d", amount) + "  Crowns\n" +
                 "§d+" + String.format("%,d", amount) + " Tickets"));
@@ -404,7 +406,7 @@ public class AuroraMCLobbyPlayer extends AuroraMCServerPlayer {
     }
 
     public void claimPlus() {
-        sendMessage(TextFormatter.pluginMessage("Cosmonaut Luna", "You claimed your monthly Plus bonus! You got:\n" +
+        sendMessage(TextFormatter.pluginMessage("Lieutenant Luna", "You claimed your monthly Plus bonus! You got:\n" +
                 "§a+1 Emerald Crate\n" +
                 "§d+1 Diamond Crate\n" +
                 "§6+5,000 Crowns\n" +

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Change NuttersSMP NPC to take you to SMP" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Update SMP to 1.20.1" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,6 +65,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;copyright.profiles&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -606,48 +607,23 @@
       <workItem from="1685046711921" duration="59000" />
       <workItem from="1685046804993" duration="14000" />
       <workItem from="1685046828142" duration="233000" />
-    </task>
-    <task id="LOCAL-00280" summary="FIx messages">
-      <created>1666993679246</created>
-      <option name="number" value="00280" />
-      <option name="presentableId" value="LOCAL-00280" />
-      <option name="project" value="LOCAL" />
-      <updated>1666993679246</updated>
-    </task>
-    <task id="LOCAL-00281" summary="Change loc of leaderboard holograms">
-      <created>1666994006050</created>
-      <option name="number" value="00281" />
-      <option name="presentableId" value="LOCAL-00281" />
-      <option name="project" value="LOCAL" />
-      <updated>1666994006050</updated>
-    </task>
-    <task id="LOCAL-00282" summary="add debug message">
-      <created>1666994213371</created>
-      <option name="number" value="00282" />
-      <option name="presentableId" value="LOCAL-00282" />
-      <option name="project" value="LOCAL" />
-      <updated>1666994213371</updated>
-    </task>
-    <task id="LOCAL-00283" summary="Fix issue">
-      <created>1666994361815</created>
-      <option name="number" value="00283" />
-      <option name="presentableId" value="LOCAL-00283" />
-      <option name="project" value="LOCAL" />
-      <updated>1666994361815</updated>
-    </task>
-    <task id="LOCAL-00284" summary="Disable hub speed when player starts a parkour">
-      <created>1666995159196</created>
-      <option name="number" value="00284" />
-      <option name="presentableId" value="LOCAL-00284" />
-      <option name="project" value="LOCAL" />
-      <updated>1666995159196</updated>
-    </task>
-    <task id="LOCAL-00285" summary="Add quick teleports to game menu">
-      <created>1666995916877</created>
-      <option name="number" value="00285" />
-      <option name="presentableId" value="LOCAL-00285" />
-      <option name="project" value="LOCAL" />
-      <updated>1666995916877</updated>
+      <workItem from="1685107260302" duration="224000" />
+      <workItem from="1685211041286" duration="88000" />
+      <workItem from="1685212141747" duration="301000" />
+      <workItem from="1685311542395" duration="17000" />
+      <workItem from="1685410168290" duration="69000" />
+      <workItem from="1685484384760" duration="792000" />
+      <workItem from="1685538735209" duration="600000" />
+      <workItem from="1686254728156" duration="3000" />
+      <workItem from="1686254734451" duration="339000" />
+      <workItem from="1686255077917" duration="86000" />
+      <workItem from="1687949510242" duration="86000" />
+      <workItem from="1687949717453" duration="11000" />
+      <workItem from="1687949808081" duration="10000" />
+      <workItem from="1687968122986" duration="31000" />
+      <workItem from="1687968197786" duration="250000" />
+      <workItem from="1687970376834" duration="8000" />
+      <workItem from="1689878445424" duration="45000" />
     </task>
     <task id="LOCAL-00286" summary="Implement all achievements">
       <created>1666998646344</created>
@@ -950,7 +926,49 @@
       <option name="project" value="LOCAL" />
       <updated>1685046944170</updated>
     </task>
-    <option name="localTasksCounter" value="329" />
+    <task id="LOCAL-00329" summary="Add hologram to specify 1.19.4 for NuttersSMP">
+      <created>1685107465469</created>
+      <option name="number" value="00329" />
+      <option name="presentableId" value="LOCAL-00329" />
+      <option name="project" value="LOCAL" />
+      <updated>1685107465469</updated>
+    </task>
+    <task id="LOCAL-00330" summary="Add delay to discord message">
+      <created>1685211116522</created>
+      <option name="number" value="00330" />
+      <option name="presentableId" value="LOCAL-00330" />
+      <option name="project" value="LOCAL" />
+      <updated>1685211116522</updated>
+    </task>
+    <task id="LOCAL-00331" summary="Add nuttersSMP to game menu">
+      <created>1685212381381</created>
+      <option name="number" value="00331" />
+      <option name="presentableId" value="LOCAL-00331" />
+      <option name="project" value="LOCAL" />
+      <updated>1685212381381</updated>
+    </task>
+    <task id="LOCAL-00332" summary="Add version to menu">
+      <created>1685212429597</created>
+      <option name="number" value="00332" />
+      <option name="presentableId" value="LOCAL-00332" />
+      <option name="project" value="LOCAL" />
+      <updated>1685212429597</updated>
+    </task>
+    <task id="LOCAL-00333" summary="Update copyright notice">
+      <created>1685410207638</created>
+      <option name="number" value="00333" />
+      <option name="presentableId" value="LOCAL-00333" />
+      <option name="project" value="LOCAL" />
+      <updated>1685410207638</updated>
+    </task>
+    <task id="LOCAL-00334" summary="Fix references to cosmonaut luna">
+      <created>1686255056077</created>
+      <option name="number" value="00334" />
+      <option name="presentableId" value="LOCAL-00334" />
+      <option name="project" value="LOCAL" />
+      <updated>1686255056077</updated>
+    </task>
+    <option name="localTasksCounter" value="336" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -971,13 +989,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update NPC Locations" />
-    <MESSAGE value="Change to eye of ender" />
-    <MESSAGE value="Add phrases to entities" />
-    <MESSAGE value="Fix spelling" />
-    <MESSAGE value="Fix achievement given too early" />
-    <MESSAGE value="Fix bug with hologram" />
-    <MESSAGE value="Fix chests remaining open when opening a different chest" />
     <MESSAGE value="Add ability to view inprogress servers" />
     <MESSAGE value="Fix updating in-progess games GUI" />
     <MESSAGE value="Fix lobby" />
@@ -996,6 +1007,13 @@
     <MESSAGE value="Change message prefix, fix bug" />
     <MESSAGE value="Fix issue with Lieutenant Luna" />
     <MESSAGE value="Change NuttersSMP NPC to take you to SMP" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change NuttersSMP NPC to take you to SMP" />
+    <MESSAGE value="Add hologram to specify 1.19.4 for NuttersSMP" />
+    <MESSAGE value="Add delay to discord message" />
+    <MESSAGE value="Add nuttersSMP to game menu" />
+    <MESSAGE value="Add version to menu" />
+    <MESSAGE value="Update copyright notice" />
+    <MESSAGE value="Fix references to cosmonaut luna" />
+    <MESSAGE value="Update SMP to 1.20.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update SMP to 1.20.1" />
   </component>
 </project>

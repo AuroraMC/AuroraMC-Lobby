@@ -1,5 +1,7 @@
 /*
- * Copyright (c) 2022 AuroraMC Ltd. All Rights Reserved.
+ * Copyright (c) 2022-2023 AuroraMC Ltd. All Rights Reserved.
+ *
+ * PRIVATE AND CONFIDENTIAL - Distribution and usage outside the scope of your job description is explicitly forbidden except in circumstances where a company director has expressly given written permission to do so.
  */
 
 package net.auroramc.lobby.listeners;
@@ -88,40 +90,45 @@ public class JoinListener implements Listener {
         updateHeaderFooter(e.getPlayer());
         AuroraMCLobbyPlayer player = new AuroraMCLobbyPlayer(e.getPlayer());
 
-        if (player.getLinkedDiscord() == null) {
-            TextComponent textComponent = new TextComponent("");
+        new BukkitRunnable(){
+            @Override
+            public void run() {
+                if (player.getLinkedDiscord() == null) {
+                    TextComponent textComponent = new TextComponent("");
 
-            TextComponent lines = new TextComponent("-----------------------------------------------------");
-            lines.setStrikethrough(true);
-            lines.setColor(net.md_5.bungee.api.ChatColor.DARK_AQUA);
-            textComponent.addExtra(lines);
+                    TextComponent lines = new TextComponent("-----------------------------------------------------");
+                    lines.setStrikethrough(true);
+                    lines.setColor(net.md_5.bungee.api.ChatColor.DARK_AQUA);
+                    textComponent.addExtra(lines);
 
-            textComponent.addExtra("\n");
+                    textComponent.addExtra("\n");
 
-            TextComponent enjoy = new TextComponent("Join our Discord to be a part of the AuroraMC Community!");
-            enjoy.setBold(true);
-            enjoy.setColor(net.md_5.bungee.api.ChatColor.AQUA);
-            textComponent.addExtra(enjoy);
+                    TextComponent enjoy = new TextComponent("Join our Discord to be a part of the AuroraMC Community!");
+                    enjoy.setBold(true);
+                    enjoy.setColor(net.md_5.bungee.api.ChatColor.AQUA);
+                    textComponent.addExtra(enjoy);
 
-            textComponent.addExtra("\n \n");
+                    textComponent.addExtra("\n \n");
 
-            TextComponent purchase = new TextComponent("Our Discord is the one-stop-shop for everything in the AuroraMC community! Talk with other players, play games, and much more! If you have a rank, you even get cool Discord-exclusive perks! Join now at ");
-            textComponent.addExtra(purchase);
+                    TextComponent purchase = new TextComponent("Our Discord is the one-stop-shop for everything in the AuroraMC community! Talk with other players, play games, and much more! If you have a rank, you even get cool Discord-exclusive perks! Join now at ");
+                    textComponent.addExtra(purchase);
 
-            TextComponent store = new TextComponent("discord.auroramc.net");
-            store.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Click to join our Discord community!").color(net.md_5.bungee.api.ChatColor.GREEN).create()));
-            store.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://discord.auroramc.net"));
-            store.setColor(net.md_5.bungee.api.ChatColor.AQUA);
-            textComponent.addExtra(store);
+                    TextComponent store = new TextComponent("discord.auroramc.net");
+                    store.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Click to join our Discord community!").color(net.md_5.bungee.api.ChatColor.GREEN).create()));
+                    store.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://discord.auroramc.net"));
+                    store.setColor(net.md_5.bungee.api.ChatColor.AQUA);
+                    textComponent.addExtra(store);
 
-            TextComponent link = new TextComponent("!\n" +
-                    " \n" +
-                    "Link your Discord account to remove this message.\n");
-            textComponent.addExtra(link);
-            textComponent.addExtra("\n");
-            textComponent.addExtra(lines);
-            player.sendMessage(textComponent);
-        }
+                    TextComponent link = new TextComponent("!\n" +
+                            " \n" +
+                            "Link your Discord account to remove this message.\n");
+                    textComponent.addExtra(link);
+                    textComponent.addExtra("\n");
+                    textComponent.addExtra(lines);
+                    player.sendMessage(textComponent);
+                }
+            }
+        }.runTaskLaterAsynchronously(ServerAPI.getCore(), 100);
         new BukkitRunnable(){
             @Override
             public void run() {
