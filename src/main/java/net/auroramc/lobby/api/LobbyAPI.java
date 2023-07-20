@@ -224,7 +224,7 @@ public class LobbyAPI {
         ServerAPI.registerFakePlayer(smpEntity);
 
         hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), -5.5, 73.3, -0.5), null);
-        hologram.addLine(1, "&dVersion 1.19.4");
+        hologram.addLine(1, "&dVersion 1.20.1");
         hologram.spawn();
 
         hologram = new Hologram(null, new Location(Bukkit.getWorld("world"), 3.5f, 72.3f, 41.5f), null);
