@@ -7,6 +7,7 @@
 package net.auroramc.lobby.commands.event;
 
 import net.auroramc.api.AuroraMCAPI;
+import net.auroramc.api.backend.info.ServerInfo;
 import net.auroramc.api.permissions.Permission;
 import net.auroramc.api.utils.TextFormatter;
 import net.auroramc.core.api.ServerCommand;
@@ -14,6 +15,7 @@ import net.auroramc.core.api.backend.communication.CommunicationUtils;
 import net.auroramc.core.api.backend.communication.Protocol;
 import net.auroramc.core.api.backend.communication.ProtocolMessage;
 import net.auroramc.core.api.player.AuroraMCServerPlayer;
+import net.auroramc.lobby.api.LobbyAPI;
 import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.Array;
@@ -29,6 +31,12 @@ public class CommandCreateEvent extends ServerCommand {
 
     @Override
     public void execute(AuroraMCServerPlayer player, String s, List<String> args) {
+        for (ServerInfo info : LobbyAPI.getGameServers().values()) {
+           if (info.getServerType().getString("game").equalsIgnoreCase("event")) {
+               player.sendMessage(TextFormatter.pluginMessage("Server Manager", "There is already an event server open. Please close that event server before opening another."));
+               return;
+           }
+        }
         if (args.size() > 0) {
             if (args.size() > 1) {
                 player.sendMessage(TextFormatter.pluginMessage("Server Manager", "Invalid syntax. Correct syntax: **/createevent [server name]**"));

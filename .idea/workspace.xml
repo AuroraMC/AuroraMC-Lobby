@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Update SMP to 1.20.1">
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/auroramc/lobby/commands/event/CommandCreateEvent.java" afterDir="false" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Add createvent">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -633,6 +632,9 @@
       <workItem from="1689951613084" duration="728000" />
       <workItem from="1689952859772" duration="7000" />
       <workItem from="1689952904151" duration="10000" />
+      <workItem from="1689952968316" duration="91000" />
+      <workItem from="1689953128770" duration="4000" />
+      <workItem from="1689953511945" duration="243000" />
     </task>
     <task id="LOCAL-00286" summary="Implement all achievements">
       <created>1666998646344</created>
@@ -977,7 +979,7 @@
       <option name="project" value="LOCAL" />
       <updated>1686255056077</updated>
     </task>
-    <option name="localTasksCounter" value="337" />
+    <option name="localTasksCounter" value="338" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -998,7 +1000,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add ability to view inprogress servers" />
     <MESSAGE value="Fix updating in-progess games GUI" />
     <MESSAGE value="Fix lobby" />
     <MESSAGE value="Upgrade infrastructure" />
@@ -1023,6 +1024,7 @@
     <MESSAGE value="Update copyright notice" />
     <MESSAGE value="Fix references to cosmonaut luna" />
     <MESSAGE value="Update SMP to 1.20.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update SMP to 1.20.1" />
+    <MESSAGE value="Add createvent" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add createvent" />
   </component>
 </project>
