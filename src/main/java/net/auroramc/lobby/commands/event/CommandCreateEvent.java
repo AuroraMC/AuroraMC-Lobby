@@ -54,11 +54,13 @@ public class CommandCreateEvent extends ServerCommand {
                 return;
             }
 
-            ProtocolMessage message = new ProtocolMessage(Protocol.MESSAGE, "Mission Control", "eventopen", AuroraMCAPI.getInfo().getName(), AuroraMCAPI.getInfo().getNetwork().name() + ";" + name);
+            ProtocolMessage message = new ProtocolMessage(Protocol.CREATE_SERVER, "Mission Control", "eventopen", AuroraMCAPI.getInfo().getName(), AuroraMCAPI.getInfo().getNetwork().name() + ";" + name);
             CommunicationUtils.sendMessage(message);
+            player.sendMessage(TextFormatter.pluginMessage("Server Manager", "Event server **" + name + "** created. The server should be online is roughly 1 minute. When it's online, try **/server " + name + "** to connect."));
         } else {
-            ProtocolMessage message = new ProtocolMessage(Protocol.MESSAGE, "Mission Control", "eventopen", AuroraMCAPI.getInfo().getName(), AuroraMCAPI.getInfo().getNetwork().name() + ";Event-1");
+            ProtocolMessage message = new ProtocolMessage(Protocol.CREATE_SERVER, "Mission Control", "eventopen", AuroraMCAPI.getInfo().getName(), AuroraMCAPI.getInfo().getNetwork().name() + ";Event-1");
             CommunicationUtils.sendMessage(message);
+            player.sendMessage(TextFormatter.pluginMessage("Server Manager", "Event server **Event-1** created. The server should be online is roughly 1 minute. When it's online, try **/server Event-1** to connect."));
         }
     }
 
