@@ -19,6 +19,7 @@ import net.auroramc.lobby.api.util.UpdatePollRunnable;
 import net.auroramc.lobby.api.util.UpdateScoreboardRunnable;
 import net.auroramc.lobby.api.util.UpdateServersRunnable;
 import net.auroramc.lobby.commands.CommandFly;
+import net.auroramc.lobby.commands.event.CommandCreateEvent;
 import net.auroramc.lobby.listeners.*;
 import net.auroramc.lobby.commands.admin.*;
 import net.md_5.bungee.api.chat.ClickEvent;
@@ -55,6 +56,7 @@ public class AuroraMCLobby extends JavaPlugin {
         AuroraMCAPI.registerCommand(new CommandVersion());
         AuroraMCAPI.registerCommand(new CommandFly());
         AuroraMCAPI.registerCommand(new CommandCrate());
+        AuroraMCAPI.registerCommand(new CommandCreateEvent());
 
         LobbyDatabaseManager.downloadMap();
         getLogger().info("Map downloaded, deleting world directory...");
