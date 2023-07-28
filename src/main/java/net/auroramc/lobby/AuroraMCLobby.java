@@ -39,6 +39,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Random;
+import java.util.logging.Level;
 
 public class AuroraMCLobby extends JavaPlugin {
 
@@ -65,7 +66,7 @@ public class AuroraMCLobby extends JavaPlugin {
                 try {
                     FileUtils.deleteDirectory(mapFolder);
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
                 }
             }
             mapFolder.mkdirs();
@@ -75,7 +76,7 @@ public class AuroraMCLobby extends JavaPlugin {
                 getLogger().info("Unzipping map...");
                 ZipUtil.unzip(getDataFolder().toPath().toAbsolutePath() + "/zip/54.zip", region.toPath().toAbsolutePath().toString());
             } catch (IOException e) {
-                e.printStackTrace();
+                AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
         }
         getLogger().info("Loading map data into memory...");
         File data = new File(region, "map.json");
@@ -87,7 +88,7 @@ public class AuroraMCLobby extends JavaPlugin {
             object = parser.parse(fileReader);
             jsonObject = new JSONObject(((org.json.simple.JSONObject) object).toJSONString());
         } catch (IOException | ParseException e) {
-            e.printStackTrace();
+            AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
             getLogger().info("Map loading for a map failed, skipping...");
             return;
         }

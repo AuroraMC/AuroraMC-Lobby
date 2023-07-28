@@ -8,6 +8,7 @@ package net.auroramc.lobby.gui.crates.buy;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
+import net.auroramc.api.AuroraMCAPI;
 import net.auroramc.api.utils.TextFormatter;
 import net.auroramc.core.api.utils.gui.GUI;
 import net.auroramc.core.api.utils.gui.GUIItem;
@@ -24,6 +25,7 @@ import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.UUID;
+import java.util.logging.Level;
 
 public class BuyIronCrate extends GUI {
 
@@ -46,14 +48,14 @@ public class BuyIronCrate extends GUI {
         try {
             field = meta.getClass().getDeclaredField("profile");
         } catch (NoSuchFieldException | SecurityException e) {
-            e.printStackTrace();
+            AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
             return;
         }
         field.setAccessible(true);
         try {
             field.set(meta, profile);
         } catch (IllegalAccessException | IllegalArgumentException e) {
-            e.printStackTrace();
+            AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
         }
         head.setItemMeta(meta);
         this.setItem(0, 4, new GUIItem(head));
