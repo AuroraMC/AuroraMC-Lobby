@@ -15,11 +15,13 @@ public class LobbyMap {
     private final int id;
     private final String name;
     private final String author;
+    private final String game;
     private final JSONObject mapData;
 
-    public LobbyMap(int id, String name, String author, JSONObject mapData) {
+    public LobbyMap(int id, String name, String author, String game, JSONObject mapData) {
         this.id = id;
         this.name = name;
+        this.game = game;
         this.author = author;
         this.mapData = mapData;
     }
@@ -40,4 +42,7 @@ public class LobbyMap {
         return mapData;
     }
 
+    public String getGame() {
+        return game;
+    }
 }

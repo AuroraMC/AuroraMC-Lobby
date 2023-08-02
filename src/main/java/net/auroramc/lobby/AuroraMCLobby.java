@@ -7,7 +7,6 @@
 package net.auroramc.lobby;
 
 import net.auroramc.api.AuroraMCAPI;
-import net.auroramc.api.utils.TextFormatter;
 import net.auroramc.core.api.ServerAPI;
 import net.auroramc.core.api.player.AuroraMCServerPlayer;
 import net.auroramc.core.api.utils.ZipUtil;
@@ -28,24 +27,37 @@ import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Random;
+import java.io.*;
 import java.util.logging.Level;
 
 public class AuroraMCLobby extends JavaPlugin {
 
+    private static FileConfiguration maps;
+    private static File mapsFile;
+
     @Override
     public void onEnable() {
+        mapsFile = new File(getDataFolder(), "maps.yml");
+        if (!mapsFile.exists()) {
+            mapsFile.getParentFile().mkdirs();
+            copy(getResource("maps.yml"), mapsFile);
+        }
 
+        maps = new YamlConfiguration();
+        try {
+            maps.load(mapsFile);
+        } catch (Exception e) {
+            AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
+        }
+        maps.options().copyHeader(true);
 
         LobbyAPI.init(this);
 
@@ -59,9 +71,11 @@ public class AuroraMCLobby extends JavaPlugin {
         AuroraMCAPI.registerCommand(new CommandCrate());
         AuroraMCAPI.registerCommand(new CommandCreateEvent());
 
-        LobbyDatabaseManager.downloadMap();
-        getLogger().info("Map downloaded, deleting world directory...");
-        File mapFolder = new File(Bukkit.getWorldContainer(), "world");
+
+
+        if (LobbyDatabaseManager.downloadMap()) {
+            getLogger().info("Map downloaded, deleting world directory...");
+            File mapFolder = new File(Bukkit.getWorldContainer(), "world");
             if (mapFolder.exists()) {
                 try {
                     FileUtils.deleteDirectory(mapFolder);
@@ -77,9 +91,13 @@ public class AuroraMCLobby extends JavaPlugin {
                 ZipUtil.unzip(getDataFolder().toPath().toAbsolutePath() + "/zip/54.zip", region.toPath().toAbsolutePath().toString());
             } catch (IOException e) {
                 AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
+            }
+        } else {
+            getLogger().info("Map already up-to-date. Skipping world download...");
         }
+
         getLogger().info("Loading map data into memory...");
-        File data = new File(region, "map.json");
+        File data = new File(Bukkit.getWorldContainer(), "world/region/map.json");
         JSONParser parser = new JSONParser();
         Object object;
         JSONObject jsonObject;
@@ -93,11 +111,13 @@ public class AuroraMCLobby extends JavaPlugin {
             return;
         }
 
-        int id = 22;
+        int id = 54;
         String name = jsonObject.getString("name");
         String author = jsonObject.getString("author");
+        String game = jsonObject.getString("game_type");
 
-        LobbyAPI.setLobbyMap(new LobbyMap(id, name, author, jsonObject));
+
+        LobbyAPI.setLobbyMap(new LobbyMap(id, name, author, game, jsonObject));
 
         getLogger().info("Map loaded, loading other info...");
         LobbyAPI.loadVersionNumbers();
@@ -167,5 +187,28 @@ public class AuroraMCLobby extends JavaPlugin {
             }
         }.runTaskTimerAsynchronously(LobbyAPI.getLobby(), 36000, 36000);
         getLogger().info("Startup complete.");
+    }
+
+    private void copy(InputStream in, File file) {
+        try {
+            OutputStream out = new FileOutputStream(file);
+            byte[] buf = new byte[1024];
+            int len;
+            while((len=in.read(buf))>0){
+                out.write(buf,0,len);
+            }
+            out.close();
+            in.close();
+        } catch (Exception e) {
+            AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
+        }
+    }
+
+    public static FileConfiguration getMaps() {
+        return maps;
+    }
+
+    public static File getMapsFile() {
+        return mapsFile;
     }
 }
