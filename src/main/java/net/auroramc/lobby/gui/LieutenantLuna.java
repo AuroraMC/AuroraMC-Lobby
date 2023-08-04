@@ -8,6 +8,7 @@ package net.auroramc.lobby.gui;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
+import net.auroramc.api.AuroraMCAPI;
 import net.auroramc.api.permissions.Rank;
 import net.auroramc.api.punishments.PunishmentLength;
 import net.auroramc.api.utils.TextFormatter;
@@ -32,6 +33,7 @@ import org.bukkit.inventory.meta.SkullMeta;
 import java.lang.reflect.Field;
 import java.util.Base64;
 import java.util.UUID;
+import java.util.logging.Level;
 
 public class LieutenantLuna extends GUI {
 
@@ -50,11 +52,11 @@ public class LieutenantLuna extends GUI {
             try {
                 field.set(meta, profile);
             } catch (IllegalAccessException | IllegalArgumentException e) {
-                e.printStackTrace();
+                AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
             }
             head.setItemMeta(meta);
         } catch (NoSuchFieldException | SecurityException e) {
-            e.printStackTrace();
+            AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
         }
     }
 

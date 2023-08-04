@@ -10,6 +10,7 @@ import net.auroramc.api.AuroraMCAPI;
 import net.auroramc.api.backend.info.ServerInfo;
 import net.auroramc.api.cosmetics.Crate;
 import net.auroramc.core.api.ServerAPI;
+import net.auroramc.lobby.AuroraMCLobby;
 import net.auroramc.lobby.api.LobbyAPI;
 import net.auroramc.lobby.api.parkour.Parkour;
 import net.auroramc.lobby.api.parkour.plates.Checkpoint;
@@ -29,13 +30,21 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
+import java.util.logging.Level;
 
 public class LobbyDatabaseManager {
 
-    public static void downloadMap() {
+    public static boolean downloadMap() {
         try (Connection connection = AuroraMCAPI.getDbManager().getMySQLConnection()) {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM maps WHERE parse_version = '" + ((AuroraMCAPI.isTestServer())?"TEST":"LIVE") + "' AND map_id = 54");
             ResultSet set = statement.executeQuery();
+            if (AuroraMCLobby.getMaps().contains("54")) {
+                int parseVersion = AuroraMCLobby.getMaps().getInt("54.parse-number");
+                if (parseVersion >= set.getInt(6)) {
+                    //We do not need to update the map, continue;
+                    return false;
+                }
+            }
             File file = new File(LobbyAPI.getLobby().getDataFolder(), "zip");
             if (file.exists()) {
                 FileUtils.deleteDirectory(file);
@@ -46,15 +55,23 @@ public class LobbyDatabaseManager {
                 FileOutputStream output = new FileOutputStream(zipFile);
 
                 System.out.println("Writing to file " + zipFile.getAbsolutePath());
-                InputStream input = set.getBinaryStream(7);
+                InputStream input = set.getBinaryStream(8);
                 byte[] buffer = new byte[1024];
                 while (input.read(buffer) > 0) {
                     output.write(buffer);
                 }
                 output.flush();
             }
+
+            AuroraMCLobby.getMaps().set("54.name", set.getString(3));
+            AuroraMCLobby.getMaps().set("54.author", set.getString(4));
+            AuroraMCLobby.getMaps().set("54.game", set.getString(5));
+            AuroraMCLobby.getMaps().set("54.parse-number", set.getString(6));
+            AuroraMCLobby.getMaps().save(AuroraMCLobby.getMapsFile());
+            return true;
         } catch (SQLException | IOException e) {
-            e.printStackTrace();
+            AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
+            return false;
         }
     }
 
@@ -83,7 +100,7 @@ public class LobbyDatabaseManager {
 
             return changelogs;
         } catch (SQLException e) {
-            e.printStackTrace();
+            AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
             return new HashMap<>();
         }
     }
@@ -100,7 +117,7 @@ public class LobbyDatabaseManager {
                 return null;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
             return null;
         }
     }
@@ -134,7 +151,7 @@ public class LobbyDatabaseManager {
 
             return servers;
         } catch (SQLException e) {
-            e.printStackTrace();
+            AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
             return null;
         }
     }
@@ -240,7 +257,7 @@ public class LobbyDatabaseManager {
             }
             return null;
         } catch (SQLException e) {
-            e.printStackTrace();
+            AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
             return null;
         }
     }
@@ -266,7 +283,7 @@ public class LobbyDatabaseManager {
             statement.setInt(3, crate.getOwner());
             statement.execute();
         } catch (SQLException e) {
-            e.printStackTrace();
+            AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
         }
     }
 
@@ -284,7 +301,7 @@ public class LobbyDatabaseManager {
             }
             return checkpoints;
         } catch (Exception e) {
-            e.printStackTrace();
+            AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
         }
         return new ArrayList<>();
     }
@@ -298,7 +315,7 @@ public class LobbyDatabaseManager {
 
             statement.execute();
         } catch (Exception e) {
-            e.printStackTrace();
+            AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
         }
     }
 
@@ -316,7 +333,7 @@ public class LobbyDatabaseManager {
                 return -1;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
         }
         return -1;
     }
@@ -333,7 +350,7 @@ public class LobbyDatabaseManager {
 
                 boolean result = statement.execute();
             } catch (Exception e) {
-                e.printStackTrace();
+                AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
             }
         } else {
             try (Connection connection = AuroraMCAPI.getDbManager().getMySQLConnection()) {
@@ -345,7 +362,7 @@ public class LobbyDatabaseManager {
 
                 boolean result = statement.execute();
             } catch (Exception e) {
-                e.printStackTrace();
+                AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
             }
         }
     }
@@ -362,7 +379,7 @@ public class LobbyDatabaseManager {
                 splitTimes.put(set.getInt(3), set.getLong(4));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
         }
         return splitTimes;
     }
@@ -386,7 +403,7 @@ public class LobbyDatabaseManager {
 
             statement.execute();
         } catch (SQLException e) {
-            e.printStackTrace();
+            AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
         }
     }
 
@@ -429,7 +446,7 @@ public class LobbyDatabaseManager {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
+            AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
         }
         return leaderboard;
     }

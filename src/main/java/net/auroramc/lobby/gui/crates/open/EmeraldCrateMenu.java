@@ -8,6 +8,7 @@ package net.auroramc.lobby.gui.crates.open;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
+import net.auroramc.api.AuroraMCAPI;
 import net.auroramc.api.cosmetics.Crate;
 import net.auroramc.api.utils.TextFormatter;
 import net.auroramc.common.cosmetics.crates.EmeraldCrate;
@@ -34,6 +35,7 @@ import java.util.Arrays;
 import java.util.Base64;
 import java.util.List;
 import java.util.UUID;
+import java.util.logging.Level;
 import java.util.stream.Collectors;
 
 public class EmeraldCrateMenu extends GUI {
@@ -61,14 +63,14 @@ public class EmeraldCrateMenu extends GUI {
         try {
             field = meta.getClass().getDeclaredField("profile");
         } catch (NoSuchFieldException | SecurityException e) {
-            e.printStackTrace();
+            AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
             return;
         }
         field.setAccessible(true);
         try {
             field.set(meta, profile);
         } catch (IllegalAccessException | IllegalArgumentException e) {
-            e.printStackTrace();
+            AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
         }
         head.setItemMeta(meta);
         this.setItem(0, 4, new GUIItem(head));

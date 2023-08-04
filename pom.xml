@@ -166,7 +166,7 @@
         <dependency>
             <groupId>net.auroramc</groupId>
             <artifactId>server</artifactId>
-            <version>1.0-20230616.144456-14</version>
+            <version>1.0-20230728.174457-15</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
