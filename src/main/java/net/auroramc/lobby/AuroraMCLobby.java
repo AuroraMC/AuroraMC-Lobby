@@ -73,27 +73,25 @@ public class AuroraMCLobby extends JavaPlugin {
 
 
 
-        if (LobbyDatabaseManager.downloadMap()) {
-            getLogger().info("Map downloaded, deleting world directory...");
-            File mapFolder = new File(Bukkit.getWorldContainer(), "world");
-            if (mapFolder.exists()) {
-                try {
-                    FileUtils.deleteDirectory(mapFolder);
-                } catch (IOException e) {
-                    AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
-                }
-            }
-            mapFolder.mkdirs();
-            File region = new File(mapFolder, "region");
-            region.mkdirs();
+        LobbyDatabaseManager.downloadMap();
+
+        getLogger().info("Map downloaded, deleting world directory...");
+        File mapFolder = new File(Bukkit.getWorldContainer(), "world");
+        if (mapFolder.exists()) {
             try {
-                getLogger().info("Unzipping map...");
-                ZipUtil.unzip(getDataFolder().toPath().toAbsolutePath() + "/zip/54.zip", region.toPath().toAbsolutePath().toString());
+                FileUtils.deleteDirectory(mapFolder);
             } catch (IOException e) {
                 AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
             }
-        } else {
-            getLogger().info("Map already up-to-date. Skipping world download...");
+        }
+        mapFolder.mkdirs();
+        File region = new File(mapFolder, "region");
+        region.mkdirs();
+        try {
+            getLogger().info("Unzipping map...");
+            ZipUtil.unzip(getDataFolder().toPath().toAbsolutePath() + "/zip/54.zip", region.toPath().toAbsolutePath().toString());
+        } catch (IOException e) {
+            AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
         }
 
         getLogger().info("Loading map data into memory...");
