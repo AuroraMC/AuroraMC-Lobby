@@ -55,7 +55,7 @@ public class LobbyDatabaseManager {
                 FileOutputStream output = new FileOutputStream(zipFile);
 
                 System.out.println("Writing to file " + zipFile.getAbsolutePath());
-                InputStream input = set.getBinaryStream(7);
+                InputStream input = set.getBinaryStream(8);
                 byte[] buffer = new byte[1024];
                 while (input.read(buffer) > 0) {
                     output.write(buffer);
