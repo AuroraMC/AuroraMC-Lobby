@@ -34,23 +34,23 @@ import java.util.logging.Level;
 
 public class LobbyDatabaseManager {
 
-    public static boolean downloadMap() {
+    public static void downloadMap() {
         try (Connection connection = AuroraMCAPI.getDbManager().getMySQLConnection()) {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM maps WHERE parse_version = '" + ((AuroraMCAPI.isTestServer())?"TEST":"LIVE") + "' AND map_id = 54");
             ResultSet set = statement.executeQuery();
-            if (AuroraMCLobby.getMaps().contains("54")) {
-                int parseVersion = AuroraMCLobby.getMaps().getInt("54.parse-number");
-                if (parseVersion >= set.getInt(6)) {
-                    //We do not need to update the map, continue;
-                    return false;
-                }
-            }
-            File file = new File(LobbyAPI.getLobby().getDataFolder(), "zip");
-            if (file.exists()) {
-                FileUtils.deleteDirectory(file);
-            }
-            file.mkdirs();
             if (set.next()) {
+                if (AuroraMCLobby.getMaps().contains("54")) {
+                    int parseVersion = AuroraMCLobby.getMaps().getInt("54.parse-number");
+                    if (parseVersion >= set.getInt(6)) {
+                        //We do not need to update the map, continue;
+                        return;
+                    }
+                }
+                File file = new File(LobbyAPI.getLobby().getDataFolder(), "zip");
+                if (file.exists()) {
+                    FileUtils.deleteDirectory(file);
+                }
+                file.mkdirs();
                 File zipFile = new File(file, set.getInt(2) + ".zip");
                 FileOutputStream output = new FileOutputStream(zipFile);
 
@@ -61,17 +61,14 @@ public class LobbyDatabaseManager {
                     output.write(buffer);
                 }
                 output.flush();
+                AuroraMCLobby.getMaps().set("54.name", set.getString(3));
+                AuroraMCLobby.getMaps().set("54.author", set.getString(4));
+                AuroraMCLobby.getMaps().set("54.game", set.getString(5));
+                AuroraMCLobby.getMaps().set("54.parse-number", set.getString(6));
+                AuroraMCLobby.getMaps().save(AuroraMCLobby.getMapsFile());
             }
-
-            AuroraMCLobby.getMaps().set("54.name", set.getString(3));
-            AuroraMCLobby.getMaps().set("54.author", set.getString(4));
-            AuroraMCLobby.getMaps().set("54.game", set.getString(5));
-            AuroraMCLobby.getMaps().set("54.parse-number", set.getString(6));
-            AuroraMCLobby.getMaps().save(AuroraMCLobby.getMapsFile());
-            return true;
         } catch (SQLException | IOException e) {
             AuroraMCAPI.getLogger().log(Level.WARNING, "An exception has occurred. Stack trace: ", e);
-            return false;
         }
     }
 
