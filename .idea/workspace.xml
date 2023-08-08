@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix downloading of maps" />
+    <list default="true" id="4a8becf4-1ebf-4030-9794-4eaf3baffe21" name="Changes" comment="Fix lobby not resetting itself after reload" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -655,6 +655,7 @@
       <workItem from="1690987830783" duration="10000" />
       <workItem from="1690993868576" duration="1000" />
       <workItem from="1691167153952" duration="23000" />
+      <workItem from="1691175557417" duration="193000" />
     </task>
     <task id="LOCAL-00286" summary="Implement all achievements">
       <created>1666998646344</created>
@@ -999,7 +1000,7 @@
       <option name="project" value="LOCAL" />
       <updated>1686255056077</updated>
     </task>
-    <option name="localTasksCounter" value="343" />
+    <option name="localTasksCounter" value="344" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1020,7 +1021,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Remove Calypso from the lobby" />
     <MESSAGE value="..." />
     <MESSAGE value="Decrease frequency of scoreboard updates" />
     <MESSAGE value="FIx some issues with events not being fired properly" />
@@ -1045,6 +1045,7 @@
     <MESSAGE value="Update for Big Brother" />
     <MESSAGE value="Only download map when there is an update or the map isnt already there" />
     <MESSAGE value="Fix downloading of maps" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix downloading of maps" />
+    <MESSAGE value="Fix lobby not resetting itself after reload" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix lobby not resetting itself after reload" />
   </component>
 </project>
