@@ -271,11 +271,6 @@ public class JoinListener implements Listener {
         team.setSuffix("§7v" + LobbyAPI.getVersionNumber("ARCADE_MODE").trim());
         team.addEntry("Arcade Mode§r ");
 
-        team = scoreboard2.registerNewTeam("smp");
-        team.setPrefix("§5§l");
-        team.setSuffix("§d§lNOW OPEN");
-        team.addEntry("NuttersSMP§r ");
-
         team = scoreboard2.registerNewTeam("ln");
         team.setPrefix("§6§lLieutenant§r");
         team.addEntry(" §e§lLuna");
